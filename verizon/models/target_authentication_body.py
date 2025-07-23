@@ -15,8 +15,6 @@ class TargetAuthenticationBody(object):
 
     """Implementation of the 'TargetAuthenticationBody' model.
 
-    TODO: type model description here.
-
     Attributes:
         grant_type (str): Authentication grant type.
         refresh_token (str): Refresh token.
@@ -78,7 +76,7 @@ class TargetAuthenticationBody(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -93,3 +91,19 @@ class TargetAuthenticationBody(object):
                    scope,
                    headers,
                    host)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'grant_type={(self.grant_type if hasattr(self, "grant_type") else None)!r}, '
+                f'refresh_token={(self.refresh_token if hasattr(self, "refresh_token") else None)!r}, '
+                f'scope={(self.scope if hasattr(self, "scope") else None)!r}, '
+                f'headers={(self.headers if hasattr(self, "headers") else None)!r}, '
+                f'host={(self.host if hasattr(self, "host") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'grant_type={(self.grant_type if hasattr(self, "grant_type") else None)!s}, '
+                f'refresh_token={(self.refresh_token if hasattr(self, "refresh_token") else None)!s}, '
+                f'scope={(self.scope if hasattr(self, "scope") else None)!s}, '
+                f'headers={(self.headers if hasattr(self, "headers") else None)!s}, '
+                f'host={(self.host if hasattr(self, "host") else None)!s})')

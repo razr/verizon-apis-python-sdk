@@ -14,15 +14,13 @@ class AggregateUsage(object):
 
     """Implementation of the 'aggregateUsage' model.
 
-    TODO: type model description here.
-
     Attributes:
-        device_id (GIODeviceId): TODO: type description here.
+        device_id (GIODeviceId): The model property of type GIODeviceId.
         account_name (str): The numeric name of the account, in the format
             "0000123456-00001". Leading zeros must be included.
-        earliest (str): The start date of the time period queried as
+        start_time (str): The start date of the time period queried as
             "$datetime"
-        latest (str): The end date of the time period being queried as
+        end_time (str): The end date of the time period being queried as
             "$datetime"
 
     """
@@ -31,22 +29,22 @@ class AggregateUsage(object):
     _names = {
         "device_id": 'deviceId',
         "account_name": 'accountName',
-        "earliest": 'earliest',
-        "latest": 'latest'
+        "start_time": 'startTime',
+        "end_time": 'endTime'
     }
 
     _optionals = [
         'device_id',
         'account_name',
-        'earliest',
-        'latest',
+        'start_time',
+        'end_time',
     ]
 
     def __init__(self,
                  device_id=APIHelper.SKIP,
                  account_name=APIHelper.SKIP,
-                 earliest=APIHelper.SKIP,
-                 latest=APIHelper.SKIP):
+                 start_time=APIHelper.SKIP,
+                 end_time=APIHelper.SKIP):
         """Constructor for the AggregateUsage class"""
 
         # Initialize members of the class
@@ -54,10 +52,10 @@ class AggregateUsage(object):
             self.device_id = device_id 
         if account_name is not APIHelper.SKIP:
             self.account_name = account_name 
-        if earliest is not APIHelper.SKIP:
-            self.earliest = earliest 
-        if latest is not APIHelper.SKIP:
-            self.latest = latest 
+        if start_time is not APIHelper.SKIP:
+            self.start_time = start_time 
+        if end_time is not APIHelper.SKIP:
+            self.end_time = end_time 
 
     @classmethod
     def from_dictionary(cls,
@@ -74,16 +72,30 @@ class AggregateUsage(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         device_id = GIODeviceId.from_dictionary(dictionary.get('deviceId')) if 'deviceId' in dictionary.keys() else APIHelper.SKIP
         account_name = dictionary.get("accountName") if dictionary.get("accountName") else APIHelper.SKIP
-        earliest = dictionary.get("earliest") if dictionary.get("earliest") else APIHelper.SKIP
-        latest = dictionary.get("latest") if dictionary.get("latest") else APIHelper.SKIP
+        start_time = dictionary.get("startTime") if dictionary.get("startTime") else APIHelper.SKIP
+        end_time = dictionary.get("endTime") if dictionary.get("endTime") else APIHelper.SKIP
         # Return an object of this model
         return cls(device_id,
                    account_name,
-                   earliest,
-                   latest)
+                   start_time,
+                   end_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'start_time={(self.start_time if hasattr(self, "start_time") else None)!r}, '
+                f'end_time={(self.end_time if hasattr(self, "end_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'start_time={(self.start_time if hasattr(self, "start_time") else None)!s}, '
+                f'end_time={(self.end_time if hasattr(self, "end_time") else None)!s})')

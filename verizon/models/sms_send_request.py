@@ -33,6 +33,9 @@ class SMSSendRequest(object):
             SMS message to all devices in the device group.
         service_plan (str): The name of a service plan, if you want to only
             include devices that have that service plan.
+        time_to_live (str): A period of time the message remains valid or an
+            end date for the message. This value would be less than the 5 day
+            default.
 
     """
 
@@ -44,7 +47,8 @@ class SMSSendRequest(object):
         "data_encoding": 'dataEncoding',
         "device_ids": 'deviceIds',
         "group_name": 'groupName',
-        "service_plan": 'servicePlan'
+        "service_plan": 'servicePlan',
+        "time_to_live": 'timeToLive'
     }
 
     _optionals = [
@@ -53,6 +57,7 @@ class SMSSendRequest(object):
         'device_ids',
         'group_name',
         'service_plan',
+        'time_to_live',
     ]
 
     def __init__(self,
@@ -62,7 +67,8 @@ class SMSSendRequest(object):
                  data_encoding=APIHelper.SKIP,
                  device_ids=APIHelper.SKIP,
                  group_name=APIHelper.SKIP,
-                 service_plan=APIHelper.SKIP):
+                 service_plan=APIHelper.SKIP,
+                 time_to_live=APIHelper.SKIP):
         """Constructor for the SMSSendRequest class"""
 
         # Initialize members of the class
@@ -78,6 +84,8 @@ class SMSSendRequest(object):
             self.group_name = group_name 
         if service_plan is not APIHelper.SKIP:
             self.service_plan = service_plan 
+        if time_to_live is not APIHelper.SKIP:
+            self.time_to_live = time_to_live 
 
     @classmethod
     def from_dictionary(cls,
@@ -94,7 +102,7 @@ class SMSSendRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -113,6 +121,7 @@ class SMSSendRequest(object):
             device_ids = APIHelper.SKIP
         group_name = dictionary.get("groupName") if dictionary.get("groupName") else APIHelper.SKIP
         service_plan = dictionary.get("servicePlan") if dictionary.get("servicePlan") else APIHelper.SKIP
+        time_to_live = dictionary.get("timeToLive") if dictionary.get("timeToLive") else APIHelper.SKIP
         # Return an object of this model
         return cls(account_name,
                    sms_message,
@@ -120,4 +129,27 @@ class SMSSendRequest(object):
                    data_encoding,
                    device_ids,
                    group_name,
-                   service_plan)
+                   service_plan,
+                   time_to_live)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'sms_message={self.sms_message!r}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!r}, '
+                f'data_encoding={(self.data_encoding if hasattr(self, "data_encoding") else None)!r}, '
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!r}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'time_to_live={(self.time_to_live if hasattr(self, "time_to_live") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'sms_message={self.sms_message!s}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!s}, '
+                f'data_encoding={(self.data_encoding if hasattr(self, "data_encoding") else None)!s}, '
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!s}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'time_to_live={(self.time_to_live if hasattr(self, "time_to_live") else None)!s})')

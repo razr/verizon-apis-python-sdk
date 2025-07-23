@@ -71,7 +71,7 @@ class DiagnosticsSubscription(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -88,3 +88,21 @@ class DiagnosticsSubscription(object):
                    total_allowed,
                    total_used,
                    sku_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'created_on={self.created_on!r}, '
+                f'last_updated={self.last_updated!r}, '
+                f'total_allowed={self.total_allowed!r}, '
+                f'total_used={self.total_used!r}, '
+                f'sku_name={self.sku_name!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'created_on={self.created_on!s}, '
+                f'last_updated={self.last_updated!s}, '
+                f'total_allowed={self.total_allowed!s}, '
+                f'total_used={self.total_used!s}, '
+                f'sku_name={self.sku_name!s})')

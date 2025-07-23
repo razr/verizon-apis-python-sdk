@@ -79,7 +79,7 @@ class SoftwarePackage(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -98,3 +98,23 @@ class SoftwarePackage(object):
                    distribution_type,
                    device_platform_id,
                    release_note)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'software_name={self.software_name!r}, '
+                f'launch_date={self.launch_date!r}, '
+                f'release_note={(self.release_note if hasattr(self, "release_note") else None)!r}, '
+                f'model={self.model!r}, '
+                f'make={self.make!r}, '
+                f'distribution_type={self.distribution_type!r}, '
+                f'device_platform_id={self.device_platform_id!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'software_name={self.software_name!s}, '
+                f'launch_date={self.launch_date!s}, '
+                f'release_note={(self.release_note if hasattr(self, "release_note") else None)!s}, '
+                f'model={self.model!s}, '
+                f'make={self.make!s}, '
+                f'distribution_type={self.distribution_type!s}, '
+                f'device_platform_id={self.device_platform_id!s})')

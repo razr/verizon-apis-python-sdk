@@ -34,7 +34,7 @@ def list_available_firmware(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[Firmware]`](../../doc/models/firmware.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[Firmware]`](../../doc/models/firmware.md).
 
 ## Example Usage
 
@@ -42,6 +42,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account = '0242078689-00001'
 
 result = firmware_v1_controller.list_available_firmware(account)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -85,7 +90,7 @@ def schedule_firmware_upgrade(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FirmwareUpgrade`](../../doc/models/firmware-upgrade.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FirmwareUpgrade`](../../doc/models/firmware-upgrade.md).
 
 ## Example Usage
 
@@ -103,6 +108,11 @@ body = FirmwareUpgradeRequest(
 )
 
 result = firmware_v1_controller.schedule_firmware_upgrade(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -154,7 +164,7 @@ def list_firmware_upgrade_details(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FirmwareUpgrade`](../../doc/models/firmware-upgrade.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FirmwareUpgrade`](../../doc/models/firmware-upgrade.md).
 
 ## Example Usage
 
@@ -167,6 +177,11 @@ result = firmware_v1_controller.list_firmware_upgrade_details(
     account_name,
     upgrade_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -223,7 +238,7 @@ def update_firmware_upgrade_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FirmwareUpgradeChangeResult`](../../doc/models/firmware-upgrade-change-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FirmwareUpgradeChangeResult`](../../doc/models/firmware-upgrade-change-result.md).
 
 ## Example Usage
 
@@ -245,6 +260,11 @@ result = firmware_v1_controller.update_firmware_upgrade_devices(
     upgrade_id,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -294,7 +314,7 @@ def cancel_scheduled_firmware_upgrade(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FotaV1SuccessResult`](../../doc/models/fota-v1-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FotaV1SuccessResult`](../../doc/models/fota-v1-success-result.md).
 
 ## Example Usage
 
@@ -307,6 +327,11 @@ result = firmware_v1_controller.cancel_scheduled_firmware_upgrade(
     account_name,
     upgrade_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

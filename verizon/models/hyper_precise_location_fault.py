@@ -64,7 +64,7 @@ class HyperPreciseLocationFault(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -75,3 +75,15 @@ class HyperPreciseLocationFault(object):
         return cls(code,
                    message,
                    description)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'code={(self.code if hasattr(self, "code") else None)!r}, '
+                f'message={(self.message if hasattr(self, "message") else None)!r}, '
+                f'description={(self.description if hasattr(self, "description") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'code={(self.code if hasattr(self, "code") else None)!s}, '
+                f'message={(self.message if hasattr(self, "message") else None)!s}, '
+                f'description={(self.description if hasattr(self, "description") else None)!s})')

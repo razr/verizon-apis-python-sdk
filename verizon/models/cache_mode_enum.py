@@ -15,9 +15,9 @@ class CacheModeEnum(object):
     Location cache mode.
 
     Attributes:
-        ENUM_0: TODO: type description here.
-        ENUM_1: TODO: type description here.
-        ENUM_2: TODO: type description here.
+        ENUM_0: The enum member of type str.
+        ENUM_1: The enum member of type str.
+        ENUM_2: The enum member of type str.
 
     """
     ENUM_0 = '0'

@@ -79,3 +79,58 @@ class OauthAuthorizationController(BaseController):
             .local_error('400', 'OAuth 2 provider returned an error.', OauthProviderException)
             .local_error('401', 'OAuth 2 provider says client authentication failed.', OauthProviderException)
         ).execute()
+
+    def request_token_thingspace_oauth_1(self,
+                                         authorization,
+                                         scope=None,
+                                         _optional_form_parameters=None):
+        """Does a POST request to /.
+
+        Create a new OAuth 2 token.
+
+        Args:
+            authorization (str): Authorization header in Basic auth format
+            scope (str, optional): Requested scopes as a space-delimited list.
+            _optional_form_parameters (Array, optional): Additional optional
+                form parameters are supported by this endpoint
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.OAUTH_SERVER)
+            .path('/')
+            .http_method(HttpMethodEnum.POST)
+            .form_param(Parameter()
+                        .key('grant_type')
+                        .value('client_credentials'))
+            .header_param(Parameter()
+                          .key('Authorization')
+                          .value(authorization))
+            .form_param(Parameter()
+                        .key('scope')
+                        .value(scope))
+            .header_param(Parameter()
+                          .key('content-type')
+                          .value('application/x-www-form-urlencoded'))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .additional_form_params(_optional_form_parameters)
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(OauthToken.from_dictionary)
+            .is_api_response(True)
+            .local_error('400', 'OAuth 2 provider returned an error.', OauthProviderException)
+            .local_error('401', 'OAuth 2 provider says client authentication failed.', OauthProviderException)
+        ).execute()

@@ -31,8 +31,6 @@ class DeviceMonitoringController(BaseController):
                             body):
         """Does a POST request to /m2m/v1/diagnostics/basic/devicereachability.
 
-        TODO: type endpoint description here.
-
         Args:
             body (NotificationReportRequest): Create Reachability Report
                 Request
@@ -72,13 +70,12 @@ class DeviceMonitoringController(BaseController):
         ).execute()
 
     def stop_device_reachability(self,
-                                 body=None):
+                                 stopreachabilitypayload):
         """Does a DELETE request to /m2m/v1/diagnostics/basic/devicereachability.
 
-        TODO: type endpoint description here.
-
         Args:
-            body (StopMonitorRequest, optional): TODO: type description here.
+            stopreachabilitypayload (StopMonitorRequest): Payload for the Stop
+                Device Reachability monitors request.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -96,15 +93,12 @@ class DeviceMonitoringController(BaseController):
             RequestBuilder().server(Server.THINGSPACE)
             .path('/m2m/v1/diagnostics/basic/devicereachability')
             .http_method(HttpMethodEnum.DELETE)
-            .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
-            .body_param(Parameter()
-                        .value(body))
+            .query_param(Parameter()
+                         .key('stopreachabilitypayload')
+                         .value(stopreachabilitypayload))
             .header_param(Parameter()
                           .key('accept')
                           .value('application/json'))
-            .body_serializer(APIHelper.json_serialize)
             .auth(And(Single('thingspace_oauth'), Single('VZ-M2M-Token')))
         ).response(
             ResponseHandler()

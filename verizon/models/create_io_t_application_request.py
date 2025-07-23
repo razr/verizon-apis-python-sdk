@@ -109,7 +109,7 @@ class CreateIoTApplicationRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -132,3 +132,27 @@ class CreateIoTApplicationRequest(object):
                    sample_io_tc_app,
                    subscription_id,
                    tenant_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'app_name={(self.app_name if hasattr(self, "app_name") else None)!r}, '
+                f'billing_account_id={(self.billing_account_id if hasattr(self, "billing_account_id") else None)!r}, '
+                f'client_id={(self.client_id if hasattr(self, "client_id") else None)!r}, '
+                f'client_secret={(self.client_secret if hasattr(self, "client_secret") else None)!r}, '
+                f'email_i_ds={(self.email_i_ds if hasattr(self, "email_i_ds") else None)!r}, '
+                f'resourcegroup={(self.resourcegroup if hasattr(self, "resourcegroup") else None)!r}, '
+                f'sample_io_tc_app={(self.sample_io_tc_app if hasattr(self, "sample_io_tc_app") else None)!r}, '
+                f'subscription_id={(self.subscription_id if hasattr(self, "subscription_id") else None)!r}, '
+                f'tenant_id={(self.tenant_id if hasattr(self, "tenant_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'app_name={(self.app_name if hasattr(self, "app_name") else None)!s}, '
+                f'billing_account_id={(self.billing_account_id if hasattr(self, "billing_account_id") else None)!s}, '
+                f'client_id={(self.client_id if hasattr(self, "client_id") else None)!s}, '
+                f'client_secret={(self.client_secret if hasattr(self, "client_secret") else None)!s}, '
+                f'email_i_ds={(self.email_i_ds if hasattr(self, "email_i_ds") else None)!s}, '
+                f'resourcegroup={(self.resourcegroup if hasattr(self, "resourcegroup") else None)!s}, '
+                f'sample_io_tc_app={(self.sample_io_tc_app if hasattr(self, "sample_io_tc_app") else None)!s}, '
+                f'subscription_id={(self.subscription_id if hasattr(self, "subscription_id") else None)!s}, '
+                f'tenant_id={(self.tenant_id if hasattr(self, "tenant_id") else None)!s})')

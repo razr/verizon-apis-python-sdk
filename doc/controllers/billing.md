@@ -33,7 +33,7 @@ def add_account(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ManagedAccountsAddResponse`](../../doc/models/managed-accounts-add-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ManagedAccountsAddResponse`](../../doc/models/managed-accounts-add-response.md).
 
 ## Example Usage
 
@@ -50,6 +50,11 @@ body = ManagedAccountsAddRequest(
 )
 
 result = billing_controller.add_account(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -101,7 +106,7 @@ def managed_account_action(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ManagedAccountsProvisionResponse`](../../doc/models/managed-accounts-provision-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ManagedAccountsProvisionResponse`](../../doc/models/managed-accounts-provision-response.md).
 
 ## Example Usage
 
@@ -115,6 +120,11 @@ body = ManagedAccountsProvisionRequest(
 )
 
 result = billing_controller.managed_account_action(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -154,7 +164,7 @@ def cancel_managed_account_action(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ManagedAccountCancelResponse`](../../doc/models/managed-account-cancel-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ManagedAccountCancelResponse`](../../doc/models/managed-account-cancel-response.md).
 
 ## Example Usage
 
@@ -168,6 +178,11 @@ body = ManagedAccountCancelRequest(
 )
 
 result = billing_controller.cancel_managed_account_action(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -209,7 +224,7 @@ def list_managed_account(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ManagedAccountsGetAllResponse`](../../doc/models/managed-accounts-get-all-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ManagedAccountsGetAllResponse`](../../doc/models/managed-accounts-get-all-response.md).
 
 ## Example Usage
 
@@ -222,6 +237,11 @@ result = billing_controller.list_managed_account(
     account_name,
     service_name
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

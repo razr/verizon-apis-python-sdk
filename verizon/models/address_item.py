@@ -88,7 +88,7 @@ class AddressItem(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -107,3 +107,23 @@ class AddressItem(object):
                    country,
                    zip,
                    zip_4)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'address_line_1={(self.address_line_1 if hasattr(self, "address_line_1") else None)!r}, '
+                f'address_line_2={(self.address_line_2 if hasattr(self, "address_line_2") else None)!r}, '
+                f'city={(self.city if hasattr(self, "city") else None)!r}, '
+                f'state={(self.state if hasattr(self, "state") else None)!r}, '
+                f'country={(self.country if hasattr(self, "country") else None)!r}, '
+                f'zip={(self.zip if hasattr(self, "zip") else None)!r}, '
+                f'zip_4={(self.zip_4 if hasattr(self, "zip_4") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'address_line_1={(self.address_line_1 if hasattr(self, "address_line_1") else None)!s}, '
+                f'address_line_2={(self.address_line_2 if hasattr(self, "address_line_2") else None)!s}, '
+                f'city={(self.city if hasattr(self, "city") else None)!s}, '
+                f'state={(self.state if hasattr(self, "state") else None)!s}, '
+                f'country={(self.country if hasattr(self, "country") else None)!s}, '
+                f'zip={(self.zip if hasattr(self, "zip") else None)!s}, '
+                f'zip_4={(self.zip_4 if hasattr(self, "zip_4") else None)!s})')

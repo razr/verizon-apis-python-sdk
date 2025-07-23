@@ -13,8 +13,6 @@ class AssociateLabelRequest(object):
 
     """Implementation of the 'AssociateLabelRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): The name of a billing account. An account name is
             usually numeric, and must include any leading zeros.
@@ -53,7 +51,7 @@ class AssociateLabelRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -62,3 +60,13 @@ class AssociateLabelRequest(object):
         # Return an object of this model
         return cls(account_name,
                    labels)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'labels={self.labels!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'labels={self.labels!s})')

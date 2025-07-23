@@ -123,7 +123,7 @@ class ChangeConfigurationResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -152,3 +152,33 @@ class ChangeConfigurationResponse(object):
                    state,
                    transactionid,
                    version)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'action={(self.action if hasattr(self, "action") else None)!r}, '
+                f'createdon={(self.createdon if hasattr(self, "createdon") else None)!r}, '
+                f'deviceid={(self.deviceid if hasattr(self, "deviceid") else None)!r}, '
+                f'fields={(self.fields if hasattr(self, "fields") else None)!r}, '
+                f'foreignid={(self.foreignid if hasattr(self, "foreignid") else None)!r}, '
+                f'id={(self.id if hasattr(self, "id") else None)!r}, '
+                f'kind={(self.kind if hasattr(self, "kind") else None)!r}, '
+                f'lastupdated={(self.lastupdated if hasattr(self, "lastupdated") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'state={(self.state if hasattr(self, "state") else None)!r}, '
+                f'transactionid={(self.transactionid if hasattr(self, "transactionid") else None)!r}, '
+                f'version={(self.version if hasattr(self, "version") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'action={(self.action if hasattr(self, "action") else None)!s}, '
+                f'createdon={(self.createdon if hasattr(self, "createdon") else None)!s}, '
+                f'deviceid={(self.deviceid if hasattr(self, "deviceid") else None)!s}, '
+                f'fields={(self.fields if hasattr(self, "fields") else None)!s}, '
+                f'foreignid={(self.foreignid if hasattr(self, "foreignid") else None)!s}, '
+                f'id={(self.id if hasattr(self, "id") else None)!s}, '
+                f'kind={(self.kind if hasattr(self, "kind") else None)!s}, '
+                f'lastupdated={(self.lastupdated if hasattr(self, "lastupdated") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'state={(self.state if hasattr(self, "state") else None)!s}, '
+                f'transactionid={(self.transactionid if hasattr(self, "transactionid") else None)!s}, '
+                f'version={(self.version if hasattr(self, "version") else None)!s})')

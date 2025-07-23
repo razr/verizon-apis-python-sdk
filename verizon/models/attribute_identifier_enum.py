@@ -15,11 +15,11 @@ class AttributeIdentifierEnum(object):
     Attribute identifier.
 
     Attributes:
-        NETWORK_BEARER: TODO: type description here.
-        RADIO_SIGNAL_STRENGTH: TODO: type description here.
-        LINK_QUALITY: TODO: type description here.
-        CELL_ID: TODO: type description here.
-        MANUFACTURER: TODO: type description here.
+        NETWORK_BEARER: The enum member of type str.
+        RADIO_SIGNAL_STRENGTH: The enum member of type str.
+        LINK_QUALITY: The enum member of type str.
+        CELL_ID: The enum member of type str.
+        MANUFACTURER: The enum member of type str.
 
     """
     NETWORK_BEARER = 'NETWORK_BEARER'

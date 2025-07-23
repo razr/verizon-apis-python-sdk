@@ -65,7 +65,7 @@ class AccountService(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -80,3 +80,15 @@ class AccountService(object):
         return cls(name,
                    description,
                    states)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'description={(self.description if hasattr(self, "description") else None)!r}, '
+                f'states={(self.states if hasattr(self, "states") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'description={(self.description if hasattr(self, "description") else None)!s}, '
+                f'states={(self.states if hasattr(self, "states") else None)!s})')

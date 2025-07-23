@@ -54,10 +54,18 @@ class Fields(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         configuration = Configuration.from_dictionary(dictionary.get('configuration')) if 'configuration' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(configuration)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'configuration={(self.configuration if hasattr(self, "configuration") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'configuration={(self.configuration if hasattr(self, "configuration") else None)!s})')

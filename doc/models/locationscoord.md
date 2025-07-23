@@ -11,7 +11,7 @@ Location coordinates.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `coordinates_list` | [`List[Coordinates]`](../../doc/models/coordinates.md) | Required | **Constraints**: *Maximum Items*: `100` |
+| `coordinates_list` | [`List[Coordinates]`](../../doc/models/coordinates.md) | Optional | - |
 
 ## Example (as JSON)
 
@@ -19,8 +19,16 @@ Location coordinates.
 {
   "coordinatesList": [
     {
-      "latitude": "-33.84819",
-      "longitude": "151.22049"
+      "latitude": "latitude6",
+      "longitude": "longitude4"
+    },
+    {
+      "latitude": "latitude6",
+      "longitude": "longitude4"
+    },
+    {
+      "latitude": "latitude6",
+      "longitude": "longitude4"
     }
   ]
 }

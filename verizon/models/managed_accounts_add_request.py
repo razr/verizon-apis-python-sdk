@@ -12,8 +12,6 @@ class ManagedAccountsAddRequest(object):
 
     """Implementation of the 'ManagedAccountsAddRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): Account identifier
         service_name (ServiceNameEnum): Service name
@@ -58,7 +56,7 @@ class ManagedAccountsAddRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -71,3 +69,17 @@ class ManagedAccountsAddRequest(object):
                    service_name,
                    mtype,
                    managed_acc_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'service_name={self.service_name!r}, '
+                f'mtype={self.mtype!r}, '
+                f'managed_acc_list={self.managed_acc_list!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'service_name={self.service_name!s}, '
+                f'mtype={self.mtype!s}, '
+                f'managed_acc_list={self.managed_acc_list!s})')

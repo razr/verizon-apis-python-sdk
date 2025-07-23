@@ -82,7 +82,7 @@ class PositionData(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -99,3 +99,21 @@ class PositionData(object):
                    y,
                    radius,
                    qos)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'time={(self.time if hasattr(self, "time") else None)!r}, '
+                f'utcoffset={(self.utcoffset if hasattr(self, "utcoffset") else None)!r}, '
+                f'x={(self.x if hasattr(self, "x") else None)!r}, '
+                f'y={(self.y if hasattr(self, "y") else None)!r}, '
+                f'radius={(self.radius if hasattr(self, "radius") else None)!r}, '
+                f'qos={(self.qos if hasattr(self, "qos") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'time={(self.time if hasattr(self, "time") else None)!s}, '
+                f'utcoffset={(self.utcoffset if hasattr(self, "utcoffset") else None)!s}, '
+                f'x={(self.x if hasattr(self, "x") else None)!s}, '
+                f'y={(self.y if hasattr(self, "y") else None)!s}, '
+                f'radius={(self.radius if hasattr(self, "radius") else None)!s}, '
+                f'qos={(self.qos if hasattr(self, "qos") else None)!s})')

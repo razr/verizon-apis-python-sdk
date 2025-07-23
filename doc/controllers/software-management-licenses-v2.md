@@ -37,7 +37,7 @@ def get_account_license_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V2LicenseSummary`](../../doc/models/v2-license-summary.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V2LicenseSummary`](../../doc/models/v2-license-summary.md).
 
 ## Example Usage
 
@@ -50,6 +50,11 @@ result = software_management_licenses_v2_controller.get_account_license_status(
     account,
     last_seen_device_id=last_seen_device_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -111,7 +116,7 @@ def assign_licenses_to_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V2LicensesAssignedRemovedResult`](../../doc/models/v2-licenses-assigned-removed-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V2LicensesAssignedRemovedResult`](../../doc/models/v2-licenses-assigned-removed-result.md).
 
 ## Example Usage
 
@@ -129,6 +134,11 @@ result = software_management_licenses_v2_controller.assign_licenses_to_devices(
     account,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -181,7 +191,7 @@ def remove_licenses_from_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V2LicensesAssignedRemovedResult`](../../doc/models/v2-licenses-assigned-removed-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V2LicensesAssignedRemovedResult`](../../doc/models/v2-licenses-assigned-removed-result.md).
 
 ## Example Usage
 
@@ -200,6 +210,11 @@ result = software_management_licenses_v2_controller.remove_licenses_from_devices
     account,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -257,7 +272,7 @@ def list_licenses_to_remove(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V2ListOfLicensesToRemove`](../../doc/models/v2-list-of-licenses-to-remove.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V2ListOfLicensesToRemove`](../../doc/models/v2-list-of-licenses-to-remove.md).
 
 ## Example Usage
 
@@ -265,6 +280,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account = '0242078689-00001'
 
 result = software_management_licenses_v2_controller.list_licenses_to_remove(account)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -313,7 +333,7 @@ def create_list_of_licenses_to_remove(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V2ListOfLicensesToRemoveResult`](../../doc/models/v2-list-of-licenses-to-remove-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V2ListOfLicensesToRemoveResult`](../../doc/models/v2-list-of-licenses-to-remove-result.md).
 
 ## Example Usage
 
@@ -333,6 +353,11 @@ result = software_management_licenses_v2_controller.create_list_of_licenses_to_r
     account,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -373,7 +398,7 @@ def delete_list_of_licenses_to_remove(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FotaV2SuccessResult`](../../doc/models/fota-v2-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FotaV2SuccessResult`](../../doc/models/fota-v2-success-result.md).
 
 ## Example Usage
 
@@ -381,6 +406,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account = '0242078689-00001'
 
 result = software_management_licenses_v2_controller.delete_list_of_licenses_to_remove(account)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

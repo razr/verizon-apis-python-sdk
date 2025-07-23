@@ -70,7 +70,7 @@ class AnomalyDetectionSettings(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -81,3 +81,15 @@ class AnomalyDetectionSettings(object):
         return cls(account_name,
                    sensitivity_parameter,
                    status)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'sensitivity_parameter={(self.sensitivity_parameter if hasattr(self, "sensitivity_parameter") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'sensitivity_parameter={(self.sensitivity_parameter if hasattr(self, "sensitivity_parameter") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s})')

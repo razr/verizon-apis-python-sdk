@@ -36,7 +36,7 @@ def get_campaign_history_by_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V3CampaignHistory`](../../doc/models/v3-campaign-history.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V3CampaignHistory`](../../doc/models/v3-campaign-history.md).
 
 ## Example Usage
 
@@ -52,6 +52,11 @@ result = software_management_reports_v3_controller.get_campaign_history_by_statu
     campaign_status,
     last_seen_campaign_id=last_seen_campaign_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -110,7 +115,7 @@ def get_device_firmware_upgrade_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[DeviceFirmwareUpgrade]`](../../doc/models/device-firmware-upgrade.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[DeviceFirmwareUpgrade]`](../../doc/models/device-firmware-upgrade.md).
 
 ## Example Usage
 
@@ -123,6 +128,11 @@ result = software_management_reports_v3_controller.get_device_firmware_upgrade_h
     acc,
     device_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -184,7 +194,7 @@ def get_campaign_device_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V3CampaignDevice`](../../doc/models/v3-campaign-device.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V3CampaignDevice`](../../doc/models/v3-campaign-device.md).
 
 ## Example Usage
 
@@ -200,6 +210,11 @@ result = software_management_reports_v3_controller.get_campaign_device_status(
     campaign_id,
     last_seen_device_id=last_seen_device_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

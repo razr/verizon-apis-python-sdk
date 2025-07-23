@@ -82,7 +82,7 @@ class RegisteredCallbacks(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -97,3 +97,19 @@ class RegisteredCallbacks(object):
                    url,
                    username,
                    password)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'aname={(self.aname if hasattr(self, "aname") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'url={(self.url if hasattr(self, "url") else None)!r}, '
+                f'username={(self.username if hasattr(self, "username") else None)!r}, '
+                f'password={(self.password if hasattr(self, "password") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'aname={(self.aname if hasattr(self, "aname") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'url={(self.url if hasattr(self, "url") else None)!s}, '
+                f'username={(self.username if hasattr(self, "username") else None)!s}, '
+                f'password={(self.password if hasattr(self, "password") else None)!s})')

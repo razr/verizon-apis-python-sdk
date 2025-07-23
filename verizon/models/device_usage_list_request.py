@@ -22,7 +22,7 @@ class DeviceUsageListRequest(object):
         earliest (str): The earliest date for which you want usage data.
         latest (str): The last date for which you want usage data.
         device_id (DeviceId): An identifier for a single device.
-        label (Label): TODO: type description here.
+        label (Label): The model property of type Label.
 
     """
 
@@ -69,7 +69,7 @@ class DeviceUsageListRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -82,3 +82,17 @@ class DeviceUsageListRequest(object):
                    latest,
                    device_id,
                    label)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'earliest={self.earliest!r}, '
+                f'latest={self.latest!r}, '
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r}, '
+                f'label={(self.label if hasattr(self, "label") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'earliest={self.earliest!s}, '
+                f'latest={self.latest!s}, '
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s}, '
+                f'label={(self.label if hasattr(self, "label") else None)!s})')

@@ -14,12 +14,10 @@ class SMSEventHistoryRequest(object):
 
     """Implementation of the 'SMSEventHistoryRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        device_id (GIODeviceId): TODO: type description here.
-        earliest (datetime): TODO: type description here.
-        latest (datetime): TODO: type description here.
+        device_id (GIODeviceId): The model property of type GIODeviceId.
+        earliest (datetime): The model property of type datetime.
+        latest (datetime): The model property of type datetime.
 
     """
 
@@ -63,7 +61,7 @@ class SMSEventHistoryRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -74,3 +72,15 @@ class SMSEventHistoryRequest(object):
         return cls(device_id,
                    earliest,
                    latest)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!r}, '
+                f'earliest={(self.earliest if hasattr(self, "earliest") else None)!r}, '
+                f'latest={(self.latest if hasattr(self, "latest") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!s}, '
+                f'earliest={(self.earliest if hasattr(self, "earliest") else None)!s}, '
+                f'latest={(self.latest if hasattr(self, "latest") else None)!s})')

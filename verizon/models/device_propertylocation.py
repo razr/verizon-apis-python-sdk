@@ -13,11 +13,9 @@ class DevicePropertylocation(object):
 
     """Implementation of the 'DevicePropertylocation' model.
 
-    TODO: type model description here.
-
     Attributes:
-        latitude (str): TODO: type description here.
-        longitude (str): TODO: type description here.
+        latitude (str): The model property of type str.
+        longitude (str): The model property of type str.
 
     """
 
@@ -58,7 +56,7 @@ class DevicePropertylocation(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +65,13 @@ class DevicePropertylocation(object):
         # Return an object of this model
         return cls(latitude,
                    longitude)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'latitude={(self.latitude if hasattr(self, "latitude") else None)!r}, '
+                f'longitude={(self.longitude if hasattr(self, "longitude") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'latitude={(self.latitude if hasattr(self, "latitude") else None)!s}, '
+                f'longitude={(self.longitude if hasattr(self, "longitude") else None)!s})')

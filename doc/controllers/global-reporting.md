@@ -31,7 +31,7 @@ def deviceprovhistory_using_post(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ESIMRequestResponse`](../../doc/models/esim-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ESIMRequestResponse`](../../doc/models/esim-request-response.md).
 
 ## Example Usage
 
@@ -43,6 +43,11 @@ body = ESIMProvhistoryRequest(
 )
 
 result = global_reporting_controller.deviceprovhistory_using_post(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -83,7 +88,7 @@ def retrieve_global_list(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ESIMRequestResponse`](../../doc/models/esim-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ESIMRequestResponse`](../../doc/models/esim-request-response.md).
 
 ## Example Usage
 
@@ -94,6 +99,11 @@ body = ESIMGlobalDeviceList(
 )
 
 result = global_reporting_controller.retrieve_global_list(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

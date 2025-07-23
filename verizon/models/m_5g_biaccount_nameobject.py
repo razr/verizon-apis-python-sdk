@@ -17,23 +17,24 @@ class M5gBiaccountNameobject(object):
 
     """Implementation of the '5gbiaccountNameobject' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        billing_cycle_end_date (str): TODO: type description here.
-        carrier_information (List[M5gBiCarrierInformation]): TODO: type
-            description here.
-        connected (bool): TODO: type description here.
-        created_at (str): TODO: type description here.
-        custom_fields (List[M5gBikeyValue1]): TODO: type description here.
-        device_ids (List[M5gBideviceId1]): TODO: type description here.
-        extended_attributes (List[M5gBikeyValue1]): TODO: type description
-            here.
-        group_names (List[GroupName]): TODO: type description here.
-        ipaddress (str): TODO: type description here.
-        last_activation_by (str): TODO: type description here.
-        last_activation_date (str): TODO: type description here.
+        account_name (str): The model property of type str.
+        billing_cycle_end_date (str): The model property of type str.
+        carrier_information (List[M5gBiCarrierInformation]): The model
+            property of type List[M5gBiCarrierInformation].
+        connected (bool): The model property of type bool.
+        created_at (str): The model property of type str.
+        custom_fields (List[M5gBikeyValue1]): The model property of type
+            List[M5gBikeyValue1].
+        device_ids (List[M5gBideviceId1]): The model property of type
+            List[M5gBideviceId1].
+        extended_attributes (List[M5gBikeyValue1]): The model property of type
+            List[M5gBikeyValue1].
+        group_names (List[GroupName]): The model property of type
+            List[GroupName].
+        ipaddress (str): The model property of type str.
+        last_activation_by (str): The model property of type str.
+        last_activation_date (str): The model property of type str.
 
     """
 
@@ -124,7 +125,7 @@ class M5gBiaccountNameobject(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -173,3 +174,33 @@ class M5gBiaccountNameobject(object):
                    ipaddress,
                    last_activation_by,
                    last_activation_date)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'billing_cycle_end_date={(self.billing_cycle_end_date if hasattr(self, "billing_cycle_end_date") else None)!r}, '
+                f'carrier_information={(self.carrier_information if hasattr(self, "carrier_information") else None)!r}, '
+                f'connected={(self.connected if hasattr(self, "connected") else None)!r}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!r}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!r}, '
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!r}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!r}, '
+                f'group_names={(self.group_names if hasattr(self, "group_names") else None)!r}, '
+                f'ipaddress={(self.ipaddress if hasattr(self, "ipaddress") else None)!r}, '
+                f'last_activation_by={(self.last_activation_by if hasattr(self, "last_activation_by") else None)!r}, '
+                f'last_activation_date={(self.last_activation_date if hasattr(self, "last_activation_date") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'billing_cycle_end_date={(self.billing_cycle_end_date if hasattr(self, "billing_cycle_end_date") else None)!s}, '
+                f'carrier_information={(self.carrier_information if hasattr(self, "carrier_information") else None)!s}, '
+                f'connected={(self.connected if hasattr(self, "connected") else None)!s}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!s}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!s}, '
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!s}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!s}, '
+                f'group_names={(self.group_names if hasattr(self, "group_names") else None)!s}, '
+                f'ipaddress={(self.ipaddress if hasattr(self, "ipaddress") else None)!s}, '
+                f'last_activation_by={(self.last_activation_by if hasattr(self, "last_activation_by") else None)!s}, '
+                f'last_activation_date={(self.last_activation_date if hasattr(self, "last_activation_date") else None)!s})')

@@ -13,13 +13,12 @@ class NotificationReportRequest(object):
 
     """Implementation of the 'NotificationReportRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        request_type (str): TODO: type description here.
-        devices (List[DeviceList]): TODO: type description here.
-        monitor_expiration_time (str): TODO: type description here.
+        account_name (str): The model property of type str.
+        request_type (str): The model property of type str.
+        devices (List[DeviceList]): The model property of type
+            List[DeviceList].
+        monitor_expiration_time (str): The model property of type str.
 
     """
 
@@ -59,7 +58,7 @@ class NotificationReportRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -74,3 +73,17 @@ class NotificationReportRequest(object):
                    request_type,
                    devices,
                    monitor_expiration_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'request_type={self.request_type!r}, '
+                f'devices={self.devices!r}, '
+                f'monitor_expiration_time={self.monitor_expiration_time!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'request_type={self.request_type!s}, '
+                f'devices={self.devices!s}, '
+                f'monitor_expiration_time={self.monitor_expiration_time!s})')

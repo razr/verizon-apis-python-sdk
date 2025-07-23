@@ -67,7 +67,7 @@ class FirmwareUpgradeDeviceListItem(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -78,3 +78,15 @@ class FirmwareUpgradeDeviceListItem(object):
         return cls(device_id,
                    status,
                    result_reason)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'result_reason={(self.result_reason if hasattr(self, "result_reason") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'result_reason={(self.result_reason if hasattr(self, "result_reason") else None)!s})')

@@ -63,7 +63,7 @@ class CheckOrderStatusRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -76,3 +76,15 @@ class CheckOrderStatusRequest(object):
         return cls(account_name,
                    devices,
                    order_request_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'order_request_id={(self.order_request_id if hasattr(self, "order_request_id") else None)!r}, '
+                f'devices={self.devices!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'order_request_id={(self.order_request_id if hasattr(self, "order_request_id") else None)!s}, '
+                f'devices={self.devices!s})')

@@ -13,8 +13,6 @@ class UsageTriggerAddRequest(object):
 
     """Implementation of the 'UsageTriggerAddRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         trigger_name (str): Usage trigger name
         account_name (str): Account name
@@ -100,7 +98,7 @@ class UsageTriggerAddRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -123,3 +121,27 @@ class UsageTriggerAddRequest(object):
                    sms_phone_numbers,
                    send_email_notification,
                    email_addresses)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!r}, '
+                f'account_name={self.account_name!r}, '
+                f'service_name={self.service_name!r}, '
+                f'threshold_value={self.threshold_value!r}, '
+                f'allow_excess={(self.allow_excess if hasattr(self, "allow_excess") else None)!r}, '
+                f'send_sms_notification={(self.send_sms_notification if hasattr(self, "send_sms_notification") else None)!r}, '
+                f'sms_phone_numbers={(self.sms_phone_numbers if hasattr(self, "sms_phone_numbers") else None)!r}, '
+                f'send_email_notification={(self.send_email_notification if hasattr(self, "send_email_notification") else None)!r}, '
+                f'email_addresses={(self.email_addresses if hasattr(self, "email_addresses") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!s}, '
+                f'account_name={self.account_name!s}, '
+                f'service_name={self.service_name!s}, '
+                f'threshold_value={self.threshold_value!s}, '
+                f'allow_excess={(self.allow_excess if hasattr(self, "allow_excess") else None)!s}, '
+                f'send_sms_notification={(self.send_sms_notification if hasattr(self, "send_sms_notification") else None)!s}, '
+                f'sms_phone_numbers={(self.sms_phone_numbers if hasattr(self, "sms_phone_numbers") else None)!s}, '
+                f'send_email_notification={(self.send_email_notification if hasattr(self, "send_email_notification") else None)!s}, '
+                f'email_addresses={(self.email_addresses if hasattr(self, "email_addresses") else None)!s})')

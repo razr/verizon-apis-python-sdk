@@ -73,7 +73,7 @@ class DeviceFilter(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -90,3 +90,17 @@ class DeviceFilter(object):
                    group_name,
                    service_plan,
                    custom_fields)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account={(self.account if hasattr(self, "account") else None)!r}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account={(self.account if hasattr(self, "account") else None)!s}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!s})')

@@ -26,7 +26,7 @@ def get_diagnostics_subscription(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DiagnosticsSubscription`](../../doc/models/diagnostics-subscription.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DiagnosticsSubscription`](../../doc/models/diagnostics-subscription.md).
 
 ## Example Usage
 
@@ -34,6 +34,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account_name = '0000123456-00001'
 
 result = diagnostics_subscriptions_controller.get_diagnostics_subscription(account_name)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

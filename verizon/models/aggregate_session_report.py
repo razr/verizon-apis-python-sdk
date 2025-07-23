@@ -73,7 +73,7 @@ class AggregateSessionReport(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -92,3 +92,15 @@ class AggregateSessionReport(object):
         return cls(txid,
                    usage,
                    errors)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={self.txid!r}, '
+                f'usage={(self.usage if hasattr(self, "usage") else None)!r}, '
+                f'errors={(self.errors if hasattr(self, "errors") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={self.txid!s}, '
+                f'usage={(self.usage if hasattr(self, "usage") else None)!s}, '
+                f'errors={(self.errors if hasattr(self, "errors") else None)!s})')

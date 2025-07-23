@@ -13,12 +13,11 @@ class ProfileChangeStateRequest(object):
 
     """Implementation of the 'ProfileChangeStateRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        devices (List[DeviceList]): TODO: type description here.
-        account_name (str): TODO: type description here.
-        smsr_oid (str): TODO: type description here.
+        devices (List[DeviceList]): The model property of type
+            List[DeviceList].
+        account_name (str): The model property of type str.
+        smsr_oid (str): The model property of type str.
 
     """
 
@@ -55,7 +54,7 @@ class ProfileChangeStateRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -68,3 +67,15 @@ class ProfileChangeStateRequest(object):
         return cls(devices,
                    account_name,
                    smsr_oid)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={self.devices!r}, '
+                f'account_name={self.account_name!r}, '
+                f'smsr_oid={self.smsr_oid!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={self.devices!s}, '
+                f'account_name={self.account_name!s}, '
+                f'smsr_oid={self.smsr_oid!s})')

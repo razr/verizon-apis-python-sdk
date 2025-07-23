@@ -69,7 +69,7 @@ class FirmwareUpgradeRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -86,3 +86,21 @@ class FirmwareUpgradeRequest(object):
                    start_date,
                    end_date,
                    device_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'firmware_name={self.firmware_name!r}, '
+                f'firmware_to={self.firmware_to!r}, '
+                f'start_date={self.start_date!r}, '
+                f'end_date={self.end_date!r}, '
+                f'device_list={self.device_list!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'firmware_name={self.firmware_name!s}, '
+                f'firmware_to={self.firmware_to!s}, '
+                f'start_date={self.start_date!s}, '
+                f'end_date={self.end_date!s}, '
+                f'device_list={self.device_list!s})')

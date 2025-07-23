@@ -14,13 +14,12 @@ class RequestBodyForUsage(object):
 
     """Implementation of the 'Request Body for Usage' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_id (str): TODO: type description here.
-        device_id (List[ReadySimDeviceId]): TODO: type description here.
-        start_time (datetime): TODO: type description here.
-        end_time (datetime): TODO: type description here.
+        account_id (str): The model property of type str.
+        device_id (List[ReadySimDeviceId]): The model property of type
+            List[ReadySimDeviceId].
+        start_time (datetime): The model property of type datetime.
+        end_time (datetime): The model property of type datetime.
 
     """
 
@@ -71,7 +70,7 @@ class RequestBodyForUsage(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -88,3 +87,17 @@ class RequestBodyForUsage(object):
                    device_id,
                    start_time,
                    end_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!r}, '
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r}, '
+                f'start_time={(self.start_time if hasattr(self, "start_time") else None)!r}, '
+                f'end_time={(self.end_time if hasattr(self, "end_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_id={(self.account_id if hasattr(self, "account_id") else None)!s}, '
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s}, '
+                f'start_time={(self.start_time if hasattr(self, "start_time") else None)!s}, '
+                f'end_time={(self.end_time if hasattr(self, "end_time") else None)!s})')

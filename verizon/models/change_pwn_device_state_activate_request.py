@@ -14,12 +14,11 @@ class ChangePWNDeviceStateActivateRequest(object):
 
     """Implementation of the 'ChangePWNDeviceState-ActivateRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        device_list (List[PWNDeviceList]): TODO: type description here.
-        activate (Activate): TODO: type description here.
+        account_name (str): The model property of type str.
+        device_list (List[PWNDeviceList]): The model property of type
+            List[PWNDeviceList].
+        activate (Activate): The model property of type Activate.
 
     """
 
@@ -56,7 +55,7 @@ class ChangePWNDeviceStateActivateRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -69,3 +68,15 @@ class ChangePWNDeviceStateActivateRequest(object):
         return cls(account_name,
                    device_list,
                    activate)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'device_list={self.device_list!r}, '
+                f'activate={self.activate!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'device_list={self.device_list!s}, '
+                f'activate={self.activate!s})')

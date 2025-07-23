@@ -69,7 +69,7 @@ class CreateIoTApplicationResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -80,3 +80,15 @@ class CreateIoTApplicationResponse(object):
         return cls(app_name,
                    shared_secret,
                    url)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'app_name={(self.app_name if hasattr(self, "app_name") else None)!r}, '
+                f'shared_secret={(self.shared_secret if hasattr(self, "shared_secret") else None)!r}, '
+                f'url={(self.url if hasattr(self, "url") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'app_name={(self.app_name if hasattr(self, "app_name") else None)!s}, '
+                f'shared_secret={(self.shared_secret if hasattr(self, "shared_secret") else None)!s}, '
+                f'url={(self.url if hasattr(self, "url") else None)!s})')

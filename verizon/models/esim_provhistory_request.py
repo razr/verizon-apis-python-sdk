@@ -14,13 +14,12 @@ class ESIMProvhistoryRequest(object):
 
     """Implementation of the 'eSIMProvhistoryRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        device_filter (List[DeviceId2]): TODO: type description here.
-        earliest (datetime): TODO: type description here.
-        latest (datetime): TODO: type description here.
+        account_name (str): The model property of type str.
+        device_filter (List[DeviceId2]): The model property of type
+            List[DeviceId2].
+        earliest (datetime): The model property of type datetime.
+        latest (datetime): The model property of type datetime.
 
     """
 
@@ -71,7 +70,7 @@ class ESIMProvhistoryRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -88,3 +87,17 @@ class ESIMProvhistoryRequest(object):
                    device_filter,
                    earliest,
                    latest)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'device_filter={(self.device_filter if hasattr(self, "device_filter") else None)!r}, '
+                f'earliest={(self.earliest if hasattr(self, "earliest") else None)!r}, '
+                f'latest={(self.latest if hasattr(self, "latest") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'device_filter={(self.device_filter if hasattr(self, "device_filter") else None)!s}, '
+                f'earliest={(self.earliest if hasattr(self, "earliest") else None)!s}, '
+                f'latest={(self.latest if hasattr(self, "latest") else None)!s})')

@@ -55,10 +55,18 @@ class LogInResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         session_token = dictionary.get("sessionToken") if dictionary.get("sessionToken") else APIHelper.SKIP
         # Return an object of this model
         return cls(session_token)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'session_token={(self.session_token if hasattr(self, "session_token") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'session_token={(self.session_token if hasattr(self, "session_token") else None)!s})')

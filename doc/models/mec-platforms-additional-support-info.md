@@ -11,7 +11,7 @@ Additional service support information for the MEC platform.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | `str` | Optional | Type of additional service support information for the MEC platform.<br>**Constraints**: *Maximum Length*: `32`, *Pattern*: `^[A-Za-z0-9]{3,32}$` |
+| `mtype` | `str` | Optional | Type of additional service support information for the MEC platform.<br><br>**Constraints**: *Maximum Length*: `32`, *Pattern*: `^[A-Za-z0-9]{3,32}$` |
 | `data` | [`MECPlatformsAdditionalSupportInfoData`](../../doc/models/mec-platforms-additional-support-info-data.md) | Optional | Data about additional service support information for the MEC platform. |
 
 ## Example (as JSON)

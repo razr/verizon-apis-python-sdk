@@ -70,7 +70,7 @@ class PositionError(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -83,3 +83,17 @@ class PositionError(object):
                    utcoffset,
                    mtype,
                    info)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'time={(self.time if hasattr(self, "time") else None)!r}, '
+                f'utcoffset={(self.utcoffset if hasattr(self, "utcoffset") else None)!r}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!r}, '
+                f'info={(self.info if hasattr(self, "info") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'time={(self.time if hasattr(self, "time") else None)!s}, '
+                f'utcoffset={(self.utcoffset if hasattr(self, "utcoffset") else None)!s}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!s}, '
+                f'info={(self.info if hasattr(self, "info") else None)!s})')

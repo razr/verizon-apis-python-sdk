@@ -89,7 +89,7 @@ class Region(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -104,3 +104,19 @@ class Region(object):
                    country_code,
                    metro,
                    area)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'region_id={(self.region_id if hasattr(self, "region_id") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'country_code={(self.country_code if hasattr(self, "country_code") else None)!r}, '
+                f'metro={(self.metro if hasattr(self, "metro") else None)!r}, '
+                f'area={(self.area if hasattr(self, "area") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'region_id={(self.region_id if hasattr(self, "region_id") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'country_code={(self.country_code if hasattr(self, "country_code") else None)!s}, '
+                f'metro={(self.metro if hasattr(self, "metro") else None)!s}, '
+                f'area={(self.area if hasattr(self, "area") else None)!s})')

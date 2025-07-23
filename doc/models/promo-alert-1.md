@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `filter_criteria` | `List[object]` | Optional | - |
+| `filter_criteria` | `List[Any]` | Optional | - |
 | `condition` | [`List[Keyschunk2]`](../../doc/models/keyschunk-2.md) | Optional | - |
 | `enable_promo_exp` | `bool` | Optional | - |
 

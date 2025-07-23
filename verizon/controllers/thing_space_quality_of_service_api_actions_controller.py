@@ -81,8 +81,8 @@ class ThingSpaceQualityOfServiceAPIActionsController(BaseController):
         the account name and the subscription ID.
 
         Args:
-            account_name (str): TODO: type description here.
-            qos_subscription_id (str): TODO: type description here.
+            account_name (str): The request query parameter.
+            qos_subscription_id (str): The request query parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other

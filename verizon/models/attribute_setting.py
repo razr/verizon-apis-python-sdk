@@ -84,7 +84,7 @@ class AttributeSetting(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -101,3 +101,21 @@ class AttributeSetting(object):
                    is_observable,
                    is_observing,
                    frequency)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'value={(self.value if hasattr(self, "value") else None)!r}, '
+                f'created_on={(self.created_on if hasattr(self, "created_on") else None)!r}, '
+                f'is_observable={(self.is_observable if hasattr(self, "is_observable") else None)!r}, '
+                f'is_observing={(self.is_observing if hasattr(self, "is_observing") else None)!r}, '
+                f'frequency={(self.frequency if hasattr(self, "frequency") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'value={(self.value if hasattr(self, "value") else None)!s}, '
+                f'created_on={(self.created_on if hasattr(self, "created_on") else None)!s}, '
+                f'is_observable={(self.is_observable if hasattr(self, "is_observable") else None)!s}, '
+                f'is_observing={(self.is_observing if hasattr(self, "is_observing") else None)!s}, '
+                f'frequency={(self.frequency if hasattr(self, "frequency") else None)!s})')

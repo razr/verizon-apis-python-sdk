@@ -114,7 +114,7 @@ class V3CampaignMetaInfo(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -149,3 +149,35 @@ class V3CampaignMetaInfo(object):
                    firmware_to,
                    protocol,
                    campaign_time_window_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'id={self.id!r}, '
+                f'campaign_name={(self.campaign_name if hasattr(self, "campaign_name") else None)!r}, '
+                f'firmware_name={(self.firmware_name if hasattr(self, "firmware_name") else None)!r}, '
+                f'firmware_from={(self.firmware_from if hasattr(self, "firmware_from") else None)!r}, '
+                f'firmware_to={(self.firmware_to if hasattr(self, "firmware_to") else None)!r}, '
+                f'protocol={(self.protocol if hasattr(self, "protocol") else None)!r}, '
+                f'make={self.make!r}, '
+                f'model={self.model!r}, '
+                f'start_date={self.start_date!r}, '
+                f'end_date={self.end_date!r}, '
+                f'campaign_time_window_list={(self.campaign_time_window_list if hasattr(self, "campaign_time_window_list") else None)!r}, '
+                f'status={self.status!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'id={self.id!s}, '
+                f'campaign_name={(self.campaign_name if hasattr(self, "campaign_name") else None)!s}, '
+                f'firmware_name={(self.firmware_name if hasattr(self, "firmware_name") else None)!s}, '
+                f'firmware_from={(self.firmware_from if hasattr(self, "firmware_from") else None)!s}, '
+                f'firmware_to={(self.firmware_to if hasattr(self, "firmware_to") else None)!s}, '
+                f'protocol={(self.protocol if hasattr(self, "protocol") else None)!s}, '
+                f'make={self.make!s}, '
+                f'model={self.model!s}, '
+                f'start_date={self.start_date!s}, '
+                f'end_date={self.end_date!s}, '
+                f'campaign_time_window_list={(self.campaign_time_window_list if hasattr(self, "campaign_time_window_list") else None)!s}, '
+                f'status={self.status!s})')

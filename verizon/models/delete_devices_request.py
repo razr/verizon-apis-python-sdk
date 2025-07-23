@@ -61,7 +61,7 @@ class DeleteDevicesRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -72,3 +72,13 @@ class DeleteDevicesRequest(object):
         # Return an object of this model
         return cls(devices_to_delete,
                    account_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices_to_delete={self.devices_to_delete!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices_to_delete={self.devices_to_delete!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s})')

@@ -13,8 +13,6 @@ class CarrierServicePlan(object):
 
     """Implementation of the 'CarrierServicePlan' model.
 
-    TODO: type model description here.
-
     Attributes:
         name (str): The name of the service plan
         code (str): The inventory name or system name of the service plan
@@ -72,7 +70,7 @@ class CarrierServicePlan(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -85,3 +83,17 @@ class CarrierServicePlan(object):
                    code,
                    size_kb,
                    carrier_service_plan_code)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'code={(self.code if hasattr(self, "code") else None)!r}, '
+                f'size_kb={(self.size_kb if hasattr(self, "size_kb") else None)!r}, '
+                f'carrier_service_plan_code={(self.carrier_service_plan_code if hasattr(self, "carrier_service_plan_code") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'code={(self.code if hasattr(self, "code") else None)!s}, '
+                f'size_kb={(self.size_kb if hasattr(self, "size_kb") else None)!s}, '
+                f'carrier_service_plan_code={(self.carrier_service_plan_code if hasattr(self, "carrier_service_plan_code") else None)!s})')

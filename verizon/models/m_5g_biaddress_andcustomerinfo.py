@@ -14,11 +14,9 @@ class M5gBiaddressAndcustomerinfo(object):
 
     """Implementation of the '5gbiaddressAndcustomerinfo' model.
 
-    TODO: type model description here.
-
     Attributes:
-        primary_placeofuse (M5gBiprimaryPlaceofuse): TODO: type description
-            here.
+        primary_placeofuse (M5gBiprimaryPlaceofuse): The model property of
+            type M5gBiprimaryPlaceofuse.
 
     """
 
@@ -54,10 +52,18 @@ class M5gBiaddressAndcustomerinfo(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         primary_placeofuse = M5gBiprimaryPlaceofuse.from_dictionary(dictionary.get('primaryPlaceofuse')) if 'primaryPlaceofuse' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(primary_placeofuse)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'primary_placeofuse={(self.primary_placeofuse if hasattr(self, "primary_placeofuse") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'primary_placeofuse={(self.primary_placeofuse if hasattr(self, "primary_placeofuse") else None)!s})')

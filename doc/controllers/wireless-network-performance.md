@@ -34,7 +34,7 @@ def near_real_time_network_conditions(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`WNPRequestResponse`](../../doc/models/wnp-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`WNPRequestResponse`](../../doc/models/wnp-request-response.md).
 
 ## Example Usage
 
@@ -49,13 +49,18 @@ body = GetNetworkConditionsRequest(
 )
 
 result = wireless_network_performance_controller.near_real_time_network_conditions(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
 
 ```json
 {
-  "requestId": "d1f08526-5443-4054-9a29-4456490ea9f8"
+  "requestId": "d1f08526-eeee-ffff-gggg-4456490ea9f8"
 }
 ```
 
@@ -68,7 +73,7 @@ result = wireless_network_performance_controller.near_real_time_network_conditio
 
 # Domestic 4 G and 5G Nationwide Network Coverage
 
-Run a report to determine network types available and available coverage. Network types covered include: CAT-M, NB-IOT, LTE, LTE-AWS, 5GNW and C-BAND.
+Run a report for FWA Address qualification or to determine network types available and available coverage. Network types covered include: CAT-M, NB-IOT, LTE, LTE-AWS, 5GNW, MMWAVE and C-BAND.
 
 ```python
 def domestic_4_g_and_5g_nationwide_network_coverage(self,
@@ -79,42 +84,50 @@ def domestic_4_g_and_5g_nationwide_network_coverage(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`GetWirelessCoverageRequest`](../../doc/models/get-wireless-coverage-request.md) | Body, Required | Request for network coverage details. |
+| `body` | [`M2mV1IntelligenceWirelessCoverageRequest`](../../doc/models/m2m-v1-intelligence-wireless-coverage-request.md) | Body, Required | Request for network coverage details. |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`WNPRequestResponse`](../../doc/models/wnp-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`WNPRequestResponse`](../../doc/models/wnp-request-response.md).
 
 ## Example Usage
 
 ```python
-body = GetWirelessCoverageRequest(
+body = M2mV1IntelligenceWirelessCoverageRequest(
     account_name='0000123456-00001',
-    request_type='NW',
-    location_type='LONGLAT',
-    locations=Locationscoord(
-        coordinates_list=[
-            Coordinates(
-                latitude='-33.84819',
-                longitude='151.22049'
+    request_type='FWA',
+    location_type='ADDRESS',
+    locations=Locations1(
+        address_list=[
+            AddressItem(
+                address_line_1='street address',
+                city='city',
+                state='LA',
+                country='USA',
+                zip='00000'
             )
         ]
     ),
     network_types_list=[
-        NetworkType(
+        NetworkTypeObject(
             network_type='LTE'
         )
     ]
 )
 
 result = wireless_network_performance_controller.domestic_4_g_and_5g_nationwide_network_coverage(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
 
 ```json
 {
-  "requestId": "d1f08526-5443-4054-9a29-4456490ea9f8"
+  "requestId": "d1f08526-eeee-ffff-gggg-4456490ea9f8"
 }
 ```
 
@@ -142,7 +155,7 @@ def site_proximity(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`WNPRequestResponse`](../../doc/models/wnp-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`WNPRequestResponse`](../../doc/models/wnp-request-response.md).
 
 ## Example Usage
 
@@ -157,13 +170,18 @@ body = GetNetworkConditionsRequest(
 )
 
 result = wireless_network_performance_controller.site_proximity(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
 
 ```json
 {
-  "requestId": "d1f08526-5443-4054-9a29-4456490ea9f8"
+  "requestId": "d1f08526-eeee-ffff-gggg-4456490ea9f8"
 }
 ```
 
@@ -191,7 +209,7 @@ def device_experience_30_days_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`WNPRequestResponse`](../../doc/models/wnp-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`WNPRequestResponse`](../../doc/models/wnp-request-response.md).
 
 ## Example Usage
 
@@ -206,13 +224,18 @@ body = GetDeviceExperienceScoreHistoryRequest(
 )
 
 result = wireless_network_performance_controller.device_experience_30_days_history(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
 
 ```json
 {
-  "requestId": "d1f08526-5443-4054-9a29-4456490ea9f8"
+  "requestId": "d1f08526-eeee-ffff-gggg-4456490ea9f8"
 }
 ```
 
@@ -240,7 +263,7 @@ def device_experience_bulk_latest(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`WNPRequestResponse`](../../doc/models/wnp-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`WNPRequestResponse`](../../doc/models/wnp-request-response.md).
 
 ## Example Usage
 
@@ -257,13 +280,18 @@ body = GetDeviceExperienceScoreBulkRequest(
 )
 
 result = wireless_network_performance_controller.device_experience_bulk_latest(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
 
 ```json
 {
-  "requestId": "d1f08526-5443-4054-9a29-4456490ea9f8"
+  "requestId": "d1f08526-eeee-ffff-gggg-4456490ea9f8"
 }
 ```
 

@@ -15,9 +15,9 @@ class ReportStatusEnum(object):
     Status of the report.
 
     Attributes:
-        QUEUED: TODO: type description here.
-        INPROGRESS: TODO: type description here.
-        COMPLETED: TODO: type description here.
+        QUEUED: The enum member of type str.
+        INPROGRESS: The enum member of type str.
+        COMPLETED: The enum member of type str.
 
     """
     QUEUED = 'QUEUED'

@@ -51,7 +51,7 @@ class V2TimeWindow(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -60,3 +60,13 @@ class V2TimeWindow(object):
         # Return an object of this model
         return cls(start_time,
                    end_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'start_time={self.start_time!r}, '
+                f'end_time={self.end_time!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'start_time={self.start_time!s}, '
+                f'end_time={self.end_time!s})')

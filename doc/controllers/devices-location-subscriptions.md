@@ -31,7 +31,7 @@ def get_location_service_subscription_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceLocationSubscription`](../../doc/models/device-location-subscription.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceLocationSubscription`](../../doc/models/device-location-subscription.md).
 
 ## Example Usage
 
@@ -39,6 +39,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account_name = '0000123456-00001'
 
 result = devices_location_subscriptions_controller.get_location_service_subscription_status(account_name)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -76,7 +81,7 @@ def get_location_service_usage(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type `object`.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
@@ -89,6 +94,11 @@ body = BillUsageRequest(
 )
 
 result = devices_location_subscriptions_controller.get_location_service_usage(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response

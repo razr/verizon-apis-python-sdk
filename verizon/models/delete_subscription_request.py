@@ -64,7 +64,7 @@ class DeleteSubscriptionRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -73,3 +73,13 @@ class DeleteSubscriptionRequest(object):
         # Return an object of this model
         return cls(accountidentifier,
                    resourceidentifier)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'accountidentifier={(self.accountidentifier if hasattr(self, "accountidentifier") else None)!r}, '
+                f'resourceidentifier={(self.resourceidentifier if hasattr(self, "resourceidentifier") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'accountidentifier={(self.accountidentifier if hasattr(self, "accountidentifier") else None)!s}, '
+                f'resourceidentifier={(self.resourceidentifier if hasattr(self, "resourceidentifier") else None)!s})')

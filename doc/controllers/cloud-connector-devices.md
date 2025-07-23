@@ -35,7 +35,7 @@ def update_devices_configuration_value(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ChangeConfigurationResponse`](../../doc/models/change-configuration-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ChangeConfigurationResponse`](../../doc/models/change-configuration-response.md).
 
 ## Example Usage
 
@@ -53,6 +53,11 @@ body = ChangeConfigurationRequest(
 )
 
 result = cloud_connector_devices_controller.update_devices_configuration_value(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -96,7 +101,7 @@ def find_device_by_property_values(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FindDeviceByPropertyResponseList`](../../doc/models/find-device-by-property-response-list.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FindDeviceByPropertyResponseList`](../../doc/models/find-device-by-property-response-list.md).
 
 ## Example Usage
 
@@ -111,6 +116,11 @@ body = QuerySubscriptionRequest(
 )
 
 result = cloud_connector_devices_controller.find_device_by_property_values(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -172,7 +182,7 @@ def search_devices_resources_by_property_values(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`SearchDeviceByPropertyResponseList`](../../doc/models/search-device-by-property-response-list.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SearchDeviceByPropertyResponseList`](../../doc/models/search-device-by-property-response-list.md).
 
 ## Example Usage
 
@@ -187,6 +197,11 @@ body = QuerySubscriptionRequest(
 )
 
 result = cloud_connector_devices_controller.search_devices_resources_by_property_values(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -232,7 +247,7 @@ def search_device_event_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`SearchDeviceEventHistoryResponseList`](../../doc/models/search-device-event-history-response-list.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SearchDeviceEventHistoryResponseList`](../../doc/models/search-device-event-history-response-list.md).
 
 ## Example Usage
 
@@ -251,6 +266,11 @@ body = SearchDeviceEventHistoryRequest(
 )
 
 result = cloud_connector_devices_controller.search_device_event_history(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -315,7 +335,7 @@ def search_sensor_readings(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`SearchSensorHistoryResponseList`](../../doc/models/search-sensor-history-response-list.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SearchSensorHistoryResponseList`](../../doc/models/search-sensor-history-response-list.md).
 
 ## Example Usage
 
@@ -336,6 +356,11 @@ result = cloud_connector_devices_controller.search_sensor_readings(
     fieldname,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -403,7 +428,7 @@ def delete_device_from_account(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
 ## Example Usage
 
@@ -418,5 +443,10 @@ body = RemoveDeviceRequest(
 )
 
 result = cloud_connector_devices_controller.delete_device_from_account(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

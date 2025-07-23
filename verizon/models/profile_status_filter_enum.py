@@ -15,13 +15,13 @@ class ProfileStatusFilterEnum(object):
     The last status of the device's profile as a filter.
 
     Attributes:
-        ENABLE: TODO: type description here.
-        DISABLE: TODO: type description here.
-        DOWNLOAD_DISABLE: TODO: type description here.
-        DOWNLOAD_ENABLE: TODO: type description here.
-        NOT_DOWNLOADED: TODO: type description here.
-        UNKNOWN: TODO: type description here.
-        DELETE: TODO: type description here.
+        ENABLE: The enum member of type str.
+        DISABLE: The enum member of type str.
+        DOWNLOAD_DISABLE: The enum member of type str.
+        DOWNLOAD_ENABLE: The enum member of type str.
+        NOT_DOWNLOADED: The enum member of type str.
+        UNKNOWN: The enum member of type str.
+        DELETE: The enum member of type str.
 
     """
     ENABLE = 'ENABLE'

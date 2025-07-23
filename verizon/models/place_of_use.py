@@ -59,7 +59,7 @@ class PlaceOfUse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -68,3 +68,13 @@ class PlaceOfUse(object):
         # Return an object of this model
         return cls(address,
                    customer_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'address={self.address!r}, '
+                f'customer_name={self.customer_name!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'address={self.address!s}, '
+                f'customer_name={self.customer_name!s})')

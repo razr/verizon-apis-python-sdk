@@ -34,7 +34,7 @@ def get_account_licenses_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V3LicenseSummary`](../../doc/models/v3-license-summary.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V3LicenseSummary`](../../doc/models/v3-license-summary.md).
 
 ## Example Usage
 
@@ -47,6 +47,11 @@ result = software_management_licenses_v3_controller.get_account_licenses_status(
     acc,
     last_seen_device_id=last_seen_device_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -97,7 +102,7 @@ def assign_licenses_to_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V3LicenseAssignedRemovedResult`](../../doc/models/v3-license-assigned-removed-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V3LicenseAssignedRemovedResult`](../../doc/models/v3-license-assigned-removed-result.md).
 
 ## Example Usage
 
@@ -115,6 +120,11 @@ result = software_management_licenses_v3_controller.assign_licenses_to_devices(
     acc,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -163,7 +173,7 @@ def remove_licenses_from_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V3LicenseAssignedRemovedResult`](../../doc/models/v3-license-assigned-removed-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V3LicenseAssignedRemovedResult`](../../doc/models/v3-license-assigned-removed-result.md).
 
 ## Example Usage
 
@@ -182,6 +192,11 @@ result = software_management_licenses_v3_controller.remove_licenses_from_devices
     acc,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

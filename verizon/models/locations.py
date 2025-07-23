@@ -17,7 +17,8 @@ class Locations(object):
     Location details.
 
     Attributes:
-        address_list (List[AddressItem]): TODO: type description here.
+        address_list (List[AddressItem]): The model property of type
+            List[AddressItem].
 
     """
 
@@ -53,7 +54,7 @@ class Locations(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -64,3 +65,11 @@ class Locations(object):
             address_list = APIHelper.SKIP
         # Return an object of this model
         return cls(address_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'address_list={(self.address_list if hasattr(self, "address_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'address_list={(self.address_list if hasattr(self, "address_list") else None)!s})')

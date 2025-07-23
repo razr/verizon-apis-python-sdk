@@ -33,7 +33,7 @@ def list_registered_callbacks(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`CallbackSummary`](../../doc/models/callback-summary.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CallbackSummary`](../../doc/models/callback-summary.md).
 
 ## Example Usage
 
@@ -41,6 +41,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account = '0000123456-00001'
 
 result = software_management_callbacks_v2_controller.list_registered_callbacks(account)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -77,7 +82,7 @@ def update_callback(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FotaV2CallbackRegistrationResult`](../../doc/models/fota-v2-callback-registration-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FotaV2CallbackRegistrationResult`](../../doc/models/fota-v2-callback-registration-result.md).
 
 ## Example Usage
 
@@ -92,6 +97,11 @@ result = software_management_callbacks_v2_controller.update_callback(
     account,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -128,7 +138,7 @@ def register_callback(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FotaV2CallbackRegistrationResult`](../../doc/models/fota-v2-callback-registration-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FotaV2CallbackRegistrationResult`](../../doc/models/fota-v2-callback-registration-result.md).
 
 ## Example Usage
 
@@ -143,6 +153,11 @@ result = software_management_callbacks_v2_controller.register_callback(
     account,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -177,7 +192,7 @@ def deregister_callback(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FotaV2SuccessResult`](../../doc/models/fota-v2-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FotaV2SuccessResult`](../../doc/models/fota-v2-success-result.md).
 
 ## Example Usage
 
@@ -185,6 +200,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account = '0000123456-00001'
 
 result = software_management_callbacks_v2_controller.deregister_callback(account)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

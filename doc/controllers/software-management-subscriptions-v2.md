@@ -26,7 +26,7 @@ def get_account_subscription_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FotaV2Subscription`](../../doc/models/fota-v2-subscription.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FotaV2Subscription`](../../doc/models/fota-v2-subscription.md).
 
 ## Example Usage
 
@@ -34,6 +34,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account = '0000123456-00001'
 
 result = software_management_subscriptions_v2_controller.get_account_subscription_status(account)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

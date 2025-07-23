@@ -13,8 +13,6 @@ class Carrier(object):
 
     """Implementation of the 'Carrier' model.
 
-    TODO: type model description here.
-
     Attributes:
         carriers (str): The list of carriers with active or available profiles
 
@@ -52,10 +50,18 @@ class Carrier(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         carriers = dictionary.get("carriers") if dictionary.get("carriers") else APIHelper.SKIP
         # Return an object of this model
         return cls(carriers)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'carriers={(self.carriers if hasattr(self, "carriers") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'carriers={(self.carriers if hasattr(self, "carriers") else None)!s})')

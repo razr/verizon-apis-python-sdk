@@ -34,7 +34,7 @@ def list_account_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceListQueryResult`](../../doc/models/device-list-query-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceListQueryResult`](../../doc/models/device-list-query-result.md).
 
 ## Example Usage
 
@@ -47,6 +47,11 @@ result = software_management_reports_v1_controller.list_account_devices(
     account,
     start_index
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -119,7 +124,7 @@ def list_upgrades_for_specified_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`UpgradeListQueryResult`](../../doc/models/upgrade-list-query-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`UpgradeListQueryResult`](../../doc/models/upgrade-list-query-result.md).
 
 ## Example Usage
 
@@ -135,6 +140,11 @@ result = software_management_reports_v1_controller.list_upgrades_for_specified_s
     upgrade_status,
     start_index
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -163,7 +173,7 @@ def get_device_firmware_upgrade_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[DeviceUpgradeHistory]`](../../doc/models/device-upgrade-history.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[DeviceUpgradeHistory]`](../../doc/models/device-upgrade-history.md).
 
 ## Example Usage
 
@@ -176,6 +186,11 @@ result = software_management_reports_v1_controller.get_device_firmware_upgrade_h
     account,
     device_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

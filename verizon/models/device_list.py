@@ -14,10 +14,8 @@ class DeviceList(object):
 
     """Implementation of the 'DeviceList' model.
 
-    TODO: type model description here.
-
     Attributes:
-        device_ids (List[DeviceId]): TODO: type description here.
+        device_ids (List[DeviceId]): The model property of type List[DeviceId].
 
     """
 
@@ -53,7 +51,7 @@ class DeviceList(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -64,3 +62,11 @@ class DeviceList(object):
             device_ids = APIHelper.SKIP
         # Return an object of this model
         return cls(device_ids)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!s})')

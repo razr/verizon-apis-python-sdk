@@ -38,7 +38,7 @@ def schedule_campaign_firmware_upgrade(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`CampaignSoftware`](../../doc/models/campaign-software.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CampaignSoftware`](../../doc/models/campaign-software.md).
 
 ## Example Usage
 
@@ -77,6 +77,11 @@ result = campaigns_v2_controller.schedule_campaign_firmware_upgrade(
     account,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -138,7 +143,7 @@ def get_campaign_information(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`CampaignSoftware`](../../doc/models/campaign-software.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CampaignSoftware`](../../doc/models/campaign-software.md).
 
 ## Example Usage
 
@@ -151,6 +156,11 @@ result = campaigns_v2_controller.get_campaign_information(
     account,
     campaign_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -214,7 +224,7 @@ def update_campaign_firmware_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V2AddOrRemoveDeviceResult`](../../doc/models/v2-add-or-remove-device-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V2AddOrRemoveDeviceResult`](../../doc/models/v2-add-or-remove-device-result.md).
 
 ## Example Usage
 
@@ -237,6 +247,11 @@ result = campaigns_v2_controller.update_campaign_firmware_devices(
     campaign_id,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -265,7 +280,7 @@ def cancel_campaign(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FotaV2SuccessResult`](../../doc/models/fota-v2-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FotaV2SuccessResult`](../../doc/models/fota-v2-success-result.md).
 
 ## Example Usage
 
@@ -278,6 +293,11 @@ result = campaigns_v2_controller.cancel_campaign(
     account,
     campaign_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -316,7 +336,7 @@ def update_campaign_dates(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`CampaignSoftware`](../../doc/models/campaign-software.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CampaignSoftware`](../../doc/models/campaign-software.md).
 
 ## Example Usage
 
@@ -349,6 +369,11 @@ result = campaigns_v2_controller.update_campaign_dates(
     campaign_id,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -418,7 +443,7 @@ def schedule_file_upgrade(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`UploadAndScheduleFileResponse`](../../doc/models/upload-and-schedule-file-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`UploadAndScheduleFileResponse`](../../doc/models/upload-and-schedule-file-response.md).
 
 ## Example Usage
 
@@ -439,6 +464,11 @@ result = campaigns_v2_controller.schedule_file_upgrade(
     acc,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -467,7 +497,7 @@ def schedule_sw_upgrade_http_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`UploadAndScheduleFileResponse`](../../doc/models/upload-and-schedule-file-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`UploadAndScheduleFileResponse`](../../doc/models/upload-and-schedule-file-response.md).
 
 ## Example Usage
 
@@ -506,6 +536,11 @@ result = campaigns_v2_controller.schedule_sw_upgrade_http_devices(
     acc,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

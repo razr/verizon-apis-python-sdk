@@ -14,10 +14,9 @@ class CreateTargetRequestFields(object):
 
     """Implementation of the 'CreateTargetRequestFields' model.
 
-    TODO: type model description here.
-
     Attributes:
-        httpheaders (FieldsHttpHeaders): TODO: type description here.
+        httpheaders (FieldsHttpHeaders): The model property of type
+            FieldsHttpHeaders.
         devicetypes (List[str]): List of device types.
 
     """
@@ -59,7 +58,7 @@ class CreateTargetRequestFields(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -68,3 +67,13 @@ class CreateTargetRequestFields(object):
         # Return an object of this model
         return cls(httpheaders,
                    devicetypes)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'httpheaders={(self.httpheaders if hasattr(self, "httpheaders") else None)!r}, '
+                f'devicetypes={(self.devicetypes if hasattr(self, "devicetypes") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'httpheaders={(self.httpheaders if hasattr(self, "httpheaders") else None)!s}, '
+                f'devicetypes={(self.devicetypes if hasattr(self, "devicetypes") else None)!s})')

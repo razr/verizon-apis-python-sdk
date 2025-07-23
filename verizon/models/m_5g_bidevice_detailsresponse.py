@@ -14,11 +14,10 @@ class M5gBideviceDetailsresponse(object):
 
     """Implementation of the '5gbideviceDetailsresponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        has_more_data (bool): TODO: type description here.
-        devices (List[M5gBiaccountNameobject]): TODO: type description here.
+        has_more_data (bool): The model property of type bool.
+        devices (List[M5gBiaccountNameobject]): The model property of type
+            List[M5gBiaccountNameobject].
 
     """
 
@@ -59,7 +58,7 @@ class M5gBideviceDetailsresponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -72,3 +71,13 @@ class M5gBideviceDetailsresponse(object):
         # Return an object of this model
         return cls(has_more_data,
                    devices)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!r}, '
+                f'devices={(self.devices if hasattr(self, "devices") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!s}, '
+                f'devices={(self.devices if hasattr(self, "devices") else None)!s})')

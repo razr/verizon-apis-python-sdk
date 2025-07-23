@@ -147,7 +147,7 @@ class CarrierActivateRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -184,3 +184,35 @@ class CarrierActivateRequest(object):
                    primary_place_of_use,
                    public_ip_restriction,
                    sku_number)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={self.devices!r}, '
+                f'service_plan={self.service_plan!r}, '
+                f'mdn_zip_code={self.mdn_zip_code!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'carrier_ip_pool_name={(self.carrier_ip_pool_name if hasattr(self, "carrier_ip_pool_name") else None)!r}, '
+                f'carrier_name={(self.carrier_name if hasattr(self, "carrier_name") else None)!r}, '
+                f'cost_center_code={(self.cost_center_code if hasattr(self, "cost_center_code") else None)!r}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!r}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!r}, '
+                f'lead_id={(self.lead_id if hasattr(self, "lead_id") else None)!r}, '
+                f'primary_place_of_use={(self.primary_place_of_use if hasattr(self, "primary_place_of_use") else None)!r}, '
+                f'public_ip_restriction={(self.public_ip_restriction if hasattr(self, "public_ip_restriction") else None)!r}, '
+                f'sku_number={(self.sku_number if hasattr(self, "sku_number") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={self.devices!s}, '
+                f'service_plan={self.service_plan!s}, '
+                f'mdn_zip_code={self.mdn_zip_code!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'carrier_ip_pool_name={(self.carrier_ip_pool_name if hasattr(self, "carrier_ip_pool_name") else None)!s}, '
+                f'carrier_name={(self.carrier_name if hasattr(self, "carrier_name") else None)!s}, '
+                f'cost_center_code={(self.cost_center_code if hasattr(self, "cost_center_code") else None)!s}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!s}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!s}, '
+                f'lead_id={(self.lead_id if hasattr(self, "lead_id") else None)!s}, '
+                f'primary_place_of_use={(self.primary_place_of_use if hasattr(self, "primary_place_of_use") else None)!s}, '
+                f'public_ip_restriction={(self.public_ip_restriction if hasattr(self, "public_ip_restriction") else None)!s}, '
+                f'sku_number={(self.sku_number if hasattr(self, "sku_number") else None)!s})')

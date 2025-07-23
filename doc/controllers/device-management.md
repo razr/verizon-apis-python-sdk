@@ -37,8 +37,8 @@ device_management_controller = client.device_management
 * [Billed Usage Info](../../doc/controllers/device-management.md#billed-usage-info)
 * [Usage Segmentation Label Association](../../doc/controllers/device-management.md#usage-segmentation-label-association)
 * [Usage Segmentation Label Deletion](../../doc/controllers/device-management.md#usage-segmentation-label-deletion)
-* [Activation Order Status](../../doc/controllers/device-management.md#activation-order-status)
-* [Upload Device Identifier](../../doc/controllers/device-management.md#upload-device-identifier)
+* [Upload Activate Device](../../doc/controllers/device-management.md#upload-activate-device)
+* [Device Upload Status](../../doc/controllers/device-management.md#device-upload-status)
 
 
 # Activate Service for Devices
@@ -58,7 +58,7 @@ def activate_service_for_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -119,6 +119,11 @@ body = CarrierActivateRequest(
 )
 
 result = device_management_controller.activate_service_for_devices(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -153,7 +158,7 @@ def add_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[AddDevicesResult]`](../../doc/models/add-devices-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[AddDevicesResult]`](../../doc/models/add-devices-result.md).
 
 ## Example Usage
 
@@ -197,6 +202,11 @@ body = AddDevicesRequest(
 )
 
 result = device_management_controller.add_devices(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -239,7 +249,7 @@ def update_devices_contact_information(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -284,6 +294,11 @@ body = ContactInfoUpdateRequest(
 )
 
 result = device_management_controller.update_devices_contact_information(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -318,7 +333,7 @@ def update_devices_custom_fields(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -347,6 +362,11 @@ body = CustomFieldsUpdateRequest(
 )
 
 result = device_management_controller.update_devices_custom_fields(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -381,7 +401,7 @@ def deactivate_service_for_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -404,6 +424,11 @@ body = CarrierDeactivateRequest(
 )
 
 result = device_management_controller.deactivate_service_for_devices(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -438,7 +463,7 @@ def delete_deactivated_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[DeleteDevicesResult]`](../../doc/models/delete-devices-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[DeleteDevicesResult]`](../../doc/models/delete-devices-result.md).
 
 ## Example Usage
 
@@ -473,6 +498,11 @@ body = DeleteDevicesRequest(
 )
 
 result = device_management_controller.delete_deactivated_devices(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -534,7 +564,7 @@ def list_devices_information(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`AccountDeviceListResult`](../../doc/models/account-device-list-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AccountDeviceListResult`](../../doc/models/account-device-list-result.md).
 
 ## Example Usage
 
@@ -547,6 +577,11 @@ body = AccountDeviceListRequest(
 )
 
 result = device_management_controller.list_devices_information(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -613,7 +648,7 @@ def list_devices_with_imei_iccid_mismatch(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceMismatchListResult`](../../doc/models/device-mismatch-list-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceMismatchListResult`](../../doc/models/device-mismatch-list-result.md).
 
 ## Example Usage
 
@@ -641,6 +676,11 @@ body = DeviceMismatchListRequest(
 )
 
 result = device_management_controller.list_devices_with_imei_iccid_mismatch(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -685,7 +725,7 @@ def move_devices_within_accounts_of_profile(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -706,6 +746,11 @@ body = MoveDeviceRequest(
 )
 
 result = device_management_controller.move_devices_within_accounts_of_profile(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -740,7 +785,7 @@ def update_devices_state(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -795,6 +840,11 @@ body = GoToStateRequest(
 )
 
 result = device_management_controller.update_devices_state(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -829,7 +879,7 @@ def change_devices_service_plan(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -850,6 +900,11 @@ body = ServicePlanUpdateRequest(
 )
 
 result = device_management_controller.change_devices_service_plan(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -884,7 +939,7 @@ def suspend_service_for_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -903,6 +958,11 @@ body = CarrierActionsRequest(
 )
 
 result = device_management_controller.suspend_service_for_devices(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -937,7 +997,7 @@ def restore_service_for_suspended_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -956,6 +1016,11 @@ body = CarrierActionsRequest(
 )
 
 result = device_management_controller.restore_service_for_suspended_devices(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -990,7 +1055,7 @@ def check_devices_availability_for_activation(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -1010,6 +1075,11 @@ body = DeviceActivationRequest(
 )
 
 result = device_management_controller.check_devices_availability_for_activation(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1044,7 +1114,7 @@ def retrieve_device_connection_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ConnectionHistoryResult`](../../doc/models/connection-history-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ConnectionHistoryResult`](../../doc/models/connection-history-result.md).
 
 ## Example Usage
 
@@ -1059,6 +1129,11 @@ body = DeviceConnectionListRequest(
 )
 
 result = device_management_controller.retrieve_device_connection_history(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1127,7 +1202,7 @@ def update_devices_cost_center_code(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -1147,6 +1222,11 @@ body = DeviceCostCenterRequest(
 )
 
 result = device_management_controller.update_devices_cost_center_code(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1181,13 +1261,13 @@ def get_device_extended_diagnostic_information(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceExtendedDiagnosticsResult`](../../doc/models/device-extended-diagnostics-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceExtendedDiagnosticsResult`](../../doc/models/device-extended-diagnostics-result.md).
 
 ## Example Usage
 
 ```python
 body = DeviceExtendedDiagnosticsRequest(
-    account_name='1223334444-00001',
+    account_name='0000123456-00001',
     device_list=[
         DeviceId(
             id='10-digit MDN',
@@ -1197,19 +1277,487 @@ body = DeviceExtendedDiagnosticsRequest(
 )
 
 result = device_management_controller.get_device_extended_diagnostic_information(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
 
 ```json
 {
+  "accountName": "0000123456-00001",
+  "deviceList": [
+    {
+      "id": "15-digit IMEI",
+      "kind": "imei"
+    }
+  ],
   "categories": [
+    {
+      "categoryName": "DeviceIdentifier",
+      "extendedAttributes": [
+        {
+          "key": "ICCID",
+          "value": "20-digit ICCID"
+        },
+        {
+          "key": "IMEI",
+          "value": "15-digit IMEI"
+        },
+        {
+          "key": "IMSI",
+          "value": "15-digit IMSI"
+        },
+        {
+          "key": "MDN",
+          "value": "10-digit phone number"
+        },
+        {
+          "key": "MIN",
+          "value": "10-digit phone number"
+        },
+        {
+          "key": "MSISDN",
+          "value": "1+ 10-digit phone number"
+        }
+      ]
+    },
+    {
+      "categoryName": "DeviceAttributes",
+      "extendedAttributes": [
+        {
+          "key": "AccountName",
+          "value": "0000123456-00001"
+        },
+        {
+          "key": "GroupName",
+          "value": "Default: 0000123456-00001"
+        },
+        {
+          "key": "DeviceSku",
+          "value": "VZW080000100112"
+        },
+        {
+          "key": "CustomFields1",
+          "value": "5G SA FWA site"
+        },
+        {
+          "key": "ServicePlanType",
+          "value": "Public Dynamic"
+        },
+        {
+          "key": "FeatureCodes",
+          "value": "84777,86112"
+        },
+        {
+          "key": "FeatureNames",
+          "value": "84777,86112"
+        },
+        {
+          "key": "FeatureTypes",
+          "value": "4G PUBLIC DYNAM IP DSS STREAM,5G IPV/IPV6 IP"
+        },
+        {
+          "key": "BundleSku",
+          "value": "TSS-IOT-INTELLIGENCE-CUSTOM"
+        },
+        {
+          "key": "RatePlanCode",
+          "value": "5GBI100MBPS"
+        },
+        {
+          "key": "DeviceMake",
+          "value": "ODI"
+        },
+        {
+          "key": "DeviceModel",
+          "value": "DIGI - EX50-WXS6-GLB"
+        },
+        {
+          "key": "ModemGeneration",
+          "value": "5G"
+        },
+        {
+          "key": "4GDeviceDetectionDate",
+          "value": "2024-09-25T22:18:07Z"
+        },
+        {
+          "key": "Services",
+          "value": "null"
+        },
+        {
+          "key": "ModemType",
+          "value": "5GE"
+        },
+        {
+          "key": "DiagnosticsEligibility",
+          "value": "StreamEligible"
+        },
+        {
+          "key": "DiagnosticsSKUName",
+          "value": "TSS-IOT-INTLG-CUSTOM-DIAG-LWM2M"
+        },
+        {
+          "key": "AvailableNetworks",
+          "value": "6"
+        },
+        {
+          "key": "ModemCategory",
+          "value": "IoT Module"
+        }
+      ]
+    },
+    {
+      "categoryName": "Provisioning",
+      "extendedAttributes": [
+        {
+          "key": "LastActivationBy",
+          "value": "Verizon, User"
+        },
+        {
+          "key": "LastActivationDate",
+          "value": "2024-09-25T00:10:24Z"
+        },
+        {
+          "key": "CreatedAt",
+          "value": "2024-09-24T20:56:12Z"
+        },
+        {
+          "key": "DeviceState",
+          "value": "active"
+        },
+        {
+          "key": "LastDeactivationDate",
+          "value": "2024-09-25T00:05:21Z"
+        }
+      ]
+    },
     {
       "categoryName": "Connectivity",
       "extendedAttributes": [
         {
           "key": "Connected",
+          "value": "true"
+        },
+        {
+          "key": "LastConnectionDate",
+          "value": "2025-03-14T13:12:01.000Z"
+        },
+        {
+          "key": "IPAddress",
+          "value": "10.0.0.0"
+        },
+        {
+          "key": "LastDisconnectDate",
+          "value": "2025-03-14T08:34:43.000Z"
+        },
+        {
+          "key": "RoamingStatus",
           "value": "false"
+        },
+        {
+          "key": "RomaingLastModifiedDate",
+          "value": "2025-03-14T13:12:01.000Z"
+        },
+        {
+          "key": "RequiredAPN",
+          "value": "The Access point name"
+        }
+      ]
+    },
+    {
+      "categoryName": "Billing",
+      "extendedAttributes": [
+        {
+          "key": "BillingCycleStartDate",
+          "value": "2024-09-25T12:00:00Z"
+        },
+        {
+          "key": "BillingCycleEndDate",
+          "value": "2024-09-25T12:00:00Z"
+        },
+        {
+          "key": "DefaultRatePlan",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "categoryName": "Usage",
+      "extendedAttributes": [
+        {
+          "key": "CurrentRatedUsageRecordDate",
+          "value": "2024-09-25T00:00:00Z"
+        },
+        {
+          "key": "CurrentBillCycleDataRatedUsage",
+          "value": "0"
+        },
+        {
+          "key": "CurrentBillCycleRatedSMSUsage",
+          "value": "0"
+        },
+        {
+          "key": "PromoSmsUsage",
+          "value": "0"
+        },
+        {
+          "key": "PromoSmsUsagePercent",
+          "value": "0"
+        },
+        {
+          "key": "PromoDataUsage",
+          "value": "0"
+        },
+        {
+          "key": "PromoDataUsagePercent",
+          "value": "0"
+        },
+        {
+          "key": "AaaPromoDataUsage",
+          "value": "0"
+        },
+        {
+          "key": "RtrPromoDataUsage",
+          "value": "0"
+        },
+        {
+          "key": "InternationalRoamingUsage",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "categoryName": "Location",
+      "extendedAttributes": [
+        {
+          "key": "LocationSkuName",
+          "value": "TSS-IOT-INTLG-CUSTOM-LOC-COARSE"
+        },
+        {
+          "key": "LastLocationUpdate",
+          "value": "2024-06-17T16:23:14Z"
+        },
+        {
+          "key": "Latitude",
+          "value": "33.122153"
+        },
+        {
+          "key": "Longitude",
+          "value": "-96.641825"
+        },
+        {
+          "key": "LastLocationAttemptDate",
+          "value": "2024-09-25T16:23:14Z"
+        },
+        {
+          "key": "LastLocationStatus",
+          "value": "122"
+        }
+      ]
+    },
+    {
+      "categoryName": "FOTA",
+      "extendedAttributes": [
+        {
+          "key": "FotaCurrentFirmwareVersion",
+          "value": "SWIX55C_03.09.11.00"
+        },
+        {
+          "key": "FotaSku",
+          "value": "TSS-IOT-INTLG-CUSTOM-SWMT"
+        },
+        {
+          "key": "FotaMake",
+          "value": "Sierra Wireless"
+        },
+        {
+          "key": "FotaModel",
+          "value": "EM9191"
+        },
+        {
+          "key": "FotaProtocol",
+          "value": "LWM2M"
+        }
+      ]
+    },
+    {
+      "categoryName": "PrimaryPlaceOfUse",
+      "extendedAttributes": [
+        {
+          "key": "CustomerFirstName",
+          "value": "first name"
+        },
+        {
+          "key": "CustomerLastName",
+          "value": "last name"
+        },
+        {
+          "key": "CustomerAddressLine1",
+          "value": "street number and name"
+        },
+        {
+          "key": "CustomerAddressCity",
+          "value": "PLANO"
+        },
+        {
+          "key": "CustomerAddressState",
+          "value": "TX"
+        },
+        {
+          "key": "CustomerAddressZipCode",
+          "value": "75075"
+        },
+        {
+          "key": "CustomerCountry",
+          "value": "USA"
+        },
+        {
+          "key": "CustomerPpuLatitude",
+          "value": "latitude in decimal degrees"
+        },
+        {
+          "key": "CustomerPpuLongitude",
+          "value": "longitude in decimal degrees"
+        }
+      ]
+    },
+    {
+      "categoryName": "SIMSECURE"
+    },
+    {
+      "categoryName": "RTR",
+      "extendedAttributes": [
+        {
+          "key": "RTRUnRatedDataUsage",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "categoryName": "PMEC",
+      "extendedAttributes": [
+        {
+          "key": "IsPmec",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "categoryName": "RfAttributes",
+      "extendedAttributes": [
+        {
+          "key": "CellID",
+          "value": "cellular ID"
+        },
+        {
+          "key": "CellIDUpdatedDate",
+          "value": "2024-09-25T21:35:50Z"
+        },
+        {
+          "key": "CellIDStreamStatus",
+          "value": "ObserveInprogress"
+        },
+        {
+          "key": "CellIDIntervalInSeconds",
+          "value": "15"
+        },
+        {
+          "key": "CellIDDurationInSeconds",
+          "value": "900"
+        },
+        {
+          "key": "NetworkBearer",
+          "value": "6"
+        },
+        {
+          "key": "NetworkBearerUpdateDate",
+          "value": "2024-09-25T21:35:50Z"
+        },
+        {
+          "key": "NetworkBearerStreamStatus",
+          "value": "ObserveInprogress"
+        },
+        {
+          "key": "NetworkBearerIntervalInSeconds",
+          "value": "15"
+        },
+        {
+          "key": "NetworkBearerDurationInSeconds",
+          "value": "900"
+        },
+        {
+          "key": "RadioSignalStrength",
+          "value": "-59"
+        },
+        {
+          "key": "RadioSignalStrengthUpdatedDate",
+          "value": "2024-09-25T21:35:50Z"
+        },
+        {
+          "key": "RadioSignalStrengthStreamStatus",
+          "value": "ObserveDurationExpired"
+        },
+        {
+          "key": "RadioSignalStrengthIntervalInSeconds",
+          "value": "15"
+        },
+        {
+          "key": "RadioSignalStrengthDurationInSeconds",
+          "value": "3600"
+        },
+        {
+          "key": "LinkQuality",
+          "value": "-11"
+        },
+        {
+          "key": "LinkQualityUpdatedDate",
+          "value": "2024-09-25T21:35:50Z"
+        },
+        {
+          "key": "LinkQualityStreamStatus",
+          "value": "ObserveInprogress"
+        },
+        {
+          "key": "LinkQualityIntervalInSeconds",
+          "value": "15"
+        },
+        {
+          "key": "LinkQualityDurationInSeconds",
+          "value": "3600"
+        }
+      ]
+    },
+    {
+      "categoryName": "Battery",
+      "extendedAttributes": [
+        {
+          "key": "BatteryLevel",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "categoryName": "Restart",
+      "extendedAttributes": [
+        {
+          "key": "DeviceRebootStatus",
+          "value": "REBOOT_QUEUED"
+        },
+        {
+          "key": "DeviceRebootStatusDate",
+          "value": "2024-05-07T14:21:59Z"
+        },
+        {
+          "key": "DeviceRebootStatusErrorCode",
+          "value": "DEVICE_UNREACHABLE"
+        },
+        {
+          "key": "DeviceRebootStatusErrorDescription",
+          "value": "Device not reachable, request will send to device once it become available"
         }
       ]
     }
@@ -1241,7 +1789,7 @@ def list_devices_provisioning_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[DeviceProvisioningHistoryListResult]`](../../doc/models/device-provisioning-history-list-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[DeviceProvisioningHistoryListResult]`](../../doc/models/device-provisioning-history-list-result.md).
 
 ## Example Usage
 
@@ -1256,6 +1804,11 @@ body = DeviceProvisioningHistoryListRequest(
 )
 
 result = device_management_controller.list_devices_provisioning_history(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1304,7 +1857,7 @@ def list_current_devices_prl_version(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -1323,6 +1876,11 @@ body = DevicePrlListRequest(
 )
 
 result = device_management_controller.list_current_devices_prl_version(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1357,7 +1915,7 @@ def get_device_service_suspension_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -1376,6 +1934,11 @@ body = DeviceSuspensionStatusRequest(
 )
 
 result = device_management_controller.get_device_service_suspension_status(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1410,7 +1973,7 @@ def list_devices_usage_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceUsageListResult`](../../doc/models/device-usage-list-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceUsageListResult`](../../doc/models/device-usage-list-result.md).
 
 ## Example Usage
 
@@ -1425,6 +1988,11 @@ body = DeviceUsageListRequest(
 )
 
 result = device_management_controller.list_devices_usage_history(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1473,7 +2041,7 @@ def retrieve_aggregate_device_usage_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -1491,6 +2059,11 @@ body = DeviceAggregateUsageListRequest(
 )
 
 result = device_management_controller.retrieve_aggregate_device_usage_history(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1527,7 +2100,7 @@ def update_device_id(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -1556,6 +2129,11 @@ result = device_management_controller.update_device_id(
     service_type,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1575,7 +2153,7 @@ result = device_management_controller.update_device_id(
 
 # Device Upload
 
-This corresponds to the M2M-MC SOAP interface, `DeviceUploadService`.
+Upload a device record
 
 ```python
 def device_upload(self,
@@ -1590,7 +2168,7 @@ def device_upload(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
 
 ## Example Usage
 
@@ -1629,6 +2207,11 @@ body = DeviceUploadRequest(
 )
 
 result = device_management_controller.device_upload(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -1655,7 +2238,7 @@ def billed_usage_info(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -1665,6 +2248,11 @@ body = BilledusageListRequest(
 )
 
 result = device_management_controller.billed_usage_info(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1699,7 +2287,7 @@ def usage_segmentation_label_association(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -1714,6 +2302,11 @@ body = AssociateLabelRequest(
 )
 
 result = device_management_controller.usage_segmentation_label_association(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1750,7 +2343,7 @@ def usage_segmentation_label_deletion(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -1763,6 +2356,11 @@ result = device_management_controller.usage_segmentation_label_deletion(
     account_name,
     label_list
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1780,24 +2378,24 @@ result = device_management_controller.usage_segmentation_label_deletion(
 | 400 | Error response. | [`ConnectivityManagementResultException`](../../doc/models/connectivity-management-result-exception.md) |
 
 
-# Activation Order Status
+# Upload Activate Device
 
 Uploads and activates device identifiers and SKUs for new devices from OEMs to Verizon.
 
 ```python
-def activation_order_status(self,
-                           body)
+def upload_activate_device(self,
+                          body)
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`UploadsActivatesDeviceRequest`](../../doc/models/uploads-activates-device-request.md) | Body, Required | Request to Uploads and activates device. |
+| `body` | [`UploadsActivatesDeviceRequest`](../../doc/models/uploads-activates-device-request.md) | Body, Required | Request to Upload and Activate device. |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -1826,7 +2424,12 @@ body = UploadsActivatesDeviceRequest(
     carrier_ip_pool_name=''
 )
 
-result = device_management_controller.activation_order_status(body)
+result = device_management_controller.upload_activate_device(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1844,13 +2447,13 @@ result = device_management_controller.activation_order_status(body)
 | 400 | Error response. | [`ConnectivityManagementResultException`](../../doc/models/connectivity-management-result-exception.md) |
 
 
-# Upload Device Identifier
+# Device Upload Status
 
 Checks the status of an activation order and lists where the order is in the provisioning process.
 
 ```python
-def upload_device_identifier(self,
-                            body)
+def device_upload_status(self,
+                        body)
 ```
 
 ## Parameters
@@ -1861,7 +2464,7 @@ def upload_device_identifier(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -1881,7 +2484,12 @@ body = CheckOrderStatusRequest(
     order_request_id=' f55fea16-3664-4a32-ae9d-c0cbe3eedf1d '
 )
 
-result = device_management_controller.upload_device_identifier(body)
+result = device_management_controller.device_upload_status(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

@@ -22,8 +22,8 @@ Device information.
 | `status` | `str` | Optional | Device status. |
 | `license_assigned` | `bool` | Optional | License assigned device. |
 | `protocol` | `str` | Optional | Firmware protocol. Valid values include: LWM2M, OMADM, HTTP or NONE. |
-| `software_list` | [`List[V3SoftwareInfo]`](../../doc/models/v3-software-info.md) | Optional | List of sofware.<br>**Constraints**: *Maximum Items*: `1000` |
-| `file_list` | [`List[V3SoftwareInfo]`](../../doc/models/v3-software-info.md) | Optional | List of files.<br>**Constraints**: *Maximum Items*: `1000` |
+| `software_list` | [`List[V3SoftwareInfo]`](../../doc/models/v3-software-info.md) | Optional | List of sofware.<br><br>**Constraints**: *Maximum Items*: `1000` |
+| `file_list` | [`List[V3SoftwareInfo]`](../../doc/models/v3-software-info.md) | Optional | List of files.<br><br>**Constraints**: *Maximum Items*: `1000` |
 | `create_time` | `str` | Optional | The date and time of when the device is created. |
 | `status_time` | `str` | Optional | The date and time of when the device firmware or software is updated. |
 | `update_time` | `str` | Optional | The date and time of when the device is updated. |

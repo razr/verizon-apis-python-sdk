@@ -13,8 +13,6 @@ class AsynchronousLocationRequestResult(object):
 
     """Implementation of the 'AsynchronousLocationRequestResult' model.
 
-    TODO: type model description here.
-
     Attributes:
         txid (str): The transaction ID of the report.
         status (ReportStatusEnum): Status of the report.
@@ -65,7 +63,7 @@ class AsynchronousLocationRequestResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -76,3 +74,15 @@ class AsynchronousLocationRequestResult(object):
         return cls(txid,
                    status,
                    estimated_duration)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={(self.txid if hasattr(self, "txid") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'estimated_duration={(self.estimated_duration if hasattr(self, "estimated_duration") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={(self.txid if hasattr(self, "txid") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'estimated_duration={(self.estimated_duration if hasattr(self, "estimated_duration") else None)!s})')

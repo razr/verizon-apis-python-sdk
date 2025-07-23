@@ -78,7 +78,7 @@ class FotaV3Subscription(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -93,3 +93,19 @@ class FotaV3Subscription(object):
                    license_count,
                    license_used_count,
                    update_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'purchase_type={(self.purchase_type if hasattr(self, "purchase_type") else None)!r}, '
+                f'license_count={(self.license_count if hasattr(self, "license_count") else None)!r}, '
+                f'license_used_count={(self.license_used_count if hasattr(self, "license_used_count") else None)!r}, '
+                f'update_time={(self.update_time if hasattr(self, "update_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'purchase_type={(self.purchase_type if hasattr(self, "purchase_type") else None)!s}, '
+                f'license_count={(self.license_count if hasattr(self, "license_count") else None)!s}, '
+                f'license_used_count={(self.license_used_count if hasattr(self, "license_used_count") else None)!s}, '
+                f'update_time={(self.update_time if hasattr(self, "update_time") else None)!s})')

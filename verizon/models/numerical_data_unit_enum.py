@@ -15,10 +15,10 @@ class NumericalDataUnitEnum(object):
     Unit of time.
 
     Attributes:
-        SECOND: TODO: type description here.
-        MINUTE: TODO: type description here.
-        HOUR: TODO: type description here.
-        DAY: TODO: type description here.
+        SECOND: The enum member of type str.
+        MINUTE: The enum member of type str.
+        HOUR: The enum member of type str.
+        DAY: The enum member of type str.
 
     """
     SECOND = 'SECOND'

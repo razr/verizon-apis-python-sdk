@@ -32,7 +32,7 @@ def get_diagnostics_subscription_callback_info(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[DeviceDiagnosticsCallback]`](../../doc/models/device-diagnostics-callback.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[DeviceDiagnosticsCallback]`](../../doc/models/device-diagnostics-callback.md).
 
 ## Example Usage
 
@@ -40,6 +40,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account_name = '0000123456-00001'
 
 result = diagnostics_callbacks_controller.get_diagnostics_subscription_callback_info(account_name)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -80,7 +85,7 @@ def register_diagnostics_callback_url(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceDiagnosticsCallback`](../../doc/models/device-diagnostics-callback.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceDiagnosticsCallback`](../../doc/models/device-diagnostics-callback.md).
 
 ## Example Usage
 
@@ -93,6 +98,11 @@ body = CallbackRegistrationRequest(
 )
 
 result = diagnostics_callbacks_controller.register_diagnostics_callback_url(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -133,7 +143,7 @@ def unregister_diagnostics_callback(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceDiagnosticsCallback`](../../doc/models/device-diagnostics-callback.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceDiagnosticsCallback`](../../doc/models/device-diagnostics-callback.md).
 
 ## Example Usage
 
@@ -146,6 +156,11 @@ result = diagnostics_callbacks_controller.unregister_diagnostics_callback(
     account_name,
     service_name
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

@@ -14,12 +14,11 @@ class DeviceProfileRequest(object):
 
     """Implementation of the 'DeviceProfileRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        devices (List[GIODeviceList]): TODO: type description here.
-        account_name (str): TODO: type description here.
-        service_plan (str): TODO: type description here.
+        devices (List[GIODeviceList]): The model property of type
+            List[GIODeviceList].
+        account_name (str): The model property of type str.
+        service_plan (str): The model property of type str.
 
     """
 
@@ -65,7 +64,7 @@ class DeviceProfileRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -80,3 +79,15 @@ class DeviceProfileRequest(object):
         return cls(devices,
                    account_name,
                    service_plan)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={(self.devices if hasattr(self, "devices") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={(self.devices if hasattr(self, "devices") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s})')

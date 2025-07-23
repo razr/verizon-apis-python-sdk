@@ -108,7 +108,7 @@ class V2AccountDevice(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -141,3 +141,35 @@ class V2AccountDevice(object):
                    upgrade_time,
                    update_time,
                    refresh_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!r}, '
+                f'mdn={self.mdn!r}, '
+                f'model={self.model!r}, '
+                f'make={self.make!r}, '
+                f'fota_eligible={self.fota_eligible!r}, '
+                f'app_fota_eligible={self.app_fota_eligible!r}, '
+                f'license_assigned={self.license_assigned!r}, '
+                f'distribution_type={self.distribution_type!r}, '
+                f'software_list={self.software_list!r}, '
+                f'create_time={(self.create_time if hasattr(self, "create_time") else None)!r}, '
+                f'upgrade_time={(self.upgrade_time if hasattr(self, "upgrade_time") else None)!r}, '
+                f'update_time={(self.update_time if hasattr(self, "update_time") else None)!r}, '
+                f'refresh_time={(self.refresh_time if hasattr(self, "refresh_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!s}, '
+                f'mdn={self.mdn!s}, '
+                f'model={self.model!s}, '
+                f'make={self.make!s}, '
+                f'fota_eligible={self.fota_eligible!s}, '
+                f'app_fota_eligible={self.app_fota_eligible!s}, '
+                f'license_assigned={self.license_assigned!s}, '
+                f'distribution_type={self.distribution_type!s}, '
+                f'software_list={self.software_list!s}, '
+                f'create_time={(self.create_time if hasattr(self, "create_time") else None)!s}, '
+                f'upgrade_time={(self.upgrade_time if hasattr(self, "upgrade_time") else None)!s}, '
+                f'update_time={(self.update_time if hasattr(self, "update_time") else None)!s}, '
+                f'refresh_time={(self.refresh_time if hasattr(self, "refresh_time") else None)!s})')

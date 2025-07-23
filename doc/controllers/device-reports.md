@@ -32,7 +32,7 @@ def calculate_aggregated_report_synchronous(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`AggregateSessionReport`](../../doc/models/aggregate-session-report.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AggregateSessionReport`](../../doc/models/aggregate-session-report.md).
 
 ## Example Usage
 
@@ -44,10 +44,17 @@ body = AggregateSessionReportRequest(
     ],
     start_date='2022-12-09T22:01:06.217Z',
     end_date='2022-12-09T22:01:08.734Z',
+    device_group=None,
+    data_plan=None,
     no_session_flag='false'
 )
 
 result = device_reports_controller.calculate_aggregated_report_synchronous(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -94,7 +101,7 @@ def calculate_aggregated_report_asynchronous(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`AggregatedReportCallbackResult`](../../doc/models/aggregated-report-callback-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AggregatedReportCallbackResult`](../../doc/models/aggregated-report-callback-result.md).
 
 ## Example Usage
 
@@ -106,10 +113,17 @@ body = AggregateSessionReportRequest(
     ],
     start_date='2022-12-09T22:01:06.217Z',
     end_date='2022-12-09T22:01:08.734Z',
+    device_group=None,
+    data_plan=None,
     no_session_flag='false'
 )
 
 result = device_reports_controller.calculate_aggregated_report_asynchronous(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -150,7 +164,7 @@ def get_sessions_report(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`SessionReport`](../../doc/models/session-report.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SessionReport`](../../doc/models/session-report.md).
 
 ## Example Usage
 
@@ -159,10 +173,17 @@ body = SessionReportRequest(
     account_number='0844021539-00001',
     imei='709312034493372',
     start_date='2022-12-09T22:01:06.217Z',
-    end_date='2022-12-09T22:01:08.734Z'
+    end_date='2022-12-09T22:01:08.734Z',
+    duration_low=None,
+    duration_high=None
 )
 
 result = device_reports_controller.get_sessions_report(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

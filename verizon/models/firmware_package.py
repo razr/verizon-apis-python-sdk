@@ -76,7 +76,7 @@ class FirmwarePackage(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -97,3 +97,25 @@ class FirmwarePackage(object):
                    model,
                    make,
                    protocol)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'firmware_name={self.firmware_name!r}, '
+                f'firmware_from={self.firmware_from!r}, '
+                f'firmware_to={self.firmware_to!r}, '
+                f'launch_date={self.launch_date!r}, '
+                f'release_note={self.release_note!r}, '
+                f'model={self.model!r}, '
+                f'make={self.make!r}, '
+                f'protocol={self.protocol!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'firmware_name={self.firmware_name!s}, '
+                f'firmware_from={self.firmware_from!s}, '
+                f'firmware_to={self.firmware_to!s}, '
+                f'launch_date={self.launch_date!s}, '
+                f'release_note={self.release_note!s}, '
+                f'model={self.model!s}, '
+                f'make={self.make!s}, '
+                f'protocol={self.protocol!s})')

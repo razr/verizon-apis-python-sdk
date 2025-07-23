@@ -14,15 +14,14 @@ class ProfileRequest2(object):
 
     """Implementation of the 'ProfileRequest2' model.
 
-    TODO: type model description here.
-
     Attributes:
-        devices (List[DeviceList2]): TODO: type description here.
-        account_name (str): TODO: type description here.
-        carrier_name (str): TODO: type description here.
-        reason_code (str): TODO: type description here.
-        etf_waiver (bool): TODO: type description here.
-        check_fallback_profile (bool): TODO: type description here.
+        devices (List[DeviceList2]): The model property of type
+            List[DeviceList2].
+        account_name (str): The model property of type str.
+        carrier_name (str): The model property of type str.
+        reason_code (str): The model property of type str.
+        etf_waiver (bool): The model property of type bool.
+        check_fallback_profile (bool): The model property of type bool.
 
     """
 
@@ -81,7 +80,7 @@ class ProfileRequest2(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -102,3 +101,21 @@ class ProfileRequest2(object):
                    reason_code,
                    etf_waiver,
                    check_fallback_profile)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={(self.devices if hasattr(self, "devices") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'carrier_name={(self.carrier_name if hasattr(self, "carrier_name") else None)!r}, '
+                f'reason_code={(self.reason_code if hasattr(self, "reason_code") else None)!r}, '
+                f'etf_waiver={(self.etf_waiver if hasattr(self, "etf_waiver") else None)!r}, '
+                f'check_fallback_profile={(self.check_fallback_profile if hasattr(self, "check_fallback_profile") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={(self.devices if hasattr(self, "devices") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'carrier_name={(self.carrier_name if hasattr(self, "carrier_name") else None)!s}, '
+                f'reason_code={(self.reason_code if hasattr(self, "reason_code") else None)!s}, '
+                f'etf_waiver={(self.etf_waiver if hasattr(self, "etf_waiver") else None)!s}, '
+                f'check_fallback_profile={(self.check_fallback_profile if hasattr(self, "check_fallback_profile") else None)!s})')

@@ -13,11 +13,9 @@ class SessionTriggerRequest(object):
 
     """Implementation of the 'SessionTriggerRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        comparator (str): TODO: type description here.
-        threshold (int): TODO: type description here.
+        comparator (str): The model property of type str.
+        threshold (int): The model property of type int.
 
     """
 
@@ -58,7 +56,7 @@ class SessionTriggerRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +65,13 @@ class SessionTriggerRequest(object):
         # Return an object of this model
         return cls(comparator,
                    threshold)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'comparator={(self.comparator if hasattr(self, "comparator") else None)!r}, '
+                f'threshold={(self.threshold if hasattr(self, "threshold") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'comparator={(self.comparator if hasattr(self, "comparator") else None)!s}, '
+                f'threshold={(self.threshold if hasattr(self, "threshold") else None)!s})')

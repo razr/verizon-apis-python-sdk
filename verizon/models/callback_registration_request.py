@@ -23,7 +23,7 @@ class CallbackRegistrationRequest(object):
             the type and format of messages that will be sent to the
             registered URL.
         endpoint (str): The URL for your web server.
-        http_headers (object): Your HTTP headers.
+        http_headers (Any): Your HTTP headers.
 
     """
 
@@ -68,7 +68,7 @@ class CallbackRegistrationRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -81,3 +81,17 @@ class CallbackRegistrationRequest(object):
                    service_name,
                    endpoint,
                    http_headers)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'service_name={self.service_name!r}, '
+                f'endpoint={self.endpoint!r}, '
+                f'http_headers={(self.http_headers if hasattr(self, "http_headers") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'service_name={self.service_name!s}, '
+                f'endpoint={self.endpoint!s}, '
+                f'http_headers={(self.http_headers if hasattr(self, "http_headers") else None)!s})')

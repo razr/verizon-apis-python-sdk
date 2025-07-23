@@ -16,11 +16,12 @@ class DeviceFirmwareVersion(object):
     Device and firmware information.
 
     Attributes:
-        status (str): TODO: type description here.
-        reason (str): TODO: type description here.
+        status (str): The model property of type str.
+        reason (str): The model property of type str.
         device_id (str): Device IMEI.
         firmware_version (str): Device Firmware Version.
-        firmware_version_update_time (datetime): TODO: type description here.
+        firmware_version_update_time (datetime): The model property of type
+            datetime.
 
     """
 
@@ -72,7 +73,7 @@ class DeviceFirmwareVersion(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -87,3 +88,19 @@ class DeviceFirmwareVersion(object):
                    status,
                    reason,
                    firmware_version_update_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'reason={(self.reason if hasattr(self, "reason") else None)!r}, '
+                f'device_id={self.device_id!r}, '
+                f'firmware_version={self.firmware_version!r}, '
+                f'firmware_version_update_time={(self.firmware_version_update_time if hasattr(self, "firmware_version_update_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'reason={(self.reason if hasattr(self, "reason") else None)!s}, '
+                f'device_id={self.device_id!s}, '
+                f'firmware_version={self.firmware_version!s}, '
+                f'firmware_version_update_time={(self.firmware_version_update_time if hasattr(self, "firmware_version_update_time") else None)!s})')

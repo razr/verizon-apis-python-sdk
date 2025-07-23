@@ -16,8 +16,6 @@ class TriggersListOptions(object):
 
     """Implementation of the 'TriggersListOptions' model.
 
-    TODO: type model description here.
-
     Attributes:
         trigger_id (str): The system assigned name of the trigger being
             updated.
@@ -111,7 +109,7 @@ class TriggersListOptions(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -138,3 +136,27 @@ class TriggersListOptions(object):
                    modified_at,
                    anomalyattributes,
                    notification)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'trigger_id={(self.trigger_id if hasattr(self, "trigger_id") else None)!r}, '
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!r}, '
+                f'organization_name={(self.organization_name if hasattr(self, "organization_name") else None)!r}, '
+                f'trigger_category={(self.trigger_category if hasattr(self, "trigger_category") else None)!r}, '
+                f'trigger_attributes={(self.trigger_attributes if hasattr(self, "trigger_attributes") else None)!r}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!r}, '
+                f'modified_at={(self.modified_at if hasattr(self, "modified_at") else None)!r}, '
+                f'anomalyattributes={(self.anomalyattributes if hasattr(self, "anomalyattributes") else None)!r}, '
+                f'notification={(self.notification if hasattr(self, "notification") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'trigger_id={(self.trigger_id if hasattr(self, "trigger_id") else None)!s}, '
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!s}, '
+                f'organization_name={(self.organization_name if hasattr(self, "organization_name") else None)!s}, '
+                f'trigger_category={(self.trigger_category if hasattr(self, "trigger_category") else None)!s}, '
+                f'trigger_attributes={(self.trigger_attributes if hasattr(self, "trigger_attributes") else None)!s}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!s}, '
+                f'modified_at={(self.modified_at if hasattr(self, "modified_at") else None)!s}, '
+                f'anomalyattributes={(self.anomalyattributes if hasattr(self, "anomalyattributes") else None)!s}, '
+                f'notification={(self.notification if hasattr(self, "notification") else None)!s})')

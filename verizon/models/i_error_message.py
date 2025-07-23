@@ -72,7 +72,7 @@ class IErrorMessage(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -85,3 +85,17 @@ class IErrorMessage(object):
                    error_message,
                    http_status_code,
                    detail_error_message)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'error_code={(self.error_code if hasattr(self, "error_code") else None)!r}, '
+                f'error_message={(self.error_message if hasattr(self, "error_message") else None)!r}, '
+                f'http_status_code={(self.http_status_code if hasattr(self, "http_status_code") else None)!r}, '
+                f'detail_error_message={(self.detail_error_message if hasattr(self, "detail_error_message") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'error_code={(self.error_code if hasattr(self, "error_code") else None)!s}, '
+                f'error_message={(self.error_message if hasattr(self, "error_message") else None)!s}, '
+                f'http_status_code={(self.http_status_code if hasattr(self, "http_status_code") else None)!s}, '
+                f'detail_error_message={(self.detail_error_message if hasattr(self, "detail_error_message") else None)!s})')

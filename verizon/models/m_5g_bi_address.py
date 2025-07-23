@@ -13,17 +13,15 @@ class M5gBiAddress(object):
 
     """Implementation of the '5gbiAddress' model.
 
-    TODO: type model description here.
-
     Attributes:
-        address_line_1 (str): TODO: type description here.
-        city (str): TODO: type description here.
-        state (str): TODO: type description here.
-        zip (str): TODO: type description here.
-        zip_4 (str): TODO: type description here.
-        phone (str): TODO: type description here.
-        phone_type (str): TODO: type description here.
-        email_address (str): TODO: type description here.
+        address_line_1 (str): The model property of type str.
+        city (str): The model property of type str.
+        state (str): The model property of type str.
+        zip (str): The model property of type str.
+        zip_4 (str): The model property of type str.
+        phone (str): The model property of type str.
+        phone_type (str): The model property of type str.
+        email_address (str): The model property of type str.
 
     """
 
@@ -94,7 +92,7 @@ class M5gBiAddress(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -115,3 +113,25 @@ class M5gBiAddress(object):
                    phone,
                    phone_type,
                    email_address)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'address_line_1={(self.address_line_1 if hasattr(self, "address_line_1") else None)!r}, '
+                f'city={(self.city if hasattr(self, "city") else None)!r}, '
+                f'state={(self.state if hasattr(self, "state") else None)!r}, '
+                f'zip={(self.zip if hasattr(self, "zip") else None)!r}, '
+                f'zip_4={(self.zip_4 if hasattr(self, "zip_4") else None)!r}, '
+                f'phone={(self.phone if hasattr(self, "phone") else None)!r}, '
+                f'phone_type={(self.phone_type if hasattr(self, "phone_type") else None)!r}, '
+                f'email_address={(self.email_address if hasattr(self, "email_address") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'address_line_1={(self.address_line_1 if hasattr(self, "address_line_1") else None)!s}, '
+                f'city={(self.city if hasattr(self, "city") else None)!s}, '
+                f'state={(self.state if hasattr(self, "state") else None)!s}, '
+                f'zip={(self.zip if hasattr(self, "zip") else None)!s}, '
+                f'zip_4={(self.zip_4 if hasattr(self, "zip_4") else None)!s}, '
+                f'phone={(self.phone if hasattr(self, "phone") else None)!s}, '
+                f'phone_type={(self.phone_type if hasattr(self, "phone_type") else None)!s}, '
+                f'email_address={(self.email_address if hasattr(self, "email_address") else None)!s})')

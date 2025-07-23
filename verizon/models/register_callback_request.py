@@ -70,7 +70,7 @@ class RegisterCallbackRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -83,3 +83,17 @@ class RegisterCallbackRequest(object):
                    url,
                    username,
                    password)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={self.name!r}, '
+                f'url={self.url!r}, '
+                f'username={(self.username if hasattr(self, "username") else None)!r}, '
+                f'password={(self.password if hasattr(self, "password") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={self.name!s}, '
+                f'url={self.url!s}, '
+                f'username={(self.username if hasattr(self, "username") else None)!s}, '
+                f'password={(self.password if hasattr(self, "password") else None)!s})')

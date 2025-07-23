@@ -14,16 +14,15 @@ class M5gBiactivateRequest(object):
 
     """Implementation of the '5gbiactivateRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        service_plan (str): TODO: type description here.
+        account_name (str): The model property of type str.
+        service_plan (str): The model property of type str.
         device_list_with_service_address
-            (List[DeviceListWithServiceAddress1]): TODO: type description here.
-        public_ip_restriction (str): TODO: type description here.
-        carrier_name (str): TODO: type description here.
-        mdn_zip_code (str): TODO: type description here.
+            (List[DeviceListWithServiceAddress1]): The model property of type
+            List[DeviceListWithServiceAddress1].
+        public_ip_restriction (str): The model property of type str.
+        carrier_name (str): The model property of type str.
+        mdn_zip_code (str): The model property of type str.
 
     """
 
@@ -84,7 +83,7 @@ class M5gBiactivateRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -105,3 +104,21 @@ class M5gBiactivateRequest(object):
                    public_ip_restriction,
                    carrier_name,
                    mdn_zip_code)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'device_list_with_service_address={(self.device_list_with_service_address if hasattr(self, "device_list_with_service_address") else None)!r}, '
+                f'public_ip_restriction={(self.public_ip_restriction if hasattr(self, "public_ip_restriction") else None)!r}, '
+                f'carrier_name={(self.carrier_name if hasattr(self, "carrier_name") else None)!r}, '
+                f'mdn_zip_code={(self.mdn_zip_code if hasattr(self, "mdn_zip_code") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'device_list_with_service_address={(self.device_list_with_service_address if hasattr(self, "device_list_with_service_address") else None)!s}, '
+                f'public_ip_restriction={(self.public_ip_restriction if hasattr(self, "public_ip_restriction") else None)!s}, '
+                f'carrier_name={(self.carrier_name if hasattr(self, "carrier_name") else None)!s}, '
+                f'mdn_zip_code={(self.mdn_zip_code if hasattr(self, "mdn_zip_code") else None)!s})')

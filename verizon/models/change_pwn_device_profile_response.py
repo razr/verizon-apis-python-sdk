@@ -53,10 +53,18 @@ class ChangePWNDeviceProfileResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         request_id = dictionary.get("requestId") if dictionary.get("requestId") else APIHelper.SKIP
         # Return an object of this model
         return cls(request_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s})')

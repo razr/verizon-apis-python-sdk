@@ -54,7 +54,7 @@ class ListOptimalServiceEndpointsResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -65,3 +65,11 @@ class ListOptimalServiceEndpointsResult(object):
             service_endpoints = APIHelper.SKIP
         # Return an object of this model
         return cls(service_endpoints)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'service_endpoints={(self.service_endpoints if hasattr(self, "service_endpoints") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'service_endpoints={(self.service_endpoints if hasattr(self, "service_endpoints") else None)!s})')

@@ -29,23 +29,23 @@ def device_reachability(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
 
 ## Example Usage
 
 ```python
 body = NotificationReportRequest(
-    account_name='0242072320-00001',
+    account_name='0000123456-00001',
     request_type='REACHABLE_FOR_DATA',
     devices=[
         DeviceList(
             device_ids=[
                 DeviceId(
-                    id='89148000004292933820',
+                    id='20-digit ICCID',
                     kind='iccid'
                 ),
                 DeviceId(
-                    id='89148000003164287919',
+                    id='20-digit ICCID',
                     kind='iccid'
                 )
             ]
@@ -55,6 +55,11 @@ body = NotificationReportRequest(
 )
 
 result = device_monitoring_controller.device_reachability(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -68,32 +73,35 @@ result = device_monitoring_controller.device_reachability(body)
 
 ```python
 def stop_device_reachability(self,
-                            body=None)
+                            stopreachabilitypayload)
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`StopMonitorRequest`](../../doc/models/stop-monitor-request.md) | Body, Optional | - |
+| `stopreachabilitypayload` | [`StopMonitorRequest`](../../doc/models/stop-monitor-request.md) | Query, Required | Payload for the Stop Device Reachability monitors request. |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
 
 ## Example Usage
 
 ```python
-body = StopMonitorRequest(
-    account_name='0242123520-00001',
+stopreachabilitypayload = StopMonitorRequest(
+    account_name='0000123456-00001',
     monitor_ids=[
-        '35596ca6-bab4-4333-a914-42b4fc2da54c'
+        '35596ca6-eeee-ffff-gggg-42b4fc2da54c'
     ]
 )
 
-result = device_monitoring_controller.stop_device_reachability(
-    body=body
-)
+result = device_monitoring_controller.stop_device_reachability(stopreachabilitypayload)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

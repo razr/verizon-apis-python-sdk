@@ -75,7 +75,7 @@ class MECPerformanceMetrics(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -92,3 +92,17 @@ class MECPerformanceMetrics(object):
                    start,
                    end,
                    query_result)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'query_status={(self.query_status if hasattr(self, "query_status") else None)!r}, '
+                f'start={(self.start if hasattr(self, "start") else None)!r}, '
+                f'end={(self.end if hasattr(self, "end") else None)!r}, '
+                f'query_result={(self.query_result if hasattr(self, "query_result") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'query_status={(self.query_status if hasattr(self, "query_status") else None)!s}, '
+                f'start={(self.start if hasattr(self, "start") else None)!s}, '
+                f'end={(self.end if hasattr(self, "end") else None)!s}, '
+                f'query_result={(self.query_result if hasattr(self, "query_result") else None)!s})')

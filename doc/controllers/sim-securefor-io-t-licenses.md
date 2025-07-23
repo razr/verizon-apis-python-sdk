@@ -29,11 +29,11 @@ def assign_license_to_devices(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`AssignLicenseRequest`](../../doc/models/assign-license-request.md) | Body, Required | Request to assign license to devices. |
-| `x_request_id` | `str` | Header, Optional | Transaction Id.<br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `32`, *Pattern*: `^[0-9]-[0-9]{3,32}$` |
+| `x_request_id` | `str` | Header, Optional | Transaction Id.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `32`, *Pattern*: `^[0-9]-[0-9]{3,32}$` |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`SecuritySuccessResult`](../../doc/models/security-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SecuritySuccessResult`](../../doc/models/security-success-result.md).
 
 ## Example Usage
 
@@ -54,6 +54,11 @@ body = AssignLicenseRequest(
 )
 
 result = sim_secure_for_io_t_licenses_controller.assign_license_to_devices(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -90,11 +95,11 @@ def unassign_license_to_devices(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `x_request_id` | `str` | Header, Required | Transaction Id.<br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `32`, *Pattern*: `^[0-9]-[0-9]{3,32}$` |
+| `x_request_id` | `str` | Header, Required | Transaction Id.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `32`, *Pattern*: `^[0-9]-[0-9]{3,32}$` |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`SecuritySuccessResult`](../../doc/models/security-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SecuritySuccessResult`](../../doc/models/security-success-result.md).
 
 ## Example Usage
 
@@ -102,6 +107,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 x_request_id = 'X-Request-ID2'
 
 result = sim_secure_for_io_t_licenses_controller.unassign_license_to_devices(x_request_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

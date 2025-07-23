@@ -58,7 +58,7 @@ class NumericalData(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +67,13 @@ class NumericalData(object):
         # Return an object of this model
         return cls(value,
                    unit)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'value={(self.value if hasattr(self, "value") else None)!r}, '
+                f'unit={(self.unit if hasattr(self, "unit") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'value={(self.value if hasattr(self, "value") else None)!s}, '
+                f'unit={(self.unit if hasattr(self, "unit") else None)!s})')

@@ -46,10 +46,18 @@ class SessionResetPasswordRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         old_password = dictionary.get("oldPassword") if dictionary.get("oldPassword") else None
         # Return an object of this model
         return cls(old_password)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'old_password={self.old_password!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'old_password={self.old_password!s})')

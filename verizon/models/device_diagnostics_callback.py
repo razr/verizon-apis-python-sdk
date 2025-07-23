@@ -24,7 +24,7 @@ class DeviceDiagnosticsCallback(object):
         endpoint (str): The URL for your web server.
         created_on (datetime): The date and time of when this request was
             created.
-        http_headers (object): Your HTTP headers.
+        http_headers (Any): Your HTTP headers.
 
     """
 
@@ -72,7 +72,7 @@ class DeviceDiagnosticsCallback(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -87,3 +87,19 @@ class DeviceDiagnosticsCallback(object):
                    endpoint,
                    created_on,
                    http_headers)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'service_name={self.service_name!r}, '
+                f'endpoint={self.endpoint!r}, '
+                f'created_on={self.created_on!r}, '
+                f'http_headers={(self.http_headers if hasattr(self, "http_headers") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'service_name={self.service_name!s}, '
+                f'endpoint={self.endpoint!s}, '
+                f'created_on={self.created_on!s}, '
+                f'http_headers={(self.http_headers if hasattr(self, "http_headers") else None)!s})')

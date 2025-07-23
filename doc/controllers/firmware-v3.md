@@ -34,7 +34,7 @@ def list_available_firmware(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[FirmwarePackage]`](../../doc/models/firmware-package.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[FirmwarePackage]`](../../doc/models/firmware-package.md).
 
 ## Example Usage
 
@@ -47,6 +47,11 @@ result = firmware_v3_controller.list_available_firmware(
     acc,
     protocol
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -92,7 +97,7 @@ def synchronize_device_firmware(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceFirmwareList`](../../doc/models/device-firmware-list.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceFirmwareList`](../../doc/models/device-firmware-list.md).
 
 ## Example Usage
 
@@ -109,6 +114,11 @@ result = firmware_v3_controller.synchronize_device_firmware(
     acc,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -152,7 +162,7 @@ def report_device_firmware(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceFirmwareVersionUpdateResult`](../../doc/models/device-firmware-version-update-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceFirmwareVersionUpdateResult`](../../doc/models/device-firmware-version-update-result.md).
 
 ## Example Usage
 
@@ -165,6 +175,11 @@ result = firmware_v3_controller.report_device_firmware(
     acc,
     device_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

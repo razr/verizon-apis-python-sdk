@@ -13,12 +13,10 @@ class Acceleration(object):
 
     """Implementation of the 'acceleration' model.
 
-    TODO: type model description here.
-
     Attributes:
-        x (str): TODO: type description here.
-        y (str): TODO: type description here.
-        z (str): TODO: type description here.
+        x (str): The model property of type str.
+        y (str): The model property of type str.
+        z (str): The model property of type str.
 
     """
 
@@ -64,7 +62,7 @@ class Acceleration(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -75,3 +73,15 @@ class Acceleration(object):
         return cls(x,
                    y,
                    z)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'x={(self.x if hasattr(self, "x") else None)!r}, '
+                f'y={(self.y if hasattr(self, "y") else None)!r}, '
+                f'z={(self.z if hasattr(self, "z") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'x={(self.x if hasattr(self, "x") else None)!s}, '
+                f'y={(self.y if hasattr(self, "y") else None)!s}, '
+                f'z={(self.z if hasattr(self, "z") else None)!s})')

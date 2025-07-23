@@ -16,8 +16,8 @@ class AggregatedReportCallbackStatusEnum(object):
     have status=COMPLETED; all other requests are QUEUED.
 
     Attributes:
-        QUEUED: TODO: type description here.
-        COMPLETED: TODO: type description here.
+        QUEUED: The enum member of type str.
+        COMPLETED: The enum member of type str.
 
     """
     QUEUED = 'QUEUED'

@@ -34,23 +34,36 @@ def send_sms_to_device(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
 ```python
 body = SMSSendRequest(
     account_name='0000123456-00001',
-    sms_message='Can you hear me now?',
+    sms_message='the body or text of the message itself',
+    custom_fields=[
+        CustomFields(
+            key='CustomField1',
+            value='value of the field'
+        )
+    ],
+    data_encoding='optional 7 or 8-bit encoding',
     device_ids=[
         DeviceId(
-            id='89148000000800139708',
+            id='20-digit ICCID',
             kind='iccid'
         )
-    ]
+    ],
+    time_to_live='a000000010000000R'
 )
 
 result = sms_controller.send_sms_to_device(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -83,11 +96,11 @@ def list_devices_sms_messages(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `aname` | `str` | Template, Required | Account name. |
-| `next` | `long\|int` | Query, Optional | Continue the previous query from the URL in Location Header. |
+| `next` | `int` | Query, Optional | Continue the previous query from the URL in Location Header. |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`SMSMessagesQueryResult`](../../doc/models/sms-messages-query-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SMSMessagesQueryResult`](../../doc/models/sms-messages-query-result.md).
 
 ## Example Usage
 
@@ -95,6 +108,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 aname = '0252012345-00001'
 
 result = sms_controller.list_devices_sms_messages(aname)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -151,7 +169,7 @@ def start_queued_sms_delivery(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ConnectivityManagementSuccessResult`](../../doc/models/connectivity-management-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ConnectivityManagementSuccessResult`](../../doc/models/connectivity-management-success-result.md).
 
 ## Example Usage
 
@@ -159,6 +177,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 aname = '0252012345-00001'
 
 result = sms_controller.start_queued_sms_delivery(aname)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

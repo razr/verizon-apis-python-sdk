@@ -15,12 +15,12 @@ class ResponseToUsageQuery(object):
 
     """Implementation of the 'Response to Usage Query' model.
 
-    TODO: type model description here.
-
     Attributes:
-        hasmoredata (bool): TODO: type description here.
-        device_id (ReadySimDeviceId): TODO: type description here.
-        usage_history (List[UsageHistory]): TODO: type description here.
+        hasmoredata (bool): The model property of type bool.
+        device_id (ReadySimDeviceId): The model property of type
+            ReadySimDeviceId.
+        usage_history (List[UsageHistory]): The model property of type
+            List[UsageHistory].
 
     """
 
@@ -66,7 +66,7 @@ class ResponseToUsageQuery(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -81,3 +81,15 @@ class ResponseToUsageQuery(object):
         return cls(hasmoredata,
                    device_id,
                    usage_history)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'hasmoredata={(self.hasmoredata if hasattr(self, "hasmoredata") else None)!r}, '
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r}, '
+                f'usage_history={(self.usage_history if hasattr(self, "usage_history") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'hasmoredata={(self.hasmoredata if hasattr(self, "hasmoredata") else None)!s}, '
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s}, '
+                f'usage_history={(self.usage_history if hasattr(self, "usage_history") else None)!s})')

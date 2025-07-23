@@ -71,7 +71,7 @@ class V1ListOfLicensesToRemove(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -84,3 +84,17 @@ class V1ListOfLicensesToRemove(object):
                    has_more_data,
                    update_time,
                    device_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'count={(self.count if hasattr(self, "count") else None)!r}, '
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!r}, '
+                f'update_time={(self.update_time if hasattr(self, "update_time") else None)!r}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'count={(self.count if hasattr(self, "count") else None)!s}, '
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!s}, '
+                f'update_time={(self.update_time if hasattr(self, "update_time") else None)!s}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!s})')

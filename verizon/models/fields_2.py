@@ -16,7 +16,7 @@ class Fields2(object):
     List of fields affected by the event.
 
     Attributes:
-        temperature (str): TODO: type description here.
+        temperature (str): The model property of type str.
 
     """
 
@@ -52,10 +52,18 @@ class Fields2(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         temperature = dictionary.get("temperature") if dictionary.get("temperature") else APIHelper.SKIP
         # Return an object of this model
         return cls(temperature)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'temperature={(self.temperature if hasattr(self, "temperature") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'temperature={(self.temperature if hasattr(self, "temperature") else None)!s})')

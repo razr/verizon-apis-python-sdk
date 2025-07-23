@@ -35,7 +35,7 @@ def cancel_async_report(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`TransactionID`](../../doc/models/transaction-id.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransactionID`](../../doc/models/transaction-id.md).
 
 ## Example Usage
 
@@ -48,6 +48,11 @@ result = device_location_callbacks_controller.cancel_async_report(
     account_name,
     txid
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -82,7 +87,7 @@ def list_registered_callbacks(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[DeviceLocationCallback]`](../../doc/models/device-location-callback.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[DeviceLocationCallback]`](../../doc/models/device-location-callback.md).
 
 ## Example Usage
 
@@ -90,6 +95,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account_name = '0000123456-00001'
 
 result = device_location_callbacks_controller.list_registered_callbacks(account_name)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -133,7 +143,7 @@ def register_callback(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`CallbackRegistrationResult`](../../doc/models/callback-registration-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CallbackRegistrationResult`](../../doc/models/callback-registration-result.md).
 
 ## Example Usage
 
@@ -149,6 +159,11 @@ result = device_location_callbacks_controller.register_callback(
     account_name,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -186,7 +201,7 @@ def deregister_callback(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceLocationSuccessResult`](../../doc/models/device-location-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceLocationSuccessResult`](../../doc/models/device-location-success-result.md).
 
 ## Example Usage
 
@@ -199,6 +214,11 @@ result = device_location_callbacks_controller.deregister_callback(
     account_name,
     service
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

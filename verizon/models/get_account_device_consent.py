@@ -13,10 +13,8 @@ class GetAccountDeviceConsent(object):
 
     """Implementation of the 'GetAccountDeviceConsent' model.
 
-    TODO: type model description here.
-
     Attributes:
-        device_list (List[object]): An array of device identifiers
+        device_list (List[Any]): An array of device identifiers
         account_name (str): The numeric name of the account, including leading
             zeros.
         all_device_consent (int): If consent is set at the account level, this
@@ -66,7 +64,7 @@ class GetAccountDeviceConsent(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -77,3 +75,15 @@ class GetAccountDeviceConsent(object):
         return cls(device_list,
                    account_name,
                    all_device_consent)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'all_device_consent={(self.all_device_consent if hasattr(self, "all_device_consent") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'all_device_consent={(self.all_device_consent if hasattr(self, "all_device_consent") else None)!s})')

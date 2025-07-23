@@ -26,8 +26,8 @@ class FirmwareCampaign(object):
         firmware_from (str): Old firmware version (for firmware upgrade only).
         firmware_to (str): New firmware version (for firmware upgrade only).
         protocol (str): Available values: LWM2M.
-        make (str): TODO: type description here.
-        model (str): TODO: type description here.
+        make (str): The model property of type str.
+        model (str): The model property of type str.
         start_date (date): Campaign start date.
         end_date (date): Campaign end date.
         campaign_time_window_list (List[V3TimeWindow]): List of allowed
@@ -108,7 +108,7 @@ class FirmwareCampaign(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -143,3 +143,35 @@ class FirmwareCampaign(object):
                    campaign_name,
                    firmware_name,
                    campaign_time_window_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'id={self.id!r}, '
+                f'account_name={self.account_name!r}, '
+                f'campaign_name={(self.campaign_name if hasattr(self, "campaign_name") else None)!r}, '
+                f'firmware_name={(self.firmware_name if hasattr(self, "firmware_name") else None)!r}, '
+                f'firmware_from={self.firmware_from!r}, '
+                f'firmware_to={self.firmware_to!r}, '
+                f'protocol={self.protocol!r}, '
+                f'make={self.make!r}, '
+                f'model={self.model!r}, '
+                f'start_date={self.start_date!r}, '
+                f'end_date={self.end_date!r}, '
+                f'campaign_time_window_list={(self.campaign_time_window_list if hasattr(self, "campaign_time_window_list") else None)!r}, '
+                f'status={self.status!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'id={self.id!s}, '
+                f'account_name={self.account_name!s}, '
+                f'campaign_name={(self.campaign_name if hasattr(self, "campaign_name") else None)!s}, '
+                f'firmware_name={(self.firmware_name if hasattr(self, "firmware_name") else None)!s}, '
+                f'firmware_from={self.firmware_from!s}, '
+                f'firmware_to={self.firmware_to!s}, '
+                f'protocol={self.protocol!s}, '
+                f'make={self.make!s}, '
+                f'model={self.model!s}, '
+                f'start_date={self.start_date!s}, '
+                f'end_date={self.end_date!s}, '
+                f'campaign_time_window_list={(self.campaign_time_window_list if hasattr(self, "campaign_time_window_list") else None)!s}, '
+                f'status={self.status!s})')

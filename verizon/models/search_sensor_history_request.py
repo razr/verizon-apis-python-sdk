@@ -73,7 +73,7 @@ class SearchSensorHistoryRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -86,3 +86,17 @@ class SearchSensorHistoryRequest(object):
                    resourceidentifier,
                    limitnumber,
                    page)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'accountidentifier={self.accountidentifier!r}, '
+                f'resourceidentifier={self.resourceidentifier!r}, '
+                f'limitnumber={(self.limitnumber if hasattr(self, "limitnumber") else None)!r}, '
+                f'page={(self.page if hasattr(self, "page") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'accountidentifier={self.accountidentifier!s}, '
+                f'resourceidentifier={self.resourceidentifier!s}, '
+                f'limitnumber={(self.limitnumber if hasattr(self, "limitnumber") else None)!s}, '
+                f'page={(self.page if hasattr(self, "page") else None)!s})')

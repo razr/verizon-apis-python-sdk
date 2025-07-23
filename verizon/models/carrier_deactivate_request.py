@@ -33,7 +33,7 @@ class CarrierDeactivateRequest(object):
             deactivate all devices in that group.
         service_plan (str): The name of a service plan, if you want to only
             include devices that have that service plan.
-        delete_after_deactivation (bool): TODO: type description here.
+        delete_after_deactivation (bool): The model property of type bool.
 
     """
 
@@ -98,7 +98,7 @@ class CarrierDeactivateRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -125,3 +125,25 @@ class CarrierDeactivateRequest(object):
                    group_name,
                    service_plan,
                    delete_after_deactivation)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'devices={self.devices!r}, '
+                f'reason_code={self.reason_code!r}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!r}, '
+                f'etf_waiver={(self.etf_waiver if hasattr(self, "etf_waiver") else None)!r}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'delete_after_deactivation={(self.delete_after_deactivation if hasattr(self, "delete_after_deactivation") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'devices={self.devices!s}, '
+                f'reason_code={self.reason_code!s}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!s}, '
+                f'etf_waiver={(self.etf_waiver if hasattr(self, "etf_waiver") else None)!s}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'delete_after_deactivation={(self.delete_after_deactivation if hasattr(self, "delete_after_deactivation") else None)!s})')

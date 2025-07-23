@@ -66,7 +66,7 @@ class AggregateUsageError(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -77,3 +77,15 @@ class AggregateUsageError(object):
         return cls(imei,
                    error_message,
                    error_response)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'imei={(self.imei if hasattr(self, "imei") else None)!r}, '
+                f'error_message={(self.error_message if hasattr(self, "error_message") else None)!r}, '
+                f'error_response={(self.error_response if hasattr(self, "error_response") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'imei={(self.imei if hasattr(self, "imei") else None)!s}, '
+                f'error_message={(self.error_message if hasattr(self, "error_message") else None)!s}, '
+                f'error_response={(self.error_response if hasattr(self, "error_response") else None)!s})')

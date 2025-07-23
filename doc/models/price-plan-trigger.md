@@ -9,42 +9,44 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_group_share` | [`AccountGroupShare`](../../doc/models/account-group-share.md) | Optional | - |
+| `stand_alone` | [`FiltercriteriaObjectCall`](../../doc/models/filtercriteria-object-call.md) | Optional | - |
+| `condition` | [`Rateplantype2Condition`](../../doc/models/rateplantype-2-condition.md) | Optional | - |
+| `action` | [`Actionobject`](../../doc/models/actionobject.md) | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
-  "accountGroupShare": {
-    "accountGroupShareIndividual": {
-      "filterCriteria": {
-        "ratePlanGroupId": 202
-      },
-      "condition": {
-        "action": "action6"
-      },
-      "action": {
-        "changePlan": {
-          "triggerDate": "triggerDate6",
-          "sharePlan": [
-            {
-              "fromCarrierCode": "fromCarrierCode6",
-              "toCarrierCode": "toCarrierCode8",
-              "criteriaPercentage": 170
-            },
-            {
-              "fromCarrierCode": "fromCarrierCode6",
-              "toCarrierCode": "toCarrierCode8",
-              "criteriaPercentage": 170
-            },
-            {
-              "fromCarrierCode": "fromCarrierCode6",
-              "toCarrierCode": "toCarrierCode8",
-              "criteriaPercentage": 170
-            }
-          ]
-        }
-      }
+  "standAlone": {
+    "filterCriteria": {
+      "carrierServicePlanCode": "carrierServicePlanCode4",
+      "accountNameList": [
+        "accountNameList7",
+        "accountNameList8"
+      ]
+    }
+  },
+  "condition": {
+    "conditionType": "Aging",
+    "comparitor": "eq",
+    "threshold": 98,
+    "thresholdUnit": "MB",
+    "cycleType": "Weekly"
+  },
+  "action": {
+    "suspend": false,
+    "suspendDetails": {
+      "suspendFromAccounts": [
+        "suspendFromAccounts7"
+      ],
+      "suspendDuration": 152,
+      "suspendOption": "suspendOption2",
+      "threshold": 166,
+      "thresholdUnit": "GB"
+    },
+    "changePlan": false,
+    "changePlanDetails": {
+      "toCarrierServicePlanCode": "toCarrierServicePlanCode2"
     }
   }
 }

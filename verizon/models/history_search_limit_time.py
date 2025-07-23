@@ -60,7 +60,7 @@ class HistorySearchLimitTime(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -69,3 +69,13 @@ class HistorySearchLimitTime(object):
         # Return an object of this model
         return cls(start_on,
                    duration)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'start_on={(self.start_on if hasattr(self, "start_on") else None)!r}, '
+                f'duration={(self.duration if hasattr(self, "duration") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'start_on={(self.start_on if hasattr(self, "start_on") else None)!s}, '
+                f'duration={(self.duration if hasattr(self, "duration") else None)!s})')

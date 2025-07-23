@@ -51,7 +51,7 @@ class LogInRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -60,3 +60,13 @@ class LogInRequest(object):
         # Return an object of this model
         return cls(username,
                    password)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'username={self.username!r}, '
+                f'password={self.password!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'username={self.username!s}, '
+                f'password={self.password!s})')

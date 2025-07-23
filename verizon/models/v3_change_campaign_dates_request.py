@@ -64,7 +64,7 @@ class V3ChangeCampaignDatesRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -79,3 +79,15 @@ class V3ChangeCampaignDatesRequest(object):
         return cls(start_date,
                    end_date,
                    campaign_time_window_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'start_date={self.start_date!r}, '
+                f'end_date={self.end_date!r}, '
+                f'campaign_time_window_list={(self.campaign_time_window_list if hasattr(self, "campaign_time_window_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'start_date={self.start_date!s}, '
+                f'end_date={self.end_date!s}, '
+                f'campaign_time_window_list={(self.campaign_time_window_list if hasattr(self, "campaign_time_window_list") else None)!s})')

@@ -97,7 +97,7 @@ class UsageAnomalyAttributes(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -114,3 +114,21 @@ class UsageAnomalyAttributes(object):
                    include_very_abnormal,
                    include_under_expected_usage,
                    include_over_expected_usage)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_names={(self.account_names if hasattr(self, "account_names") else None)!r}, '
+                f'device_group={(self.device_group if hasattr(self, "device_group") else None)!r}, '
+                f'include_abnormal={(self.include_abnormal if hasattr(self, "include_abnormal") else None)!r}, '
+                f'include_very_abnormal={(self.include_very_abnormal if hasattr(self, "include_very_abnormal") else None)!r}, '
+                f'include_under_expected_usage={(self.include_under_expected_usage if hasattr(self, "include_under_expected_usage") else None)!r}, '
+                f'include_over_expected_usage={(self.include_over_expected_usage if hasattr(self, "include_over_expected_usage") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_names={(self.account_names if hasattr(self, "account_names") else None)!s}, '
+                f'device_group={(self.device_group if hasattr(self, "device_group") else None)!s}, '
+                f'include_abnormal={(self.include_abnormal if hasattr(self, "include_abnormal") else None)!s}, '
+                f'include_very_abnormal={(self.include_very_abnormal if hasattr(self, "include_very_abnormal") else None)!s}, '
+                f'include_under_expected_usage={(self.include_under_expected_usage if hasattr(self, "include_under_expected_usage") else None)!s}, '
+                f'include_over_expected_usage={(self.include_over_expected_usage if hasattr(self, "include_over_expected_usage") else None)!s})')

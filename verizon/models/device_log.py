@@ -70,7 +70,7 @@ class DeviceLog(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -87,3 +87,21 @@ class DeviceLog(object):
                    event_log,
                    binary_log_file_base_64,
                    binary_log_filename)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!r}, '
+                f'log_time={self.log_time!r}, '
+                f'log_type={self.log_type!r}, '
+                f'event_log={self.event_log!r}, '
+                f'binary_log_file_base_64={self.binary_log_file_base_64!r}, '
+                f'binary_log_filename={self.binary_log_filename!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!s}, '
+                f'log_time={self.log_time!s}, '
+                f'log_type={self.log_type!s}, '
+                f'event_log={self.event_log!s}, '
+                f'binary_log_file_base_64={self.binary_log_file_base_64!s}, '
+                f'binary_log_filename={self.binary_log_filename!s})')

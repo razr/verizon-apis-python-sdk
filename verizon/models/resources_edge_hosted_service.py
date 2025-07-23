@@ -24,7 +24,7 @@ class ResourcesEdgeHostedService(object):
         application_server_provider_id (str): Unique ID representing the Edge
             Application Provider.
         application_id (str): Unique ID representing the Edge Application.
-        service_description (str): TODO: type description here.
+        service_description (str): The model property of type str.
 
     """
 
@@ -80,7 +80,7 @@ class ResourcesEdgeHostedService(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -95,3 +95,19 @@ class ResourcesEdgeHostedService(object):
                    application_server_provider_id,
                    application_id,
                    service_description)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'ern={(self.ern if hasattr(self, "ern") else None)!r}, '
+                f'service_endpoint={(self.service_endpoint if hasattr(self, "service_endpoint") else None)!r}, '
+                f'application_server_provider_id={(self.application_server_provider_id if hasattr(self, "application_server_provider_id") else None)!r}, '
+                f'application_id={(self.application_id if hasattr(self, "application_id") else None)!r}, '
+                f'service_description={(self.service_description if hasattr(self, "service_description") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'ern={(self.ern if hasattr(self, "ern") else None)!s}, '
+                f'service_endpoint={(self.service_endpoint if hasattr(self, "service_endpoint") else None)!s}, '
+                f'application_server_provider_id={(self.application_server_provider_id if hasattr(self, "application_server_provider_id") else None)!s}, '
+                f'application_id={(self.application_id if hasattr(self, "application_id") else None)!s}, '
+                f'service_description={(self.service_description if hasattr(self, "service_description") else None)!s})')

@@ -31,7 +31,7 @@ def get_promo_device_usage_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ResponseToUsageQuery`](../../doc/models/response-to-usage-query.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseToUsageQuery`](../../doc/models/response-to-usage-query.md).
 
 ## Example Usage
 
@@ -42,6 +42,11 @@ body = ARequestBodyForUsage(
 )
 
 result = promotion_period_information_controller.get_promo_device_usage_history(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -91,7 +96,7 @@ def get_promo_device_aggregate_usage_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`UsageRequestResponse`](../../doc/models/usage-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`UsageRequestResponse`](../../doc/models/usage-request-response.md).
 
 ## Example Usage
 
@@ -103,6 +108,11 @@ body = RequestBodyForUsage(
 )
 
 result = promotion_period_information_controller.get_promo_device_aggregate_usage_history(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

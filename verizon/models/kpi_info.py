@@ -16,14 +16,14 @@ class KPIInfo(object):
     KPI Info Object
 
     Attributes:
-        name (str): TODO: type description here.
-        value (str): TODO: type description here.
-        node_name (str): TODO: type description here.
-        node_type (str): TODO: type description here.
-        description (str): TODO: type description here.
-        unit (str): TODO: type description here.
-        category (str): TODO: type description here.
-        time_of_last_update (str): TODO: type description here.
+        name (str): The model property of type str.
+        value (str): The model property of type str.
+        node_name (str): The model property of type str.
+        node_type (str): The model property of type str.
+        description (str): The model property of type str.
+        unit (str): The model property of type str.
+        category (str): The model property of type str.
+        time_of_last_update (str): The model property of type str.
 
     """
 
@@ -94,7 +94,7 @@ class KPIInfo(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -115,3 +115,25 @@ class KPIInfo(object):
                    unit,
                    category,
                    time_of_last_update)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'value={(self.value if hasattr(self, "value") else None)!r}, '
+                f'node_name={(self.node_name if hasattr(self, "node_name") else None)!r}, '
+                f'node_type={(self.node_type if hasattr(self, "node_type") else None)!r}, '
+                f'description={(self.description if hasattr(self, "description") else None)!r}, '
+                f'unit={(self.unit if hasattr(self, "unit") else None)!r}, '
+                f'category={(self.category if hasattr(self, "category") else None)!r}, '
+                f'time_of_last_update={(self.time_of_last_update if hasattr(self, "time_of_last_update") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'value={(self.value if hasattr(self, "value") else None)!s}, '
+                f'node_name={(self.node_name if hasattr(self, "node_name") else None)!s}, '
+                f'node_type={(self.node_type if hasattr(self, "node_type") else None)!s}, '
+                f'description={(self.description if hasattr(self, "description") else None)!s}, '
+                f'unit={(self.unit if hasattr(self, "unit") else None)!s}, '
+                f'category={(self.category if hasattr(self, "category") else None)!s}, '
+                f'time_of_last_update={(self.time_of_last_update if hasattr(self, "time_of_last_update") else None)!s})')

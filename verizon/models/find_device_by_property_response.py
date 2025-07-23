@@ -18,7 +18,7 @@ class FindDeviceByPropertyResponse(object):
     Attributes:
         billingaccountid (str): Billing account ID of the resource.
         createdon (str): The date the resource was created.
-        eventretention (str): TODO: type description here.
+        eventretention (str): The model property of type str.
         iccid (str): Cellular SIM card identifier.
         id (str): ThingSpace unique ID for the device that was added.
         imei (str): 4G hardware device identifier.
@@ -131,7 +131,7 @@ class FindDeviceByPropertyResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -164,3 +164,37 @@ class FindDeviceByPropertyResponse(object):
                    state,
                    version,
                    versionid)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'billingaccountid={(self.billingaccountid if hasattr(self, "billingaccountid") else None)!r}, '
+                f'createdon={(self.createdon if hasattr(self, "createdon") else None)!r}, '
+                f'eventretention={(self.eventretention if hasattr(self, "eventretention") else None)!r}, '
+                f'iccid={(self.iccid if hasattr(self, "iccid") else None)!r}, '
+                f'id={(self.id if hasattr(self, "id") else None)!r}, '
+                f'imei={(self.imei if hasattr(self, "imei") else None)!r}, '
+                f'kind={(self.kind if hasattr(self, "kind") else None)!r}, '
+                f'lastupdated={(self.lastupdated if hasattr(self, "lastupdated") else None)!r}, '
+                f'providerid={(self.providerid if hasattr(self, "providerid") else None)!r}, '
+                f'refid={(self.refid if hasattr(self, "refid") else None)!r}, '
+                f'refidtype={(self.refidtype if hasattr(self, "refidtype") else None)!r}, '
+                f'state={(self.state if hasattr(self, "state") else None)!r}, '
+                f'version={(self.version if hasattr(self, "version") else None)!r}, '
+                f'versionid={(self.versionid if hasattr(self, "versionid") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'billingaccountid={(self.billingaccountid if hasattr(self, "billingaccountid") else None)!s}, '
+                f'createdon={(self.createdon if hasattr(self, "createdon") else None)!s}, '
+                f'eventretention={(self.eventretention if hasattr(self, "eventretention") else None)!s}, '
+                f'iccid={(self.iccid if hasattr(self, "iccid") else None)!s}, '
+                f'id={(self.id if hasattr(self, "id") else None)!s}, '
+                f'imei={(self.imei if hasattr(self, "imei") else None)!s}, '
+                f'kind={(self.kind if hasattr(self, "kind") else None)!s}, '
+                f'lastupdated={(self.lastupdated if hasattr(self, "lastupdated") else None)!s}, '
+                f'providerid={(self.providerid if hasattr(self, "providerid") else None)!s}, '
+                f'refid={(self.refid if hasattr(self, "refid") else None)!s}, '
+                f'refidtype={(self.refidtype if hasattr(self, "refidtype") else None)!s}, '
+                f'state={(self.state if hasattr(self, "state") else None)!s}, '
+                f'version={(self.version if hasattr(self, "version") else None)!s}, '
+                f'versionid={(self.versionid if hasattr(self, "versionid") else None)!s})')

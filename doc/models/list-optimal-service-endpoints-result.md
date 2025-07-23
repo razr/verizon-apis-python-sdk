@@ -11,7 +11,7 @@ Response on successful retrieval of optimal service endpoints for clients.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `service_endpoints` | [`List[ResourcesEdgeHostedService]`](../../doc/models/resources-edge-hosted-service.md) | Optional | An array of optimal Service Endpoint IDs for clients to connect to.<br>**Constraints**: *Maximum Items*: `100` |
+| `service_endpoints` | [`List[ResourcesEdgeHostedService]`](../../doc/models/resources-edge-hosted-service.md) | Optional | An array of optimal Service Endpoint IDs for clients to connect to.<br><br>**Constraints**: *Maximum Items*: `100` |
 
 ## Example (as JSON)
 

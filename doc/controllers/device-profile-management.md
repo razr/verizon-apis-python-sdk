@@ -33,7 +33,7 @@ def activate_device_through_profile(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
 
 ## Example Usage
 
@@ -59,6 +59,11 @@ body = ActivateDeviceProfileRequest(
 )
 
 result = device_profile_management_controller.activate_device_through_profile(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -85,7 +90,7 @@ def profile_to_activate_device(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
 
 ## Example Usage
 
@@ -101,6 +106,11 @@ body = ProfileRequest(
 )
 
 result = device_profile_management_controller.profile_to_activate_device(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -127,7 +137,7 @@ def profile_to_deactivate_device(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
 
 ## Example Usage
 
@@ -141,6 +151,11 @@ body = DeactivateDeviceProfileRequest(
 )
 
 result = device_profile_management_controller.profile_to_deactivate_device(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -167,7 +182,7 @@ def profile_to_set_fallback_attribute(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
 
 ## Example Usage
 
@@ -181,6 +196,11 @@ body = SetFallbackAttributeRequest(
 )
 
 result = device_profile_management_controller.profile_to_set_fallback_attribute(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

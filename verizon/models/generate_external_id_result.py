@@ -52,10 +52,18 @@ class GenerateExternalIDResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         externalid = dictionary.get("externalid") if dictionary.get("externalid") else APIHelper.SKIP
         # Return an object of this model
         return cls(externalid)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'externalid={(self.externalid if hasattr(self, "externalid") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'externalid={(self.externalid if hasattr(self, "externalid") else None)!s})')

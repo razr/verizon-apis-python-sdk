@@ -11,7 +11,7 @@ Response to return an array of all regions in the Verizon 5G Edge service. You c
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `regions` | [`List[Region]`](../../doc/models/region.md) | Optional | An array of all regions in the Verizon 5G Edge service.<br>**Constraints**: *Maximum Items*: `100` |
+| `regions` | [`List[Region]`](../../doc/models/region.md) | Optional | An array of all regions in the Verizon 5G Edge service.<br><br>**Constraints**: *Maximum Items*: `100` |
 
 ## Example (as JSON)
 

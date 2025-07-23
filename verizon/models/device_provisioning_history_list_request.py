@@ -58,7 +58,7 @@ class DeviceProvisioningHistoryListRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -69,3 +69,15 @@ class DeviceProvisioningHistoryListRequest(object):
         return cls(device_id,
                    earliest,
                    latest)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!r}, '
+                f'earliest={self.earliest!r}, '
+                f'latest={self.latest!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!s}, '
+                f'earliest={self.earliest!s}, '
+                f'latest={self.latest!s})')

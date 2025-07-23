@@ -69,7 +69,7 @@ class LocationRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -84,3 +84,17 @@ class LocationRequest(object):
                    device_list,
                    accuracy_mode,
                    cache_mode)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'device_list={self.device_list!r}, '
+                f'accuracy_mode={(self.accuracy_mode if hasattr(self, "accuracy_mode") else None)!r}, '
+                f'cache_mode={(self.cache_mode if hasattr(self, "cache_mode") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'device_list={self.device_list!s}, '
+                f'accuracy_mode={(self.accuracy_mode if hasattr(self, "accuracy_mode") else None)!s}, '
+                f'cache_mode={(self.cache_mode if hasattr(self, "cache_mode") else None)!s})')

@@ -17,8 +17,8 @@ class SearchSensorHistoryResponseList(object):
     A success response includes an array of all matching events.
 
     Attributes:
-        search_sensor_history (List[SearchDeviceResponse]): TODO: type
-            description here.
+        search_sensor_history (List[SearchDeviceResponse]): The model property
+            of type List[SearchDeviceResponse].
 
     """
 
@@ -54,7 +54,7 @@ class SearchSensorHistoryResponseList(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -65,3 +65,11 @@ class SearchSensorHistoryResponseList(object):
             search_sensor_history = APIHelper.SKIP
         # Return an object of this model
         return cls(search_sensor_history)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'search_sensor_history={(self.search_sensor_history if hasattr(self, "search_sensor_history") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'search_sensor_history={(self.search_sensor_history if hasattr(self, "search_sensor_history") else None)!s})')

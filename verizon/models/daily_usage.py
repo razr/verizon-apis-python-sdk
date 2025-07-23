@@ -14,10 +14,8 @@ class DailyUsage(object):
 
     """Implementation of the 'dailyUsage' model.
 
-    TODO: type model description here.
-
     Attributes:
-        device_id (GIODeviceId): TODO: type description here.
+        device_id (GIODeviceId): The model property of type GIODeviceId.
         earliest (str): The start date of the time period queried as
             "$datetime"
         latest (str): The end date of the time period being queried as
@@ -67,7 +65,7 @@ class DailyUsage(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -78,3 +76,15 @@ class DailyUsage(object):
         return cls(device_id,
                    earliest,
                    latest)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r}, '
+                f'earliest={(self.earliest if hasattr(self, "earliest") else None)!r}, '
+                f'latest={(self.latest if hasattr(self, "latest") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s}, '
+                f'earliest={(self.earliest if hasattr(self, "earliest") else None)!s}, '
+                f'latest={(self.latest if hasattr(self, "latest") else None)!s})')

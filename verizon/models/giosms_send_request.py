@@ -15,30 +15,31 @@ class GIOSMSSendRequest(object):
 
     """Implementation of the 'GIOSMSSendRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        custom_fields (List[KvPair]): TODO: type description here.
-        data_encoding (str): TODO: type description here.
-        group_name (str): TODO: type description here.
-        service_plan (str): TODO: type description here.
-        time_to_live (str): TODO: type description here.
-        device_ids (List[GIODeviceId]): TODO: type description here.
-        sms_message (str): TODO: type description here.
+        account_name (str): The model property of type str.
+        custom_fields (List[KvPair]): The model property of type List[KvPair].
+        data_encoding (str): The model property of type str.
+        group_name (str): The model property of type str.
+        service_plan (str): The model property of type str.
+        time_to_live (str): A period of time the message remains valid or an
+            end date for the message. This value would be less than the 5 day
+            default.
+        device_ids (List[GIODeviceId]): The model property of type
+            List[GIODeviceId].
+        sms_message (str): The model property of type str.
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "device_ids": 'deviceIds',
         "sms_message": 'smsMessage',
         "account_name": 'accountName',
         "custom_fields": 'customFields',
         "data_encoding": 'dataEncoding',
         "group_name": 'groupName',
         "service_plan": 'servicePlan',
-        "time_to_live": 'timeToLive'
+        "time_to_live": 'timeToLive',
+        "device_ids": 'deviceIds'
     }
 
     _optionals = [
@@ -48,17 +49,18 @@ class GIOSMSSendRequest(object):
         'group_name',
         'service_plan',
         'time_to_live',
+        'device_ids',
     ]
 
     def __init__(self,
-                 device_ids=None,
                  sms_message=None,
                  account_name=APIHelper.SKIP,
                  custom_fields=APIHelper.SKIP,
                  data_encoding=APIHelper.SKIP,
                  group_name=APIHelper.SKIP,
                  service_plan=APIHelper.SKIP,
-                 time_to_live=APIHelper.SKIP):
+                 time_to_live=APIHelper.SKIP,
+                 device_ids=APIHelper.SKIP):
         """Constructor for the GIOSMSSendRequest class"""
 
         # Initialize members of the class
@@ -74,7 +76,8 @@ class GIOSMSSendRequest(object):
             self.service_plan = service_plan 
         if time_to_live is not APIHelper.SKIP:
             self.time_to_live = time_to_live 
-        self.device_ids = device_ids 
+        if device_ids is not APIHelper.SKIP:
+            self.device_ids = device_ids 
         self.sms_message = sms_message 
 
     @classmethod
@@ -92,13 +95,10 @@ class GIOSMSSendRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        device_ids = None
-        if dictionary.get('deviceIds') is not None:
-            device_ids = [GIODeviceId.from_dictionary(x) for x in dictionary.get('deviceIds')]
         sms_message = dictionary.get("smsMessage") if dictionary.get("smsMessage") else None
         account_name = dictionary.get("accountName") if dictionary.get("accountName") else APIHelper.SKIP
         custom_fields = None
@@ -110,12 +110,39 @@ class GIOSMSSendRequest(object):
         group_name = dictionary.get("groupName") if dictionary.get("groupName") else APIHelper.SKIP
         service_plan = dictionary.get("servicePlan") if dictionary.get("servicePlan") else APIHelper.SKIP
         time_to_live = dictionary.get("timeToLive") if dictionary.get("timeToLive") else APIHelper.SKIP
+        device_ids = None
+        if dictionary.get('deviceIds') is not None:
+            device_ids = [GIODeviceId.from_dictionary(x) for x in dictionary.get('deviceIds')]
+        else:
+            device_ids = APIHelper.SKIP
         # Return an object of this model
-        return cls(device_ids,
-                   sms_message,
+        return cls(sms_message,
                    account_name,
                    custom_fields,
                    data_encoding,
                    group_name,
                    service_plan,
-                   time_to_live)
+                   time_to_live,
+                   device_ids)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!r}, '
+                f'data_encoding={(self.data_encoding if hasattr(self, "data_encoding") else None)!r}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'time_to_live={(self.time_to_live if hasattr(self, "time_to_live") else None)!r}, '
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!r}, '
+                f'sms_message={self.sms_message!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!s}, '
+                f'data_encoding={(self.data_encoding if hasattr(self, "data_encoding") else None)!s}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'time_to_live={(self.time_to_live if hasattr(self, "time_to_live") else None)!s}, '
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!s}, '
+                f'sms_message={self.sms_message!s})')

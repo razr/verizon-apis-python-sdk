@@ -71,7 +71,7 @@ class CreateDeviceGroupRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -88,3 +88,17 @@ class CreateDeviceGroupRequest(object):
                    group_description,
                    group_name,
                    devices_to_add)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'group_description={self.group_description!r}, '
+                f'group_name={self.group_name!r}, '
+                f'devices_to_add={(self.devices_to_add if hasattr(self, "devices_to_add") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'group_description={self.group_description!s}, '
+                f'group_name={self.group_name!s}, '
+                f'devices_to_add={(self.devices_to_add if hasattr(self, "devices_to_add") else None)!s})')

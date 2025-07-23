@@ -14,10 +14,8 @@ class M5gBideviceId(object):
 
     """Implementation of the '5gbideviceId' model.
 
-    TODO: type model description here.
-
     Attributes:
-        device_id (M5gBideviceId1): TODO: type description here.
+        device_id (M5gBideviceId1): The model property of type M5gBideviceId1.
 
     """
 
@@ -53,10 +51,18 @@ class M5gBideviceId(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         device_id = M5gBideviceId1.from_dictionary(dictionary.get('deviceId')) if 'deviceId' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(device_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s})')

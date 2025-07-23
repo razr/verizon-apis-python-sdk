@@ -104,7 +104,7 @@ class DeviceUpgradeHistory(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -127,3 +127,27 @@ class DeviceUpgradeHistory(object):
                    upgrade_start_time,
                    status,
                    reason)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r}, '
+                f'id={(self.id if hasattr(self, "id") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'firmware_from={(self.firmware_from if hasattr(self, "firmware_from") else None)!r}, '
+                f'firmware_to={(self.firmware_to if hasattr(self, "firmware_to") else None)!r}, '
+                f'start_date={(self.start_date if hasattr(self, "start_date") else None)!r}, '
+                f'upgrade_start_time={(self.upgrade_start_time if hasattr(self, "upgrade_start_time") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'reason={(self.reason if hasattr(self, "reason") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s}, '
+                f'id={(self.id if hasattr(self, "id") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'firmware_from={(self.firmware_from if hasattr(self, "firmware_from") else None)!s}, '
+                f'firmware_to={(self.firmware_to if hasattr(self, "firmware_to") else None)!s}, '
+                f'start_date={(self.start_date if hasattr(self, "start_date") else None)!s}, '
+                f'upgrade_start_time={(self.upgrade_start_time if hasattr(self, "upgrade_start_time") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'reason={(self.reason if hasattr(self, "reason") else None)!s})')

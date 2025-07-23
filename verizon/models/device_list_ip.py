@@ -13,11 +13,10 @@ class DeviceListIP(object):
 
     """Implementation of the 'DeviceListIP' model.
 
-    TODO: type model description here.
-
     Attributes:
-        device_ids (List[PWNDeviceId]): TODO: type description here.
-        ipaddress (str): TODO: type description here.
+        device_ids (List[PWNDeviceId]): The model property of type
+            List[PWNDeviceId].
+        ipaddress (str): The model property of type str.
 
     """
 
@@ -51,7 +50,7 @@ class DeviceListIP(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -62,3 +61,13 @@ class DeviceListIP(object):
         # Return an object of this model
         return cls(device_ids,
                    ipaddress)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_ids={self.device_ids!r}, '
+                f'ipaddress={self.ipaddress!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_ids={self.device_ids!s}, '
+                f'ipaddress={self.ipaddress!s})')

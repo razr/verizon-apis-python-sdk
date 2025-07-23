@@ -15,14 +15,13 @@ class DailyUsageResponse(object):
 
     """Implementation of the 'dailyUsageResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         has_more_data (bool): A flag set to indicate if there is more than one
             page of data returned by the query (true) or if only one page of
             data returned (false)
-        device_id (GIODeviceId): TODO: type description here.
-        usage_history (List[DailyUsageHistory]): TODO: type description here.
+        device_id (GIODeviceId): The model property of type GIODeviceId.
+        usage_history (List[DailyUsageHistory]): The model property of type
+            List[DailyUsageHistory].
 
     """
 
@@ -68,7 +67,7 @@ class DailyUsageResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -83,3 +82,15 @@ class DailyUsageResponse(object):
         return cls(has_more_data,
                    device_id,
                    usage_history)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!r}, '
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r}, '
+                f'usage_history={(self.usage_history if hasattr(self, "usage_history") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!s}, '
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s}, '
+                f'usage_history={(self.usage_history if hasattr(self, "usage_history") else None)!s})')

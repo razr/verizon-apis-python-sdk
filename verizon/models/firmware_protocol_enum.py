@@ -15,9 +15,9 @@ class FirmwareProtocolEnum(object):
     Firmware protocol. Valid values include: LWM2M, OMD-DM, all.
 
     Attributes:
-        LWM2M: TODO: type description here.
-        OMDDM: TODO: type description here.
-        ALL: TODO: type description here.
+        LWM2M: The enum member of type str.
+        OMDDM: The enum member of type str.
+        ALL: The enum member of type str.
 
     """
     LW_M2M = 'LWM2M'

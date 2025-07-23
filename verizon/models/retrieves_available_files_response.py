@@ -13,8 +13,6 @@ class RetrievesAvailableFilesResponse(object):
 
     """Implementation of the 'RetrievesAvailableFilesResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         file_name (str): ThingSpace-generated name of the file. You will use
             this name when listing or scheduling campaigns for the file.
@@ -96,7 +94,7 @@ class RetrievesAvailableFilesResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -117,3 +115,25 @@ class RetrievesAvailableFilesResponse(object):
                    local_target_path,
                    distribution_type,
                    device_platform_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'file_name={(self.file_name if hasattr(self, "file_name") else None)!r}, '
+                f'file_version={(self.file_version if hasattr(self, "file_version") else None)!r}, '
+                f'release_note={(self.release_note if hasattr(self, "release_note") else None)!r}, '
+                f'make={(self.make if hasattr(self, "make") else None)!r}, '
+                f'model={(self.model if hasattr(self, "model") else None)!r}, '
+                f'local_target_path={(self.local_target_path if hasattr(self, "local_target_path") else None)!r}, '
+                f'distribution_type={(self.distribution_type if hasattr(self, "distribution_type") else None)!r}, '
+                f'device_platform_id={(self.device_platform_id if hasattr(self, "device_platform_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'file_name={(self.file_name if hasattr(self, "file_name") else None)!s}, '
+                f'file_version={(self.file_version if hasattr(self, "file_version") else None)!s}, '
+                f'release_note={(self.release_note if hasattr(self, "release_note") else None)!s}, '
+                f'make={(self.make if hasattr(self, "make") else None)!s}, '
+                f'model={(self.model if hasattr(self, "model") else None)!s}, '
+                f'local_target_path={(self.local_target_path if hasattr(self, "local_target_path") else None)!s}, '
+                f'distribution_type={(self.distribution_type if hasattr(self, "distribution_type") else None)!s}, '
+                f'device_platform_id={(self.device_platform_id if hasattr(self, "device_platform_id") else None)!s})')

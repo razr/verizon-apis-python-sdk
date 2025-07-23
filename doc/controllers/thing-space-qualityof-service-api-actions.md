@@ -31,7 +31,7 @@ def create_a_thing_space_quality_of_service_api_subscription(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`M201success`](../../doc/models/m201-success.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`M201success`](../../doc/models/m201-success.md).
 
 ## Example Usage
 
@@ -59,6 +59,11 @@ body = SubscribeRequest(
 )
 
 result = thing_space_quality_of_service_api_actions_controller.create_a_thing_space_quality_of_service_api_subscription(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -87,7 +92,7 @@ def stop_a_thing_space_quality_of_service_api_subscription(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`M201success`](../../doc/models/m201-success.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`M201success`](../../doc/models/m201-success.md).
 
 ## Example Usage
 
@@ -100,6 +105,11 @@ result = thing_space_quality_of_service_api_actions_controller.stop_a_thing_spac
     account_name,
     qos_subscription_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

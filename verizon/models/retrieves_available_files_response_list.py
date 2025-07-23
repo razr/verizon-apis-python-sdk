@@ -14,11 +14,9 @@ class RetrievesAvailableFilesResponseList(object):
 
     """Implementation of the 'RetrievesAvailableFilesResponseList' model.
 
-    TODO: type model description here.
-
     Attributes:
-        available_files_response (List[RetrievesAvailableFilesResponse]):
-            TODO: type description here.
+        available_files_response (List[RetrievesAvailableFilesResponse]): The
+            model property of type List[RetrievesAvailableFilesResponse].
 
     """
 
@@ -54,7 +52,7 @@ class RetrievesAvailableFilesResponseList(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -65,3 +63,11 @@ class RetrievesAvailableFilesResponseList(object):
             available_files_response = APIHelper.SKIP
         # Return an object of this model
         return cls(available_files_response)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'available_files_response={(self.available_files_response if hasattr(self, "available_files_response") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'available_files_response={(self.available_files_response if hasattr(self, "available_files_response") else None)!s})')

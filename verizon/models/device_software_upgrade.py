@@ -78,7 +78,7 @@ class DeviceSoftwareUpgrade(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -97,3 +97,23 @@ class DeviceSoftwareUpgrade(object):
                    status,
                    reason,
                    software_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!r}, '
+                f'id={self.id!r}, '
+                f'account_name={self.account_name!r}, '
+                f'software_name={(self.software_name if hasattr(self, "software_name") else None)!r}, '
+                f'start_date={self.start_date!r}, '
+                f'status={self.status!r}, '
+                f'reason={self.reason!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!s}, '
+                f'id={self.id!s}, '
+                f'account_name={self.account_name!s}, '
+                f'software_name={(self.software_name if hasattr(self, "software_name") else None)!s}, '
+                f'start_date={self.start_date!s}, '
+                f'status={self.status!s}, '
+                f'reason={self.reason!s})')

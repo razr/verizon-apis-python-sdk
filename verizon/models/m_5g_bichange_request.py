@@ -14,14 +14,12 @@ class M5gBichangeRequest(object):
 
     """Implementation of the '5gbichangeRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        service_plan (str): TODO: type description here.
+        account_name (str): The model property of type str.
+        service_plan (str): The model property of type str.
         device_list_with_service_address (List[DeviceListWithServiceAddress]):
-            TODO: type description here.
-        current_service_plan (str): TODO: type description here.
+            The model property of type List[DeviceListWithServiceAddress].
+        current_service_plan (str): The model property of type str.
 
     """
 
@@ -72,7 +70,7 @@ class M5gBichangeRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -89,3 +87,17 @@ class M5gBichangeRequest(object):
                    service_plan,
                    device_list_with_service_address,
                    current_service_plan)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'device_list_with_service_address={(self.device_list_with_service_address if hasattr(self, "device_list_with_service_address") else None)!r}, '
+                f'current_service_plan={(self.current_service_plan if hasattr(self, "current_service_plan") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'device_list_with_service_address={(self.device_list_with_service_address if hasattr(self, "device_list_with_service_address") else None)!s}, '
+                f'current_service_plan={(self.current_service_plan if hasattr(self, "current_service_plan") else None)!s})')

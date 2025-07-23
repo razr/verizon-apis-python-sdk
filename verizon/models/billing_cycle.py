@@ -13,11 +13,9 @@ class BillingCycle(object):
 
     """Implementation of the 'BillingCycle' model.
 
-    TODO: type model description here.
-
     Attributes:
-        year (str): TODO: type description here.
-        month (str): TODO: type description here.
+        year (str): The model property of type str.
+        month (str): The model property of type str.
 
     """
 
@@ -58,7 +56,7 @@ class BillingCycle(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +65,13 @@ class BillingCycle(object):
         # Return an object of this model
         return cls(year,
                    month)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'year={(self.year if hasattr(self, "year") else None)!r}, '
+                f'month={(self.month if hasattr(self, "month") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'year={(self.year if hasattr(self, "year") else None)!s}, '
+                f'month={(self.month if hasattr(self, "month") else None)!s})')

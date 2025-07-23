@@ -14,12 +14,11 @@ class StatusResponse(object):
 
     """Implementation of the 'StatusResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        request_id (str): TODO: type description here.
-        status (str): TODO: type description here.
-        subrequests (List[Subrequest]): TODO: type description here.
+        request_id (str): The model property of type str.
+        status (str): The model property of type str.
+        subrequests (List[Subrequest]): The model property of type
+            List[Subrequest].
 
     """
 
@@ -65,7 +64,7 @@ class StatusResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -80,3 +79,15 @@ class StatusResponse(object):
         return cls(request_id,
                    status,
                    subrequests)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'subrequests={(self.subrequests if hasattr(self, "subrequests") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'request_id={(self.request_id if hasattr(self, "request_id") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'subrequests={(self.subrequests if hasattr(self, "subrequests") else None)!s})')

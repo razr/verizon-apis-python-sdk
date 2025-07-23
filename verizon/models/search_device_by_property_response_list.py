@@ -17,8 +17,8 @@ class SearchDeviceByPropertyResponseList(object):
     A success response includes an array of all matching devices.
 
     Attributes:
-        device_property (List[SearchDeviceByPropertyResponse]): TODO: type
-            description here.
+        device_property (List[SearchDeviceByPropertyResponse]): The model
+            property of type List[SearchDeviceByPropertyResponse].
 
     """
 
@@ -54,7 +54,7 @@ class SearchDeviceByPropertyResponseList(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -65,3 +65,11 @@ class SearchDeviceByPropertyResponseList(object):
             device_property = APIHelper.SKIP
         # Return an object of this model
         return cls(device_property)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_property={(self.device_property if hasattr(self, "device_property") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_property={(self.device_property if hasattr(self, "device_property") else None)!s})')

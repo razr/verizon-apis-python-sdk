@@ -13,8 +13,6 @@ class DownloadTimeWindow(object):
 
     """Implementation of the 'downloadTimeWindow' model.
 
-    TODO: type model description here.
-
     Attributes:
         start_time (str): Device IMEI list.
         end_time (str): Device IMEI list.
@@ -58,7 +56,7 @@ class DownloadTimeWindow(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +65,13 @@ class DownloadTimeWindow(object):
         # Return an object of this model
         return cls(start_time,
                    end_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'start_time={(self.start_time if hasattr(self, "start_time") else None)!r}, '
+                f'end_time={(self.end_time if hasattr(self, "end_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'start_time={(self.start_time if hasattr(self, "start_time") else None)!s}, '
+                f'end_time={(self.end_time if hasattr(self, "end_time") else None)!s})')

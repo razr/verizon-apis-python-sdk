@@ -15,8 +15,8 @@ class ServiceNameEnum(object):
     Service name
 
     Attributes:
-        LOCATION: TODO: type description here.
-        FOTA: TODO: type description here.
+        LOCATION: The enum member of type str.
+        FOTA: The enum member of type str.
 
     """
     LOCATION = 'Location'

@@ -131,8 +131,8 @@ class DeviceGroupsController(BaseController):
         Args:
             aname (str): Account name.
             gname (str): Group name.
-            next (long|int, optional): Continue the previous query from the
-                pageUrl pagetoken.
+            next (int, optional): Continue the previous query from the pageUrl
+                pagetoken.
 
         Returns:
             ApiResponse: An object with the response value as well as other

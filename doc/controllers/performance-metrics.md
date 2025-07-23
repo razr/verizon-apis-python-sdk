@@ -32,7 +32,7 @@ def query_mec_performance_metrics(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`MECPerformanceMetrics`](../../doc/models/mec-performance-metrics.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`MECPerformanceMetrics`](../../doc/models/mec-performance-metrics.md).
 
 ## Example Usage
 
@@ -45,6 +45,11 @@ body = QueryMECPerformanceMetricsRequest(
 result = performance_metrics_controller.query_mec_performance_metrics(
     body=body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

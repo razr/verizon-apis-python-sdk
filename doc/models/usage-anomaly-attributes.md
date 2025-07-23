@@ -11,7 +11,7 @@ The details of the UsageAnomaly trigger.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_names` | `str` | Optional | The Verizon billing account associated with the anomaly triggers for this trigger to be active for devices in those accounts. An account name is usually numeric, and must include any leading zeros.<br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `32` |
+| `account_names` | `str` | Optional | The Verizon billing account associated with the anomaly triggers for this trigger to be active for devices in those accounts. An account name is usually numeric, and must include any leading zeros.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `32` |
 | `device_group` | `str` | Optional | The names of device groups associated with the anomaly triggers for this trigger to be active for devices in those groups. |
 | `include_abnormal` | `bool` | Optional | Whether or not to include anomalies classified as 'abnormal'.<br />true<br />false<br />Classification is set as part of ThingSpace Intelligence anomaly detection settings. |
 | `include_very_abnormal` | `bool` | Optional | Whether or not to include anomalies classified as 'very abnormal'.<br />true<br />false<br />Classification is set as part of ThingSpace Intelligence anomaly detection settings. |

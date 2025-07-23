@@ -13,8 +13,6 @@ class AccountConsentUpdate(object):
 
     """Implementation of the 'AccountConsentUpdate' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): The numeric name of the account, including leading
             zeros.
@@ -60,7 +58,7 @@ class AccountConsentUpdate(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -69,3 +67,13 @@ class AccountConsentUpdate(object):
         # Return an object of this model
         return cls(account_name,
                    all_device_consent)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'all_device_consent={(self.all_device_consent if hasattr(self, "all_device_consent") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'all_device_consent={(self.all_device_consent if hasattr(self, "all_device_consent") else None)!s})')

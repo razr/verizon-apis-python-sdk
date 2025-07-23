@@ -120,7 +120,7 @@ class V3AccountDevice(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -161,3 +161,39 @@ class V3AccountDevice(object):
                    upgrade_time,
                    update_time,
                    refresh_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!r}, '
+                f'mdn={self.mdn!r}, '
+                f'model={self.model!r}, '
+                f'make={self.make!r}, '
+                f'firmware={self.firmware!r}, '
+                f'fota_eligible={self.fota_eligible!r}, '
+                f'status={self.status!r}, '
+                f'license_assigned={self.license_assigned!r}, '
+                f'protocol={self.protocol!r}, '
+                f'software_list={self.software_list!r}, '
+                f'file_list={(self.file_list if hasattr(self, "file_list") else None)!r}, '
+                f'create_time={(self.create_time if hasattr(self, "create_time") else None)!r}, '
+                f'upgrade_time={(self.upgrade_time if hasattr(self, "upgrade_time") else None)!r}, '
+                f'update_time={(self.update_time if hasattr(self, "update_time") else None)!r}, '
+                f'refresh_time={(self.refresh_time if hasattr(self, "refresh_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!s}, '
+                f'mdn={self.mdn!s}, '
+                f'model={self.model!s}, '
+                f'make={self.make!s}, '
+                f'firmware={self.firmware!s}, '
+                f'fota_eligible={self.fota_eligible!s}, '
+                f'status={self.status!s}, '
+                f'license_assigned={self.license_assigned!s}, '
+                f'protocol={self.protocol!s}, '
+                f'software_list={self.software_list!s}, '
+                f'file_list={(self.file_list if hasattr(self, "file_list") else None)!s}, '
+                f'create_time={(self.create_time if hasattr(self, "create_time") else None)!s}, '
+                f'upgrade_time={(self.upgrade_time if hasattr(self, "upgrade_time") else None)!s}, '
+                f'update_time={(self.update_time if hasattr(self, "update_time") else None)!s}, '
+                f'refresh_time={(self.refresh_time if hasattr(self, "refresh_time") else None)!s})')

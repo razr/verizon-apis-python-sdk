@@ -11,8 +11,8 @@ Base type for all errors.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `status` | `str` | Required | HTTP status code or status of response.<br>**Constraints**: *Maximum Length*: `32`, *Pattern*: `^[A-Za-z0-9]{3,32}$` |
-| `message` | `str` | Required | Error details.<br>**Constraints**: *Maximum Length*: `32` |
+| `status` | `str` | Required | HTTP status code or status of response.<br><br>**Constraints**: *Maximum Length*: `32`, *Pattern*: `^[A-Za-z0-9]{3,32}$` |
+| `message` | `str` | Required | Error details.<br><br>**Constraints**: *Maximum Length*: `32` |
 | `data` | [`EdgeDiscoveryResultData`](../../doc/models/edge-discovery-result-data.md) | Optional | For cases where user input exceeds the boundary values an additional 'data' key will be returned with a relevant description. |
 
 ## Example (as JSON)

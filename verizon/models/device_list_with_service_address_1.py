@@ -15,12 +15,11 @@ class DeviceListWithServiceAddress1(object):
 
     """Implementation of the 'DeviceListWithServiceAddress1' model.
 
-    TODO: type model description here.
-
     Attributes:
-        device_id (List[M5gBideviceId1]): TODO: type description here.
-        primary_placeofuse (M5gBiprimaryPlaceofuse): TODO: type description
-            here.
+        device_id (List[M5gBideviceId1]): The model property of type
+            List[M5gBideviceId1].
+        primary_placeofuse (M5gBiprimaryPlaceofuse): The model property of
+            type M5gBiprimaryPlaceofuse.
 
     """
 
@@ -61,7 +60,7 @@ class DeviceListWithServiceAddress1(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -74,3 +73,13 @@ class DeviceListWithServiceAddress1(object):
         # Return an object of this model
         return cls(device_id,
                    primary_placeofuse)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r}, '
+                f'primary_placeofuse={(self.primary_placeofuse if hasattr(self, "primary_placeofuse") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s}, '
+                f'primary_placeofuse={(self.primary_placeofuse if hasattr(self, "primary_placeofuse") else None)!s})')

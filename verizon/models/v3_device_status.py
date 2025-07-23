@@ -78,7 +78,7 @@ class V3DeviceStatus(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -95,3 +95,21 @@ class V3DeviceStatus(object):
                    updated_time,
                    recent_attempt_time,
                    next_attempt_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!r}, '
+                f'status={self.status!r}, '
+                f'result_reason={(self.result_reason if hasattr(self, "result_reason") else None)!r}, '
+                f'updated_time={(self.updated_time if hasattr(self, "updated_time") else None)!r}, '
+                f'recent_attempt_time={(self.recent_attempt_time if hasattr(self, "recent_attempt_time") else None)!r}, '
+                f'next_attempt_time={(self.next_attempt_time if hasattr(self, "next_attempt_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!s}, '
+                f'status={self.status!s}, '
+                f'result_reason={(self.result_reason if hasattr(self, "result_reason") else None)!s}, '
+                f'updated_time={(self.updated_time if hasattr(self, "updated_time") else None)!s}, '
+                f'recent_attempt_time={(self.recent_attempt_time if hasattr(self, "recent_attempt_time") else None)!s}, '
+                f'next_attempt_time={(self.next_attempt_time if hasattr(self, "next_attempt_time") else None)!s})')

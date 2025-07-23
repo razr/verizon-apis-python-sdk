@@ -14,7 +14,7 @@ Specifies the callback service that is being subscribed to and the URL where the
 | `account_name` | `str` | Required | The name of the billing account for which callback messages will be sent. Format: "##########-#####". |
 | `service_name` | `str` | Required | The name of the callback service, which identifies the type and format of messages that will be sent to the registered URL. |
 | `endpoint` | `str` | Required | The URL for your web server. |
-| `http_headers` | `object` | Optional | Your HTTP headers. |
+| `http_headers` | `Any` | Optional | Your HTTP headers. |
 
 ## Example (as JSON)
 

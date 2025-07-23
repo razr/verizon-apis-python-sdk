@@ -13,16 +13,14 @@ class UsageHistory(object):
 
     """Implementation of the 'usage history' model.
 
-    TODO: type model description here.
-
     Attributes:
-        bytes_used (int): TODO: type description here.
-        serviceplan (str): TODO: type description here.
-        sms_used (int): TODO: type description here.
-        mo_sms (int): TODO: type description here.
-        mt_sms (int): TODO: type description here.
-        source (str): TODO: type description here.
-        event_date_time (datetime): TODO: type description here.
+        bytes_used (int): The model property of type int.
+        serviceplan (str): The model property of type str.
+        sms_used (int): The model property of type int.
+        mo_sms (int): The model property of type int.
+        mt_sms (int): The model property of type int.
+        source (str): The model property of type str.
+        event_date_time (datetime): The model property of type datetime.
 
     """
 
@@ -88,7 +86,7 @@ class UsageHistory(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -107,3 +105,23 @@ class UsageHistory(object):
                    mt_sms,
                    source,
                    event_date_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'bytes_used={(self.bytes_used if hasattr(self, "bytes_used") else None)!r}, '
+                f'serviceplan={(self.serviceplan if hasattr(self, "serviceplan") else None)!r}, '
+                f'sms_used={(self.sms_used if hasattr(self, "sms_used") else None)!r}, '
+                f'mo_sms={(self.mo_sms if hasattr(self, "mo_sms") else None)!r}, '
+                f'mt_sms={(self.mt_sms if hasattr(self, "mt_sms") else None)!r}, '
+                f'source={(self.source if hasattr(self, "source") else None)!r}, '
+                f'event_date_time={(self.event_date_time if hasattr(self, "event_date_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'bytes_used={(self.bytes_used if hasattr(self, "bytes_used") else None)!s}, '
+                f'serviceplan={(self.serviceplan if hasattr(self, "serviceplan") else None)!s}, '
+                f'sms_used={(self.sms_used if hasattr(self, "sms_used") else None)!s}, '
+                f'mo_sms={(self.mo_sms if hasattr(self, "mo_sms") else None)!s}, '
+                f'mt_sms={(self.mt_sms if hasattr(self, "mt_sms") else None)!s}, '
+                f'source={(self.source if hasattr(self, "source") else None)!s}, '
+                f'event_date_time={(self.event_date_time if hasattr(self, "event_date_time") else None)!s})')

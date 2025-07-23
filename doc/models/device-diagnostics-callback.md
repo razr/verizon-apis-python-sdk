@@ -15,7 +15,7 @@ Callback information of an existing diagnostics subscription.
 | `service_name` | `str` | Required | The name of the callback service, which identifies the type and format of messages that will be sent to the registered URL. |
 | `endpoint` | `str` | Required | The URL for your web server. |
 | `created_on` | `datetime` | Required | The date and time of when this request was created. |
-| `http_headers` | `object` | Optional | Your HTTP headers. |
+| `http_headers` | `Any` | Optional | Your HTTP headers. |
 
 ## Example (as JSON)
 

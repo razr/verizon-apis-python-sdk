@@ -34,7 +34,7 @@ def create_device_group(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ConnectivityManagementSuccessResult`](../../doc/models/connectivity-management-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ConnectivityManagementSuccessResult`](../../doc/models/connectivity-management-success-result.md).
 
 ## Example Usage
 
@@ -52,6 +52,11 @@ body = CreateDeviceGroupRequest(
 )
 
 result = device_groups_controller.create_device_group(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -86,7 +91,7 @@ def list_device_groups(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[DeviceGroup]`](../../doc/models/device-group.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[DeviceGroup]`](../../doc/models/device-group.md).
 
 ## Example Usage
 
@@ -94,6 +99,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 aname = '0252012345-00001'
 
 result = device_groups_controller.list_device_groups(aname)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -139,11 +149,11 @@ def get_device_group_information(self,
 |  --- | --- | --- | --- |
 | `aname` | `str` | Template, Required | Account name. |
 | `gname` | `str` | Template, Required | Group name. |
-| `next` | `long\|int` | Query, Optional | Continue the previous query from the pageUrl pagetoken. |
+| `next` | `int` | Query, Optional | Continue the previous query from the pageUrl pagetoken. |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceGroupDevicesData`](../../doc/models/device-group-devices-data.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceGroupDevicesData`](../../doc/models/device-group-devices-data.md).
 
 ## Example Usage
 
@@ -156,6 +166,11 @@ result = device_groups_controller.get_device_group_information(
     aname,
     gname
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -210,7 +225,7 @@ def update_device_group(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ConnectivityManagementSuccessResult`](../../doc/models/connectivity-management-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ConnectivityManagementSuccessResult`](../../doc/models/connectivity-management-success-result.md).
 
 ## Example Usage
 
@@ -235,6 +250,11 @@ result = device_groups_controller.update_device_group(
     gname,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -271,7 +291,7 @@ def delete_device_group(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ConnectivityManagementSuccessResult`](../../doc/models/connectivity-management-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ConnectivityManagementSuccessResult`](../../doc/models/connectivity-management-success-result.md).
 
 ## Example Usage
 
@@ -284,6 +304,11 @@ result = device_groups_controller.delete_device_group(
     aname,
     gname
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

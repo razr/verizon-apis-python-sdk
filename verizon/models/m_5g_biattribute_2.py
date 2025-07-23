@@ -13,11 +13,9 @@ class M5gBiattribute2(object):
 
     """Implementation of the '5gbiattribute2' model.
 
-    TODO: type model description here.
-
     Attributes:
-        key (str): TODO: type description here.
-        value (str): TODO: type description here.
+        key (str): The model property of type str.
+        value (str): The model property of type str.
 
     """
 
@@ -58,7 +56,7 @@ class M5gBiattribute2(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +65,13 @@ class M5gBiattribute2(object):
         # Return an object of this model
         return cls(key,
                    value)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'key={(self.key if hasattr(self, "key") else None)!r}, '
+                f'value={(self.value if hasattr(self, "value") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'key={(self.key if hasattr(self, "key") else None)!s}, '
+                f'value={(self.value if hasattr(self, "value") else None)!s})')

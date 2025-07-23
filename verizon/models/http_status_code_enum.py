@@ -15,74 +15,74 @@ class HttpStatusCodeEnum(object):
     HTML error code and description.
 
     Attributes:
-        ENUM_100 CONTINUE: TODO: type description here.
-        ENUM_101 SWITCHING_PROTOCOLS: TODO: type description here.
-        ENUM_102 PROCESSING: TODO: type description here.
-        ENUM_103 CHECKPOINT: TODO: type description here.
-        ENUM_200 OK: TODO: type description here.
-        ENUM_201 CREATED: TODO: type description here.
-        ENUM_202 ACCEPTED: TODO: type description here.
-        ENUM_203 NON_AUTHORITATIVE_INFORMATION: TODO: type description here.
-        ENUM_204 NO_CONTENT: TODO: type description here.
-        ENUM_205 RESET_CONTENT: TODO: type description here.
-        ENUM_206 PARTIAL_CONTENT: TODO: type description here.
-        ENUM_207 MULTI_STATUS: TODO: type description here.
-        ENUM_208 ALREADY_REPORTED: TODO: type description here.
-        ENUM_226 IM_USED: TODO: type description here.
-        ENUM_300 MULTIPLE_CHOICES: TODO: type description here.
-        ENUM_301 MOVED_PERMANENTLY: TODO: type description here.
-        ENUM_302 FOUND: TODO: type description here.
-        ENUM_302 MOVED_TEMPORARILY: TODO: type description here.
-        ENUM_303 SEE_OTHER: TODO: type description here.
-        ENUM_304 NOT_MODIFIED: TODO: type description here.
-        ENUM_305 USE_PROXY: TODO: type description here.
-        ENUM_307 TEMPORARY_REDIRECT: TODO: type description here.
-        ENUM_308 PERMANENT_REDIRECT: TODO: type description here.
-        ENUM_400 BAD_REQUEST: TODO: type description here.
-        ENUM_401 UNAUTHORIZED: TODO: type description here.
-        ENUM_402 PAYMENT_REQUIRED: TODO: type description here.
-        ENUM_403 FORBIDDEN: TODO: type description here.
-        ENUM_404 NOT_FOUND: TODO: type description here.
-        ENUM_405 METHOD_NOT_ALLOWED: TODO: type description here.
-        ENUM_406 NOT_ACCEPTABLE: TODO: type description here.
-        ENUM_407 PROXY_AUTHENTICATION_REQUIRED: TODO: type description here.
-        ENUM_408 REQUEST_TIMEOUT: TODO: type description here.
-        ENUM_409 CONFLICT: TODO: type description here.
-        ENUM_410 GONE: TODO: type description here.
-        ENUM_411 LENGTH_REQUIRED: TODO: type description here.
-        ENUM_412 PRECONDITION_FAILED: TODO: type description here.
-        ENUM_413 PAYLOAD_TOO_LARGE: TODO: type description here.
-        ENUM_413 REQUEST_ENTITY_TOO_LARGE: TODO: type description here.
-        ENUM_414 URI_TOO_LONG: TODO: type description here.
-        ENUM_414 REQUEST_URI_TOO_LONG: TODO: type description here.
-        ENUM_415 UNSUPPORTED_MEDIA_TYPE: TODO: type description here.
-        ENUM_416 REQUESTED_RANGE_NOT_SATISFIABLE: TODO: type description here.
-        ENUM_417 EXPECTATION_FAILED: TODO: type description here.
-        ENUM_418 I_AM_A_TEAPOT: TODO: type description here.
-        ENUM_419 INSUFFICIENT_SPACE_ON_RESOURCE: TODO: type description here.
-        ENUM_420 METHOD_FAILURE: TODO: type description here.
-        ENUM_421 DESTINATION_LOCKED: TODO: type description here.
-        ENUM_422 UNPROCESSABLE_ENTITY: TODO: type description here.
-        ENUM_423 LOCKED: TODO: type description here.
-        ENUM_424 FAILED_DEPENDENCY: TODO: type description here.
-        ENUM_425 TOO_EARLY: TODO: type description here.
-        ENUM_426 UPGRADE_REQUIRED: TODO: type description here.
-        ENUM_428 PRECONDITION_REQUIRED: TODO: type description here.
-        ENUM_429 TOO_MANY_REQUESTS: TODO: type description here.
-        ENUM_431 REQUEST_HEADER_FIELDS_TOO_LARGE: TODO: type description here.
-        ENUM_451 UNAVAILABLE_FOR_LEGAL_REASONS: TODO: type description here.
-        ENUM_500 INTERNAL_SERVER_ERROR: TODO: type description here.
-        ENUM_501 NOT_IMPLEMENTED: TODO: type description here.
-        ENUM_502 BAD_GATEWAY: TODO: type description here.
-        ENUM_503 SERVICE_UNAVAILABLE: TODO: type description here.
-        ENUM_504 GATEWAY_TIMEOUT: TODO: type description here.
-        ENUM_505 HTTP_VERSION_NOT_SUPPORTED: TODO: type description here.
-        ENUM_506 VARIANT_ALSO_NEGOTIATES: TODO: type description here.
-        ENUM_507 INSUFFICIENT_STORAGE: TODO: type description here.
-        ENUM_508 LOOP_DETECTED: TODO: type description here.
-        ENUM_509 BANDWIDTH_LIMIT_EXCEEDED: TODO: type description here.
-        ENUM_510 NOT_EXTENDED: TODO: type description here.
-        ENUM_511 NETWORK_AUTHENTICATION_REQUIRED: TODO: type description here.
+        ENUM_100 CONTINUE: The enum member of type str.
+        ENUM_101 SWITCHING_PROTOCOLS: The enum member of type str.
+        ENUM_102 PROCESSING: The enum member of type str.
+        ENUM_103 CHECKPOINT: The enum member of type str.
+        ENUM_200 OK: The enum member of type str.
+        ENUM_201 CREATED: The enum member of type str.
+        ENUM_202 ACCEPTED: The enum member of type str.
+        ENUM_203 NON_AUTHORITATIVE_INFORMATION: The enum member of type str.
+        ENUM_204 NO_CONTENT: The enum member of type str.
+        ENUM_205 RESET_CONTENT: The enum member of type str.
+        ENUM_206 PARTIAL_CONTENT: The enum member of type str.
+        ENUM_207 MULTI_STATUS: The enum member of type str.
+        ENUM_208 ALREADY_REPORTED: The enum member of type str.
+        ENUM_226 IM_USED: The enum member of type str.
+        ENUM_300 MULTIPLE_CHOICES: The enum member of type str.
+        ENUM_301 MOVED_PERMANENTLY: The enum member of type str.
+        ENUM_302 FOUND: The enum member of type str.
+        ENUM_302 MOVED_TEMPORARILY: The enum member of type str.
+        ENUM_303 SEE_OTHER: The enum member of type str.
+        ENUM_304 NOT_MODIFIED: The enum member of type str.
+        ENUM_305 USE_PROXY: The enum member of type str.
+        ENUM_307 TEMPORARY_REDIRECT: The enum member of type str.
+        ENUM_308 PERMANENT_REDIRECT: The enum member of type str.
+        ENUM_400 BAD_REQUEST: The enum member of type str.
+        ENUM_401 UNAUTHORIZED: The enum member of type str.
+        ENUM_402 PAYMENT_REQUIRED: The enum member of type str.
+        ENUM_403 FORBIDDEN: The enum member of type str.
+        ENUM_404 NOT_FOUND: The enum member of type str.
+        ENUM_405 METHOD_NOT_ALLOWED: The enum member of type str.
+        ENUM_406 NOT_ACCEPTABLE: The enum member of type str.
+        ENUM_407 PROXY_AUTHENTICATION_REQUIRED: The enum member of type str.
+        ENUM_408 REQUEST_TIMEOUT: The enum member of type str.
+        ENUM_409 CONFLICT: The enum member of type str.
+        ENUM_410 GONE: The enum member of type str.
+        ENUM_411 LENGTH_REQUIRED: The enum member of type str.
+        ENUM_412 PRECONDITION_FAILED: The enum member of type str.
+        ENUM_413 PAYLOAD_TOO_LARGE: The enum member of type str.
+        ENUM_413 REQUEST_ENTITY_TOO_LARGE: The enum member of type str.
+        ENUM_414 URI_TOO_LONG: The enum member of type str.
+        ENUM_414 REQUEST_URI_TOO_LONG: The enum member of type str.
+        ENUM_415 UNSUPPORTED_MEDIA_TYPE: The enum member of type str.
+        ENUM_416 REQUESTED_RANGE_NOT_SATISFIABLE: The enum member of type str.
+        ENUM_417 EXPECTATION_FAILED: The enum member of type str.
+        ENUM_418 I_AM_A_TEAPOT: The enum member of type str.
+        ENUM_419 INSUFFICIENT_SPACE_ON_RESOURCE: The enum member of type str.
+        ENUM_420 METHOD_FAILURE: The enum member of type str.
+        ENUM_421 DESTINATION_LOCKED: The enum member of type str.
+        ENUM_422 UNPROCESSABLE_ENTITY: The enum member of type str.
+        ENUM_423 LOCKED: The enum member of type str.
+        ENUM_424 FAILED_DEPENDENCY: The enum member of type str.
+        ENUM_425 TOO_EARLY: The enum member of type str.
+        ENUM_426 UPGRADE_REQUIRED: The enum member of type str.
+        ENUM_428 PRECONDITION_REQUIRED: The enum member of type str.
+        ENUM_429 TOO_MANY_REQUESTS: The enum member of type str.
+        ENUM_431 REQUEST_HEADER_FIELDS_TOO_LARGE: The enum member of type str.
+        ENUM_451 UNAVAILABLE_FOR_LEGAL_REASONS: The enum member of type str.
+        ENUM_500 INTERNAL_SERVER_ERROR: The enum member of type str.
+        ENUM_501 NOT_IMPLEMENTED: The enum member of type str.
+        ENUM_502 BAD_GATEWAY: The enum member of type str.
+        ENUM_503 SERVICE_UNAVAILABLE: The enum member of type str.
+        ENUM_504 GATEWAY_TIMEOUT: The enum member of type str.
+        ENUM_505 HTTP_VERSION_NOT_SUPPORTED: The enum member of type str.
+        ENUM_506 VARIANT_ALSO_NEGOTIATES: The enum member of type str.
+        ENUM_507 INSUFFICIENT_STORAGE: The enum member of type str.
+        ENUM_508 LOOP_DETECTED: The enum member of type str.
+        ENUM_509 BANDWIDTH_LIMIT_EXCEEDED: The enum member of type str.
+        ENUM_510 NOT_EXTENDED: The enum member of type str.
+        ENUM_511 NETWORK_AUTHENTICATION_REQUIRED: The enum member of type str.
 
     """
     ENUM_100_CONTINUE = '100 CONTINUE'

@@ -13,11 +13,10 @@ class ChangePWNDeviceIpaddressRequest(object):
 
     """Implementation of the 'ChangePWNDeviceIPaddressRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        device_list (List[DeviceListIP]): TODO: type description here.
+        account_name (str): The model property of type str.
+        device_list (List[DeviceListIP]): The model property of type
+            List[DeviceListIP].
 
     """
 
@@ -51,7 +50,7 @@ class ChangePWNDeviceIpaddressRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -62,3 +61,13 @@ class ChangePWNDeviceIpaddressRequest(object):
         # Return an object of this model
         return cls(account_name,
                    device_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'device_list={self.device_list!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'device_list={self.device_list!s})')

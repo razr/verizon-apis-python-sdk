@@ -16,7 +16,7 @@ class DeleteDevicesResult(object):
     Response for a request made to delete a device.
 
     Attributes:
-        device_ids (object): One object per device to be deleted. Each object
+        device_ids (Any): One object per device to be deleted. Each object
             must contain a kind and id element identifying the device.
         status (str): “Success” if the device was deleted, or “Failed” if
             there was a problem.
@@ -68,7 +68,7 @@ class DeleteDevicesResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -79,3 +79,15 @@ class DeleteDevicesResult(object):
         return cls(device_ids,
                    status,
                    message)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'message={(self.message if hasattr(self, "message") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'message={(self.message if hasattr(self, "message") else None)!s})')

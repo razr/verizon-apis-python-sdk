@@ -14,11 +14,9 @@ class Subrequest(object):
 
     """Implementation of the 'Subrequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        ids (GIODeviceId): TODO: type description here.
-        status (str): TODO: type description here.
+        ids (GIODeviceId): The model property of type GIODeviceId.
+        status (str): The model property of type str.
 
     """
 
@@ -59,7 +57,7 @@ class Subrequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -68,3 +66,13 @@ class Subrequest(object):
         # Return an object of this model
         return cls(ids,
                    status)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'ids={(self.ids if hasattr(self, "ids") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'ids={(self.ids if hasattr(self, "ids") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s})')

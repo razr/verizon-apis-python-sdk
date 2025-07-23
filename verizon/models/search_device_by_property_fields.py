@@ -18,15 +18,15 @@ class SearchDeviceByPropertyFields(object):
     List of device sensors and their most recently reported values.
 
     Attributes:
-        acceleration (Acceleration): TODO: type description here.
-        battery (str): TODO: type description here.
-        humidity (str): TODO: type description here.
-        light (str): TODO: type description here.
-        pressure (str): TODO: type description here.
-        signal_strength (str): TODO: type description here.
-        temperature (str): TODO: type description here.
-        device_propertylocation (DevicePropertylocation): TODO: type
-            description here.
+        acceleration (Acceleration): The model property of type Acceleration.
+        battery (str): The model property of type str.
+        humidity (str): The model property of type str.
+        light (str): The model property of type str.
+        pressure (str): The model property of type str.
+        signal_strength (str): The model property of type str.
+        temperature (str): The model property of type str.
+        device_propertylocation (DevicePropertylocation): The model property
+            of type DevicePropertylocation.
 
     """
 
@@ -97,7 +97,7 @@ class SearchDeviceByPropertyFields(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -118,3 +118,25 @@ class SearchDeviceByPropertyFields(object):
                    signal_strength,
                    temperature,
                    device_propertylocation)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'acceleration={(self.acceleration if hasattr(self, "acceleration") else None)!r}, '
+                f'battery={(self.battery if hasattr(self, "battery") else None)!r}, '
+                f'humidity={(self.humidity if hasattr(self, "humidity") else None)!r}, '
+                f'light={(self.light if hasattr(self, "light") else None)!r}, '
+                f'pressure={(self.pressure if hasattr(self, "pressure") else None)!r}, '
+                f'signal_strength={(self.signal_strength if hasattr(self, "signal_strength") else None)!r}, '
+                f'temperature={(self.temperature if hasattr(self, "temperature") else None)!r}, '
+                f'device_propertylocation={(self.device_propertylocation if hasattr(self, "device_propertylocation") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'acceleration={(self.acceleration if hasattr(self, "acceleration") else None)!s}, '
+                f'battery={(self.battery if hasattr(self, "battery") else None)!s}, '
+                f'humidity={(self.humidity if hasattr(self, "humidity") else None)!s}, '
+                f'light={(self.light if hasattr(self, "light") else None)!s}, '
+                f'pressure={(self.pressure if hasattr(self, "pressure") else None)!s}, '
+                f'signal_strength={(self.signal_strength if hasattr(self, "signal_strength") else None)!s}, '
+                f'temperature={(self.temperature if hasattr(self, "temperature") else None)!s}, '
+                f'device_propertylocation={(self.device_propertylocation if hasattr(self, "device_propertylocation") else None)!s})')

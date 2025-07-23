@@ -15,8 +15,8 @@ class CallbackServiceNameEnum(object):
     The name of the callback service.
 
     Attributes:
-        LOCATION: TODO: type description here.
-        DEVICELOCATION: TODO: type description here.
+        LOCATION: The enum member of type str.
+        DEVICELOCATION: The enum member of type str.
 
     """
     LOCATION = 'Location'

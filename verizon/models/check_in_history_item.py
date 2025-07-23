@@ -18,9 +18,9 @@ class CheckInHistoryItem(object):
     Attributes:
         device_id (str): Device IMEI.
         client_type (str): Type of client.
-        result (str): TODO: type description here.
-        failure_type (str): TODO: type description here.
-        time_completed (datetime): TODO: type description here.
+        result (str): The model property of type str.
+        failure_type (str): The model property of type str.
+        time_completed (datetime): The model property of type datetime.
 
     """
 
@@ -63,7 +63,7 @@ class CheckInHistoryItem(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -78,3 +78,19 @@ class CheckInHistoryItem(object):
                    result,
                    failure_type,
                    time_completed)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!r}, '
+                f'client_type={self.client_type!r}, '
+                f'result={self.result!r}, '
+                f'failure_type={self.failure_type!r}, '
+                f'time_completed={self.time_completed!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!s}, '
+                f'client_type={self.client_type!s}, '
+                f'result={self.result!s}, '
+                f'failure_type={self.failure_type!s}, '
+                f'time_completed={self.time_completed!s})')

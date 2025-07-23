@@ -13,8 +13,6 @@ class ConsentDeleteRequest(object):
 
     """Implementation of the 'ConsentDeleteRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): Account identifier.
         device_list (List[str]): Device ID list.
@@ -58,7 +56,7 @@ class ConsentDeleteRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +65,13 @@ class ConsentDeleteRequest(object):
         # Return an object of this model
         return cls(account_name,
                    device_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!s})')

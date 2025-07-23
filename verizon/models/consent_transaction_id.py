@@ -17,8 +17,8 @@ class ConsentTransactionID(object):
     /devicelocations synchronus response.
 
     Attributes:
-        transaction_id (str): TODO: type description here.
-        status (str): TODO: type description here.
+        transaction_id (str): The model property of type str.
+        status (str): The model property of type str.
 
     """
 
@@ -59,7 +59,7 @@ class ConsentTransactionID(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -68,3 +68,13 @@ class ConsentTransactionID(object):
         # Return an object of this model
         return cls(transaction_id,
                    status)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'transaction_id={(self.transaction_id if hasattr(self, "transaction_id") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'transaction_id={(self.transaction_id if hasattr(self, "transaction_id") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s})')

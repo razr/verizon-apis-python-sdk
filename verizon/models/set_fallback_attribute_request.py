@@ -14,12 +14,11 @@ class SetFallbackAttributeRequest(object):
 
     """Implementation of the 'SetFallbackAttributeRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        devices (List[DeviceList]): TODO: type description here.
-        account_name (str): TODO: type description here.
-        carrier_name (str): TODO: type description here.
+        devices (List[DeviceList]): The model property of type
+            List[DeviceList].
+        account_name (str): The model property of type str.
+        carrier_name (str): The model property of type str.
 
     """
 
@@ -61,7 +60,7 @@ class SetFallbackAttributeRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -74,3 +73,15 @@ class SetFallbackAttributeRequest(object):
         return cls(devices,
                    account_name,
                    carrier_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={self.devices!r}, '
+                f'account_name={self.account_name!r}, '
+                f'carrier_name={(self.carrier_name if hasattr(self, "carrier_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={self.devices!s}, '
+                f'account_name={self.account_name!s}, '
+                f'carrier_name={(self.carrier_name if hasattr(self, "carrier_name") else None)!s})')

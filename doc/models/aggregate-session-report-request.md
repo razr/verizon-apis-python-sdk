@@ -30,8 +30,8 @@ Request for getting an aggregated session report.
   "imei": [
     "709312034493372"
   ],
-  "deviceGroup": "deviceGroup4",
-  "dataPlan": "dataPlan2",
+  "deviceGroup": null,
+  "dataPlan": null,
   "noSessionFlag": "false",
   "deviceLabel": "deviceLabel4"
 }

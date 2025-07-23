@@ -32,7 +32,7 @@ def start_connectivity_management_session(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LogInResult`](../../doc/models/log-in-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`LogInResult`](../../doc/models/log-in-result.md).
 
 ## Example Usage
 
@@ -45,6 +45,11 @@ body = LogInRequest(
 result = session_management_controller.start_connectivity_management_session(
     body=body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -72,12 +77,17 @@ def end_connectivity_management_session(self)
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LogOutRequest`](../../doc/models/log-out-request.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`LogOutRequest`](../../doc/models/log-out-request.md).
 
 ## Example Usage
 
 ```python
 result = session_management_controller.end_connectivity_management_session()
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -112,7 +122,7 @@ def reset_connectivity_management_password(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`SessionResetPasswordResult`](../../doc/models/session-reset-password-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SessionResetPasswordResult`](../../doc/models/session-reset-password-result.md).
 
 ## Example Usage
 
@@ -122,6 +132,11 @@ body = SessionResetPasswordRequest(
 )
 
 result = session_management_controller.reset_connectivity_management_password(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

@@ -13,14 +13,12 @@ class FlowInfo(object):
 
     """Implementation of the 'FlowInfo' model.
 
-    TODO: type model description here.
-
     Attributes:
-        flow_server (str): TODO: type description here.
-        flow_device (str): TODO: type description here.
-        flow_direction (str): TODO: type description here.
-        flow_protocol (str): TODO: type description here.
-        qci_option (str): TODO: type description here.
+        flow_server (str): The model property of type str.
+        flow_device (str): The model property of type str.
+        flow_direction (str): The model property of type str.
+        flow_protocol (str): The model property of type str.
+        qci_option (str): The model property of type str.
 
     """
 
@@ -76,7 +74,7 @@ class FlowInfo(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -91,3 +89,19 @@ class FlowInfo(object):
                    flow_direction,
                    flow_protocol,
                    qci_option)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'flow_server={(self.flow_server if hasattr(self, "flow_server") else None)!r}, '
+                f'flow_device={(self.flow_device if hasattr(self, "flow_device") else None)!r}, '
+                f'flow_direction={(self.flow_direction if hasattr(self, "flow_direction") else None)!r}, '
+                f'flow_protocol={(self.flow_protocol if hasattr(self, "flow_protocol") else None)!r}, '
+                f'qci_option={(self.qci_option if hasattr(self, "qci_option") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'flow_server={(self.flow_server if hasattr(self, "flow_server") else None)!s}, '
+                f'flow_device={(self.flow_device if hasattr(self, "flow_device") else None)!s}, '
+                f'flow_direction={(self.flow_direction if hasattr(self, "flow_direction") else None)!s}, '
+                f'flow_protocol={(self.flow_protocol if hasattr(self, "flow_protocol") else None)!s}, '
+                f'qci_option={(self.qci_option if hasattr(self, "qci_option") else None)!s})')

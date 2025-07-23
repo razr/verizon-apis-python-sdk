@@ -15,9 +15,9 @@ class RequestStatusEnum(object):
     The current status of the callback response.
 
     Attributes:
-        PENDING: TODO: type description here.
-        SUCCESS: TODO: type description here.
-        FAILURE: TODO: type description here.
+        PENDING: The enum member of type str.
+        SUCCESS: The enum member of type str.
+        FAILURE: The enum member of type str.
 
     """
     PENDING = 'Pending'

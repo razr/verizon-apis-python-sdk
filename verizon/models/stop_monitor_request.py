@@ -12,11 +12,9 @@ class StopMonitorRequest(object):
 
     """Implementation of the 'StopMonitorRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        monitor_ids (List[str]): TODO: type description here.
+        account_name (str): The model property of type str.
+        monitor_ids (List[str]): The model property of type List[str].
 
     """
 
@@ -50,7 +48,7 @@ class StopMonitorRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -59,3 +57,13 @@ class StopMonitorRequest(object):
         # Return an object of this model
         return cls(account_name,
                    monitor_ids)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'monitor_ids={self.monitor_ids!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'monitor_ids={self.monitor_ids!s})')

@@ -55,7 +55,7 @@ class DeviceMismatchListResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -66,3 +66,11 @@ class DeviceMismatchListResult(object):
             devices = APIHelper.SKIP
         # Return an object of this model
         return cls(devices)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={(self.devices if hasattr(self, "devices") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={(self.devices if hasattr(self, "devices") else None)!s})')

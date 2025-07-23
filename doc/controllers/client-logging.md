@@ -35,7 +35,7 @@ def list_devices_with_logging_enabled(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[DeviceLoggingStatus]`](../../doc/models/device-logging-status.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[DeviceLoggingStatus]`](../../doc/models/device-logging-status.md).
 
 ## Example Usage
 
@@ -43,6 +43,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account = '0000123456-00001'
 
 result = client_logging_controller.list_devices_with_logging_enabled(account)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -98,7 +103,7 @@ def enable_logging_for_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[DeviceLoggingStatus]`](../../doc/models/device-logging-status.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[DeviceLoggingStatus]`](../../doc/models/device-logging-status.md).
 
 ## Example Usage
 
@@ -119,6 +124,11 @@ result = client_logging_controller.enable_logging_for_devices(
     account,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -174,7 +184,7 @@ def disable_logging_for_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
 ## Example Usage
 
@@ -187,6 +197,11 @@ result = client_logging_controller.disable_logging_for_devices(
     account,
     device_ids
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -215,7 +230,7 @@ def enable_device_logging(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceLoggingStatus`](../../doc/models/device-logging-status.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceLoggingStatus`](../../doc/models/device-logging-status.md).
 
 ## Example Usage
 
@@ -228,6 +243,11 @@ result = client_logging_controller.enable_device_logging(
     account,
     device_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -265,7 +285,7 @@ def disable_device_logging(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
 ## Example Usage
 
@@ -278,6 +298,11 @@ result = client_logging_controller.disable_device_logging(
     account,
     device_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -306,7 +331,7 @@ def list_device_logs(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[DeviceLog]`](../../doc/models/device-log.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[DeviceLog]`](../../doc/models/device-log.md).
 
 ## Example Usage
 
@@ -319,6 +344,11 @@ result = client_logging_controller.list_device_logs(
     account,
     device_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

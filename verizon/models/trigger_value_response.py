@@ -14,10 +14,9 @@ class TriggerValueResponse(object):
 
     """Implementation of the 'TriggerValueResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        triggers (List[Triggervalues]): TODO: type description here.
+        triggers (List[Triggervalues]): The model property of type
+            List[Triggervalues].
 
     """
 
@@ -53,7 +52,7 @@ class TriggerValueResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -64,3 +63,11 @@ class TriggerValueResponse(object):
             triggers = APIHelper.SKIP
         # Return an object of this model
         return cls(triggers)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'triggers={(self.triggers if hasattr(self, "triggers") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'triggers={(self.triggers if hasattr(self, "triggers") else None)!s})')

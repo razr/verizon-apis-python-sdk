@@ -15,14 +15,12 @@ class ManagedAccountsGetAllResponse(object):
 
     """Implementation of the 'ManagedAccountsGetAllResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): Account Name
-        managed_acc_added_list (List[ManagedAccAddedList]): TODO: type
-            description here.
-        managed_acc_provisioned_list (List[ManagedAccProvisionedList]): TODO:
-            type description here.
+        managed_acc_added_list (List[ManagedAccAddedList]): The model property
+            of type List[ManagedAccAddedList].
+        managed_acc_provisioned_list (List[ManagedAccProvisionedList]): The
+            model property of type List[ManagedAccProvisionedList].
 
     """
 
@@ -68,7 +66,7 @@ class ManagedAccountsGetAllResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -87,3 +85,15 @@ class ManagedAccountsGetAllResponse(object):
         return cls(account_name,
                    managed_acc_added_list,
                    managed_acc_provisioned_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'managed_acc_added_list={(self.managed_acc_added_list if hasattr(self, "managed_acc_added_list") else None)!r}, '
+                f'managed_acc_provisioned_list={(self.managed_acc_provisioned_list if hasattr(self, "managed_acc_provisioned_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'managed_acc_added_list={(self.managed_acc_added_list if hasattr(self, "managed_acc_added_list") else None)!s}, '
+                f'managed_acc_provisioned_list={(self.managed_acc_provisioned_list if hasattr(self, "managed_acc_provisioned_list") else None)!s})')

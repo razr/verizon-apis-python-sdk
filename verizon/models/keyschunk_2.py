@@ -13,18 +13,16 @@ class Keyschunk2(object):
 
     """Implementation of the 'keyschunk2' model.
 
-    TODO: type model description here.
-
     Attributes:
-        data_percentage_50 (bool): TODO: type description here.
-        data_percentage_75 (bool): TODO: type description here.
-        data_percentage_90 (bool): TODO: type description here.
-        data_percentage_100 (bool): TODO: type description here.
-        sms_percentage_50 (bool): TODO: type description here.
-        sms_percentage_75 (bool): TODO: type description here.
-        sms_percentage_90 (bool): TODO: type description here.
-        sms_percentage_100 (bool): TODO: type description here.
-        no_of_days_b_4_promo_exp (int): TODO: type description here.
+        data_percentage_50 (bool): The model property of type bool.
+        data_percentage_75 (bool): The model property of type bool.
+        data_percentage_90 (bool): The model property of type bool.
+        data_percentage_100 (bool): The model property of type bool.
+        sms_percentage_50 (bool): The model property of type bool.
+        sms_percentage_75 (bool): The model property of type bool.
+        sms_percentage_90 (bool): The model property of type bool.
+        sms_percentage_100 (bool): The model property of type bool.
+        no_of_days_b_4_promo_exp (int): The model property of type int.
 
     """
 
@@ -100,7 +98,7 @@ class Keyschunk2(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -123,3 +121,27 @@ class Keyschunk2(object):
                    sms_percentage_90,
                    sms_percentage_100,
                    no_of_days_b_4_promo_exp)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'data_percentage_50={(self.data_percentage_50 if hasattr(self, "data_percentage_50") else None)!r}, '
+                f'data_percentage_75={(self.data_percentage_75 if hasattr(self, "data_percentage_75") else None)!r}, '
+                f'data_percentage_90={(self.data_percentage_90 if hasattr(self, "data_percentage_90") else None)!r}, '
+                f'data_percentage_100={(self.data_percentage_100 if hasattr(self, "data_percentage_100") else None)!r}, '
+                f'sms_percentage_50={(self.sms_percentage_50 if hasattr(self, "sms_percentage_50") else None)!r}, '
+                f'sms_percentage_75={(self.sms_percentage_75 if hasattr(self, "sms_percentage_75") else None)!r}, '
+                f'sms_percentage_90={(self.sms_percentage_90 if hasattr(self, "sms_percentage_90") else None)!r}, '
+                f'sms_percentage_100={(self.sms_percentage_100 if hasattr(self, "sms_percentage_100") else None)!r}, '
+                f'no_of_days_b_4_promo_exp={(self.no_of_days_b_4_promo_exp if hasattr(self, "no_of_days_b_4_promo_exp") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'data_percentage_50={(self.data_percentage_50 if hasattr(self, "data_percentage_50") else None)!s}, '
+                f'data_percentage_75={(self.data_percentage_75 if hasattr(self, "data_percentage_75") else None)!s}, '
+                f'data_percentage_90={(self.data_percentage_90 if hasattr(self, "data_percentage_90") else None)!s}, '
+                f'data_percentage_100={(self.data_percentage_100 if hasattr(self, "data_percentage_100") else None)!s}, '
+                f'sms_percentage_50={(self.sms_percentage_50 if hasattr(self, "sms_percentage_50") else None)!s}, '
+                f'sms_percentage_75={(self.sms_percentage_75 if hasattr(self, "sms_percentage_75") else None)!s}, '
+                f'sms_percentage_90={(self.sms_percentage_90 if hasattr(self, "sms_percentage_90") else None)!s}, '
+                f'sms_percentage_100={(self.sms_percentage_100 if hasattr(self, "sms_percentage_100") else None)!s}, '
+                f'no_of_days_b_4_promo_exp={(self.no_of_days_b_4_promo_exp if hasattr(self, "no_of_days_b_4_promo_exp") else None)!s})')

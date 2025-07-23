@@ -26,7 +26,7 @@ class MECPlatformResource(object):
             US_EAST_1.
         status (MECPlatformStatusEnum): Status of the MEC Platform (default is
             'unknown')
-        properties (object): TODO: type description here.
+        properties (Any): The model property of type Any.
 
     """
 
@@ -85,7 +85,7 @@ class MECPlatformResource(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -100,3 +100,19 @@ class MECPlatformResource(object):
                    region,
                    status,
                    properties)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'ern={(self.ern if hasattr(self, "ern") else None)!r}, '
+                f'zone={(self.zone if hasattr(self, "zone") else None)!r}, '
+                f'region={(self.region if hasattr(self, "region") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'properties={(self.properties if hasattr(self, "properties") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'ern={(self.ern if hasattr(self, "ern") else None)!s}, '
+                f'zone={(self.zone if hasattr(self, "zone") else None)!s}, '
+                f'region={(self.region if hasattr(self, "region") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'properties={(self.properties if hasattr(self, "properties") else None)!s})')

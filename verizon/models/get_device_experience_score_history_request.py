@@ -51,7 +51,7 @@ class GetDeviceExperienceScoreHistoryRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -60,3 +60,13 @@ class GetDeviceExperienceScoreHistoryRequest(object):
         # Return an object of this model
         return cls(account_name,
                    device_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'device_id={self.device_id!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'device_id={self.device_id!s})')

@@ -15,8 +15,8 @@ class FirmwareTypeListEnum(object):
     Possible values are `append` or `remove`
 
     Attributes:
-        APPEND: TODO: type description here.
-        REMOVE: TODO: type description here.
+        APPEND: The enum member of type str.
+        REMOVE: The enum member of type str.
 
     """
     APPEND = 'append'

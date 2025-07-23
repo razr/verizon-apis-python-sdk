@@ -13,8 +13,6 @@ class DevicesConsentResult(object):
 
     """Implementation of the 'DevicesConsentResult' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): Account identifier in "##########-#####".
         all_device (bool): Exclude all devices or not?
@@ -82,7 +80,7 @@ class DevicesConsentResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -99,3 +97,21 @@ class DevicesConsentResult(object):
                    total_count,
                    update_time,
                    exclusion)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'all_device={(self.all_device if hasattr(self, "all_device") else None)!r}, '
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!r}, '
+                f'total_count={(self.total_count if hasattr(self, "total_count") else None)!r}, '
+                f'update_time={(self.update_time if hasattr(self, "update_time") else None)!r}, '
+                f'exclusion={(self.exclusion if hasattr(self, "exclusion") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'all_device={(self.all_device if hasattr(self, "all_device") else None)!s}, '
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!s}, '
+                f'total_count={(self.total_count if hasattr(self, "total_count") else None)!s}, '
+                f'update_time={(self.update_time if hasattr(self, "update_time") else None)!s}, '
+                f'exclusion={(self.exclusion if hasattr(self, "exclusion") else None)!s})')

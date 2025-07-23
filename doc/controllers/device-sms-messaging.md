@@ -33,22 +33,36 @@ def send_an_sms_message(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
 ```python
 body = GIOSMSSendRequest(
-    device_ids=[
-        GIODeviceId(
-            kind='eid',
-            id='12345678901234567890123456789012'
+    sms_message='the body or text of the message itself',
+    account_name='0000123456-00001',
+    custom_fields=[
+        KvPair(
+            key='CustomField1',
+            value='value of the field'
         )
     ],
-    sms_message='A text message'
+    data_encoding='optional 7 or 8-bit encoding',
+    time_to_live='000000010000000R',
+    device_ids=[
+        GIODeviceId(
+            kind='iccid',
+            id='20-digit ICCID'
+        )
+    ]
 )
 
 result = device_sms_messaging_controller.send_an_sms_message(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -72,12 +86,12 @@ def get_sms_messages(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_name` | `str` | Template, Required | Numeric account name<br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `32`, *Pattern*: `^[A-Za-z0-9\-]{3,32}$` |
-| `next` | `str` | Query, Optional | Continue the previous query from the pageUrl in Location Header<br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `64`, *Pattern*: `^[A-Za-z0-9]{3,32}$` |
+| `account_name` | `str` | Template, Required | Numeric account name<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `32`, *Pattern*: `^[A-Za-z0-9\-]{3,32}$` |
+| `next` | `str` | Query, Optional | Continue the previous query from the pageUrl in Location Header<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `64`, *Pattern*: `^[A-Za-z0-9]{3,32}$` |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`SmsMessagesResponse`](../../doc/models/sms-messages-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SmsMessagesResponse`](../../doc/models/sms-messages-response.md).
 
 ## Example Usage
 
@@ -90,6 +104,11 @@ result = device_sms_messaging_controller.get_sms_messages(
     account_name,
     next=next
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -112,11 +131,11 @@ def start_sms_message_delivery(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_name` | `str` | Template, Required | Numeric account name<br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `32`, *Pattern*: `^[A-Za-z0-9\-]{3,32}$` |
+| `account_name` | `str` | Template, Required | Numeric account name<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `32`, *Pattern*: `^[A-Za-z0-9\-]{3,32}$` |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`SuccessResponse`](../../doc/models/success-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SuccessResponse`](../../doc/models/success-response.md).
 
 ## Example Usage
 
@@ -124,6 +143,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account_name = '0000123456-00001'
 
 result = device_sms_messaging_controller.start_sms_message_delivery(account_name)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -150,7 +174,7 @@ def list_sms_message_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -163,6 +187,11 @@ body = SMSEventHistoryRequest(
 )
 
 result = device_sms_messaging_controller.list_sms_message_history(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

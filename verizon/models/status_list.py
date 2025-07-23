@@ -13,8 +13,6 @@ class StatusList(object):
 
     """Implementation of the 'StatusList' model.
 
-    TODO: type model description here.
-
     Attributes:
         id (str): Account name
         status (str): Success or Fail
@@ -64,7 +62,7 @@ class StatusList(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -75,3 +73,15 @@ class StatusList(object):
         return cls(id,
                    status,
                    reason)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'id={(self.id if hasattr(self, "id") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'reason={(self.reason if hasattr(self, "reason") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'id={(self.id if hasattr(self, "id") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'reason={(self.reason if hasattr(self, "reason") else None)!s})')

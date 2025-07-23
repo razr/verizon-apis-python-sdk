@@ -14,18 +14,16 @@ class Triggervalues(object):
 
     """Implementation of the 'Triggervalues' model.
 
-    TODO: type model description here.
-
     Attributes:
-        trigger_id (str): TODO: type description here.
-        trigger_name (str): TODO: type description here.
-        account_name (str): TODO: type description here.
-        organization_name (str): TODO: type description here.
-        trigger_category (str): TODO: type description here.
-        trigger_attributes (List[KeyDataPercentage50]): TODO: type description
-            here.
-        created_at (datetime): TODO: type description here.
-        modified_at (datetime): TODO: type description here.
+        trigger_id (str): The model property of type str.
+        trigger_name (str): The model property of type str.
+        account_name (str): The model property of type str.
+        organization_name (str): The model property of type str.
+        trigger_category (str): The model property of type str.
+        trigger_attributes (List[KeyDataPercentage50]): The model property of
+            type List[KeyDataPercentage50].
+        created_at (datetime): The model property of type datetime.
+        modified_at (datetime): The model property of type datetime.
 
     """
 
@@ -96,7 +94,7 @@ class Triggervalues(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -121,3 +119,25 @@ class Triggervalues(object):
                    trigger_attributes,
                    created_at,
                    modified_at)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'trigger_id={(self.trigger_id if hasattr(self, "trigger_id") else None)!r}, '
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'organization_name={(self.organization_name if hasattr(self, "organization_name") else None)!r}, '
+                f'trigger_category={(self.trigger_category if hasattr(self, "trigger_category") else None)!r}, '
+                f'trigger_attributes={(self.trigger_attributes if hasattr(self, "trigger_attributes") else None)!r}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!r}, '
+                f'modified_at={(self.modified_at if hasattr(self, "modified_at") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'trigger_id={(self.trigger_id if hasattr(self, "trigger_id") else None)!s}, '
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'organization_name={(self.organization_name if hasattr(self, "organization_name") else None)!s}, '
+                f'trigger_category={(self.trigger_category if hasattr(self, "trigger_category") else None)!s}, '
+                f'trigger_attributes={(self.trigger_attributes if hasattr(self, "trigger_attributes") else None)!s}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!s}, '
+                f'modified_at={(self.modified_at if hasattr(self, "modified_at") else None)!s})')

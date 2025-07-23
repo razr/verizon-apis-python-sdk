@@ -15,8 +15,6 @@ class UpdateTriggerRequestOptions(object):
 
     """Implementation of the 'UpdateTriggerRequestOptions' model.
 
-    TODO: type model description here.
-
     Attributes:
         trigger_id (str): Trigger ID.
         trigger_name (str): Trigger name.
@@ -96,7 +94,7 @@ class UpdateTriggerRequestOptions(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -115,3 +113,23 @@ class UpdateTriggerRequestOptions(object):
                    anomaly_trigger_request,
                    notification,
                    active)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'trigger_id={(self.trigger_id if hasattr(self, "trigger_id") else None)!r}, '
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!r}, '
+                f'trigger_category={(self.trigger_category if hasattr(self, "trigger_category") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'anomaly_trigger_request={(self.anomaly_trigger_request if hasattr(self, "anomaly_trigger_request") else None)!r}, '
+                f'notification={(self.notification if hasattr(self, "notification") else None)!r}, '
+                f'active={(self.active if hasattr(self, "active") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'trigger_id={(self.trigger_id if hasattr(self, "trigger_id") else None)!s}, '
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!s}, '
+                f'trigger_category={(self.trigger_category if hasattr(self, "trigger_category") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'anomaly_trigger_request={(self.anomaly_trigger_request if hasattr(self, "anomaly_trigger_request") else None)!s}, '
+                f'notification={(self.notification if hasattr(self, "notification") else None)!s}, '
+                f'active={(self.active if hasattr(self, "active") else None)!s})')

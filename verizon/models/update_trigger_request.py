@@ -18,24 +18,24 @@ class UpdateTriggerRequest(object):
 
     """Implementation of the 'UpdateTriggerRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        active (bool): TODO: type description here.
+        account_name (str): The model property of type str.
+        active (bool): The model property of type bool.
         anomaly_trigger_request (AnomalyTriggerRequest): The details of the
             UsageAnomaly trigger.
-        cycle_type (CycleTypeEnum): TODO: type description here.
-        data_trigger_request (DataTriggerRequest): TODO: type description here.
-        group_name (str): TODO: type description here.
-        promo_alert_trigger_request (PromoAlertTriggerRequest): TODO: type
-            description here.
-        session_trigger_request (SessionTriggerRequest): TODO: type
-            description here.
-        sms_trigger_request (SMSTriggerRequest): TODO: type description here.
-        trigger_category (str): TODO: type description here.
-        trigger_id (str): TODO: type description here.
-        trigger_name (str): TODO: type description here.
+        cycle_type (CycleTypeEnum): The model property of type CycleTypeEnum.
+        data_trigger_request (DataTriggerRequest): The model property of type
+            DataTriggerRequest.
+        group_name (str): The model property of type str.
+        promo_alert_trigger_request (PromoAlertTriggerRequest): The model
+            property of type PromoAlertTriggerRequest.
+        session_trigger_request (SessionTriggerRequest): The model property of
+            type SessionTriggerRequest.
+        sms_trigger_request (SMSTriggerRequest): The model property of type
+            SMSTriggerRequest.
+        trigger_category (str): The model property of type str.
+        trigger_id (str): The model property of type str.
+        trigger_name (str): The model property of type str.
 
     """
 
@@ -126,7 +126,7 @@ class UpdateTriggerRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -155,3 +155,33 @@ class UpdateTriggerRequest(object):
                    trigger_category,
                    trigger_id,
                    trigger_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'active={(self.active if hasattr(self, "active") else None)!r}, '
+                f'anomaly_trigger_request={(self.anomaly_trigger_request if hasattr(self, "anomaly_trigger_request") else None)!r}, '
+                f'cycle_type={(self.cycle_type if hasattr(self, "cycle_type") else None)!r}, '
+                f'data_trigger_request={(self.data_trigger_request if hasattr(self, "data_trigger_request") else None)!r}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!r}, '
+                f'promo_alert_trigger_request={(self.promo_alert_trigger_request if hasattr(self, "promo_alert_trigger_request") else None)!r}, '
+                f'session_trigger_request={(self.session_trigger_request if hasattr(self, "session_trigger_request") else None)!r}, '
+                f'sms_trigger_request={(self.sms_trigger_request if hasattr(self, "sms_trigger_request") else None)!r}, '
+                f'trigger_category={(self.trigger_category if hasattr(self, "trigger_category") else None)!r}, '
+                f'trigger_id={(self.trigger_id if hasattr(self, "trigger_id") else None)!r}, '
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'active={(self.active if hasattr(self, "active") else None)!s}, '
+                f'anomaly_trigger_request={(self.anomaly_trigger_request if hasattr(self, "anomaly_trigger_request") else None)!s}, '
+                f'cycle_type={(self.cycle_type if hasattr(self, "cycle_type") else None)!s}, '
+                f'data_trigger_request={(self.data_trigger_request if hasattr(self, "data_trigger_request") else None)!s}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!s}, '
+                f'promo_alert_trigger_request={(self.promo_alert_trigger_request if hasattr(self, "promo_alert_trigger_request") else None)!s}, '
+                f'session_trigger_request={(self.session_trigger_request if hasattr(self, "session_trigger_request") else None)!s}, '
+                f'sms_trigger_request={(self.sms_trigger_request if hasattr(self, "sms_trigger_request") else None)!s}, '
+                f'trigger_category={(self.trigger_category if hasattr(self, "trigger_category") else None)!s}, '
+                f'trigger_id={(self.trigger_id if hasattr(self, "trigger_id") else None)!s}, '
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!s})')

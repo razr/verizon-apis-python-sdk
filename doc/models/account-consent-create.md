@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `device_list` | `List[object]` | Optional | An array of device identifiers |
+| `device_list` | `List[Any]` | Optional | An array of device identifiers |
 | `account_name` | `str` | Optional | The numeric name of the account, including leading zeros. |
 
 ## Example (as JSON)

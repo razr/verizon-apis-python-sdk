@@ -43,7 +43,7 @@ class ChangeDeviceIdRequest(object):
         zip_code (str): The ZIP code from which the MDN and MSISDN will be
             derived when assignNonGeoMDN is true. Specify the zip code of the
             location where the line of service will primarily be used.
-        smsr_oid (str): TODO: type description here.
+        smsr_oid (str): The model property of type str.
 
     """
 
@@ -112,7 +112,7 @@ class ChangeDeviceIdRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -139,3 +139,25 @@ class ChangeDeviceIdRequest(object):
                    service_plan,
                    zip_code,
                    smsr_oid)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'assign_non_geo_mdn={(self.assign_non_geo_mdn if hasattr(self, "assign_non_geo_mdn") else None)!r}, '
+                f'change_4_g_option={(self.change_4_g_option if hasattr(self, "change_4_g_option") else None)!r}, '
+                f'device_ids={self.device_ids!r}, '
+                f'device_ids_to={(self.device_ids_to if hasattr(self, "device_ids_to") else None)!r}, '
+                f'npa_nxx={(self.npa_nxx if hasattr(self, "npa_nxx") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'zip_code={(self.zip_code if hasattr(self, "zip_code") else None)!r}, '
+                f'smsr_oid={(self.smsr_oid if hasattr(self, "smsr_oid") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'assign_non_geo_mdn={(self.assign_non_geo_mdn if hasattr(self, "assign_non_geo_mdn") else None)!s}, '
+                f'change_4_g_option={(self.change_4_g_option if hasattr(self, "change_4_g_option") else None)!s}, '
+                f'device_ids={self.device_ids!s}, '
+                f'device_ids_to={(self.device_ids_to if hasattr(self, "device_ids_to") else None)!s}, '
+                f'npa_nxx={(self.npa_nxx if hasattr(self, "npa_nxx") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'zip_code={(self.zip_code if hasattr(self, "zip_code") else None)!s}, '
+                f'smsr_oid={(self.smsr_oid if hasattr(self, "smsr_oid") else None)!s})')

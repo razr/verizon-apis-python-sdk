@@ -15,12 +15,12 @@ class UpgradeStatusEnum(object):
     The status of the upgrades that you want to retrieve.
 
     Attributes:
-        REQUESTPENDING: TODO: type description here.
-        QUEUED: TODO: type description here.
-        REQUESTFAILED: TODO: type description here.
-        INPROGRESS: TODO: type description here.
-        FINISHED: TODO: type description here.
-        UPGRADEFAILED: TODO: type description here.
+        REQUESTPENDING: The enum member of type str.
+        QUEUED: The enum member of type str.
+        REQUESTFAILED: The enum member of type str.
+        INPROGRESS: The enum member of type str.
+        FINISHED: The enum member of type str.
+        UPGRADEFAILED: The enum member of type str.
 
     """
     REQUESTPENDING = 'RequestPending'

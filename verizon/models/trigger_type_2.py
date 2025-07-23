@@ -62,7 +62,7 @@ class TriggerType2(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -71,3 +71,13 @@ class TriggerType2(object):
         # Return an object of this model
         return cls(anomalyattributes,
                    notification)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'anomalyattributes={(self.anomalyattributes if hasattr(self, "anomalyattributes") else None)!r}, '
+                f'notification={(self.notification if hasattr(self, "notification") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'anomalyattributes={(self.anomalyattributes if hasattr(self, "anomalyattributes") else None)!s}, '
+                f'notification={(self.notification if hasattr(self, "notification") else None)!s})')

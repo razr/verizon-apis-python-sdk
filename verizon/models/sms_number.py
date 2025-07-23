@@ -16,8 +16,8 @@ class SMSNumber(object):
     Notification SMS details.
 
     Attributes:
-        carrier (str): TODO: type description here.
-        number (str): TODO: type description here.
+        carrier (str): The model property of type str.
+        number (str): The model property of type str.
 
     """
 
@@ -58,7 +58,7 @@ class SMSNumber(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +67,13 @@ class SMSNumber(object):
         # Return an object of this model
         return cls(carrier,
                    number)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'carrier={(self.carrier if hasattr(self, "carrier") else None)!r}, '
+                f'number={(self.number if hasattr(self, "number") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'carrier={(self.carrier if hasattr(self, "carrier") else None)!s}, '
+                f'number={(self.number if hasattr(self, "number") else None)!s})')

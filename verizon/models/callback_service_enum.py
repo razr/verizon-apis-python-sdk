@@ -15,7 +15,7 @@ class CallbackServiceEnum(object):
     Callback type. Must be 'Fota' for Software Management Services API.
 
     Attributes:
-        FOTA: TODO: type description here.
+        FOTA: The enum member of type str.
 
     """
     FOTA = 'Fota'

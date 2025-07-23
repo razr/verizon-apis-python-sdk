@@ -66,7 +66,7 @@ class ConnectionEvent(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -85,3 +85,15 @@ class ConnectionEvent(object):
         return cls(connection_event_attributes,
                    extended_attributes,
                    occurred_at)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'connection_event_attributes={(self.connection_event_attributes if hasattr(self, "connection_event_attributes") else None)!r}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!r}, '
+                f'occurred_at={(self.occurred_at if hasattr(self, "occurred_at") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'connection_event_attributes={(self.connection_event_attributes if hasattr(self, "connection_event_attributes") else None)!s}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!s}, '
+                f'occurred_at={(self.occurred_at if hasattr(self, "occurred_at") else None)!s})')

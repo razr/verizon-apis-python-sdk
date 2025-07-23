@@ -14,10 +14,9 @@ class PWNProfileList(object):
 
     """Implementation of the 'PWNProfileList' model.
 
-    TODO: type model description here.
-
     Attributes:
-        profiles (List[PWNProfile]): TODO: type description here.
+        profiles (List[PWNProfile]): The model property of type
+            List[PWNProfile].
 
     """
 
@@ -53,7 +52,7 @@ class PWNProfileList(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -64,3 +63,11 @@ class PWNProfileList(object):
             profiles = APIHelper.SKIP
         # Return an object of this model
         return cls(profiles)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'profiles={(self.profiles if hasattr(self, "profiles") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'profiles={(self.profiles if hasattr(self, "profiles") else None)!s})')

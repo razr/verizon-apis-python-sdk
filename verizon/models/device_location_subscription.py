@@ -13,8 +13,6 @@ class DeviceLocationSubscription(object):
 
     """Implementation of the 'DeviceLocationSubscription' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): Account identifier in "##########-#####".
         loc_type (str): Location service license type.
@@ -71,7 +69,7 @@ class DeviceLocationSubscription(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -84,3 +82,17 @@ class DeviceLocationSubscription(object):
                    loc_type,
                    max_allowance,
                    purchase_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'loc_type={(self.loc_type if hasattr(self, "loc_type") else None)!r}, '
+                f'max_allowance={(self.max_allowance if hasattr(self, "max_allowance") else None)!r}, '
+                f'purchase_time={(self.purchase_time if hasattr(self, "purchase_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'loc_type={(self.loc_type if hasattr(self, "loc_type") else None)!s}, '
+                f'max_allowance={(self.max_allowance if hasattr(self, "max_allowance") else None)!s}, '
+                f'purchase_time={(self.purchase_time if hasattr(self, "purchase_time") else None)!s})')

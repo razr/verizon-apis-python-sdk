@@ -13,16 +13,14 @@ class PromoAlertTriggerRequest(object):
 
     """Implementation of the 'PromoAlertTriggerRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        data_percentage_50 (bool): TODO: type description here.
-        data_percentage_75 (bool): TODO: type description here.
-        data_percentage_90 (bool): TODO: type description here.
-        no_of_days_b_4_promo_exp (int): TODO: type description here.
-        sms_percentage_50 (bool): TODO: type description here.
-        sms_percentage_75 (bool): TODO: type description here.
-        sms_percentage_90 (bool): TODO: type description here.
+        data_percentage_50 (bool): The model property of type bool.
+        data_percentage_75 (bool): The model property of type bool.
+        data_percentage_90 (bool): The model property of type bool.
+        no_of_days_b_4_promo_exp (int): The model property of type int.
+        sms_percentage_50 (bool): The model property of type bool.
+        sms_percentage_75 (bool): The model property of type bool.
+        sms_percentage_90 (bool): The model property of type bool.
 
     """
 
@@ -88,7 +86,7 @@ class PromoAlertTriggerRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -107,3 +105,23 @@ class PromoAlertTriggerRequest(object):
                    sms_percentage_50,
                    sms_percentage_75,
                    sms_percentage_90)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'data_percentage_50={(self.data_percentage_50 if hasattr(self, "data_percentage_50") else None)!r}, '
+                f'data_percentage_75={(self.data_percentage_75 if hasattr(self, "data_percentage_75") else None)!r}, '
+                f'data_percentage_90={(self.data_percentage_90 if hasattr(self, "data_percentage_90") else None)!r}, '
+                f'no_of_days_b_4_promo_exp={(self.no_of_days_b_4_promo_exp if hasattr(self, "no_of_days_b_4_promo_exp") else None)!r}, '
+                f'sms_percentage_50={(self.sms_percentage_50 if hasattr(self, "sms_percentage_50") else None)!r}, '
+                f'sms_percentage_75={(self.sms_percentage_75 if hasattr(self, "sms_percentage_75") else None)!r}, '
+                f'sms_percentage_90={(self.sms_percentage_90 if hasattr(self, "sms_percentage_90") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'data_percentage_50={(self.data_percentage_50 if hasattr(self, "data_percentage_50") else None)!s}, '
+                f'data_percentage_75={(self.data_percentage_75 if hasattr(self, "data_percentage_75") else None)!s}, '
+                f'data_percentage_90={(self.data_percentage_90 if hasattr(self, "data_percentage_90") else None)!s}, '
+                f'no_of_days_b_4_promo_exp={(self.no_of_days_b_4_promo_exp if hasattr(self, "no_of_days_b_4_promo_exp") else None)!s}, '
+                f'sms_percentage_50={(self.sms_percentage_50 if hasattr(self, "sms_percentage_50") else None)!s}, '
+                f'sms_percentage_75={(self.sms_percentage_75 if hasattr(self, "sms_percentage_75") else None)!s}, '
+                f'sms_percentage_90={(self.sms_percentage_90 if hasattr(self, "sms_percentage_90") else None)!s})')

@@ -5,17 +5,19 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `environment` | `Environment` | The API environment. <br> **Default: `Environment.PRODUCTION`** |
-| `http_client_instance` | `HttpClient` | The Http Client passed from the sdk user for making requests |
-| `override_http_client_configuration` | `bool` | The value which determines to override properties of the passed Http Client from the sdk user |
-| `http_call_back` | `HttpCallBack` | The callback value that is invoked before and after an HTTP call is made to an endpoint |
-| `timeout` | `float` | The value to use for connection timeout. <br> **Default: 60** |
-| `max_retries` | `int` | The number of times to retry an endpoint call if it fails. <br> **Default: 0** |
-| `backoff_factor` | `float` | A backoff factor to apply between attempts after the second try. <br> **Default: 2** |
-| `retry_statuses` | `Array of int` | The http statuses on which retry is to be done. <br> **Default: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]** |
-| `retry_methods` | `Array of string` | The http methods on which retry is to be done. <br> **Default: ['GET', 'PUT']** |
-| `thingspace_oauth_credentials` | [`ThingspaceOauthCredentials`](auth/oauth-2-client-credentials-grant.md) | The credential object for OAuth 2 Client Credentials Grant |
-| `vz_m2m_token_credentials` | [`VZM2mTokenCredentials`](auth/custom-header-signature.md) | The credential object for Custom Header Signature |
+| environment | `Environment` | The API environment. <br> **Default: `Environment.PRODUCTION`** |
+| http_client_instance | `HttpClient` | The Http Client passed from the sdk user for making requests |
+| override_http_client_configuration | `bool` | The value which determines to override properties of the passed Http Client from the sdk user |
+| http_call_back | `HttpCallBack` | The callback value that is invoked before and after an HTTP call is made to an endpoint |
+| timeout | `float` | The value to use for connection timeout. <br> **Default: 60** |
+| max_retries | `int` | The number of times to retry an endpoint call if it fails. <br> **Default: 0** |
+| backoff_factor | `float` | A backoff factor to apply between attempts after the second try. <br> **Default: 2** |
+| retry_statuses | `Array of int` | The http statuses on which retry is to be done. <br> **Default: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524, 408, 413, 429, 500, 502, 503, 504, 521, 522, 524]** |
+| retry_methods | `Array of string` | The http methods on which retry is to be done. <br> **Default: ['GET', 'PUT', 'GET', 'PUT']** |
+| thingspace_oauth_credentials | [`ThingspaceOauthCredentials`](auth/oauth-2-client-credentials-grant.md) | The credential object for OAuth 2 Client Credentials Grant |
+| vz_m2m_token_credentials | [`VZM2mTokenCredentials`](auth/custom-header-signature.md) | The credential object for Custom Header Signature |
+| session_token_credentials | [`SessionTokenCredentials`](auth/custom-header-signature-1.md) | The credential object for Custom Header Signature |
+| thingspace_oauth_1_credentials | [`ThingspaceOauth1Credentials`](auth/oauth-2-client-credentials-grant-1.md) | The credential object for OAuth 2 Client Credentials Grant |
 
 The API client can be initialized as follows:
 
@@ -32,21 +34,16 @@ client = VerizonClient(
     vz_m2m_token_credentials=VZM2mTokenCredentials(
         vz_m2m_token='VZ-M2M-Token'
     ),
+    session_token_credentials=SessionTokenCredentials(
+        session_token='SessionToken'
+    ),
+    thingspace_oauth_1_credentials=ThingspaceOauth1Credentials(
+        oauth_client_id='OAuthClientId',
+        oauth_client_secret='OAuthClientSecret'
+    ),
     environment=Environment.PRODUCTION
 )
 ```
-
-API calls return an `ApiResponse` object that includes the following fields:
-
-| Field | Description |
-|  --- | --- |
-| `status_code` | Status code of the HTTP response |
-| `reason_phrase` | Reason phrase of the HTTP response |
-| `headers` | Headers of the HTTP response as a dictionary |
-| `text` | The body of the HTTP response as a string |
-| `request` | HTTP request info |
-| `errors` | Errors, if they exist |
-| `body` | The deserialized body of the HTTP response |
 
 ## Verizon Client
 
@@ -68,8 +65,8 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 | account_requests | Gets AccountRequestsController |
 | service_plans | Gets ServicePlansController |
 | device_diagnostics | Gets DeviceDiagnosticsController |
-| device_profile_management | Gets DeviceProfileManagementController |
 | device_monitoring | Gets DeviceMonitoringController |
+| device_profile_management | Gets DeviceProfileManagementController |
 | e_uicc_device_profile_management | Gets EUICCDeviceProfileManagementController |
 | devices_locations | Gets DevicesLocationsController |
 | exclusions | Gets ExclusionsController |
@@ -116,7 +113,6 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 | anomaly_triggers | Gets AnomalyTriggersController |
 | anomaly_triggers_v2 | Gets AnomalyTriggersV2Controller |
 | wireless_network_performance | Gets WirelessNetworkPerformanceController |
-| fixed_wireless_qualification | Gets FixedWirelessQualificationController |
 | managing_e_sim_profiles | Gets ManagingESIMProfilesController |
 | device_sms_messaging | Gets DeviceSMSMessagingController |
 | device_actions | Gets DeviceActionsController |
@@ -127,7 +123,23 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 | update_triggers | Gets UpdateTriggersController |
 | sim_actions | Gets SIMActionsController |
 | global_reporting | Gets GlobalReportingController |
-| m_v2_triggers | Gets MV2TriggersController |
+| device_role_controller | Gets DeviceRoleController |
+| app_config_service | Gets AppConfigServiceController |
+| registration | Gets RegistrationController |
+| map_data_manager | Gets MapDataManagerController |
+| retrieve_rate_plan_list | Gets RetrieveRatePlanListController |
+| create_price_plan_triggers | Gets CreatePricePlanTriggersController |
+| update_price_plan_triggers | Gets UpdatePricePlanTriggersController |
 | m_5g_bi_device_actions | Gets M5gBIDeviceActionsController |
+| sensor_insights_sensors | Gets SensorInsightsSensorsController |
+| sensor_insights_devices | Gets SensorInsightsDevicesController |
+| sensor_insights_gateways | Gets SensorInsightsGatewaysController |
+| sensor_insights_smart_alerts | Gets SensorInsightsSmartAlertsController |
+| sensor_insights_rules | Gets SensorInsightsRulesController |
+| sensor_insights_health_score | Gets SensorInsightsHealthScoreController |
+| sensor_insights_notification_groups | Gets SensorInsightsNotificationGroupsController |
+| sensor_insights_users | Gets SensorInsightsUsersController |
+| sensor_insights_device_profile | Gets SensorInsightsDeviceProfileController |
+| sensor_insights_smart_alert_metrics | Gets SensorInsightsSmartAlertMetricsController |
 | oauth_authorization | Gets OauthAuthorizationController |
 

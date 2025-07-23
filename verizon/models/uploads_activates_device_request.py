@@ -90,7 +90,7 @@ class UploadsActivatesDeviceRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -113,3 +113,25 @@ class UploadsActivatesDeviceRequest(object):
                    mdn_zip_code,
                    devices,
                    carrier_ip_pool_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'email_address={self.email_address!r}, '
+                f'device_sku={self.device_sku!r}, '
+                f'upload_type={self.upload_type!r}, '
+                f'service_plan={self.service_plan!r}, '
+                f'carrier_ip_pool_name={(self.carrier_ip_pool_name if hasattr(self, "carrier_ip_pool_name") else None)!r}, '
+                f'mdn_zip_code={self.mdn_zip_code!r}, '
+                f'devices={self.devices!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'email_address={self.email_address!s}, '
+                f'device_sku={self.device_sku!s}, '
+                f'upload_type={self.upload_type!s}, '
+                f'service_plan={self.service_plan!s}, '
+                f'carrier_ip_pool_name={(self.carrier_ip_pool_name if hasattr(self, "carrier_ip_pool_name") else None)!s}, '
+                f'mdn_zip_code={self.mdn_zip_code!s}, '
+                f'devices={self.devices!s})')

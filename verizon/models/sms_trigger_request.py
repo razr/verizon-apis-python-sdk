@@ -13,12 +13,10 @@ class SMSTriggerRequest(object):
 
     """Implementation of the 'SMSTriggerRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        comparator (str): TODO: type description here.
-        sms_type (str): TODO: type description here.
-        threshold (int): TODO: type description here.
+        comparator (str): The model property of type str.
+        sms_type (str): The model property of type str.
+        threshold (int): The model property of type int.
 
     """
 
@@ -64,7 +62,7 @@ class SMSTriggerRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -75,3 +73,15 @@ class SMSTriggerRequest(object):
         return cls(comparator,
                    sms_type,
                    threshold)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'comparator={(self.comparator if hasattr(self, "comparator") else None)!r}, '
+                f'sms_type={(self.sms_type if hasattr(self, "sms_type") else None)!r}, '
+                f'threshold={(self.threshold if hasattr(self, "threshold") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'comparator={(self.comparator if hasattr(self, "comparator") else None)!s}, '
+                f'sms_type={(self.sms_type if hasattr(self, "sms_type") else None)!s}, '
+                f'threshold={(self.threshold if hasattr(self, "threshold") else None)!s})')

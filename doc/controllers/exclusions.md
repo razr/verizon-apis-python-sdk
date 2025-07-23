@@ -39,7 +39,7 @@ def devices_location_get_consent_async(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GetAccountDeviceConsent`](../../doc/models/get-account-device-consent.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetAccountDeviceConsent`](../../doc/models/get-account-device-consent.md).
 
 ## Example Usage
 
@@ -52,6 +52,11 @@ result = exclusions_controller.devices_location_get_consent_async(
     account_name,
     device_id=device_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -78,7 +83,7 @@ def devices_location_give_consent_async(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ConsentTransactionID`](../../doc/models/consent-transaction-id.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ConsentTransactionID`](../../doc/models/consent-transaction-id.md).
 
 ## Example Usage
 
@@ -90,6 +95,11 @@ body = AccountConsentCreate(
 result = exclusions_controller.devices_location_give_consent_async(
     body=body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -116,7 +126,7 @@ def devices_location_update_consent(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ConsentTransactionID`](../../doc/models/consent-transaction-id.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ConsentTransactionID`](../../doc/models/consent-transaction-id.md).
 
 ## Example Usage
 
@@ -129,6 +139,11 @@ body = AccountConsentUpdate(
 result = exclusions_controller.devices_location_update_consent(
     body=body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -155,7 +170,7 @@ def exclude_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceLocationSuccessResult`](../../doc/models/device-location-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceLocationSuccessResult`](../../doc/models/device-location-success-result.md).
 
 ## Example Usage
 
@@ -172,6 +187,11 @@ body = ConsentRequest(
 )
 
 result = exclusions_controller.exclude_devices(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -200,7 +220,7 @@ def remove_devices_from_exclusion_list(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceLocationSuccessResult`](../../doc/models/device-location-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceLocationSuccessResult`](../../doc/models/device-location-success-result.md).
 
 ## Example Usage
 
@@ -213,6 +233,11 @@ result = exclusions_controller.remove_devices_from_exclusion_list(
     account_name,
     device_list
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -249,7 +274,7 @@ def list_excluded_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DevicesConsentResult`](../../doc/models/devices-consent-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DevicesConsentResult`](../../doc/models/devices-consent-result.md).
 
 ## Example Usage
 
@@ -262,6 +287,11 @@ result = exclusions_controller.list_excluded_devices(
     account_name,
     start_index
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

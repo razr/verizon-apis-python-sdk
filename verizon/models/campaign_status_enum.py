@@ -15,14 +15,14 @@ class CampaignStatusEnum(object):
     Current status of the campaign.
 
     Attributes:
-        CAMPAIGNREQUESTPENDING: TODO: type description here.
-        CAMPAIGNREQUESTFAILED: TODO: type description here.
-        CAMPAIGNREQUESTQUEUED: TODO: type description here.
-        CAMPAIGNCANCELLED: TODO: type description here.
-        CAMPAIGNABORTED: TODO: type description here.
-        CAMPAIGNFAILED: TODO: type description here.
-        CAMPAIGNSCHEDULED: TODO: type description here.
-        CAMPAIGNENDED: TODO: type description here.
+        CAMPAIGNREQUESTPENDING: The enum member of type str.
+        CAMPAIGNREQUESTFAILED: The enum member of type str.
+        CAMPAIGNREQUESTQUEUED: The enum member of type str.
+        CAMPAIGNCANCELLED: The enum member of type str.
+        CAMPAIGNABORTED: The enum member of type str.
+        CAMPAIGNFAILED: The enum member of type str.
+        CAMPAIGNSCHEDULED: The enum member of type str.
+        CAMPAIGNENDED: The enum member of type str.
 
     """
     CAMPAIGNREQUESTPENDING = 'CampaignRequestPending'

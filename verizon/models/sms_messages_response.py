@@ -14,11 +14,10 @@ class SmsMessagesResponse(object):
 
     """Implementation of the 'SmsMessagesResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        messages (List[GIOSmsMessage]): TODO: type description here.
-        has_more_data (bool): TODO: type description here.
+        messages (List[GIOSmsMessage]): The model property of type
+            List[GIOSmsMessage].
+        has_more_data (bool): The model property of type bool.
 
     """
 
@@ -59,7 +58,7 @@ class SmsMessagesResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -72,3 +71,13 @@ class SmsMessagesResponse(object):
         # Return an object of this model
         return cls(messages,
                    has_more_data)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'messages={(self.messages if hasattr(self, "messages") else None)!r}, '
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'messages={(self.messages if hasattr(self, "messages") else None)!s}, '
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!s})')

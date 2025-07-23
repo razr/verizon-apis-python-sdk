@@ -56,7 +56,7 @@ class DiagnosticsObservationResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +67,15 @@ class DiagnosticsObservationResult(object):
         return cls(transaction_id,
                    status,
                    created_on)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'transaction_id={self.transaction_id!r}, '
+                f'status={self.status!r}, '
+                f'created_on={self.created_on!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'transaction_id={self.transaction_id!s}, '
+                f'status={self.status!s}, '
+                f'created_on={self.created_on!s})')

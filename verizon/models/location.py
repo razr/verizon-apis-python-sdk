@@ -66,7 +66,7 @@ class Location(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -77,3 +77,15 @@ class Location(object):
         return cls(msid,
                    pd,
                    error)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'msid={(self.msid if hasattr(self, "msid") else None)!r}, '
+                f'pd={(self.pd if hasattr(self, "pd") else None)!r}, '
+                f'error={(self.error if hasattr(self, "error") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'msid={(self.msid if hasattr(self, "msid") else None)!s}, '
+                f'pd={(self.pd if hasattr(self, "pd") else None)!s}, '
+                f'error={(self.error if hasattr(self, "error") else None)!s})')

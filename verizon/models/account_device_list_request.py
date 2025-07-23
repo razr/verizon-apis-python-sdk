@@ -34,8 +34,8 @@ class AccountDeviceListRequest(object):
         latest (str): Only include devices that were added before this date
             and time.
         service_plan (str): Only include devices that have this service plan.
-        max_number_of_devices (int): TODO: type description here.
-        largest_device_id_seen (long|int): TODO: type description here.
+        max_number_of_devices (int): The model property of type int.
+        largest_device_id_seen (int): The model property of type int.
 
     """
 
@@ -121,7 +121,7 @@ class AccountDeviceListRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -152,3 +152,31 @@ class AccountDeviceListRequest(object):
                    service_plan,
                    max_number_of_devices,
                    largest_device_id_seen)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r}, '
+                f'filter={(self.filter if hasattr(self, "filter") else None)!r}, '
+                f'current_state={(self.current_state if hasattr(self, "current_state") else None)!r}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!r}, '
+                f'earliest={(self.earliest if hasattr(self, "earliest") else None)!r}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!r}, '
+                f'latest={(self.latest if hasattr(self, "latest") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'max_number_of_devices={(self.max_number_of_devices if hasattr(self, "max_number_of_devices") else None)!r}, '
+                f'largest_device_id_seen={(self.largest_device_id_seen if hasattr(self, "largest_device_id_seen") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s}, '
+                f'filter={(self.filter if hasattr(self, "filter") else None)!s}, '
+                f'current_state={(self.current_state if hasattr(self, "current_state") else None)!s}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!s}, '
+                f'earliest={(self.earliest if hasattr(self, "earliest") else None)!s}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!s}, '
+                f'latest={(self.latest if hasattr(self, "latest") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'max_number_of_devices={(self.max_number_of_devices if hasattr(self, "max_number_of_devices") else None)!s}, '
+                f'largest_device_id_seen={(self.largest_device_id_seen if hasattr(self, "largest_device_id_seen") else None)!s})')

@@ -67,7 +67,7 @@ class BullseyeServiceResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -82,3 +82,15 @@ class BullseyeServiceResult(object):
         return cls(account_number,
                    device_list,
                    response_type)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!r}, '
+                f'response_type={(self.response_type if hasattr(self, "response_type") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!s}, '
+                f'response_type={(self.response_type if hasattr(self, "response_type") else None)!s})')

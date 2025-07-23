@@ -58,7 +58,7 @@ class DeviceFirmwareList(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -71,3 +71,13 @@ class DeviceFirmwareList(object):
         # Return an object of this model
         return cls(account_name,
                    device_firmwar_version_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'device_firmwar_version_list={(self.device_firmwar_version_list if hasattr(self, "device_firmwar_version_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'device_firmwar_version_list={(self.device_firmwar_version_list if hasattr(self, "device_firmwar_version_list") else None)!s})')

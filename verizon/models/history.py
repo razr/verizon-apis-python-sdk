@@ -65,7 +65,7 @@ class History(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -76,3 +76,15 @@ class History(object):
         return cls(account_name,
                    device,
                    attributes)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'device={self.device!r}, '
+                f'attributes={(self.attributes if hasattr(self, "attributes") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'device={self.device!s}, '
+                f'attributes={(self.attributes if hasattr(self, "attributes") else None)!s})')

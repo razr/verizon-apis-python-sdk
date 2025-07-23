@@ -83,7 +83,7 @@ class LocationReport(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -102,3 +102,19 @@ class LocationReport(object):
                    start_index,
                    total_count,
                    txid)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'dev_location_list={(self.dev_location_list if hasattr(self, "dev_location_list") else None)!r}, '
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!r}, '
+                f'start_index={(self.start_index if hasattr(self, "start_index") else None)!r}, '
+                f'total_count={(self.total_count if hasattr(self, "total_count") else None)!r}, '
+                f'txid={(self.txid if hasattr(self, "txid") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'dev_location_list={(self.dev_location_list if hasattr(self, "dev_location_list") else None)!s}, '
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!s}, '
+                f'start_index={(self.start_index if hasattr(self, "start_index") else None)!s}, '
+                f'total_count={(self.total_count if hasattr(self, "total_count") else None)!s}, '
+                f'txid={(self.txid if hasattr(self, "txid") else None)!s})')

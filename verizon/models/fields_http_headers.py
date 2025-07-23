@@ -13,10 +13,8 @@ class FieldsHttpHeaders(object):
 
     """Implementation of the 'FieldsHttpHeaders' model.
 
-    TODO: type model description here.
-
     Attributes:
-        authorization (str): TODO: type description here.
+        authorization (str): The model property of type str.
 
     """
 
@@ -52,10 +50,18 @@ class FieldsHttpHeaders(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         authorization = dictionary.get("Authorization") if dictionary.get("Authorization") else APIHelper.SKIP
         # Return an object of this model
         return cls(authorization)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'authorization={(self.authorization if hasattr(self, "authorization") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'authorization={(self.authorization if hasattr(self, "authorization") else None)!s})')

@@ -52,7 +52,7 @@ class DateFilter(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -61,3 +61,13 @@ class DateFilter(object):
         # Return an object of this model
         return cls(earliest,
                    latest)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'earliest={self.earliest!r}, '
+                f'latest={self.latest!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'earliest={self.earliest!s}, '
+                f'latest={self.latest!s})')

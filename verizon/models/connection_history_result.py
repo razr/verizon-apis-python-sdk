@@ -65,7 +65,7 @@ class ConnectionHistoryResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -78,3 +78,13 @@ class ConnectionHistoryResult(object):
         # Return an object of this model
         return cls(connection_history,
                    has_more_data)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'connection_history={(self.connection_history if hasattr(self, "connection_history") else None)!r}, '
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'connection_history={(self.connection_history if hasattr(self, "connection_history") else None)!s}, '
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!s})')

@@ -13,12 +13,11 @@ class ChangePWNDeviceProfileRequest(object):
 
     """Implementation of the 'ChangePWNDeviceProfileRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        device_list (List[PWNDeviceList]): TODO: type description here.
-        new_profile (str): TODO: type description here.
+        account_name (str): The model property of type str.
+        device_list (List[PWNDeviceList]): The model property of type
+            List[PWNDeviceList].
+        new_profile (str): The model property of type str.
 
     """
 
@@ -55,7 +54,7 @@ class ChangePWNDeviceProfileRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -68,3 +67,15 @@ class ChangePWNDeviceProfileRequest(object):
         return cls(account_name,
                    device_list,
                    new_profile)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'device_list={self.device_list!r}, '
+                f'new_profile={self.new_profile!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'device_list={self.device_list!s}, '
+                f'new_profile={self.new_profile!s})')

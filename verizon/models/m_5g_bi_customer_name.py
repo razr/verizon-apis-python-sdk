@@ -13,14 +13,12 @@ class M5gBiCustomerName(object):
 
     """Implementation of the '5gbiCustomerName' model.
 
-    TODO: type model description here.
-
     Attributes:
-        first_name (str): TODO: type description here.
-        last_name (str): TODO: type description here.
-        middle_name (str): TODO: type description here.
-        title (str): TODO: type description here.
-        suffex (str): TODO: type description here.
+        first_name (str): The model property of type str.
+        last_name (str): The model property of type str.
+        middle_name (str): The model property of type str.
+        title (str): The model property of type str.
+        suffex (str): The model property of type str.
 
     """
 
@@ -76,7 +74,7 @@ class M5gBiCustomerName(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -91,3 +89,19 @@ class M5gBiCustomerName(object):
                    middle_name,
                    title,
                    suffex)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!r}, '
+                f'last_name={(self.last_name if hasattr(self, "last_name") else None)!r}, '
+                f'middle_name={(self.middle_name if hasattr(self, "middle_name") else None)!r}, '
+                f'title={(self.title if hasattr(self, "title") else None)!r}, '
+                f'suffex={(self.suffex if hasattr(self, "suffex") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!s}, '
+                f'last_name={(self.last_name if hasattr(self, "last_name") else None)!s}, '
+                f'middle_name={(self.middle_name if hasattr(self, "middle_name") else None)!s}, '
+                f'title={(self.title if hasattr(self, "title") else None)!s}, '
+                f'suffex={(self.suffex if hasattr(self, "suffex") else None)!s})')

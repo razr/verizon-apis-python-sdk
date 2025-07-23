@@ -26,7 +26,8 @@ class BillableUsageReport(object):
         total_transaction_count (str): The total number of billable device
             location requests during the reporting period from all included
             accounts.
-        primary_account (ServiceUsage): TODO: type description here.
+        primary_account (ServiceUsage): The model property of type
+            ServiceUsage.
         managed_accounts (List[ServiceUsage]): Zero or more managed accounts.
 
     """
@@ -93,7 +94,7 @@ class BillableUsageReport(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -116,3 +117,23 @@ class BillableUsageReport(object):
                    total_transaction_count,
                    primary_account,
                    managed_accounts)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'usage_for_all_accounts={(self.usage_for_all_accounts if hasattr(self, "usage_for_all_accounts") else None)!r}, '
+                f'sku_name={(self.sku_name if hasattr(self, "sku_name") else None)!r}, '
+                f'transactions_allowed={(self.transactions_allowed if hasattr(self, "transactions_allowed") else None)!r}, '
+                f'total_transaction_count={(self.total_transaction_count if hasattr(self, "total_transaction_count") else None)!r}, '
+                f'primary_account={(self.primary_account if hasattr(self, "primary_account") else None)!r}, '
+                f'managed_accounts={(self.managed_accounts if hasattr(self, "managed_accounts") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'usage_for_all_accounts={(self.usage_for_all_accounts if hasattr(self, "usage_for_all_accounts") else None)!s}, '
+                f'sku_name={(self.sku_name if hasattr(self, "sku_name") else None)!s}, '
+                f'transactions_allowed={(self.transactions_allowed if hasattr(self, "transactions_allowed") else None)!s}, '
+                f'total_transaction_count={(self.total_transaction_count if hasattr(self, "total_transaction_count") else None)!s}, '
+                f'primary_account={(self.primary_account if hasattr(self, "primary_account") else None)!s}, '
+                f'managed_accounts={(self.managed_accounts if hasattr(self, "managed_accounts") else None)!s})')

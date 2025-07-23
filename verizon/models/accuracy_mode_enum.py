@@ -15,7 +15,7 @@ class AccuracyModeEnum(object):
     Accurary, currently only 0-coarse supported.
 
     Attributes:
-        ENUM_0: TODO: type description here.
+        ENUM_0: The enum member of type str.
 
     """
     ENUM_0 = '0'

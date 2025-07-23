@@ -34,7 +34,7 @@ def download_local_profile_to_enable(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -59,6 +59,11 @@ body = ProfileChangeStateRequest(
 )
 
 result = e_uicc_device_profile_management_controller.download_local_profile_to_enable(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -93,7 +98,7 @@ def download_local_profile_to_disable(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -118,6 +123,11 @@ body = ProfileChangeStateRequest(
 )
 
 result = e_uicc_device_profile_management_controller.download_local_profile_to_disable(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -152,7 +162,7 @@ def enable_local_profile(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
 
 ## Example Usage
 
@@ -177,6 +187,11 @@ body = ProfileChangeStateRequest(
 )
 
 result = e_uicc_device_profile_management_controller.enable_local_profile(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -203,7 +218,7 @@ def disable_local_profile(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
 
 ## Example Usage
 
@@ -228,6 +243,11 @@ body = ProfileChangeStateRequest(
 )
 
 result = e_uicc_device_profile_management_controller.disable_local_profile(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -254,7 +274,7 @@ def delete_local_profile(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RequestResponse`](../../doc/models/request-response.md).
 
 ## Example Usage
 
@@ -279,6 +299,11 @@ body = ProfileChangeStateRequest(
 )
 
 result = e_uicc_device_profile_management_controller.delete_local_profile(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

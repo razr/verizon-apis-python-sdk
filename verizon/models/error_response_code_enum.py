@@ -15,10 +15,10 @@ class ErrorResponseCodeEnum(object):
     Error Code.
 
     Attributes:
-        INVALID_ACCESS: TODO: type description here.
-        INVALID_PARAMETER: TODO: type description here.
-        INTERNAL_ERROR: TODO: type description here.
-        SUCCESS: TODO: type description here.
+        INVALID_ACCESS: The enum member of type str.
+        INVALID_PARAMETER: The enum member of type str.
+        INTERNAL_ERROR: The enum member of type str.
+        SUCCESS: The enum member of type str.
 
     """
     INVALID_ACCESS = 'INVALID_ACCESS'

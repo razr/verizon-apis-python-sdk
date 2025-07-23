@@ -67,7 +67,7 @@ class CarrierInformation(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -78,3 +78,15 @@ class CarrierInformation(object):
         return cls(carrier_name,
                    service_plan,
                    state)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'carrier_name={(self.carrier_name if hasattr(self, "carrier_name") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'state={(self.state if hasattr(self, "state") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'carrier_name={(self.carrier_name if hasattr(self, "carrier_name") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'state={(self.state if hasattr(self, "state") else None)!s})')

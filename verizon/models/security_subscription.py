@@ -87,7 +87,7 @@ class SecuritySubscription(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -108,3 +108,21 @@ class SecuritySubscription(object):
                    license_purchased,
                    license_type,
                    sku_number)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!r}, '
+                f'license_assigned={(self.license_assigned if hasattr(self, "license_assigned") else None)!r}, '
+                f'license_available={(self.license_available if hasattr(self, "license_available") else None)!r}, '
+                f'license_purchased={(self.license_purchased if hasattr(self, "license_purchased") else None)!r}, '
+                f'license_type={(self.license_type if hasattr(self, "license_type") else None)!r}, '
+                f'sku_number={(self.sku_number if hasattr(self, "sku_number") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!s}, '
+                f'license_assigned={(self.license_assigned if hasattr(self, "license_assigned") else None)!s}, '
+                f'license_available={(self.license_available if hasattr(self, "license_available") else None)!s}, '
+                f'license_purchased={(self.license_purchased if hasattr(self, "license_purchased") else None)!s}, '
+                f'license_type={(self.license_type if hasattr(self, "license_type") else None)!s}, '
+                f'sku_number={(self.sku_number if hasattr(self, "sku_number") else None)!s})')

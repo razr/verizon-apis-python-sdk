@@ -24,11 +24,11 @@ def list_account_subscriptions(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`SecuritySubscriptionRequest`](../../doc/models/security-subscription-request.md) | Body, Required | Request for account subscription. |
-| `x_request_id` | `str` | Header, Optional | Transaction Id.<br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `32`, *Pattern*: `^[0-9]-[0-9]{3,32}$` |
+| `x_request_id` | `str` | Header, Optional | Transaction Id.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `32`, *Pattern*: `^[0-9]-[0-9]{3,32}$` |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`SecuritySubscriptionResult`](../../doc/models/security-subscription-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SecuritySubscriptionResult`](../../doc/models/security-subscription-result.md).
 
 ## Example Usage
 
@@ -39,6 +39,11 @@ body = SecuritySubscriptionRequest(
 )
 
 result = account_subscriptions_controller.list_account_subscriptions(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

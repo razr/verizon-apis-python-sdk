@@ -65,7 +65,7 @@ class BillUsageRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -78,3 +78,17 @@ class BillUsageRequest(object):
                    start_date,
                    end_date,
                    usage_for_all_accounts)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'start_date={self.start_date!r}, '
+                f'end_date={self.end_date!r}, '
+                f'usage_for_all_accounts={(self.usage_for_all_accounts if hasattr(self, "usage_for_all_accounts") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'start_date={self.start_date!s}, '
+                f'end_date={self.end_date!s}, '
+                f'usage_for_all_accounts={(self.usage_for_all_accounts if hasattr(self, "usage_for_all_accounts") else None)!s})')

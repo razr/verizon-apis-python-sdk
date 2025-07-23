@@ -96,7 +96,7 @@ class DeviceFirmwareUpgrade(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -121,3 +121,29 @@ class DeviceFirmwareUpgrade(object):
                    firmware_from,
                    firmware_to,
                    report_updated_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!r}, '
+                f'campaign_id={self.campaign_id!r}, '
+                f'account_name={self.account_name!r}, '
+                f'firmware_name={(self.firmware_name if hasattr(self, "firmware_name") else None)!r}, '
+                f'firmware_from={(self.firmware_from if hasattr(self, "firmware_from") else None)!r}, '
+                f'firmware_to={(self.firmware_to if hasattr(self, "firmware_to") else None)!r}, '
+                f'start_date={self.start_date!r}, '
+                f'status={self.status!r}, '
+                f'reason={self.reason!r}, '
+                f'report_updated_time={(self.report_updated_time if hasattr(self, "report_updated_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!s}, '
+                f'campaign_id={self.campaign_id!s}, '
+                f'account_name={self.account_name!s}, '
+                f'firmware_name={(self.firmware_name if hasattr(self, "firmware_name") else None)!s}, '
+                f'firmware_from={(self.firmware_from if hasattr(self, "firmware_from") else None)!s}, '
+                f'firmware_to={(self.firmware_to if hasattr(self, "firmware_to") else None)!s}, '
+                f'start_date={self.start_date!s}, '
+                f'status={self.status!s}, '
+                f'reason={self.reason!s}, '
+                f'report_updated_time={(self.report_updated_time if hasattr(self, "report_updated_time") else None)!s})')

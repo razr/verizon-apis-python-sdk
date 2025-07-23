@@ -104,7 +104,7 @@ class AggregateSessionReportRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -125,3 +125,25 @@ class AggregateSessionReportRequest(object):
                    device_label,
                    data_plan,
                    no_session_flag)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_number={self.account_number!r}, '
+                f'start_date={(self.start_date if hasattr(self, "start_date") else None)!r}, '
+                f'end_date={(self.end_date if hasattr(self, "end_date") else None)!r}, '
+                f'imei={self.imei!r}, '
+                f'device_group={(self.device_group if hasattr(self, "device_group") else None)!r}, '
+                f'device_label={(self.device_label if hasattr(self, "device_label") else None)!r}, '
+                f'data_plan={(self.data_plan if hasattr(self, "data_plan") else None)!r}, '
+                f'no_session_flag={(self.no_session_flag if hasattr(self, "no_session_flag") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_number={self.account_number!s}, '
+                f'start_date={(self.start_date if hasattr(self, "start_date") else None)!s}, '
+                f'end_date={(self.end_date if hasattr(self, "end_date") else None)!s}, '
+                f'imei={self.imei!s}, '
+                f'device_group={(self.device_group if hasattr(self, "device_group") else None)!s}, '
+                f'device_label={(self.device_label if hasattr(self, "device_label") else None)!s}, '
+                f'data_plan={(self.data_plan if hasattr(self, "data_plan") else None)!s}, '
+                f'no_session_flag={(self.no_session_flag if hasattr(self, "no_session_flag") else None)!s})')

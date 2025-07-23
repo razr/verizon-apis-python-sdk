@@ -56,7 +56,7 @@ class V2LicenseIMEI(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -65,3 +65,13 @@ class V2LicenseIMEI(object):
         # Return an object of this model
         return cls(device_list,
                    account_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'device_list={self.device_list!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'device_list={self.device_list!s})')

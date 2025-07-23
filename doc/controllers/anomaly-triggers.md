@@ -27,12 +27,17 @@ def list_anomaly_detection_triggers(self)
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[GetTriggerResponseList]`](../../doc/models/get-trigger-response-list.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[GetTriggerResponseList]`](../../doc/models/get-trigger-response-list.md).
 
 ## Example Usage
 
 ```python
 result = anomaly_triggers_controller.list_anomaly_detection_triggers()
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -65,7 +70,7 @@ def update_anomaly_detection_trigger(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`AnomalyDetectionTrigger`](../../doc/models/anomaly-detection-trigger.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AnomalyDetectionTrigger`](../../doc/models/anomaly-detection-trigger.md).
 
 ## Example Usage
 
@@ -81,6 +86,11 @@ body = UpdateTriggerRequest(
 )
 
 result = anomaly_triggers_controller.update_anomaly_detection_trigger(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -113,7 +123,7 @@ def create_anomaly_detection_trigger(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`AnomalyDetectionTrigger`](../../doc/models/anomaly-detection-trigger.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AnomalyDetectionTrigger`](../../doc/models/anomaly-detection-trigger.md).
 
 ## Example Usage
 
@@ -129,6 +139,11 @@ body = CreateTriggerRequest(
 )
 
 result = anomaly_triggers_controller.create_anomaly_detection_trigger(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -161,7 +176,7 @@ def list_anomaly_detection_trigger_settings(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[GetTriggerResponseList]`](../../doc/models/get-trigger-response-list.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[GetTriggerResponseList]`](../../doc/models/get-trigger-response-list.md).
 
 ## Example Usage
 
@@ -169,6 +184,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 trigger_id = 'be1b5958-3e11-41db-9abd-b1b7618c0035'
 
 result = anomaly_triggers_controller.list_anomaly_detection_trigger_settings(trigger_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -201,7 +221,7 @@ def delete_anomaly_detection_trigger(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`AnomalyDetectionTrigger`](../../doc/models/anomaly-detection-trigger.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AnomalyDetectionTrigger`](../../doc/models/anomaly-detection-trigger.md).
 
 ## Example Usage
 
@@ -209,6 +229,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 trigger_id = 'be1b5958-3e11-41db-9abd-b1b7618c0035'
 
 result = anomaly_triggers_controller.delete_anomaly_detection_trigger(trigger_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

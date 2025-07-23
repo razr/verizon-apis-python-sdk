@@ -87,7 +87,7 @@ class SessionReportRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -104,3 +104,21 @@ class SessionReportRequest(object):
                    end_date,
                    duration_low,
                    duration_high)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_number={self.account_number!r}, '
+                f'imei={self.imei!r}, '
+                f'start_date={(self.start_date if hasattr(self, "start_date") else None)!r}, '
+                f'end_date={(self.end_date if hasattr(self, "end_date") else None)!r}, '
+                f'duration_low={(self.duration_low if hasattr(self, "duration_low") else None)!r}, '
+                f'duration_high={(self.duration_high if hasattr(self, "duration_high") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_number={self.account_number!s}, '
+                f'imei={self.imei!s}, '
+                f'start_date={(self.start_date if hasattr(self, "start_date") else None)!s}, '
+                f'end_date={(self.end_date if hasattr(self, "end_date") else None)!s}, '
+                f'duration_low={(self.duration_low if hasattr(self, "duration_low") else None)!s}, '
+                f'duration_high={(self.duration_high if hasattr(self, "duration_high") else None)!s})')

@@ -80,7 +80,7 @@ class DeviceGroupUpdateRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -101,3 +101,17 @@ class DeviceGroupUpdateRequest(object):
                    devices_to_remove,
                    new_group_description,
                    new_group_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices_to_add={(self.devices_to_add if hasattr(self, "devices_to_add") else None)!r}, '
+                f'devices_to_remove={(self.devices_to_remove if hasattr(self, "devices_to_remove") else None)!r}, '
+                f'new_group_description={(self.new_group_description if hasattr(self, "new_group_description") else None)!r}, '
+                f'new_group_name={(self.new_group_name if hasattr(self, "new_group_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices_to_add={(self.devices_to_add if hasattr(self, "devices_to_add") else None)!s}, '
+                f'devices_to_remove={(self.devices_to_remove if hasattr(self, "devices_to_remove") else None)!s}, '
+                f'new_group_description={(self.new_group_description if hasattr(self, "new_group_description") else None)!s}, '
+                f'new_group_name={(self.new_group_name if hasattr(self, "new_group_name") else None)!s})')

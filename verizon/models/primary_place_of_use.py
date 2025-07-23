@@ -15,11 +15,10 @@ class PrimaryPlaceOfUse(object):
 
     """Implementation of the 'PrimaryPlaceOfUse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        customer_name (List[CustomerName]): TODO: type description here.
-        address (List[Address]): TODO: type description here.
+        customer_name (List[CustomerName]): The model property of type
+            List[CustomerName].
+        address (List[Address]): The model property of type List[Address].
 
     """
 
@@ -60,7 +59,7 @@ class PrimaryPlaceOfUse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -77,3 +76,13 @@ class PrimaryPlaceOfUse(object):
         # Return an object of this model
         return cls(customer_name,
                    address)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'customer_name={(self.customer_name if hasattr(self, "customer_name") else None)!r}, '
+                f'address={(self.address if hasattr(self, "address") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'customer_name={(self.customer_name if hasattr(self, "customer_name") else None)!s}, '
+                f'address={(self.address if hasattr(self, "address") else None)!s})')

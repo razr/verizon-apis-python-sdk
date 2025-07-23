@@ -86,8 +86,8 @@ class SMSController(BaseController):
 
         Args:
             aname (str): Account name.
-            next (long|int, optional): Continue the previous query from the
-                URL in Location Header.
+            next (int, optional): Continue the previous query from the URL in
+                Location Header.
 
         Returns:
             ApiResponse: An object with the response value as well as other

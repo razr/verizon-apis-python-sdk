@@ -58,7 +58,7 @@ class TargetAuthenticationBodyHeaders(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +67,13 @@ class TargetAuthenticationBodyHeaders(object):
         # Return an object of this model
         return cls(authorization,
                    content_type)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'authorization={(self.authorization if hasattr(self, "authorization") else None)!r}, '
+                f'content_type={(self.content_type if hasattr(self, "content_type") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'authorization={(self.authorization if hasattr(self, "authorization") else None)!s}, '
+                f'content_type={(self.content_type if hasattr(self, "content_type") else None)!s})')

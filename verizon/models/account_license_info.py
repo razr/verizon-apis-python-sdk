@@ -88,7 +88,7 @@ class AccountLicenseInfo(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -109,3 +109,21 @@ class AccountLicenseInfo(object):
                    has_more_data,
                    last_seen_device_id,
                    device_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'total_licenses={(self.total_licenses if hasattr(self, "total_licenses") else None)!r}, '
+                f'assigned_licenses={(self.assigned_licenses if hasattr(self, "assigned_licenses") else None)!r}, '
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!r}, '
+                f'last_seen_device_id={(self.last_seen_device_id if hasattr(self, "last_seen_device_id") else None)!r}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'total_licenses={(self.total_licenses if hasattr(self, "total_licenses") else None)!s}, '
+                f'assigned_licenses={(self.assigned_licenses if hasattr(self, "assigned_licenses") else None)!s}, '
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!s}, '
+                f'last_seen_device_id={(self.last_seen_device_id if hasattr(self, "last_seen_device_id") else None)!s}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!s})')

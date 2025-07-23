@@ -14,11 +14,9 @@ class Filtercriteria(object):
 
     """Implementation of the 'filtercriteria' model.
 
-    TODO: type model description here.
-
     Attributes:
-        filter_criteria (List[ReadySimServicePlan]): TODO: type description
-            here.
+        filter_criteria (List[ReadySimServicePlan]): The model property of
+            type List[ReadySimServicePlan].
 
     """
 
@@ -54,7 +52,7 @@ class Filtercriteria(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -65,3 +63,11 @@ class Filtercriteria(object):
             filter_criteria = APIHelper.SKIP
         # Return an object of this model
         return cls(filter_criteria)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'filter_criteria={(self.filter_criteria if hasattr(self, "filter_criteria") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'filter_criteria={(self.filter_criteria if hasattr(self, "filter_criteria") else None)!s})')

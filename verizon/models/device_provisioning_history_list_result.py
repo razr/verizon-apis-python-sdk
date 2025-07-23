@@ -63,7 +63,7 @@ class DeviceProvisioningHistoryListResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -76,3 +76,13 @@ class DeviceProvisioningHistoryListResult(object):
         # Return an object of this model
         return cls(has_more_data,
                    provisioning_history)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!r}, '
+                f'provisioning_history={(self.provisioning_history if hasattr(self, "provisioning_history") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'has_more_data={(self.has_more_data if hasattr(self, "has_more_data") else None)!s}, '
+                f'provisioning_history={(self.provisioning_history if hasattr(self, "provisioning_history") else None)!s})')

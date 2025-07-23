@@ -14,13 +14,12 @@ class ESIMProfileRequest2(object):
 
     """Implementation of the 'eSIMProfileRequest2' model.
 
-    TODO: type model description here.
-
     Attributes:
-        devices (List[ESIMDeviceList]): TODO: type description here.
-        account_name (str): TODO: type description here.
-        service_plan (str): TODO: type description here.
-        mdn_zip_code (str): TODO: type description here.
+        devices (List[ESIMDeviceList]): The model property of type
+            List[ESIMDeviceList].
+        account_name (str): The model property of type str.
+        service_plan (str): The model property of type str.
+        mdn_zip_code (str): The model property of type str.
 
     """
 
@@ -71,7 +70,7 @@ class ESIMProfileRequest2(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -88,3 +87,17 @@ class ESIMProfileRequest2(object):
                    account_name,
                    service_plan,
                    mdn_zip_code)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={(self.devices if hasattr(self, "devices") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'mdn_zip_code={(self.mdn_zip_code if hasattr(self, "mdn_zip_code") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={(self.devices if hasattr(self, "devices") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'mdn_zip_code={(self.mdn_zip_code if hasattr(self, "mdn_zip_code") else None)!s})')

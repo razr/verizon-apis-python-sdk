@@ -31,7 +31,7 @@ def get_account_subscription_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V1AccountSubscription`](../../doc/models/v1-account-subscription.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V1AccountSubscription`](../../doc/models/v1-account-subscription.md).
 
 ## Example Usage
 
@@ -39,6 +39,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account = '0402196254-00001'
 
 result = software_management_subscriptions_v1_controller.get_account_subscription_status(account)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -79,7 +84,7 @@ def get_account_license_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`AccountLicenseInfo`](../../doc/models/account-license-info.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AccountLicenseInfo`](../../doc/models/account-license-info.md).
 
 ## Example Usage
 
@@ -92,6 +97,11 @@ result = software_management_subscriptions_v1_controller.get_account_license_sta
     account,
     start_index
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

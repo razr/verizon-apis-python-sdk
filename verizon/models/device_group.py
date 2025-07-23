@@ -72,7 +72,7 @@ class DeviceGroup(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -89,3 +89,17 @@ class DeviceGroup(object):
                    extended_attributes,
                    is_default_group,
                    name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'description={(self.description if hasattr(self, "description") else None)!r}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!r}, '
+                f'is_default_group={(self.is_default_group if hasattr(self, "is_default_group") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'description={(self.description if hasattr(self, "description") else None)!s}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!s}, '
+                f'is_default_group={(self.is_default_group if hasattr(self, "is_default_group") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s})')

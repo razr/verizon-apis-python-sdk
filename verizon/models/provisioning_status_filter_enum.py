@@ -15,21 +15,21 @@ class ProvisioningStatusFilterEnum(object):
     The last status of the device as a list filter.
 
     Attributes:
-        UNKNOWN: TODO: type description here.
-        DEACTIVATED: TODO: type description here.
-        ACTIVATED: TODO: type description here.
-        DEACTIVE: TODO: type description here.
-        ACTIVE: TODO: type description here.
-        SUSPEND: TODO: type description here.
-        PENDING_ACTIVATION: TODO: type description here.
-        PENDING_DEACTIVATION: TODO: type description here.
-        PRE_ACTIVE: TODO: type description here.
-        ACTIVATION_READY: TODO: type description here.
-        INVENTORY: TODO: type description here.
-        PURGED: TODO: type description here.
-        REPLACED: TODO: type description here.
-        RETIRED: TODO: type description here.
-        TEST_READY: TODO: type description here.
+        UNKNOWN: The enum member of type str.
+        DEACTIVATED: The enum member of type str.
+        ACTIVATED: The enum member of type str.
+        DEACTIVE: The enum member of type str.
+        ACTIVE: The enum member of type str.
+        SUSPEND: The enum member of type str.
+        PENDING_ACTIVATION: The enum member of type str.
+        PENDING_DEACTIVATION: The enum member of type str.
+        PRE_ACTIVE: The enum member of type str.
+        ACTIVATION_READY: The enum member of type str.
+        INVENTORY: The enum member of type str.
+        PURGED: The enum member of type str.
+        REPLACED: The enum member of type str.
+        RETIRED: The enum member of type str.
+        TEST_READY: The enum member of type str.
 
     """
     UNKNOWN = 'UNKNOWN'

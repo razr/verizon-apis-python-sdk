@@ -84,7 +84,7 @@ class ConnectivityManagementCallback(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -99,3 +99,19 @@ class ConnectivityManagementCallback(object):
                    service_name,
                    url,
                    username)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'password={(self.password if hasattr(self, "password") else None)!r}, '
+                f'service_name={(self.service_name if hasattr(self, "service_name") else None)!r}, '
+                f'url={(self.url if hasattr(self, "url") else None)!r}, '
+                f'username={(self.username if hasattr(self, "username") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'password={(self.password if hasattr(self, "password") else None)!s}, '
+                f'service_name={(self.service_name if hasattr(self, "service_name") else None)!s}, '
+                f'url={(self.url if hasattr(self, "url") else None)!s}, '
+                f'username={(self.username if hasattr(self, "username") else None)!s})')

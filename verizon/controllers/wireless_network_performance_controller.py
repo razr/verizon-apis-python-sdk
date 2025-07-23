@@ -75,13 +75,13 @@ class WirelessNetworkPerformanceController(BaseController):
                                                         body):
         """Does a POST request to /m2m/v1/intelligence/wireless-coverage.
 
-        Run a report to determine network types available and available
-        coverage. Network types covered include: CAT-M, NB-IOT, LTE, LTE-AWS,
-        5GNW and C-BAND.
+        Run a report for FWA Address qualification or to determine network
+        types available and available coverage. Network types covered include:
+        CAT-M, NB-IOT, LTE, LTE-AWS, 5GNW, MMWAVE and C-BAND.
 
         Args:
-            body (GetWirelessCoverageRequest): Request for network coverage
-                details.
+            body (M2mV1IntelligenceWirelessCoverageRequest): Request for
+                network coverage details.
 
         Returns:
             ApiResponse: An object with the response value as well as other

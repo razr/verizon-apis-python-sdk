@@ -35,8 +35,6 @@ class PWNController(BaseController):
                  aname):
         """Does a GET request to /m2m/v1/devices/pwn/kpi/list/{aname}.
 
-        TODO: type endpoint description here.
-
         Args:
             aname (str): Account name.
 
@@ -75,8 +73,6 @@ class PWNController(BaseController):
     def get_profile_list(self,
                          aname):
         """Does a GET request to /m2m/v1/devices/pwn/profiles/list/{aname}.
-
-        TODO: type endpoint description here.
 
         Args:
             aname (str): Account name.
@@ -117,11 +113,9 @@ class PWNController(BaseController):
                                          body):
         """Does a POST request to /m2m/v1/devices/pwn/actions/state/activate.
 
-        TODO: type endpoint description here.
-
         Args:
-            body (ChangePWNDeviceStateActivateRequest): TODO: type description
-                here.
+            body (ChangePWNDeviceStateActivateRequest): The request body
+                parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -161,11 +155,9 @@ class PWNController(BaseController):
                                            body):
         """Does a POST request to /m2m/v1/devices/pwn/actions/state/deactivate.
 
-        TODO: type endpoint description here.
-
         Args:
-            body (ChangePWNDeviceStateDeactivateRequest): TODO: type
-                description here.
+            body (ChangePWNDeviceStateDeactivateRequest): The request body
+                parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -205,10 +197,8 @@ class PWNController(BaseController):
                                   body):
         """Does a POST request to /m2m/v1/devices/pwn/actions/profile.
 
-        TODO: type endpoint description here.
-
         Args:
-            body (ChangePWNDeviceProfileRequest): TODO: type description here.
+            body (ChangePWNDeviceProfileRequest): The request body parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -248,11 +238,8 @@ class PWNController(BaseController):
                                     body):
         """Does a PUT request to /m2m/v1/devices/pwn/actions/ipaddress.
 
-        TODO: type endpoint description here.
-
         Args:
-            body (ChangePWNDeviceIpaddressRequest): TODO: type description
-                here.
+            body (ChangePWNDeviceIpaddressRequest): The request body parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -291,8 +278,6 @@ class PWNController(BaseController):
     def get_pwn_performance_consent(self,
                                     aname):
         """Does a GET request to /m2m/v1/devices/pwn/performance/consent/{aname}.
-
-        TODO: type endpoint description here.
 
         Args:
             aname (str): Account name.

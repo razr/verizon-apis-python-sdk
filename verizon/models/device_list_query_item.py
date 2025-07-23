@@ -99,7 +99,7 @@ class DeviceListQueryItem(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -120,3 +120,25 @@ class DeviceListQueryItem(object):
                    fota_eligible,
                    license_assigned,
                    upgrade_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r}, '
+                f'mdn={(self.mdn if hasattr(self, "mdn") else None)!r}, '
+                f'model={(self.model if hasattr(self, "model") else None)!r}, '
+                f'make={(self.make if hasattr(self, "make") else None)!r}, '
+                f'firmware={(self.firmware if hasattr(self, "firmware") else None)!r}, '
+                f'fota_eligible={(self.fota_eligible if hasattr(self, "fota_eligible") else None)!r}, '
+                f'license_assigned={(self.license_assigned if hasattr(self, "license_assigned") else None)!r}, '
+                f'upgrade_time={(self.upgrade_time if hasattr(self, "upgrade_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s}, '
+                f'mdn={(self.mdn if hasattr(self, "mdn") else None)!s}, '
+                f'model={(self.model if hasattr(self, "model") else None)!s}, '
+                f'make={(self.make if hasattr(self, "make") else None)!s}, '
+                f'firmware={(self.firmware if hasattr(self, "firmware") else None)!s}, '
+                f'fota_eligible={(self.fota_eligible if hasattr(self, "fota_eligible") else None)!s}, '
+                f'license_assigned={(self.license_assigned if hasattr(self, "license_assigned") else None)!s}, '
+                f'upgrade_time={(self.upgrade_time if hasattr(self, "upgrade_time") else None)!s})')

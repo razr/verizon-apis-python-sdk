@@ -34,7 +34,7 @@ def kpi_list(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`KPIInfoList`](../../doc/models/kpi-info-list.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`KPIInfoList`](../../doc/models/kpi-info-list.md).
 
 ## Example Usage
 
@@ -42,6 +42,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 aname = '0342351414-00001'
 
 result = pwn_controller.kpi_list(aname)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -79,7 +84,7 @@ def get_profile_list(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`PWNProfileList`](../../doc/models/pwn-profile-list.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PWNProfileList`](../../doc/models/pwn-profile-list.md).
 
 ## Example Usage
 
@@ -87,6 +92,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 aname = '0342351414-00001'
 
 result = pwn_controller.get_profile_list(aname)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -118,7 +128,7 @@ def change_pwn_device_state_activate(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ChangePWNDeviceStateResponse`](../../doc/models/change-pwn-device-state-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ChangePWNDeviceStateResponse`](../../doc/models/change-pwn-device-state-response.md).
 
 ## Example Usage
 
@@ -141,6 +151,11 @@ body = ChangePWNDeviceStateActivateRequest(
 )
 
 result = pwn_controller.change_pwn_device_state_activate(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -167,7 +182,7 @@ def change_pwn_device_state_deactivate(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ChangePWNDeviceStateResponse`](../../doc/models/change-pwn-device-state-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ChangePWNDeviceStateResponse`](../../doc/models/change-pwn-device-state-response.md).
 
 ## Example Usage
 
@@ -195,6 +210,11 @@ body = ChangePWNDeviceStateDeactivateRequest(
 )
 
 result = pwn_controller.change_pwn_device_state_deactivate(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -221,7 +241,7 @@ def change_pwn_device_profile(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ChangePWNDeviceProfileResponse`](../../doc/models/change-pwn-device-profile-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ChangePWNDeviceProfileResponse`](../../doc/models/change-pwn-device-profile-response.md).
 
 ## Example Usage
 
@@ -242,6 +262,11 @@ body = ChangePWNDeviceProfileRequest(
 )
 
 result = pwn_controller.change_pwn_device_profile(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -268,7 +293,7 @@ def change_pwn_device_ipaddress(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ChangePWNDeviceIpaddressResponse`](../../doc/models/change-pwn-device-ipaddress-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ChangePWNDeviceIpaddressResponse`](../../doc/models/change-pwn-device-ipaddress-response.md).
 
 ## Example Usage
 
@@ -298,6 +323,11 @@ body = ChangePWNDeviceIpaddressRequest(
 )
 
 result = pwn_controller.change_pwn_device_ipaddress(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -324,7 +354,7 @@ def get_pwn_performance_consent(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GetPWNPerformanceConsentResponse`](../../doc/models/get-pwn-performance-consent-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetPWNPerformanceConsentResponse`](../../doc/models/get-pwn-performance-consent-response.md).
 
 ## Example Usage
 
@@ -332,6 +362,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 aname = '1533445500-00088'
 
 result = pwn_controller.get_pwn_performance_consent(aname)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

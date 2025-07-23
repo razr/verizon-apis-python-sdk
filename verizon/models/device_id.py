@@ -52,7 +52,7 @@ class DeviceId(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -61,3 +61,13 @@ class DeviceId(object):
         # Return an object of this model
         return cls(id,
                    kind)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'id={self.id!r}, '
+                f'kind={self.kind!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'id={self.id!s}, '
+                f'kind={self.kind!s})')

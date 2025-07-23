@@ -92,7 +92,7 @@ class MismatchedDevice(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -111,3 +111,23 @@ class MismatchedDevice(object):
                    pre_imei,
                    post_imei,
                    sim_ota_date)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'mdn={(self.mdn if hasattr(self, "mdn") else None)!r}, '
+                f'activation_date={(self.activation_date if hasattr(self, "activation_date") else None)!r}, '
+                f'iccid={(self.iccid if hasattr(self, "iccid") else None)!r}, '
+                f'pre_imei={(self.pre_imei if hasattr(self, "pre_imei") else None)!r}, '
+                f'post_imei={(self.post_imei if hasattr(self, "post_imei") else None)!r}, '
+                f'sim_ota_date={(self.sim_ota_date if hasattr(self, "sim_ota_date") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'mdn={(self.mdn if hasattr(self, "mdn") else None)!s}, '
+                f'activation_date={(self.activation_date if hasattr(self, "activation_date") else None)!s}, '
+                f'iccid={(self.iccid if hasattr(self, "iccid") else None)!s}, '
+                f'pre_imei={(self.pre_imei if hasattr(self, "pre_imei") else None)!s}, '
+                f'post_imei={(self.post_imei if hasattr(self, "post_imei") else None)!s}, '
+                f'sim_ota_date={(self.sim_ota_date if hasattr(self, "sim_ota_date") else None)!s})')

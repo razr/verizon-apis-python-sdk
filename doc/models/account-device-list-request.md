@@ -21,7 +21,7 @@ Request for listing account devices.
 | `latest` | `str` | Optional | Only include devices that were added before this date and time. |
 | `service_plan` | `str` | Optional | Only include devices that have this service plan. |
 | `max_number_of_devices` | `int` | Optional | **Constraints**: `>= 0`, `<= 100` |
-| `largest_device_id_seen` | `long\|int` | Optional | **Constraints**: `>= 0`, `<= 100` |
+| `largest_device_id_seen` | `int` | Optional | **Constraints**: `>= 0`, `<= 100` |
 
 ## Example (as JSON)
 
@@ -38,10 +38,7 @@ Request for listing account devices.
       }
     ]
   },
-  "deviceId": {
-    "id": "id0",
-    "kind": "kind8"
-  },
+  "deviceId": null,
   "currentState": "currentState0",
   "customFields": [
     {

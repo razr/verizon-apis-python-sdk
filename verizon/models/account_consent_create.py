@@ -13,10 +13,8 @@ class AccountConsentCreate(object):
 
     """Implementation of the 'AccountConsentCreate' model.
 
-    TODO: type model description here.
-
     Attributes:
-        device_list (List[object]): An array of device identifiers
+        device_list (List[Any]): An array of device identifiers
         account_name (str): The numeric name of the account, including leading
             zeros.
 
@@ -59,7 +57,7 @@ class AccountConsentCreate(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -68,3 +66,13 @@ class AccountConsentCreate(object):
         # Return an object of this model
         return cls(device_list,
                    account_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s})')

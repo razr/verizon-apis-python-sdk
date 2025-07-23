@@ -32,7 +32,7 @@ def create_new_trigger(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`UsageTriggerResponse`](../../doc/models/usage-trigger-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`UsageTriggerResponse`](../../doc/models/usage-trigger-response.md).
 
 ## Example Usage
 
@@ -52,6 +52,11 @@ body = UsageTriggerAddRequest(
 result = usage_trigger_management_controller.create_new_trigger(
     body=body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -99,7 +104,7 @@ def update_trigger(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`UsageTriggerResponse`](../../doc/models/usage-trigger-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`UsageTriggerResponse`](../../doc/models/usage-trigger-response.md).
 
 ## Example Usage
 
@@ -115,6 +120,11 @@ result = usage_trigger_management_controller.update_trigger(
     trigger_id,
     body=body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -162,7 +172,7 @@ def delete_trigger(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceLocationSuccessResult`](../../doc/models/device-location-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceLocationSuccessResult`](../../doc/models/device-location-success-result.md).
 
 ## Example Usage
 
@@ -175,6 +185,11 @@ result = usage_trigger_management_controller.delete_trigger(
     account_name,
     trigger_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

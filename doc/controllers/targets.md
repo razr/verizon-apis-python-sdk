@@ -34,7 +34,7 @@ def query_target(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[Target]`](../../doc/models/target.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[Target]`](../../doc/models/target.md).
 
 ## Example Usage
 
@@ -49,6 +49,11 @@ body = QueryTargetRequest(
 )
 
 result = targets_controller.query_target(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -100,7 +105,7 @@ def delete_target(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
 ## Example Usage
 
@@ -115,6 +120,11 @@ body = DeleteTargetRequest(
 )
 
 result = targets_controller.delete_target(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -135,7 +145,7 @@ def create_target(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Target`](../../doc/models/target.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Target`](../../doc/models/target.md).
 
 ## Example Usage
 
@@ -162,6 +172,11 @@ body = CreateTargetRequest(
 )
 
 result = targets_controller.create_target(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -201,7 +216,7 @@ def generate_target_external_id(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GenerateExternalIDResult`](../../doc/models/generate-external-id-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GenerateExternalIDResult`](../../doc/models/generate-external-id-result.md).
 
 ## Example Usage
 
@@ -213,6 +228,11 @@ body = GenerateExternalIDRequest(
 )
 
 result = targets_controller.generate_target_external_id(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -243,7 +263,7 @@ def create_azure_central_io_t_application(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`CreateIoTApplicationResponse`](../../doc/models/create-io-t-application-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CreateIoTApplicationResponse`](../../doc/models/create-io-t-application-response.md).
 
 ## Example Usage
 
@@ -266,6 +286,11 @@ result = targets_controller.create_azure_central_io_t_application(
     billingaccount_id,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

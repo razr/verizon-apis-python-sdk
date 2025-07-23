@@ -13,8 +13,6 @@ class CallbackCreated(object):
 
     """Implementation of the 'CallbackCreated' model.
 
-    TODO: type model description here.
-
     Attributes:
         aname (str): The billing account number for which callback messages
             will be sent.
@@ -65,7 +63,7 @@ class CallbackCreated(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -76,3 +74,15 @@ class CallbackCreated(object):
         return cls(aname,
                    name,
                    url)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'aname={self.aname!r}, '
+                f'name={self.name!r}, '
+                f'url={(self.url if hasattr(self, "url") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'aname={self.aname!s}, '
+                f'name={self.name!s}, '
+                f'url={(self.url if hasattr(self, "url") else None)!s})')

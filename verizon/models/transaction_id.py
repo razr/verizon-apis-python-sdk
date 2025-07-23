@@ -17,7 +17,7 @@ class TransactionID(object):
     /devicelocations synchronus response.
 
     Attributes:
-        txid (str): TODO: type description here.
+        txid (str): The model property of type str.
 
     """
 
@@ -53,10 +53,18 @@ class TransactionID(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         txid = dictionary.get("txid") if dictionary.get("txid") else APIHelper.SKIP
         # Return an object of this model
         return cls(txid)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={(self.txid if hasattr(self, "txid") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={(self.txid if hasattr(self, "txid") else None)!s})')

@@ -16,8 +16,8 @@ class DeleteServiceProfileResult(object):
     Response on successful deletion of service profile.
 
     Attributes:
-        status (str): TODO: type description here.
-        message (str): TODO: type description here.
+        status (str): The model property of type str.
+        message (str): The model property of type str.
 
     """
 
@@ -58,7 +58,7 @@ class DeleteServiceProfileResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +67,13 @@ class DeleteServiceProfileResult(object):
         # Return an object of this model
         return cls(status,
                    message)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'message={(self.message if hasattr(self, "message") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'message={(self.message if hasattr(self, "message") else None)!s})')

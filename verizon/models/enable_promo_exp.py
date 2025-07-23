@@ -13,10 +13,8 @@ class EnablePromoExp(object):
 
     """Implementation of the 'enablePromoExp' model.
 
-    TODO: type model description here.
-
     Attributes:
-        enable_promo_exp (bool): TODO: type description here.
+        enable_promo_exp (bool): The model property of type bool.
 
     """
 
@@ -52,10 +50,18 @@ class EnablePromoExp(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         enable_promo_exp = dictionary.get("enablePromoExp") if "enablePromoExp" in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(enable_promo_exp)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'enable_promo_exp={(self.enable_promo_exp if hasattr(self, "enable_promo_exp") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'enable_promo_exp={(self.enable_promo_exp if hasattr(self, "enable_promo_exp") else None)!s})')

@@ -30,8 +30,8 @@ class DeviceCostCenterRequest(object):
             this parameter.
         group_name (str): The name of a device group, if you want to only
             include devices in that group.
-        primary_place_of_use (object): The customer name and the address of
-            the device's primary place of use. These values are applied to all
+        primary_place_of_use (Any): The customer name and the address of the
+            device's primary place of use. These values are applied to all
             devices in the request.The Primary Place of Use location may
             affect taxation or have other legal implications. You may want to
             speak with legal and/or financial advisers before entering values
@@ -113,7 +113,7 @@ class DeviceCostCenterRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -142,3 +142,25 @@ class DeviceCostCenterRequest(object):
                    primary_place_of_use,
                    remove_cost_center,
                    service_plan)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'cost_center={(self.cost_center if hasattr(self, "cost_center") else None)!r}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!r}, '
+                f'devices={(self.devices if hasattr(self, "devices") else None)!r}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!r}, '
+                f'primary_place_of_use={(self.primary_place_of_use if hasattr(self, "primary_place_of_use") else None)!r}, '
+                f'remove_cost_center={(self.remove_cost_center if hasattr(self, "remove_cost_center") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'cost_center={(self.cost_center if hasattr(self, "cost_center") else None)!s}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!s}, '
+                f'devices={(self.devices if hasattr(self, "devices") else None)!s}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!s}, '
+                f'primary_place_of_use={(self.primary_place_of_use if hasattr(self, "primary_place_of_use") else None)!s}, '
+                f'remove_cost_center={(self.remove_cost_center if hasattr(self, "remove_cost_center") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s})')

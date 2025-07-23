@@ -68,7 +68,7 @@ class DiagnosticObservationSetting(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -83,3 +83,15 @@ class DiagnosticObservationSetting(object):
         return cls(account_name,
                    device,
                    attributes)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'device={(self.device if hasattr(self, "device") else None)!r}, '
+                f'attributes={(self.attributes if hasattr(self, "attributes") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'device={(self.device if hasattr(self, "device") else None)!s}, '
+                f'attributes={(self.attributes if hasattr(self, "attributes") else None)!s})')

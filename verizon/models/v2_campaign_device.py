@@ -71,7 +71,7 @@ class V2CampaignDevice(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -88,3 +88,19 @@ class V2CampaignDevice(object):
                    device_list,
                    total_device,
                    last_seen_device_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'total_device={(self.total_device if hasattr(self, "total_device") else None)!r}, '
+                f'has_more_data={self.has_more_data!r}, '
+                f'last_seen_device_id={(self.last_seen_device_id if hasattr(self, "last_seen_device_id") else None)!r}, '
+                f'max_page_size={self.max_page_size!r}, '
+                f'device_list={self.device_list!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'total_device={(self.total_device if hasattr(self, "total_device") else None)!s}, '
+                f'has_more_data={self.has_more_data!s}, '
+                f'last_seen_device_id={(self.last_seen_device_id if hasattr(self, "last_seen_device_id") else None)!s}, '
+                f'max_page_size={self.max_page_size!s}, '
+                f'device_list={self.device_list!s})')

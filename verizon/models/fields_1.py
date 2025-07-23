@@ -14,8 +14,6 @@ class Fields1(object):
 
     """Implementation of the 'Fields1' model.
 
-    TODO: type model description here.
-
     Attributes:
         item (SearchDeviceByPropertyFields): List of device sensors and their
             most recently reported values.
@@ -54,10 +52,18 @@ class Fields1(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         item = SearchDeviceByPropertyFields.from_dictionary(dictionary.get('item')) if 'item' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(item)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'item={(self.item if hasattr(self, "item") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'item={(self.item if hasattr(self, "item") else None)!s})')

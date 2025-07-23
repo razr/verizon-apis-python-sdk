@@ -26,7 +26,7 @@ def get_diagnostics_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[History]`](../../doc/models/history.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[History]`](../../doc/models/history.md).
 
 ## Example Usage
 
@@ -45,6 +45,11 @@ body = HistorySearchRequest(
 )
 
 result = diagnostics_history_controller.get_diagnostics_history(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

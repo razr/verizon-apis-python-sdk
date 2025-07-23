@@ -77,7 +77,7 @@ class HistorySearchRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -90,3 +90,17 @@ class HistorySearchRequest(object):
                    limit_number,
                    limit_time,
                    page)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'filter={self.filter!r}, '
+                f'limit_number={(self.limit_number if hasattr(self, "limit_number") else None)!r}, '
+                f'limit_time={(self.limit_time if hasattr(self, "limit_time") else None)!r}, '
+                f'page={(self.page if hasattr(self, "page") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'filter={self.filter!s}, '
+                f'limit_number={(self.limit_number if hasattr(self, "limit_number") else None)!s}, '
+                f'limit_time={(self.limit_time if hasattr(self, "limit_time") else None)!s}, '
+                f'page={(self.page if hasattr(self, "page") else None)!s})')

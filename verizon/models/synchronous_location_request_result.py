@@ -12,8 +12,6 @@ class SynchronousLocationRequestResult(object):
 
     """Implementation of the 'SynchronousLocationRequestResult' model.
 
-    TODO: type model description here.
-
     Attributes:
         txid (str): The transaction ID of the report.
         status (ReportStatusEnum): Status of the report.
@@ -50,7 +48,7 @@ class SynchronousLocationRequestResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -59,3 +57,13 @@ class SynchronousLocationRequestResult(object):
         # Return an object of this model
         return cls(txid,
                    status)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={self.txid!r}, '
+                f'status={self.status!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={self.txid!s}, '
+                f'status={self.status!s})')

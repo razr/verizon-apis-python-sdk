@@ -53,7 +53,7 @@ class CallbackRegistered(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -62,3 +62,13 @@ class CallbackRegistered(object):
         # Return an object of this model
         return cls(account_name,
                    name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'name={self.name!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'name={self.name!s})')

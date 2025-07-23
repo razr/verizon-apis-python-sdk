@@ -71,7 +71,7 @@ class UpgradeListQueryResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -85,3 +85,15 @@ class UpgradeListQueryResult(object):
         return cls(has_more_flag,
                    last_seen_upgrade_id,
                    report_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'has_more_flag={(self.has_more_flag if hasattr(self, "has_more_flag") else None)!r}, '
+                f'last_seen_upgrade_id={(self.last_seen_upgrade_id if hasattr(self, "last_seen_upgrade_id") else None)!r}, '
+                f'report_list={(self.report_list if hasattr(self, "report_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'has_more_flag={(self.has_more_flag if hasattr(self, "has_more_flag") else None)!s}, '
+                f'last_seen_upgrade_id={(self.last_seen_upgrade_id if hasattr(self, "last_seen_upgrade_id") else None)!s}, '
+                f'report_list={(self.report_list if hasattr(self, "report_list") else None)!s})')

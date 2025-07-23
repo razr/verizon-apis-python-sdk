@@ -67,7 +67,7 @@ class V1DeviceListItem(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -78,3 +78,15 @@ class V1DeviceListItem(object):
         return cls(device_id,
                    status,
                    reason)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'reason={(self.reason if hasattr(self, "reason") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'reason={(self.reason if hasattr(self, "reason") else None)!s})')

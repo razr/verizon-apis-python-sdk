@@ -18,8 +18,10 @@ class AccountLabels(object):
     Maximum of 2,000 objects are allowed in the array.
 
     Attributes:
-        devices (List[DeviceList]): TODO: type description here.
-        label (List[DeviceLabels]): TODO: type description here.
+        devices (List[DeviceList]): The model property of type
+            List[DeviceList].
+        label (List[DeviceLabels]): The model property of type
+            List[DeviceLabels].
 
     """
 
@@ -58,7 +60,7 @@ class AccountLabels(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -73,3 +75,13 @@ class AccountLabels(object):
         # Return an object of this model
         return cls(devices,
                    label)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={self.devices!r}, '
+                f'label={(self.label if hasattr(self, "label") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={self.devices!s}, '
+                f'label={(self.label if hasattr(self, "label") else None)!s})')

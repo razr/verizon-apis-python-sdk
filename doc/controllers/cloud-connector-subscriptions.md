@@ -32,7 +32,7 @@ def create_subscription(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Subscription`](../../doc/models/subscription.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Subscription`](../../doc/models/subscription.md).
 
 ## Example Usage
 
@@ -50,6 +50,11 @@ body = CreateSubscriptionRequest(
 )
 
 result = cloud_connector_subscriptions_controller.create_subscription(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -91,7 +96,7 @@ def query_subscription(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[Subscription]`](../../doc/models/subscription.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[Subscription]`](../../doc/models/subscription.md).
 
 ## Example Usage
 
@@ -106,6 +111,11 @@ body = QuerySubscriptionRequest(
 )
 
 result = cloud_connector_subscriptions_controller.query_subscription(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -152,7 +162,7 @@ def delete_subscription(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
 ## Example Usage
 
@@ -167,5 +177,10 @@ body = DeleteSubscriptionRequest(
 )
 
 result = cloud_connector_subscriptions_controller.delete_subscription(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

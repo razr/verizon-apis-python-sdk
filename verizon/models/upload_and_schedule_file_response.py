@@ -14,8 +14,6 @@ class UploadAndScheduleFileResponse(object):
 
     """Implementation of the 'UploadAndScheduleFileResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         id (str): Updgrade identifier.
         account_name (str): Account identifer.
@@ -166,7 +164,7 @@ class UploadAndScheduleFileResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -217,3 +215,47 @@ class UploadAndScheduleFileResponse(object):
                    install_time_window_list,
                    device_list,
                    status)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'id={(self.id if hasattr(self, "id") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'campaign_name={(self.campaign_name if hasattr(self, "campaign_name") else None)!r}, '
+                f'software_name={(self.software_name if hasattr(self, "software_name") else None)!r}, '
+                f'software_from={(self.software_from if hasattr(self, "software_from") else None)!r}, '
+                f'software_to={(self.software_to if hasattr(self, "software_to") else None)!r}, '
+                f'file_name={(self.file_name if hasattr(self, "file_name") else None)!r}, '
+                f'file_version={(self.file_version if hasattr(self, "file_version") else None)!r}, '
+                f'distribution_type={(self.distribution_type if hasattr(self, "distribution_type") else None)!r}, '
+                f'make={(self.make if hasattr(self, "make") else None)!r}, '
+                f'model={(self.model if hasattr(self, "model") else None)!r}, '
+                f'start_date={(self.start_date if hasattr(self, "start_date") else None)!r}, '
+                f'end_date={(self.end_date if hasattr(self, "end_date") else None)!r}, '
+                f'download_after_date={(self.download_after_date if hasattr(self, "download_after_date") else None)!r}, '
+                f'download_time_window_list={(self.download_time_window_list if hasattr(self, "download_time_window_list") else None)!r}, '
+                f'install_after_date={(self.install_after_date if hasattr(self, "install_after_date") else None)!r}, '
+                f'install_time_window_list={(self.install_time_window_list if hasattr(self, "install_time_window_list") else None)!r}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'id={(self.id if hasattr(self, "id") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'campaign_name={(self.campaign_name if hasattr(self, "campaign_name") else None)!s}, '
+                f'software_name={(self.software_name if hasattr(self, "software_name") else None)!s}, '
+                f'software_from={(self.software_from if hasattr(self, "software_from") else None)!s}, '
+                f'software_to={(self.software_to if hasattr(self, "software_to") else None)!s}, '
+                f'file_name={(self.file_name if hasattr(self, "file_name") else None)!s}, '
+                f'file_version={(self.file_version if hasattr(self, "file_version") else None)!s}, '
+                f'distribution_type={(self.distribution_type if hasattr(self, "distribution_type") else None)!s}, '
+                f'make={(self.make if hasattr(self, "make") else None)!s}, '
+                f'model={(self.model if hasattr(self, "model") else None)!s}, '
+                f'start_date={(self.start_date if hasattr(self, "start_date") else None)!s}, '
+                f'end_date={(self.end_date if hasattr(self, "end_date") else None)!s}, '
+                f'download_after_date={(self.download_after_date if hasattr(self, "download_after_date") else None)!s}, '
+                f'download_time_window_list={(self.download_time_window_list if hasattr(self, "download_time_window_list") else None)!s}, '
+                f'install_after_date={(self.install_after_date if hasattr(self, "install_after_date") else None)!s}, '
+                f'install_time_window_list={(self.install_time_window_list if hasattr(self, "install_time_window_list") else None)!s}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s})')

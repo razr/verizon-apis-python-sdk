@@ -13,8 +13,6 @@ class ServiceUsage(object):
 
     """Implementation of the 'ServiceUsage' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): Account identifier.
         transactions_count (str): Total requests for the account during the
@@ -59,7 +57,7 @@ class ServiceUsage(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -68,3 +66,13 @@ class ServiceUsage(object):
         # Return an object of this model
         return cls(account_name,
                    transactions_count)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'transactions_count={(self.transactions_count if hasattr(self, "transactions_count") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'transactions_count={(self.transactions_count if hasattr(self, "transactions_count") else None)!s})')

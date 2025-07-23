@@ -53,10 +53,18 @@ class CreateServiceProfileResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         service_profile_id = dictionary.get("serviceProfileId") if dictionary.get("serviceProfileId") else APIHelper.SKIP
         # Return an object of this model
         return cls(service_profile_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'service_profile_id={(self.service_profile_id if hasattr(self, "service_profile_id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'service_profile_id={(self.service_profile_id if hasattr(self, "service_profile_id") else None)!s})')

@@ -17,20 +17,20 @@ class CreateTriggerRequest(object):
 
     """Implementation of the 'CreateTriggerRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
+        account_name (str): The model property of type str.
         anomaly_trigger_request (AnomalyTriggerRequest): The details of the
             UsageAnomaly trigger.
-        data_trigger_request (DataTriggerRequest): TODO: type description here.
-        group_name (str): TODO: type description here.
-        name (str): TODO: type description here.
-        session_trigger_request (SessionTriggerRequest): TODO: type
-            description here.
-        sms_trigger_request (SMSTriggerRequest): TODO: type description here.
-        trigger_category (str): TODO: type description here.
-        trigger_cycle (str): TODO: type description here.
+        data_trigger_request (DataTriggerRequest): The model property of type
+            DataTriggerRequest.
+        group_name (str): The model property of type str.
+        name (str): The model property of type str.
+        session_trigger_request (SessionTriggerRequest): The model property of
+            type SessionTriggerRequest.
+        sms_trigger_request (SMSTriggerRequest): The model property of type
+            SMSTriggerRequest.
+        trigger_category (str): The model property of type str.
+        trigger_cycle (str): The model property of type str.
 
     """
 
@@ -106,7 +106,7 @@ class CreateTriggerRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -129,3 +129,27 @@ class CreateTriggerRequest(object):
                    sms_trigger_request,
                    trigger_category,
                    trigger_cycle)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'anomaly_trigger_request={(self.anomaly_trigger_request if hasattr(self, "anomaly_trigger_request") else None)!r}, '
+                f'data_trigger_request={(self.data_trigger_request if hasattr(self, "data_trigger_request") else None)!r}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'session_trigger_request={(self.session_trigger_request if hasattr(self, "session_trigger_request") else None)!r}, '
+                f'sms_trigger_request={(self.sms_trigger_request if hasattr(self, "sms_trigger_request") else None)!r}, '
+                f'trigger_category={(self.trigger_category if hasattr(self, "trigger_category") else None)!r}, '
+                f'trigger_cycle={(self.trigger_cycle if hasattr(self, "trigger_cycle") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'anomaly_trigger_request={(self.anomaly_trigger_request if hasattr(self, "anomaly_trigger_request") else None)!s}, '
+                f'data_trigger_request={(self.data_trigger_request if hasattr(self, "data_trigger_request") else None)!s}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'session_trigger_request={(self.session_trigger_request if hasattr(self, "session_trigger_request") else None)!s}, '
+                f'sms_trigger_request={(self.sms_trigger_request if hasattr(self, "sms_trigger_request") else None)!s}, '
+                f'trigger_category={(self.trigger_category if hasattr(self, "trigger_category") else None)!s}, '
+                f'trigger_cycle={(self.trigger_cycle if hasattr(self, "trigger_cycle") else None)!s})')

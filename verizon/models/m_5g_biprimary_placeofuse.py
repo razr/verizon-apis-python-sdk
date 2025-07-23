@@ -15,11 +15,10 @@ class M5gBiprimaryPlaceofuse(object):
 
     """Implementation of the '5gbiprimaryPlaceofuse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        address (M5gBiAddress): TODO: type description here.
-        customer_name (M5gBiCustomerName): TODO: type description here.
+        address (M5gBiAddress): The model property of type M5gBiAddress.
+        customer_name (M5gBiCustomerName): The model property of type
+            M5gBiCustomerName.
 
     """
 
@@ -60,7 +59,7 @@ class M5gBiprimaryPlaceofuse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -69,3 +68,13 @@ class M5gBiprimaryPlaceofuse(object):
         # Return an object of this model
         return cls(address,
                    customer_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'address={(self.address if hasattr(self, "address") else None)!r}, '
+                f'customer_name={(self.customer_name if hasattr(self, "customer_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'address={(self.address if hasattr(self, "address") else None)!s}, '
+                f'customer_name={(self.customer_name if hasattr(self, "customer_name") else None)!s})')

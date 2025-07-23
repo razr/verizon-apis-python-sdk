@@ -31,7 +31,7 @@ class AddDevicesRequest(object):
             this parameter.
         sku_number (str): The Stock Keeping Unit (SKU) number of a 4G device
             type with an embedded SIM.
-        smsr_oid (str): TODO: type description here.
+        smsr_oid (str): The model property of type str.
 
     """
 
@@ -93,7 +93,7 @@ class AddDevicesRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -118,3 +118,23 @@ class AddDevicesRequest(object):
                    group_name,
                    sku_number,
                    smsr_oid)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'state={self.state!r}, '
+                f'devices_to_add={self.devices_to_add!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!r}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!r}, '
+                f'sku_number={(self.sku_number if hasattr(self, "sku_number") else None)!r}, '
+                f'smsr_oid={(self.smsr_oid if hasattr(self, "smsr_oid") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'state={self.state!s}, '
+                f'devices_to_add={self.devices_to_add!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!s}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!s}, '
+                f'sku_number={(self.sku_number if hasattr(self, "sku_number") else None)!s}, '
+                f'smsr_oid={(self.smsr_oid if hasattr(self, "smsr_oid") else None)!s})')

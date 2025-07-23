@@ -13,8 +13,6 @@ class UsageTriggerUpdateRequest(object):
 
     """Implementation of the 'UsageTriggerUpdateRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         trigger_name (str): Usage trigger name
         account_name (str): Account name
@@ -77,7 +75,7 @@ class UsageTriggerUpdateRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -92,3 +90,19 @@ class UsageTriggerUpdateRequest(object):
                    threshold_value,
                    sms_phone_numbers,
                    email_addresses)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!r}, '
+                f'account_name={self.account_name!r}, '
+                f'threshold_value={(self.threshold_value if hasattr(self, "threshold_value") else None)!r}, '
+                f'sms_phone_numbers={(self.sms_phone_numbers if hasattr(self, "sms_phone_numbers") else None)!r}, '
+                f'email_addresses={(self.email_addresses if hasattr(self, "email_addresses") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!s}, '
+                f'account_name={self.account_name!s}, '
+                f'threshold_value={(self.threshold_value if hasattr(self, "threshold_value") else None)!s}, '
+                f'sms_phone_numbers={(self.sms_phone_numbers if hasattr(self, "sms_phone_numbers") else None)!s}, '
+                f'email_addresses={(self.email_addresses if hasattr(self, "email_addresses") else None)!s})')

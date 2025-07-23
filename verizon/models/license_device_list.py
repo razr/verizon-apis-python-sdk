@@ -19,7 +19,7 @@ class LicenseDeviceList(object):
     Attributes:
         device_ids (List[LicenseDeviceId]): For 4G devices, IMEI (decimal, up
             to 15 digits).
-        ipaddress (str): TODO: type description here.
+        ipaddress (str): The model property of type str.
 
     """
 
@@ -60,7 +60,7 @@ class LicenseDeviceList(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -73,3 +73,13 @@ class LicenseDeviceList(object):
         # Return an object of this model
         return cls(device_ids,
                    ipaddress)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!r}, '
+                f'ipaddress={(self.ipaddress if hasattr(self, "ipaddress") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!s}, '
+                f'ipaddress={(self.ipaddress if hasattr(self, "ipaddress") else None)!s})')

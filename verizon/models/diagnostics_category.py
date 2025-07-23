@@ -62,7 +62,7 @@ class DiagnosticsCategory(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -75,3 +75,13 @@ class DiagnosticsCategory(object):
         # Return an object of this model
         return cls(category_name,
                    extended_attributes)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'category_name={(self.category_name if hasattr(self, "category_name") else None)!r}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'category_name={(self.category_name if hasattr(self, "category_name") else None)!s}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!s})')

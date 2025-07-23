@@ -101,7 +101,7 @@ class ProvisioningHistory(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -126,3 +126,25 @@ class ProvisioningHistory(object):
                    msisdn,
                    service_plan,
                    extended_attributes)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'occurred_at={(self.occurred_at if hasattr(self, "occurred_at") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'event_by={(self.event_by if hasattr(self, "event_by") else None)!r}, '
+                f'event_type={(self.event_type if hasattr(self, "event_type") else None)!r}, '
+                f'mdn={(self.mdn if hasattr(self, "mdn") else None)!r}, '
+                f'msisdn={(self.msisdn if hasattr(self, "msisdn") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'occurred_at={(self.occurred_at if hasattr(self, "occurred_at") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'event_by={(self.event_by if hasattr(self, "event_by") else None)!s}, '
+                f'event_type={(self.event_type if hasattr(self, "event_type") else None)!s}, '
+                f'mdn={(self.mdn if hasattr(self, "mdn") else None)!s}, '
+                f'msisdn={(self.msisdn if hasattr(self, "msisdn") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!s})')

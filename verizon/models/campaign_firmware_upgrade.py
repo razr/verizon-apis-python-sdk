@@ -102,7 +102,7 @@ class CampaignFirmwareUpgrade(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -133,3 +133,31 @@ class CampaignFirmwareUpgrade(object):
                    auto_add_devices_flag,
                    campaign_name,
                    campaign_time_window_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'campaign_name={(self.campaign_name if hasattr(self, "campaign_name") else None)!r}, '
+                f'firmware_name={self.firmware_name!r}, '
+                f'firmware_from={self.firmware_from!r}, '
+                f'firmware_to={self.firmware_to!r}, '
+                f'protocol={self.protocol!r}, '
+                f'start_date={self.start_date!r}, '
+                f'end_date={self.end_date!r}, '
+                f'campaign_time_window_list={(self.campaign_time_window_list if hasattr(self, "campaign_time_window_list") else None)!r}, '
+                f'device_list={self.device_list!r}, '
+                f'auto_assign_license_flag={self.auto_assign_license_flag!r}, '
+                f'auto_add_devices_flag={self.auto_add_devices_flag!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'campaign_name={(self.campaign_name if hasattr(self, "campaign_name") else None)!s}, '
+                f'firmware_name={self.firmware_name!s}, '
+                f'firmware_from={self.firmware_from!s}, '
+                f'firmware_to={self.firmware_to!s}, '
+                f'protocol={self.protocol!s}, '
+                f'start_date={self.start_date!s}, '
+                f'end_date={self.end_date!s}, '
+                f'campaign_time_window_list={(self.campaign_time_window_list if hasattr(self, "campaign_time_window_list") else None)!s}, '
+                f'device_list={self.device_list!s}, '
+                f'auto_assign_license_flag={self.auto_assign_license_flag!s}, '
+                f'auto_add_devices_flag={self.auto_add_devices_flag!s})')

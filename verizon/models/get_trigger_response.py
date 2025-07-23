@@ -13,23 +13,21 @@ class GetTriggerResponse(object):
 
     """Implementation of the 'GetTriggerResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        comparator (str): TODO: type description here.
-        created_at (datetime): TODO: type description here.
-        group_name (str): TODO: type description here.
-        modified_at (datetime): TODO: type description here.
-        notification_group_name (str): TODO: type description here.
-        organization_name (str): TODO: type description here.
-        sms_type (str): TODO: type description here.
-        threshold (str): TODO: type description here.
-        threshold_unit (str): TODO: type description here.
-        trigger_category (str): TODO: type description here.
-        trigger_cycle (str): TODO: type description here.
-        trigger_id (str): TODO: type description here.
-        trigger_name (str): TODO: type description here.
+        account_name (str): The model property of type str.
+        comparator (str): The model property of type str.
+        created_at (datetime): The model property of type datetime.
+        group_name (str): The model property of type str.
+        modified_at (datetime): The model property of type datetime.
+        notification_group_name (str): The model property of type str.
+        organization_name (str): The model property of type str.
+        sms_type (str): The model property of type str.
+        threshold (str): The model property of type str.
+        threshold_unit (str): The model property of type str.
+        trigger_category (str): The model property of type str.
+        trigger_cycle (str): The model property of type str.
+        trigger_id (str): The model property of type str.
+        trigger_name (str): The model property of type str.
 
     """
 
@@ -130,7 +128,7 @@ class GetTriggerResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -163,3 +161,37 @@ class GetTriggerResponse(object):
                    trigger_cycle,
                    trigger_id,
                    trigger_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'comparator={(self.comparator if hasattr(self, "comparator") else None)!r}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!r}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!r}, '
+                f'modified_at={(self.modified_at if hasattr(self, "modified_at") else None)!r}, '
+                f'notification_group_name={(self.notification_group_name if hasattr(self, "notification_group_name") else None)!r}, '
+                f'organization_name={(self.organization_name if hasattr(self, "organization_name") else None)!r}, '
+                f'sms_type={(self.sms_type if hasattr(self, "sms_type") else None)!r}, '
+                f'threshold={(self.threshold if hasattr(self, "threshold") else None)!r}, '
+                f'threshold_unit={(self.threshold_unit if hasattr(self, "threshold_unit") else None)!r}, '
+                f'trigger_category={(self.trigger_category if hasattr(self, "trigger_category") else None)!r}, '
+                f'trigger_cycle={(self.trigger_cycle if hasattr(self, "trigger_cycle") else None)!r}, '
+                f'trigger_id={(self.trigger_id if hasattr(self, "trigger_id") else None)!r}, '
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'comparator={(self.comparator if hasattr(self, "comparator") else None)!s}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!s}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!s}, '
+                f'modified_at={(self.modified_at if hasattr(self, "modified_at") else None)!s}, '
+                f'notification_group_name={(self.notification_group_name if hasattr(self, "notification_group_name") else None)!s}, '
+                f'organization_name={(self.organization_name if hasattr(self, "organization_name") else None)!s}, '
+                f'sms_type={(self.sms_type if hasattr(self, "sms_type") else None)!s}, '
+                f'threshold={(self.threshold if hasattr(self, "threshold") else None)!s}, '
+                f'threshold_unit={(self.threshold_unit if hasattr(self, "threshold_unit") else None)!s}, '
+                f'trigger_category={(self.trigger_category if hasattr(self, "trigger_category") else None)!s}, '
+                f'trigger_cycle={(self.trigger_cycle if hasattr(self, "trigger_cycle") else None)!s}, '
+                f'trigger_id={(self.trigger_id if hasattr(self, "trigger_id") else None)!s}, '
+                f'trigger_name={(self.trigger_name if hasattr(self, "trigger_name") else None)!s})')

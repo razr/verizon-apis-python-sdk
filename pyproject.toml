@@ -1,18 +1,21 @@
 [build-system]
-build-backend = "setuptools.build_meta"
 requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 [project]
 name = "sdksio-verizon-apis-sdk"
-description = "Use the Verizon API for connectivity management, device diagnostics, device location, edge discovery service, edge performance, software management and much more."
-version = "1.7.0"
+description = "The Verizon Edge Discovery Service API can direct your application clients to connect to the optimal service endpoints for your Multi-access Edge Computing (MEC) applications for every session. The Edge Discovery Service takes into account the current location of a device, its IP anchor location, current network traffic and other factors to determine which 5G Edge platform a device should connect to."
+version = "1.8.0"
 readme = "README.md"
+dependencies = ["apimatic-core~=0.2.0, >= 0.2.20", "apimatic-core-interfaces~=0.1.0, >= 0.1.5", "apimatic-requests-client-adapter~=0.1.0, >= 0.1.6", "deprecation~=2.1"]
 requires-python = ">=3.7"
-keywords = ["API", "SDK", "Verizon", "Thingspace"]
-authors = [{name = "developer-sdksio", email = "developer+sdksio@apimatic.io"}]
-urls = {Documentation = "https://www.verizon.com/business/5g-edge-portal/api-documentation.html"}
-dependencies = ["apimatic-core~=0.2.0, >= 0.2.15", "apimatic-core-interfaces~=0.1.0, >= 0.1.5", "apimatic-requests-client-adapter~=0.1.0, >= 0.1.6", "deprecation~=2.1", "python-dateutil~=2.8.1"]
-classifiers = []
+[[project.authors]]
+name = "APIMatic Code Generator"
+email = "support@apimatic.io"
+
 [project.optional-dependencies]
 testutils = ["pytest>=7.2.2"]
+[tool]
+[tool.setuptools]
+[tool.setuptools.packages]
 [tool.setuptools.packages.find]
 exclude = ["tests", "tests.*"]

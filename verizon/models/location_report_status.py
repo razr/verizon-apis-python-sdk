@@ -58,7 +58,7 @@ class LocationReportStatus(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +67,13 @@ class LocationReportStatus(object):
         # Return an object of this model
         return cls(txid,
                    status)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={(self.txid if hasattr(self, "txid") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={(self.txid if hasattr(self, "txid") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s})')

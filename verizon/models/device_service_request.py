@@ -51,7 +51,7 @@ class DeviceServiceRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -60,3 +60,13 @@ class DeviceServiceRequest(object):
         # Return an object of this model
         return cls(imei,
                    bullseye_enable)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'imei={self.imei!r}, '
+                f'bullseye_enable={self.bullseye_enable!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'imei={self.imei!s}, '
+                f'bullseye_enable={self.bullseye_enable!s})')

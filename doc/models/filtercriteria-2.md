@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `filter_criteria` | `List[object]` | Optional | - |
+| `filter_criteria` | `List[Any]` | Optional | - |
 
 ## Example (as JSON)
 

@@ -35,8 +35,8 @@ class PerformanceMetricsController(BaseController):
         network availability, MEC hostnames and more.
 
         Args:
-            body (QueryMECPerformanceMetricsRequest, optional): TODO: type
-                description here.
+            body (QueryMECPerformanceMetricsRequest, optional): The request
+                body parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other

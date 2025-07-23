@@ -73,7 +73,7 @@ class CustomerName(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -88,3 +88,19 @@ class CustomerName(object):
                    title,
                    middle_name,
                    suffix)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'title={(self.title if hasattr(self, "title") else None)!r}, '
+                f'first_name={self.first_name!r}, '
+                f'middle_name={(self.middle_name if hasattr(self, "middle_name") else None)!r}, '
+                f'last_name={self.last_name!r}, '
+                f'suffix={(self.suffix if hasattr(self, "suffix") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'title={(self.title if hasattr(self, "title") else None)!s}, '
+                f'first_name={self.first_name!s}, '
+                f'middle_name={(self.middle_name if hasattr(self, "middle_name") else None)!s}, '
+                f'last_name={self.last_name!s}, '
+                f'suffix={(self.suffix if hasattr(self, "suffix") else None)!s})')

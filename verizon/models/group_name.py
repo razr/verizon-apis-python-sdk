@@ -13,10 +13,8 @@ class GroupName(object):
 
     """Implementation of the 'GroupName' model.
 
-    TODO: type model description here.
-
     Attributes:
-        default (str): TODO: type description here.
+        default (str): The model property of type str.
 
     """
 
@@ -52,10 +50,18 @@ class GroupName(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         default = dictionary.get("Default") if dictionary.get("Default") else APIHelper.SKIP
         # Return an object of this model
         return cls(default)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'default={(self.default if hasattr(self, "default") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'default={(self.default if hasattr(self, "default") else None)!s})')

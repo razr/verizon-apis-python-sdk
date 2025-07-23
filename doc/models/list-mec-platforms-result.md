@@ -11,7 +11,7 @@ Response to return the optimal 5G Edge platforms for deployment based on a regio
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mec_platforms` | [`List[MECPlatformResource]`](../../doc/models/mec-platform-resource.md) | Optional | A list of optimal MEC Platforms where you can register your deployed application.<br>**Constraints**: *Maximum Items*: `100` |
+| `mec_platforms` | [`List[MECPlatformResource]`](../../doc/models/mec-platform-resource.md) | Optional | A list of optimal MEC Platforms where you can register your deployed application.<br><br>**Constraints**: *Maximum Items*: `100` |
 
 ## Example (as JSON)
 

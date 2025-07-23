@@ -55,7 +55,7 @@ class GetNetworkConditionsRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -66,3 +66,15 @@ class GetNetworkConditionsRequest(object):
         return cls(account_name,
                    location_type,
                    coordinates)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'location_type={self.location_type!r}, '
+                f'coordinates={self.coordinates!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'location_type={self.location_type!s}, '
+                f'coordinates={self.coordinates!s})')

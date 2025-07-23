@@ -36,9 +36,7 @@ class DiagnosticsSettingsController(BaseController):
 
         Args:
             account_name (str): Account identifier.
-            devices (str): Devices list format:
-                [{"id":"{imei1}","kind":"imei"},{"id":"{imei2}","kind":"imei"}]
-                .
+            devices (str): Devices list formatted as "id, kind"
 
         Returns:
             ApiResponse: An object with the response value as well as other

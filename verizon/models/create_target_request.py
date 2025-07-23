@@ -31,7 +31,8 @@ class CreateTargetRequest(object):
         addressscheme (str): The transport format. Valid values are: <br
             />streamawsiot - streamed data to an AWS account <br />streamrest
             - streamed REST data to a defined endpoint.
-        fields (CreateTargetRequestFields): TODO: type description here.
+        fields (CreateTargetRequestFields): The model property of type
+            CreateTargetRequestFields.
         description (str): Descriptive information about the target.
         externalid (str): Security identification string created by a POST
             /targets/actions/newextid request.
@@ -130,7 +131,7 @@ class CreateTargetRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -159,3 +160,33 @@ class CreateTargetRequest(object):
                    region,
                    key_1,
                    oauth)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'accountidentifier={(self.accountidentifier if hasattr(self, "accountidentifier") else None)!r}, '
+                f'billingaccountid={(self.billingaccountid if hasattr(self, "billingaccountid") else None)!r}, '
+                f'kind={(self.kind if hasattr(self, "kind") else None)!r}, '
+                f'address={(self.address if hasattr(self, "address") else None)!r}, '
+                f'addressscheme={(self.addressscheme if hasattr(self, "addressscheme") else None)!r}, '
+                f'fields={(self.fields if hasattr(self, "fields") else None)!r}, '
+                f'description={(self.description if hasattr(self, "description") else None)!r}, '
+                f'externalid={(self.externalid if hasattr(self, "externalid") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'region={(self.region if hasattr(self, "region") else None)!r}, '
+                f'key_1={(self.key_1 if hasattr(self, "key_1") else None)!r}, '
+                f'oauth={(self.oauth if hasattr(self, "oauth") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'accountidentifier={(self.accountidentifier if hasattr(self, "accountidentifier") else None)!s}, '
+                f'billingaccountid={(self.billingaccountid if hasattr(self, "billingaccountid") else None)!s}, '
+                f'kind={(self.kind if hasattr(self, "kind") else None)!s}, '
+                f'address={(self.address if hasattr(self, "address") else None)!s}, '
+                f'addressscheme={(self.addressscheme if hasattr(self, "addressscheme") else None)!s}, '
+                f'fields={(self.fields if hasattr(self, "fields") else None)!s}, '
+                f'description={(self.description if hasattr(self, "description") else None)!s}, '
+                f'externalid={(self.externalid if hasattr(self, "externalid") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'region={(self.region if hasattr(self, "region") else None)!s}, '
+                f'key_1={(self.key_1 if hasattr(self, "key_1") else None)!s}, '
+                f'oauth={(self.oauth if hasattr(self, "oauth") else None)!s})')

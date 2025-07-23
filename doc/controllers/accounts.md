@@ -34,7 +34,7 @@ def get_account_information(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Account`](../../doc/models/account.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Account`](../../doc/models/account.md).
 
 ## Example Usage
 
@@ -42,6 +42,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 aname = 'Chintan_CPNStaticBulk'
 
 result = accounts_controller.get_account_information(aname)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -115,7 +120,7 @@ def list_account_states_and_services(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`AccountStatesAndServices`](../../doc/models/account-states-and-services.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AccountStatesAndServices`](../../doc/models/account-states-and-services.md).
 
 ## Example Usage
 
@@ -123,6 +128,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 aname = '0252012345-00001'
 
 result = accounts_controller.list_account_states_and_services(aname)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -226,11 +236,11 @@ def list_account_leads(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `aname` | `str` | Template, Required | Account name. |
-| `next` | `long\|int` | Query, Optional | Continue the previous query from the pageUrl in Location Header. |
+| `next` | `int` | Query, Optional | Continue the previous query from the pageUrl in Location Header. |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`AccountLeadsResult`](../../doc/models/account-leads-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AccountLeadsResult`](../../doc/models/account-leads-result.md).
 
 ## Example Usage
 
@@ -238,6 +248,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 aname = '0252012345-00001'
 
 result = accounts_controller.list_account_leads(aname)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

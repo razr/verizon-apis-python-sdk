@@ -128,7 +128,7 @@ class ServiceProfilesController(BaseController):
         Returns a specified service profile.
 
         Args:
-            service_profile_id (str): TODO: type description here.
+            service_profile_id (str): The request template parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -173,7 +173,7 @@ class ServiceProfilesController(BaseController):
         Update the definition of a Service Profile.
 
         Args:
-            service_profile_id (str): TODO: type description here.
+            service_profile_id (str): The request template parameter.
             body (ResourcesServiceProfile): The request body passes the rest
                 of the needed parameters to create a service profile. The
                 `maxLatencyMs` and `clientType` parameters are both required
@@ -230,7 +230,7 @@ class ServiceProfilesController(BaseController):
         Delete Service Profile based on unique service profile ID.
 
         Args:
-            service_profile_id (str): TODO: type description here.
+            service_profile_id (str): The request template parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other

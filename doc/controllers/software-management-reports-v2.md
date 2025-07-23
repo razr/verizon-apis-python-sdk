@@ -36,7 +36,7 @@ def list_available_software(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[SoftwarePackage]`](../../doc/models/software-package.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[SoftwarePackage]`](../../doc/models/software-package.md).
 
 ## Example Usage
 
@@ -49,6 +49,11 @@ result = software_management_reports_v2_controller.list_available_software(
     account,
     distribution_type=distribution_type
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -95,7 +100,7 @@ def list_account_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V2AccountDeviceList`](../../doc/models/v2-account-device-list.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V2AccountDeviceList`](../../doc/models/v2-account-device-list.md).
 
 ## Example Usage
 
@@ -111,6 +116,11 @@ result = software_management_reports_v2_controller.list_account_devices(
     last_seen_device_id=last_seen_device_id,
     distribution_type=distribution_type
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -215,7 +225,7 @@ def get_device_firmware_upgrade_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[DeviceSoftwareUpgrade]`](../../doc/models/device-software-upgrade.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[DeviceSoftwareUpgrade]`](../../doc/models/device-software-upgrade.md).
 
 ## Example Usage
 
@@ -228,6 +238,11 @@ result = software_management_reports_v2_controller.get_device_firmware_upgrade_h
     account,
     device_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -283,7 +298,7 @@ def get_campaign_history_by_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V2CampaignHistory`](../../doc/models/v2-campaign-history.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V2CampaignHistory`](../../doc/models/v2-campaign-history.md).
 
 ## Example Usage
 
@@ -299,6 +314,11 @@ result = software_management_reports_v2_controller.get_campaign_history_by_statu
     campaign_status,
     last_seen_campaign_id=last_seen_campaign_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -368,7 +388,7 @@ def get_campaign_device_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V2CampaignDevice`](../../doc/models/v2-campaign-device.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V2CampaignDevice`](../../doc/models/v2-campaign-device.md).
 
 ## Example Usage
 
@@ -384,6 +404,11 @@ result = software_management_reports_v2_controller.get_campaign_device_status(
     campaign_id,
     last_seen_device_id=last_seen_device_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

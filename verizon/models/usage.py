@@ -18,8 +18,8 @@ class Usage(object):
     period.
 
     Attributes:
-        bytes_used (long|int): The number of bytes that the device sent or
-            received on the report date.
+        bytes_used (int): The number of bytes that the device sent or received
+            on the report date.
         extended_attributes (List[CustomFields]): The number of
             mobile-originated and mobile-terminated SMS messages on the report
             date.
@@ -89,7 +89,7 @@ class Usage(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -110,3 +110,21 @@ class Usage(object):
                    sms_used,
                    source,
                    timestamp)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'bytes_used={(self.bytes_used if hasattr(self, "bytes_used") else None)!r}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'sms_used={(self.sms_used if hasattr(self, "sms_used") else None)!r}, '
+                f'source={(self.source if hasattr(self, "source") else None)!r}, '
+                f'timestamp={(self.timestamp if hasattr(self, "timestamp") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'bytes_used={(self.bytes_used if hasattr(self, "bytes_used") else None)!s}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'sms_used={(self.sms_used if hasattr(self, "sms_used") else None)!s}, '
+                f'source={(self.source if hasattr(self, "source") else None)!s}, '
+                f'timestamp={(self.timestamp if hasattr(self, "timestamp") else None)!s})')

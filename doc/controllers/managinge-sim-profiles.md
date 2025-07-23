@@ -39,7 +39,7 @@ def resume_profile(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -54,6 +54,11 @@ body = GIOProfileRequest(
 )
 
 result = managing_e_sim_profiles_controller.resume_profile(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -80,7 +85,7 @@ def profile_suspend(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -95,6 +100,11 @@ body = GIOProfileRequest(
 )
 
 result = managing_e_sim_profiles_controller.profile_suspend(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -121,7 +131,7 @@ def device_suspend(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -136,6 +146,11 @@ body = GIOProfileRequest(
 )
 
 result = managing_e_sim_profiles_controller.device_suspend(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -162,7 +177,7 @@ def set_fallback(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -170,6 +185,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 body = FallBack()
 
 result = managing_e_sim_profiles_controller.set_fallback(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -196,7 +216,7 @@ def activate_a_device_profile(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -211,6 +231,11 @@ body = GIOProfileRequest(
 )
 
 result = managing_e_sim_profiles_controller.activate_a_device_profile(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -237,7 +262,7 @@ def enable_a_device_profile(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -248,6 +273,11 @@ body = DeviceProfileRequest(
 )
 
 result = managing_e_sim_profiles_controller.enable_a_device_profile(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -274,7 +304,7 @@ def deactivate_a_device_profile(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -287,6 +317,11 @@ body = GIODeactivateDeviceProfileRequest(
 )
 
 result = managing_e_sim_profiles_controller.deactivate_a_device_profile(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -313,7 +348,7 @@ def enable_a_device_profile_for_download(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -324,6 +359,11 @@ body = DeviceProfileRequest(
 )
 
 result = managing_e_sim_profiles_controller.enable_a_device_profile_for_download(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -350,7 +390,7 @@ def download_a_device_profile(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -361,6 +401,11 @@ body = DeviceProfileRequest(
 )
 
 result = managing_e_sim_profiles_controller.download_a_device_profile(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -387,7 +432,7 @@ def delete_a_device_profile(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -398,6 +443,11 @@ body = DeviceProfileRequest(
 )
 
 result = managing_e_sim_profiles_controller.delete_a_device_profile(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

@@ -15,9 +15,9 @@ class DevicesProtocolEnum(object):
     Firmware protocol. Valid values include: LWM2M, OMADM, HTTP.
 
     Attributes:
-        LWM2M: TODO: type description here.
-        OMDADM: TODO: type description here.
-        HTTP: TODO: type description here.
+        LWM2M: The enum member of type str.
+        OMDADM: The enum member of type str.
+        HTTP: The enum member of type str.
 
     """
     LW_M2M = 'LWM2M'

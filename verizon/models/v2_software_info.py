@@ -54,7 +54,7 @@ class V2SoftwareInfo(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -65,3 +65,15 @@ class V2SoftwareInfo(object):
         return cls(name,
                    version,
                    upgrade_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={self.name!r}, '
+                f'version={self.version!r}, '
+                f'upgrade_time={self.upgrade_time!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={self.name!s}, '
+                f'version={self.version!s}, '
+                f'upgrade_time={self.upgrade_time!s})')

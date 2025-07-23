@@ -12,11 +12,9 @@ class GIODeviceId(object):
 
     """Implementation of the 'GIODeviceId' model.
 
-    TODO: type model description here.
-
     Attributes:
-        kind (str): TODO: type description here.
-        id (str): TODO: type description here.
+        kind (str): The model property of type str.
+        id (str): The model property of type str.
 
     """
 
@@ -50,7 +48,7 @@ class GIODeviceId(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -59,3 +57,13 @@ class GIODeviceId(object):
         # Return an object of this model
         return cls(kind,
                    id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'kind={self.kind!r}, '
+                f'id={self.id!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'kind={self.kind!s}, '
+                f'id={self.id!s})')

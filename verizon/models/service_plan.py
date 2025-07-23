@@ -24,7 +24,7 @@ class ServicePlan(object):
         extended_attributes (List[CustomFields]): Any extended attributes for
             the service plan, as Key and Value pairs.
         name (str): The name of the service plan.
-        size_kb (long|int): The size of the service plan in kilobytes.
+        size_kb (int): The size of the service plan in kilobytes.
 
     """
 
@@ -80,7 +80,7 @@ class ServicePlan(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -99,3 +99,19 @@ class ServicePlan(object):
                    extended_attributes,
                    name,
                    size_kb)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'carrier_service_plan_code={(self.carrier_service_plan_code if hasattr(self, "carrier_service_plan_code") else None)!r}, '
+                f'code={(self.code if hasattr(self, "code") else None)!r}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'size_kb={(self.size_kb if hasattr(self, "size_kb") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'carrier_service_plan_code={(self.carrier_service_plan_code if hasattr(self, "carrier_service_plan_code") else None)!s}, '
+                f'code={(self.code if hasattr(self, "code") else None)!s}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'size_kb={(self.size_kb if hasattr(self, "size_kb") else None)!s})')

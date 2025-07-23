@@ -14,10 +14,9 @@ class Customernamequery(object):
 
     """Implementation of the 'customernamequery' model.
 
-    TODO: type model description here.
-
     Attributes:
-        customer_name (List[CustomerName]): TODO: type description here.
+        customer_name (List[CustomerName]): The model property of type
+            List[CustomerName].
 
     """
 
@@ -53,7 +52,7 @@ class Customernamequery(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -64,3 +63,11 @@ class Customernamequery(object):
             customer_name = APIHelper.SKIP
         # Return an object of this model
         return cls(customer_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'customer_name={(self.customer_name if hasattr(self, "customer_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'customer_name={(self.customer_name if hasattr(self, "customer_name") else None)!s})')

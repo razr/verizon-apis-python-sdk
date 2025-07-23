@@ -13,8 +13,6 @@ class TriggerAttributesOptions(object):
 
     """Implementation of the 'TriggerAttributesOptions' model.
 
-    TODO: type model description here.
-
     Attributes:
         key (str): If present, the NotificationGroupName will be listed here.
         value (bool): DataPercentage50<br />True - Trigger on Data percentage
@@ -59,7 +57,7 @@ class TriggerAttributesOptions(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -68,3 +66,13 @@ class TriggerAttributesOptions(object):
         # Return an object of this model
         return cls(key,
                    value)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'key={(self.key if hasattr(self, "key") else None)!r}, '
+                f'value={(self.value if hasattr(self, "value") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'key={(self.key if hasattr(self, "key") else None)!s}, '
+                f'value={(self.value if hasattr(self, "value") else None)!s})')

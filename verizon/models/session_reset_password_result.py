@@ -52,10 +52,18 @@ class SessionResetPasswordResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         new_password = dictionary.get("newPassword") if dictionary.get("newPassword") else APIHelper.SKIP
         # Return an object of this model
         return cls(new_password)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'new_password={(self.new_password if hasattr(self, "new_password") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'new_password={(self.new_password if hasattr(self, "new_password") else None)!s})')

@@ -26,12 +26,17 @@ def get_all_available_triggers(self)
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`TriggerValueResponse`](../../doc/models/trigger-value-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TriggerValueResponse`](../../doc/models/trigger-value-response.md).
 
 ## Example Usage
 
 ```python
 result = retrieve_the_triggers_controller.get_all_available_triggers()
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -58,7 +63,7 @@ def get_all_triggers_by_account_name(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`TriggerValueResponse`](../../doc/models/trigger-value-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TriggerValueResponse`](../../doc/models/trigger-value-response.md).
 
 ## Example Usage
 
@@ -66,6 +71,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account_name = '0000123456-000001'
 
 result = retrieve_the_triggers_controller.get_all_triggers_by_account_name(account_name)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -85,12 +95,17 @@ def get_all_triggers_by_trigger_category(self)
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`TriggerValueResponse2`](../../doc/models/trigger-value-response-2.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TriggerValueResponse2`](../../doc/models/trigger-value-response-2.md).
 
 ## Example Usage
 
 ```python
 result = retrieve_the_triggers_controller.get_all_triggers_by_trigger_category()
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -117,7 +132,7 @@ def get_triggers_by_id(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`TriggerValueResponse2`](../../doc/models/trigger-value-response-2.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TriggerValueResponse2`](../../doc/models/trigger-value-response-2.md).
 
 ## Example Usage
 
@@ -125,6 +140,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 trigger_id = '2874DEC7-26CF-4797-9C6A-B5A2AC72D526'
 
 result = retrieve_the_triggers_controller.get_triggers_by_id(trigger_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

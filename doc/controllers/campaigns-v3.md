@@ -36,7 +36,7 @@ def schedule_campaign_firmware_upgrade(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FirmwareCampaign`](../../doc/models/firmware-campaign.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FirmwareCampaign`](../../doc/models/firmware-campaign.md).
 
 ## Example Usage
 
@@ -68,6 +68,11 @@ result = campaigns_v3_controller.schedule_campaign_firmware_upgrade(
     account_name,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -123,7 +128,7 @@ def update_campaign_firmware_devices(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V3AddOrRemoveDeviceResult`](../../doc/models/v3-add-or-remove-device-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V3AddOrRemoveDeviceResult`](../../doc/models/v3-add-or-remove-device-result.md).
 
 ## Example Usage
 
@@ -144,6 +149,11 @@ result = campaigns_v3_controller.update_campaign_firmware_devices(
     campaign_id,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -190,7 +200,7 @@ def update_campaign_dates(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FirmwareCampaign`](../../doc/models/firmware-campaign.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FirmwareCampaign`](../../doc/models/firmware-campaign.md).
 
 ## Example Usage
 
@@ -215,6 +225,11 @@ result = campaigns_v3_controller.update_campaign_dates(
     campaign_id,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -268,7 +283,7 @@ def get_campaign_information(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Campaign`](../../doc/models/campaign.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Campaign`](../../doc/models/campaign.md).
 
 ## Example Usage
 
@@ -281,6 +296,11 @@ result = campaigns_v3_controller.get_campaign_information(
     account_name,
     campaign_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -336,7 +356,7 @@ def cancel_campaign(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FotaV3SuccessResult`](../../doc/models/fota-v3-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FotaV3SuccessResult`](../../doc/models/fota-v3-success-result.md).
 
 ## Example Usage
 
@@ -349,6 +369,11 @@ result = campaigns_v3_controller.cancel_campaign(
     account_name,
     campaign_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

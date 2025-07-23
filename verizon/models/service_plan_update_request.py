@@ -29,8 +29,8 @@ class ServicePlanUpdateRequest(object):
             to change, specified by device identifier.
         group_name (str): The name of a device group, if you want to restore
             service for all devices in that group.
-        carrier_ip_pool_name (str): TODO: type description here.
-        take_effect (datetime): TODO: type description here.
+        carrier_ip_pool_name (str): The model property of type str.
+        take_effect (datetime): The model property of type datetime.
 
     """
 
@@ -99,7 +99,7 @@ class ServicePlanUpdateRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -128,3 +128,25 @@ class ServicePlanUpdateRequest(object):
                    group_name,
                    carrier_ip_pool_name,
                    take_effect)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'service_plan={self.service_plan!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'current_service_plan={(self.current_service_plan if hasattr(self, "current_service_plan") else None)!r}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!r}, '
+                f'devices={(self.devices if hasattr(self, "devices") else None)!r}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!r}, '
+                f'carrier_ip_pool_name={(self.carrier_ip_pool_name if hasattr(self, "carrier_ip_pool_name") else None)!r}, '
+                f'take_effect={(self.take_effect if hasattr(self, "take_effect") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'service_plan={self.service_plan!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'current_service_plan={(self.current_service_plan if hasattr(self, "current_service_plan") else None)!s}, '
+                f'custom_fields={(self.custom_fields if hasattr(self, "custom_fields") else None)!s}, '
+                f'devices={(self.devices if hasattr(self, "devices") else None)!s}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!s}, '
+                f'carrier_ip_pool_name={(self.carrier_ip_pool_name if hasattr(self, "carrier_ip_pool_name") else None)!s}, '
+                f'take_effect={(self.take_effect if hasattr(self, "take_effect") else None)!s})')

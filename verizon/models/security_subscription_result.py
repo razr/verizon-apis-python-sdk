@@ -60,7 +60,7 @@ class SecuritySubscriptionResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -73,3 +73,13 @@ class SecuritySubscriptionResult(object):
         # Return an object of this model
         return cls(account_name,
                    subscription_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'subscription_list={(self.subscription_list if hasattr(self, "subscription_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'subscription_list={(self.subscription_list if hasattr(self, "subscription_list") else None)!s})')

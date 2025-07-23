@@ -98,7 +98,7 @@ class ResourcesServiceProfile(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -117,3 +117,23 @@ class ResourcesServiceProfile(object):
                    network_resources,
                    compute_resources,
                    properties)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'client_type={self.client_type!r}, '
+                f'ecsp_filter={(self.ecsp_filter if hasattr(self, "ecsp_filter") else None)!r}, '
+                f'client_schedule={(self.client_schedule if hasattr(self, "client_schedule") else None)!r}, '
+                f'client_service_area={(self.client_service_area if hasattr(self, "client_service_area") else None)!r}, '
+                f'network_resources={(self.network_resources if hasattr(self, "network_resources") else None)!r}, '
+                f'compute_resources={(self.compute_resources if hasattr(self, "compute_resources") else None)!r}, '
+                f'properties={(self.properties if hasattr(self, "properties") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'client_type={self.client_type!s}, '
+                f'ecsp_filter={(self.ecsp_filter if hasattr(self, "ecsp_filter") else None)!s}, '
+                f'client_schedule={(self.client_schedule if hasattr(self, "client_schedule") else None)!s}, '
+                f'client_service_area={(self.client_service_area if hasattr(self, "client_service_area") else None)!s}, '
+                f'network_resources={(self.network_resources if hasattr(self, "network_resources") else None)!s}, '
+                f'compute_resources={(self.compute_resources if hasattr(self, "compute_resources") else None)!s}, '
+                f'properties={(self.properties if hasattr(self, "properties") else None)!s})')

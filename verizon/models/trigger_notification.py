@@ -30,7 +30,7 @@ class TriggerNotification(object):
             notification should be delivered.
         sms_notification (bool): SMS notification.
         sms_numbers (List[SMSNumber]): List of SMS numbers.
-        reminder (bool): TODO: type description here.
+        reminder (bool): The model property of type bool.
         severity (str): Severity level associated with the notification.
             Examples would be:<br />Major<br />Minor<br />Critical<br
             />NotApplicable.
@@ -119,7 +119,7 @@ class TriggerNotification(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -150,3 +150,31 @@ class TriggerNotification(object):
                    sms_numbers,
                    reminder,
                    severity)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'notification_type={(self.notification_type if hasattr(self, "notification_type") else None)!r}, '
+                f'callback={(self.callback if hasattr(self, "callback") else None)!r}, '
+                f'email_notification={(self.email_notification if hasattr(self, "email_notification") else None)!r}, '
+                f'notification_group_name={(self.notification_group_name if hasattr(self, "notification_group_name") else None)!r}, '
+                f'notification_frequency_factor={(self.notification_frequency_factor if hasattr(self, "notification_frequency_factor") else None)!r}, '
+                f'notification_frequency_interval={(self.notification_frequency_interval if hasattr(self, "notification_frequency_interval") else None)!r}, '
+                f'external_email_recipients={(self.external_email_recipients if hasattr(self, "external_email_recipients") else None)!r}, '
+                f'sms_notification={(self.sms_notification if hasattr(self, "sms_notification") else None)!r}, '
+                f'sms_numbers={(self.sms_numbers if hasattr(self, "sms_numbers") else None)!r}, '
+                f'reminder={(self.reminder if hasattr(self, "reminder") else None)!r}, '
+                f'severity={(self.severity if hasattr(self, "severity") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'notification_type={(self.notification_type if hasattr(self, "notification_type") else None)!s}, '
+                f'callback={(self.callback if hasattr(self, "callback") else None)!s}, '
+                f'email_notification={(self.email_notification if hasattr(self, "email_notification") else None)!s}, '
+                f'notification_group_name={(self.notification_group_name if hasattr(self, "notification_group_name") else None)!s}, '
+                f'notification_frequency_factor={(self.notification_frequency_factor if hasattr(self, "notification_frequency_factor") else None)!s}, '
+                f'notification_frequency_interval={(self.notification_frequency_interval if hasattr(self, "notification_frequency_interval") else None)!s}, '
+                f'external_email_recipients={(self.external_email_recipients if hasattr(self, "external_email_recipients") else None)!s}, '
+                f'sms_notification={(self.sms_notification if hasattr(self, "sms_notification") else None)!s}, '
+                f'sms_numbers={(self.sms_numbers if hasattr(self, "sms_numbers") else None)!s}, '
+                f'reminder={(self.reminder if hasattr(self, "reminder") else None)!s}, '
+                f'severity={(self.severity if hasattr(self, "severity") else None)!s})')

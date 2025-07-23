@@ -15,15 +15,15 @@ class ClientTypeEnum(object):
     The category of application client.
 
     Attributes:
-        V2X: TODO: type description here.
-        COMPUTERVISION: TODO: type description here.
-        MACHINELEARNING: TODO: type description here.
-        IOT: TODO: type description here.
-        GAMING: TODO: type description here.
-        AR: TODO: type description here.
-        VR: TODO: type description here.
-        ANALYTICS: TODO: type description here.
-        ROBOTICS: TODO: type description here.
+        V2X: The enum member of type str.
+        COMPUTERVISION: The enum member of type str.
+        MACHINELEARNING: The enum member of type str.
+        IOT: The enum member of type str.
+        GAMING: The enum member of type str.
+        AR: The enum member of type str.
+        VR: The enum member of type str.
+        ANALYTICS: The enum member of type str.
+        ROBOTICS: The enum member of type str.
 
     """
     V2_X = 'V2X'

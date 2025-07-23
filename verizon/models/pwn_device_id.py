@@ -12,11 +12,9 @@ class PWNDeviceId(object):
 
     """Implementation of the 'PWNDeviceId' model.
 
-    TODO: type model description here.
-
     Attributes:
-        id (str): TODO: type description here.
-        kind (str): TODO: type description here.
+        id (str): The model property of type str.
+        kind (str): The model property of type str.
 
     """
 
@@ -50,7 +48,7 @@ class PWNDeviceId(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -59,3 +57,13 @@ class PWNDeviceId(object):
         # Return an object of this model
         return cls(id,
                    kind)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'id={self.id!r}, '
+                f'kind={self.kind!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'id={self.id!s}, '
+                f'kind={self.kind!s})')

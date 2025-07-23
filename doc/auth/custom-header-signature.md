@@ -9,7 +9,7 @@ Documentation for accessing and setting credentials for VZ-M2M-Token.
 
 | Name | Type | Description | Getter |
 |  --- | --- | --- | --- |
-| VZ-M2M-Token | `str` | M2M Session Token ([How to generate an M2M session token?]($e/Session%20Management/StartConnectivityManagementSession)) | `vz_m2m_token` |
+| VZ-M2M-Token | `str` | M2M Session Token ([How to generate an M2M session token?](../../doc/controllers/session-management.md#start-connectivity-management-session)) | `vz_m2m_token` |
 
 
 

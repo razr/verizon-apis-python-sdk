@@ -74,7 +74,7 @@ class V1LicensesAssignedRemovedResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -91,3 +91,17 @@ class V1LicensesAssignedRemovedResult(object):
                    lic_count,
                    lic_used_count,
                    device_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'lic_count={(self.lic_count if hasattr(self, "lic_count") else None)!r}, '
+                f'lic_used_count={(self.lic_used_count if hasattr(self, "lic_used_count") else None)!r}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'lic_count={(self.lic_count if hasattr(self, "lic_count") else None)!s}, '
+                f'lic_used_count={(self.lic_used_count if hasattr(self, "lic_used_count") else None)!s}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!s})')

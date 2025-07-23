@@ -32,7 +32,7 @@ def business_internetlist_device_information(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`M5gBideviceDetailsresponse`](../../doc/models/5g-bidevice-detailsresponse.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`M5gBideviceDetailsresponse`](../../doc/models/5g-bidevice-detailsresponse.md).
 
 ## Example Usage
 
@@ -45,6 +45,11 @@ body = M5gBideviceId(
 )
 
 result = m_5g_bi_device_actions_controller.business_internetlist_device_information(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -71,7 +76,7 @@ def business_internetactivate_using_post(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`M5gBiRequestResponse`](../../doc/models/5g-bi-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`M5gBiRequestResponse`](../../doc/models/5g-bi-request-response.md).
 
 ## Example Usage
 
@@ -119,6 +124,11 @@ body = M5gBiactivateRequest(
 )
 
 result = m_5g_bi_device_actions_controller.business_internetactivate_using_post(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -153,7 +163,7 @@ def business_internet_serviceplanchange(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`M5gBiRequestResponse`](../../doc/models/5g-bi-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`M5gBiRequestResponse`](../../doc/models/5g-bi-request-response.md).
 
 ## Example Usage
 
@@ -178,6 +188,11 @@ body = M5gBichangeRequest(
 )
 
 result = m_5g_bi_device_actions_controller.business_internet_serviceplanchange(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

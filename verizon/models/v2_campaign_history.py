@@ -65,7 +65,7 @@ class V2CampaignHistory(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -78,3 +78,15 @@ class V2CampaignHistory(object):
         return cls(has_more_data,
                    campaign_list,
                    last_seen_campaign_id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'has_more_data={self.has_more_data!r}, '
+                f'last_seen_campaign_id={(self.last_seen_campaign_id if hasattr(self, "last_seen_campaign_id") else None)!r}, '
+                f'campaign_list={self.campaign_list!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'has_more_data={self.has_more_data!s}, '
+                f'last_seen_campaign_id={(self.last_seen_campaign_id if hasattr(self, "last_seen_campaign_id") else None)!s}, '
+                f'campaign_list={self.campaign_list!s})')

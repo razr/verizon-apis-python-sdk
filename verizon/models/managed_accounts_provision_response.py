@@ -13,8 +13,6 @@ class ManagedAccountsProvisionResponse(object):
 
     """Implementation of the 'ManagedAccountsProvisionResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         txid (str): Transaction identifier
         account_name (str): Account identifier
@@ -81,7 +79,7 @@ class ManagedAccountsProvisionResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -98,3 +96,21 @@ class ManagedAccountsProvisionResponse(object):
                    service_name,
                    status,
                    reason)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={(self.txid if hasattr(self, "txid") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'paccount_name={(self.paccount_name if hasattr(self, "paccount_name") else None)!r}, '
+                f'service_name={(self.service_name if hasattr(self, "service_name") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'reason={(self.reason if hasattr(self, "reason") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={(self.txid if hasattr(self, "txid") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'paccount_name={(self.paccount_name if hasattr(self, "paccount_name") else None)!s}, '
+                f'service_name={(self.service_name if hasattr(self, "service_name") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'reason={(self.reason if hasattr(self, "reason") else None)!s})')

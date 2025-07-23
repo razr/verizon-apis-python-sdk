@@ -32,7 +32,7 @@ def list_registered_callbacks(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[ConnectivityManagementCallback]`](../../doc/models/connectivity-management-callback.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[ConnectivityManagementCallback]`](../../doc/models/connectivity-management-callback.md).
 
 ## Example Usage
 
@@ -40,6 +40,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 aname = '0252012345-00001'
 
 result = connectivity_callbacks_controller.list_registered_callbacks(aname)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -87,7 +92,7 @@ def register_callback(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`CallbackActionResult`](../../doc/models/callback-action-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CallbackActionResult`](../../doc/models/callback-action-result.md).
 
 ## Example Usage
 
@@ -103,6 +108,11 @@ result = connectivity_callbacks_controller.register_callback(
     aname,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -140,7 +150,7 @@ def deregister_callback(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`CallbackActionResult`](../../doc/models/callback-action-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CallbackActionResult`](../../doc/models/callback-action-result.md).
 
 ## Example Usage
 
@@ -153,6 +163,11 @@ result = connectivity_callbacks_controller.deregister_callback(
     aname,
     sname
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

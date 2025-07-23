@@ -16,7 +16,7 @@ class TargetAuthenticationBodyHost(object):
     Host information.
 
     Attributes:
-        hostandpath (str): TODO: type description here.
+        hostandpath (str): The model property of type str.
 
     """
 
@@ -52,10 +52,18 @@ class TargetAuthenticationBodyHost(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         hostandpath = dictionary.get("hostandpath") if dictionary.get("hostandpath") else APIHelper.SKIP
         # Return an object of this model
         return cls(hostandpath)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'hostandpath={(self.hostandpath if hasattr(self, "hostandpath") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'hostandpath={(self.hostandpath if hasattr(self, "hostandpath") else None)!s})')

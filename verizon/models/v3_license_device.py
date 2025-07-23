@@ -56,7 +56,7 @@ class V3LicenseDevice(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -65,3 +65,13 @@ class V3LicenseDevice(object):
         # Return an object of this model
         return cls(device_id,
                    assignment_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!r}, '
+                f'assignment_time={(self.assignment_time if hasattr(self, "assignment_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!s}, '
+                f'assignment_time={(self.assignment_time if hasattr(self, "assignment_time") else None)!s})')

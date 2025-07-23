@@ -59,7 +59,7 @@ class ListServiceProfilesResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -68,3 +68,13 @@ class ListServiceProfilesResult(object):
         # Return an object of this model
         return cls(status,
                    data)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'data={(self.data if hasattr(self, "data") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'data={(self.data if hasattr(self, "data") else None)!s})')

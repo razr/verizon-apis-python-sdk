@@ -55,7 +55,7 @@ class DeviceInfo(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -66,3 +66,15 @@ class DeviceInfo(object):
         return cls(id,
                    kind,
                    mdn)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'id={self.id!r}, '
+                f'kind={self.kind!r}, '
+                f'mdn={self.mdn!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'id={self.id!s}, '
+                f'kind={self.kind!s}, '
+                f'mdn={self.mdn!s})')

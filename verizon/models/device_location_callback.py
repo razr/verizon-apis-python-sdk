@@ -12,8 +12,6 @@ class DeviceLocationCallback(object):
 
     """Implementation of the 'DeviceLocationCallback' model.
 
-    TODO: type model description here.
-
     Attributes:
         name (CallbackServiceNameEnum): The name of the callback service.
         url (str): The location of your callback listener.
@@ -50,7 +48,7 @@ class DeviceLocationCallback(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -59,3 +57,13 @@ class DeviceLocationCallback(object):
         # Return an object of this model
         return cls(name,
                    url)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={self.name!r}, '
+                f'url={self.url!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={self.name!s}, '
+                f'url={self.url!s})')

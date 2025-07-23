@@ -18,8 +18,8 @@ class FindDeviceByPropertyResponseList(object):
     includes the full device resource definition.
 
     Attributes:
-        device_property (List[FindDeviceByPropertyResponse]): TODO: type
-            description here.
+        device_property (List[FindDeviceByPropertyResponse]): The model
+            property of type List[FindDeviceByPropertyResponse].
 
     """
 
@@ -55,7 +55,7 @@ class FindDeviceByPropertyResponseList(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -66,3 +66,11 @@ class FindDeviceByPropertyResponseList(object):
             device_property = APIHelper.SKIP
         # Return an object of this model
         return cls(device_property)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_property={(self.device_property if hasattr(self, "device_property") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_property={(self.device_property if hasattr(self, "device_property") else None)!s})')

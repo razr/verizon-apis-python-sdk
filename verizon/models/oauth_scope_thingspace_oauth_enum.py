@@ -24,7 +24,7 @@ class OauthScopeThingspaceOauthEnum(object):
             /serviceendpoints.
         TS.MEC.LIMITACCESS: Limited access. Will not allow use of
             /serviceprofiles and /serviceendpoints but will allow discovery.
-        TS.APPLICATION.RO: TODO: type description here.
+        TS.APPLICATION.RO: The enum member of type str.
         EDGEDISCOVERYREAD: Read access to the discovery service
         EDGESERVICEPROFILEREAD: Read access to the service profile service
         EDGESERVICEPROFILEWRITE: Write access to the service profile service

@@ -14,10 +14,9 @@ class KPIInfoList(object):
 
     """Implementation of the 'KPIInfoList' model.
 
-    TODO: type model description here.
-
     Attributes:
-        kpi_info_list (List[KPIInfo]): TODO: type description here.
+        kpi_info_list (List[KPIInfo]): The model property of type
+            List[KPIInfo].
 
     """
 
@@ -53,7 +52,7 @@ class KPIInfoList(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -64,3 +63,11 @@ class KPIInfoList(object):
             kpi_info_list = APIHelper.SKIP
         # Return an object of this model
         return cls(kpi_info_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'kpi_info_list={(self.kpi_info_list if hasattr(self, "kpi_info_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'kpi_info_list={(self.kpi_info_list if hasattr(self, "kpi_info_list") else None)!s})')

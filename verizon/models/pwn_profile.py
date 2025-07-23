@@ -13,11 +13,9 @@ class PWNProfile(object):
 
     """Implementation of the 'PWNProfile' model.
 
-    TODO: type model description here.
-
     Attributes:
-        profile_id (str): TODO: type description here.
-        profile_name (str): TODO: type description here.
+        profile_id (str): The model property of type str.
+        profile_name (str): The model property of type str.
 
     """
 
@@ -58,7 +56,7 @@ class PWNProfile(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +65,13 @@ class PWNProfile(object):
         # Return an object of this model
         return cls(profile_id,
                    profile_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'profile_id={(self.profile_id if hasattr(self, "profile_id") else None)!r}, '
+                f'profile_name={(self.profile_name if hasattr(self, "profile_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'profile_id={(self.profile_id if hasattr(self, "profile_id") else None)!s}, '
+                f'profile_name={(self.profile_name if hasattr(self, "profile_name") else None)!s})')

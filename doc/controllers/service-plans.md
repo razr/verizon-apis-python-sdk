@@ -26,7 +26,7 @@ def list_account_service_plans(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[ServicePlan]`](../../doc/models/service-plan.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[ServicePlan]`](../../doc/models/service-plan.md).
 
 ## Example Usage
 
@@ -34,6 +34,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 aname = '0252012345-00001'
 
 result = service_plans_controller.list_account_service_plans(aname)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

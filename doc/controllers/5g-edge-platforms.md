@@ -32,8 +32,8 @@ def list_mec_platforms(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `region` | `str` | Query, Optional | MEC region name. Current valid values are US_WEST_2 and US_EAST_1. |
-| `service_profile_id` | `str` | Query, Optional | Unique identifier of the service profile.<br>**Constraints**: *Maximum Length*: `36`, *Pattern*: ``^[a-zA-Z0-9!@#$&()\-`.+,/"]{3,36}$`` |
-| `subscriber_density` | `int` | Query, Optional | Minimum number of 4G/5G subscribers per square kilometer.<br>**Constraints**: `>= 1`, `<= 100` |
+| `service_profile_id` | `str` | Query, Optional | Unique identifier of the service profile.<br><br>**Constraints**: *Maximum Length*: `36`, *Pattern*: ``^[a-zA-Z0-9!@#$&()\-`.+,/"]{3,36}$`` |
+| `subscriber_density` | `int` | Query, Optional | Minimum number of 4G/5G subscribers per square kilometer.<br><br>**Constraints**: `>= 1`, `<= 100` |
 | `ue_identity_type` | [`UserEquipmentIdentityTypeEnum`](../../doc/models/user-equipment-identity-type-enum.md) | Query, Optional | Type of User Equipment identifier used in `UEIdentity`. |
 | `ue_identity` | `str` | Query, Optional | The identifier value for User Equipment. The type of identifier is defined by the 'UEIdentityType' parameter. The`IPAddress`format can be IPv4 or IPv6. |
 
@@ -45,7 +45,7 @@ def list_mec_platforms(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ListMECPlatformsResult`](../../doc/models/list-mec-platforms-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListMECPlatformsResult`](../../doc/models/list-mec-platforms-result.md).
 
 ## Example Usage
 
@@ -61,6 +61,11 @@ result = m_5g_edge_platforms_controller.list_mec_platforms(
     ue_identity_type=ue_identity_type,
     ue_identity=ue_identity
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -103,12 +108,17 @@ def list_regions(self)
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`ListRegionsResult`](../../doc/models/list-regions-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListRegionsResult`](../../doc/models/list-regions-result.md).
 
 ## Example Usage
 
 ```python
 result = m_5g_edge_platforms_controller.list_regions()
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

@@ -56,7 +56,7 @@ class ListMECPlatformsResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +67,11 @@ class ListMECPlatformsResult(object):
             mec_platforms = APIHelper.SKIP
         # Return an object of this model
         return cls(mec_platforms)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'mec_platforms={(self.mec_platforms if hasattr(self, "mec_platforms") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'mec_platforms={(self.mec_platforms if hasattr(self, "mec_platforms") else None)!s})')

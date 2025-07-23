@@ -66,7 +66,7 @@ class IPPool(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -77,3 +77,15 @@ class IPPool(object):
         return cls(pool_name,
                    pool_type,
                    is_default_pool)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'pool_name={(self.pool_name if hasattr(self, "pool_name") else None)!r}, '
+                f'pool_type={(self.pool_type if hasattr(self, "pool_type") else None)!r}, '
+                f'is_default_pool={(self.is_default_pool if hasattr(self, "is_default_pool") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'pool_name={(self.pool_name if hasattr(self, "pool_name") else None)!s}, '
+                f'pool_type={(self.pool_type if hasattr(self, "pool_type") else None)!s}, '
+                f'is_default_pool={(self.is_default_pool if hasattr(self, "is_default_pool") else None)!s})')

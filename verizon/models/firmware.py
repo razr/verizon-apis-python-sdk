@@ -97,7 +97,7 @@ class Firmware(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -118,3 +118,25 @@ class Firmware(object):
                    make,
                    from_version,
                    to_version)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'firmware_name={(self.firmware_name if hasattr(self, "firmware_name") else None)!r}, '
+                f'participant_name={(self.participant_name if hasattr(self, "participant_name") else None)!r}, '
+                f'launch_date={(self.launch_date if hasattr(self, "launch_date") else None)!r}, '
+                f'release_note={(self.release_note if hasattr(self, "release_note") else None)!r}, '
+                f'model={(self.model if hasattr(self, "model") else None)!r}, '
+                f'make={(self.make if hasattr(self, "make") else None)!r}, '
+                f'from_version={(self.from_version if hasattr(self, "from_version") else None)!r}, '
+                f'to_version={(self.to_version if hasattr(self, "to_version") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'firmware_name={(self.firmware_name if hasattr(self, "firmware_name") else None)!s}, '
+                f'participant_name={(self.participant_name if hasattr(self, "participant_name") else None)!s}, '
+                f'launch_date={(self.launch_date if hasattr(self, "launch_date") else None)!s}, '
+                f'release_note={(self.release_note if hasattr(self, "release_note") else None)!s}, '
+                f'model={(self.model if hasattr(self, "model") else None)!s}, '
+                f'make={(self.make if hasattr(self, "make") else None)!s}, '
+                f'from_version={(self.from_version if hasattr(self, "from_version") else None)!s}, '
+                f'to_version={(self.to_version if hasattr(self, "to_version") else None)!s})')

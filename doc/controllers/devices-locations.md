@@ -35,7 +35,7 @@ def list_devices_locations_synchronous(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[Location]`](../../doc/models/location.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[Location]`](../../doc/models/location.md).
 
 ## Example Usage
 
@@ -59,6 +59,11 @@ body = LocationRequest(
 )
 
 result = devices_locations_controller.list_devices_locations_synchronous(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -123,7 +128,7 @@ def list_devices_locations_asynchronous(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`SynchronousLocationRequestResult`](../../doc/models/synchronous-location-request-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SynchronousLocationRequestResult`](../../doc/models/synchronous-location-request-result.md).
 
 ## Example Usage
 
@@ -142,6 +147,11 @@ body = LocationRequest(
 )
 
 result = devices_locations_controller.list_devices_locations_asynchronous(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -177,7 +187,7 @@ def create_location_report(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`AsynchronousLocationRequestResult`](../../doc/models/asynchronous-location-request-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AsynchronousLocationRequestResult`](../../doc/models/asynchronous-location-request-result.md).
 
 ## Example Usage
 
@@ -206,6 +216,11 @@ body = LocationRequest(
 )
 
 result = devices_locations_controller.create_location_report(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -245,7 +260,7 @@ def retrieve_location_report(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationReport`](../../doc/models/location-report.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`LocationReport`](../../doc/models/location-report.md).
 
 ## Example Usage
 
@@ -261,6 +276,11 @@ result = devices_locations_controller.retrieve_location_report(
     txid,
     startindex
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -333,7 +353,7 @@ def get_location_report_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`LocationReportStatus`](../../doc/models/location-report-status.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`LocationReportStatus`](../../doc/models/location-report-status.md).
 
 ## Example Usage
 
@@ -346,6 +366,11 @@ result = devices_locations_controller.get_location_report_status(
     account_name,
     txid
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -383,7 +408,7 @@ def cancel_queued_location_report_generation(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`TransactionID`](../../doc/models/transaction-id.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransactionID`](../../doc/models/transaction-id.md).
 
 ## Example Usage
 
@@ -396,6 +421,11 @@ result = devices_locations_controller.cancel_queued_location_report_generation(
     account_name,
     txid
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

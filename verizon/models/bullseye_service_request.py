@@ -51,7 +51,7 @@ class BullseyeServiceRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -62,3 +62,13 @@ class BullseyeServiceRequest(object):
         # Return an object of this model
         return cls(device_list,
                    account_number)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_list={self.device_list!r}, '
+                f'account_number={self.account_number!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_list={self.device_list!s}, '
+                f'account_number={self.account_number!s})')

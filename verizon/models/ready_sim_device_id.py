@@ -13,11 +13,9 @@ class ReadySimDeviceId(object):
 
     """Implementation of the 'ReadySimDeviceId' model.
 
-    TODO: type model description here.
-
     Attributes:
-        kind (str): TODO: type description here.
-        id (str): TODO: type description here.
+        kind (str): The model property of type str.
+        id (str): The model property of type str.
 
     """
 
@@ -58,7 +56,7 @@ class ReadySimDeviceId(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +65,13 @@ class ReadySimDeviceId(object):
         # Return an object of this model
         return cls(kind,
                    id)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'kind={(self.kind if hasattr(self, "kind") else None)!r}, '
+                f'id={(self.id if hasattr(self, "id") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'kind={(self.kind if hasattr(self, "kind") else None)!s}, '
+                f'id={(self.id if hasattr(self, "id") else None)!s})')

@@ -14,8 +14,6 @@ class ESIMGlobalDeviceList(object):
 
     """Implementation of the 'eSIMGlobalDeviceList' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): The numeric name of the account.
         provisioning_status_filter (ProvisioningStatusFilterEnum): The last
@@ -80,7 +78,7 @@ class ESIMGlobalDeviceList(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -99,3 +97,19 @@ class ESIMGlobalDeviceList(object):
                    profile_status_filter,
                    carrier_name_filter,
                    device_filter)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'provisioning_status_filter={(self.provisioning_status_filter if hasattr(self, "provisioning_status_filter") else None)!r}, '
+                f'profile_status_filter={(self.profile_status_filter if hasattr(self, "profile_status_filter") else None)!r}, '
+                f'carrier_name_filter={(self.carrier_name_filter if hasattr(self, "carrier_name_filter") else None)!r}, '
+                f'device_filter={(self.device_filter if hasattr(self, "device_filter") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'provisioning_status_filter={(self.provisioning_status_filter if hasattr(self, "provisioning_status_filter") else None)!s}, '
+                f'profile_status_filter={(self.profile_status_filter if hasattr(self, "profile_status_filter") else None)!s}, '
+                f'carrier_name_filter={(self.carrier_name_filter if hasattr(self, "carrier_name_filter") else None)!s}, '
+                f'device_filter={(self.device_filter if hasattr(self, "device_filter") else None)!s})')

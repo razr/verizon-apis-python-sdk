@@ -14,11 +14,10 @@ class ManagedAccountsAddResponse(object):
 
     """Implementation of the 'ManagedAccountsAddResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         tx_id (str): Transaction identifier
-        status_list (List[StatusList]): TODO: type description here.
+        status_list (List[StatusList]): The model property of type
+            List[StatusList].
 
     """
 
@@ -59,7 +58,7 @@ class ManagedAccountsAddResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -72,3 +71,13 @@ class ManagedAccountsAddResponse(object):
         # Return an object of this model
         return cls(tx_id,
                    status_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'tx_id={(self.tx_id if hasattr(self, "tx_id") else None)!r}, '
+                f'status_list={(self.status_list if hasattr(self, "status_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'tx_id={(self.tx_id if hasattr(self, "tx_id") else None)!s}, '
+                f'status_list={(self.status_list if hasattr(self, "status_list") else None)!s})')

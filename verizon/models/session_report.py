@@ -70,7 +70,7 @@ class SessionReport(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -85,3 +85,15 @@ class SessionReport(object):
         return cls(id,
                    txid,
                    sessions)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'sessions={(self.sessions if hasattr(self, "sessions") else None)!r}, '
+                f'id={self.id!r}, '
+                f'txid={self.txid!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'sessions={(self.sessions if hasattr(self, "sessions") else None)!s}, '
+                f'id={self.id!s}, '
+                f'txid={self.txid!s})')

@@ -27,7 +27,7 @@ class CreateSubscriptionRequest(object):
             delivered.
         filter (str): String containing a $filter object with a property and
             value to filter out non-matching events.
-        billingaccountid (str): TODO: type description here.
+        billingaccountid (str): The model property of type str.
         streamkind (str): The type of event data to send via this
             subscription. This will be `ts.event` in most cases. Other event
             types are `ts.event.diagnostics` for device diagnostic data,
@@ -122,7 +122,7 @@ class CreateSubscriptionRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -147,3 +147,29 @@ class CreateSubscriptionRequest(object):
                    targetid,
                    name,
                    allowaggregation)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'accountidentifier={(self.accountidentifier if hasattr(self, "accountidentifier") else None)!r}, '
+                f'description={(self.description if hasattr(self, "description") else None)!r}, '
+                f'disabled={(self.disabled if hasattr(self, "disabled") else None)!r}, '
+                f'email={(self.email if hasattr(self, "email") else None)!r}, '
+                f'filter={(self.filter if hasattr(self, "filter") else None)!r}, '
+                f'billingaccountid={(self.billingaccountid if hasattr(self, "billingaccountid") else None)!r}, '
+                f'streamkind={(self.streamkind if hasattr(self, "streamkind") else None)!r}, '
+                f'targetid={(self.targetid if hasattr(self, "targetid") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'allowaggregation={(self.allowaggregation if hasattr(self, "allowaggregation") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'accountidentifier={(self.accountidentifier if hasattr(self, "accountidentifier") else None)!s}, '
+                f'description={(self.description if hasattr(self, "description") else None)!s}, '
+                f'disabled={(self.disabled if hasattr(self, "disabled") else None)!s}, '
+                f'email={(self.email if hasattr(self, "email") else None)!s}, '
+                f'filter={(self.filter if hasattr(self, "filter") else None)!s}, '
+                f'billingaccountid={(self.billingaccountid if hasattr(self, "billingaccountid") else None)!s}, '
+                f'streamkind={(self.streamkind if hasattr(self, "streamkind") else None)!s}, '
+                f'targetid={(self.targetid if hasattr(self, "targetid") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'allowaggregation={(self.allowaggregation if hasattr(self, "allowaggregation") else None)!s})')

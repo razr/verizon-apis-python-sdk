@@ -21,7 +21,7 @@ Changes the provisioning state of one or more devices to a specified customer-de
 | `public_ip_restriction` | `str` | Optional | For devices with static IP addresses on the public network, this specifies whether the devices have general access to the Internet. Valid values are “restricted” or “unrestricted”. |
 | `sku_number` | `str` | Optional | The Stock Keeping Unit (SKU) number of a 4G device type with an embedded SIM. Can be used with ICCID or EID device identifiers in lieu of an IMEI when activating 4G devices. The SkuNumber will be used with all devices in the request, so all devices must be of the same type. |
 | `custom_fields` | [`List[CustomFields]`](../../doc/models/custom-fields.md) | Optional | The names and values of any custom fields that you want to set for the devices. |
-| `devices_with_service_address` | `List[object]` | Optional | This is an array that associates an IP address with a device identifier. This variable is only relevant for Business Internet/Fixed Wireless Access |
+| `devices_with_service_address` | `List[Any]` | Optional | This is an array that associates an IP address with a device identifier. This variable is only relevant for Business Internet/Fixed Wireless Access |
 | `ipaddress` | `str` | Optional | The IP address of the device. |
 | `group_name` | `str` | Optional | The name of a device group that the devices should be added to. |
 | `primary_place_of_use` | [`PlaceOfUse`](../../doc/models/place-of-use.md) | Optional | The customer name and the address of the device's primary place of use. Leave these fields empty to use the account profile address as the primary place of use. These values will be applied to all devices in the request.If the account is enabled for non-geographic MDNs and the device supports it, the primaryPlaceOfUse address will also be used to derive the MDN for the device. |
@@ -78,25 +78,7 @@ Changes the provisioning state of one or more devices to a specified customer-de
       "country": "USA"
     }
   },
-  "filter": {
-    "account": "account4",
-    "groupName": "groupName6",
-    "servicePlan": "servicePlan6",
-    "customFields": [
-      {
-        "key": "key0",
-        "value": "value2"
-      },
-      {
-        "key": "key0",
-        "value": "value2"
-      },
-      {
-        "key": "key0",
-        "value": "value2"
-      }
-    ]
-  },
+  "filter": null,
   "carrierIpPoolName": "carrierIpPoolName8",
   "skuNumber": "skuNumber6"
 }

@@ -13,10 +13,8 @@ class ReadySimServicePlan(object):
 
     """Implementation of the 'ReadySimServicePlan' model.
 
-    TODO: type model description here.
-
     Attributes:
-        service_plan (str): TODO: type description here.
+        service_plan (str): The model property of type str.
 
     """
 
@@ -52,10 +50,18 @@ class ReadySimServicePlan(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         service_plan = dictionary.get("servicePlan") if dictionary.get("servicePlan") else APIHelper.SKIP
         # Return an object of this model
         return cls(service_plan)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s})')

@@ -67,7 +67,7 @@ class SMSMessage(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -82,3 +82,15 @@ class SMSMessage(object):
         return cls(device_ids,
                    message,
                    timestamp)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!r}, '
+                f'message={(self.message if hasattr(self, "message") else None)!r}, '
+                f'timestamp={(self.timestamp if hasattr(self, "timestamp") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!s}, '
+                f'message={(self.message if hasattr(self, "message") else None)!s}, '
+                f'timestamp={(self.timestamp if hasattr(self, "timestamp") else None)!s})')

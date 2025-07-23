@@ -14,8 +14,6 @@ class RetrieveMonitorsRequest(object):
 
     """Implementation of the 'RetrieveMonitorsRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): The name of a billing account.
         devices (List[AccountDeviceList]): The devices for which you want to
@@ -62,7 +60,7 @@ class RetrieveMonitorsRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -75,3 +73,15 @@ class RetrieveMonitorsRequest(object):
         return cls(account_name,
                    devices,
                    monitor_type)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'devices={self.devices!r}, '
+                f'monitor_type={(self.monitor_type if hasattr(self, "monitor_type") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'devices={self.devices!s}, '
+                f'monitor_type={(self.monitor_type if hasattr(self, "monitor_type") else None)!s})')

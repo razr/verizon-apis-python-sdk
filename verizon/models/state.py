@@ -66,7 +66,7 @@ class State(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -77,3 +77,15 @@ class State(object):
         return cls(name,
                    workflow_sequence_number,
                    service_plans)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'workflow_sequence_number={(self.workflow_sequence_number if hasattr(self, "workflow_sequence_number") else None)!r}, '
+                f'service_plans={(self.service_plans if hasattr(self, "service_plans") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'workflow_sequence_number={(self.workflow_sequence_number if hasattr(self, "workflow_sequence_number") else None)!s}, '
+                f'service_plans={(self.service_plans if hasattr(self, "service_plans") else None)!s})')

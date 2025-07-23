@@ -16,8 +16,6 @@ class AccountDetails(object):
 
     """Implementation of the 'accountDetails' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): The numeric name of the account, in the format
             "0000123456-00001". Leading zeros must be included.
@@ -26,9 +24,10 @@ class AccountDetails(object):
         organization_name (str): user defined name of organization
         is_provisioning_allowed (bool): Flag set to indicate if account
             details can be edited or not. Default is "true".
-        carriers (List[Carrier]): TODO: type description here.
-        features (List[Feature]): TODO: type description here.
-        service_plans (List[CarrierServicePlan]): TODO: type description here.
+        carriers (List[Carrier]): The model property of type List[Carrier].
+        features (List[Feature]): The model property of type List[Feature].
+        service_plans (List[CarrierServicePlan]): The model property of type
+            List[CarrierServicePlan].
 
     """
 
@@ -94,7 +93,7 @@ class AccountDetails(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -125,3 +124,23 @@ class AccountDetails(object):
                    carriers,
                    features,
                    service_plans)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!r}, '
+                f'organization_name={(self.organization_name if hasattr(self, "organization_name") else None)!r}, '
+                f'is_provisioning_allowed={(self.is_provisioning_allowed if hasattr(self, "is_provisioning_allowed") else None)!r}, '
+                f'carriers={(self.carriers if hasattr(self, "carriers") else None)!r}, '
+                f'features={(self.features if hasattr(self, "features") else None)!r}, '
+                f'service_plans={(self.service_plans if hasattr(self, "service_plans") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'account_number={(self.account_number if hasattr(self, "account_number") else None)!s}, '
+                f'organization_name={(self.organization_name if hasattr(self, "organization_name") else None)!s}, '
+                f'is_provisioning_allowed={(self.is_provisioning_allowed if hasattr(self, "is_provisioning_allowed") else None)!s}, '
+                f'carriers={(self.carriers if hasattr(self, "carriers") else None)!s}, '
+                f'features={(self.features if hasattr(self, "features") else None)!s}, '
+                f'service_plans={(self.service_plans if hasattr(self, "service_plans") else None)!s})')

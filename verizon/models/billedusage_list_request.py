@@ -20,10 +20,11 @@ class BilledusageListRequest(object):
     to retrieve billing.
 
     Attributes:
-        account_name (str): TODO: type description here.
-        labels (LabelsList): TODO: type description here.
-        device_ids (List[DeviceList]): TODO: type description here.
-        billing_cycle (BillingCycle): TODO: type description here.
+        account_name (str): The model property of type str.
+        labels (LabelsList): The model property of type LabelsList.
+        device_ids (List[DeviceList]): The model property of type
+            List[DeviceList].
+        billing_cycle (BillingCycle): The model property of type BillingCycle.
 
     """
 
@@ -72,7 +73,7 @@ class BilledusageListRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -89,3 +90,17 @@ class BilledusageListRequest(object):
                    labels,
                    device_ids,
                    billing_cycle)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'labels={(self.labels if hasattr(self, "labels") else None)!r}, '
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!r}, '
+                f'billing_cycle={(self.billing_cycle if hasattr(self, "billing_cycle") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'labels={(self.labels if hasattr(self, "labels") else None)!s}, '
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!s}, '
+                f'billing_cycle={(self.billing_cycle if hasattr(self, "billing_cycle") else None)!s})')

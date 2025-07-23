@@ -15,7 +15,7 @@ class UserEquipmentIdentityTypeEnum(object):
     Type of User Equipment identifier used in `UEIdentity`.
 
     Attributes:
-        IPADDRESS: TODO: type description here.
+        IPADDRESS: The enum member of type str.
 
     """
     IPADDRESS = 'IPAddress'

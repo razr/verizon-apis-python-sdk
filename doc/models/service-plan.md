@@ -15,7 +15,7 @@ Details of the service plan.
 | `code` | `str` | Optional | The code of the service plan, which may not be the same as the name. |
 | `extended_attributes` | [`List[CustomFields]`](../../doc/models/custom-fields.md) | Optional | Any extended attributes for the service plan, as Key and Value pairs. |
 | `name` | `str` | Optional | The name of the service plan. |
-| `size_kb` | `long\|int` | Optional | The size of the service plan in kilobytes. |
+| `size_kb` | `int` | Optional | The size of the service plan in kilobytes. |
 
 ## Example (as JSON)
 

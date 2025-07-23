@@ -13,10 +13,8 @@ class Filtercriteria2(object):
 
     """Implementation of the 'filtercriteria2' model.
 
-    TODO: type model description here.
-
     Attributes:
-        filter_criteria (List[object]): TODO: type description here.
+        filter_criteria (List[Any]): The model property of type List[Any].
 
     """
 
@@ -52,10 +50,18 @@ class Filtercriteria2(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         filter_criteria = dictionary.get("filterCriteria") if dictionary.get("filterCriteria") else APIHelper.SKIP
         # Return an object of this model
         return cls(filter_criteria)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'filter_criteria={(self.filter_criteria if hasattr(self, "filter_criteria") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'filter_criteria={(self.filter_criteria if hasattr(self, "filter_criteria") else None)!s})')

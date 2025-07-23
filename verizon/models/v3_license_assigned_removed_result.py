@@ -59,7 +59,7 @@ class V3LicenseAssignedRemovedResult(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -74,3 +74,17 @@ class V3LicenseAssignedRemovedResult(object):
                    lic_count,
                    lic_used_count,
                    device_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'lic_count={self.lic_count!r}, '
+                f'lic_used_count={self.lic_used_count!r}, '
+                f'device_list={self.device_list!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'lic_count={self.lic_count!s}, '
+                f'lic_used_count={self.lic_used_count!s}, '
+                f'device_list={self.device_list!s})')

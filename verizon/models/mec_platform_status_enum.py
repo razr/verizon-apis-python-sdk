@@ -15,9 +15,9 @@ class MECPlatformStatusEnum(object):
     Status of the MEC Platform (default is 'unknown')
 
     Attributes:
-        ACTIVE: TODO: type description here.
-        INACTIVE: TODO: type description here.
-        UNKNOWN: TODO: type description here.
+        ACTIVE: The enum member of type str.
+        INACTIVE: The enum member of type str.
+        UNKNOWN: The enum member of type str.
 
     """
     ACTIVE = 'Active'

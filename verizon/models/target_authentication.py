@@ -17,8 +17,9 @@ class TargetAuthentication(object):
     OAuth 2 token and refresh token for TS to stream events to Target.
 
     Attributes:
-        body (TargetAuthenticationBody): TODO: type description here.
-        version (str): TODO: type description here.
+        body (TargetAuthenticationBody): The model property of type
+            TargetAuthenticationBody.
+        version (str): The model property of type str.
 
     """
 
@@ -59,7 +60,7 @@ class TargetAuthentication(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -68,3 +69,13 @@ class TargetAuthentication(object):
         # Return an object of this model
         return cls(body,
                    version)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'body={(self.body if hasattr(self, "body") else None)!r}, '
+                f'version={(self.version if hasattr(self, "version") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'body={(self.body if hasattr(self, "body") else None)!s}, '
+                f'version={(self.version if hasattr(self, "version") else None)!s})')

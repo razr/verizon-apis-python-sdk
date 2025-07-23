@@ -37,7 +37,7 @@ class DeviceActionsController(BaseController):
         Retrieve the aggregate usage for a device or a number of devices.
 
         Args:
-            body (AggregateUsage): TODO: type description here.
+            body (AggregateUsage): The request body parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -81,7 +81,7 @@ class DeviceActionsController(BaseController):
         segmented by day
 
         Args:
-            body (DailyUsage): TODO: type description here.
+            body (DailyUsage): The request body parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -126,7 +126,7 @@ class DeviceActionsController(BaseController):
         with the account specified.
 
         Args:
-            account_name (str): TODO: type description here.
+            account_name (str): The request template parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -171,7 +171,7 @@ class DeviceActionsController(BaseController):
         with the account specified.
 
         Args:
-            account_name (str): TODO: type description here.
+            account_name (str): The request template parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -303,8 +303,8 @@ class DeviceActionsController(BaseController):
         Get the status of an asynchronous request made with the Device Actions.
 
         Args:
-            account_name (str): TODO: type description here.
-            request_id (str): TODO: type description here.
+            account_name (str): The request template parameter.
+            request_id (str): The request template parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other

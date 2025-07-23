@@ -28,7 +28,7 @@ def get_device_check_in_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[CheckInHistoryItem]`](../../doc/models/check-in-history-item.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[CheckInHistoryItem]`](../../doc/models/check-in-history-item.md).
 
 ## Example Usage
 
@@ -41,6 +41,11 @@ result = server_logging_controller.get_device_check_in_history(
     account,
     device_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

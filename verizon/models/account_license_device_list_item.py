@@ -60,7 +60,7 @@ class AccountLicenseDeviceListItem(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -69,3 +69,13 @@ class AccountLicenseDeviceListItem(object):
         # Return an object of this model
         return cls(device_id,
                    assignment_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!r}, '
+                f'assignment_time={(self.assignment_time if hasattr(self, "assignment_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={(self.device_id if hasattr(self, "device_id") else None)!s}, '
+                f'assignment_time={(self.assignment_time if hasattr(self, "assignment_time") else None)!s})')

@@ -71,7 +71,7 @@ class GPU(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -84,3 +84,17 @@ class GPU(object):
                    min_memory_clock_m_hz,
                    min_bandwidth_g_bs,
                    min_tflops)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'min_core_clock_m_hz={(self.min_core_clock_m_hz if hasattr(self, "min_core_clock_m_hz") else None)!r}, '
+                f'min_memory_clock_m_hz={(self.min_memory_clock_m_hz if hasattr(self, "min_memory_clock_m_hz") else None)!r}, '
+                f'min_bandwidth_g_bs={(self.min_bandwidth_g_bs if hasattr(self, "min_bandwidth_g_bs") else None)!r}, '
+                f'min_tflops={(self.min_tflops if hasattr(self, "min_tflops") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'min_core_clock_m_hz={(self.min_core_clock_m_hz if hasattr(self, "min_core_clock_m_hz") else None)!s}, '
+                f'min_memory_clock_m_hz={(self.min_memory_clock_m_hz if hasattr(self, "min_memory_clock_m_hz") else None)!s}, '
+                f'min_bandwidth_g_bs={(self.min_bandwidth_g_bs if hasattr(self, "min_bandwidth_g_bs") else None)!s}, '
+                f'min_tflops={(self.min_tflops if hasattr(self, "min_tflops") else None)!s})')

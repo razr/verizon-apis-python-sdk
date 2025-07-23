@@ -76,7 +76,7 @@ class SensitivityParameters(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -89,3 +89,17 @@ class SensitivityParameters(object):
                    enable_abnormal,
                    enable_very_abnormal,
                    very_abnormal_max_value)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'abnormal_max_value={(self.abnormal_max_value if hasattr(self, "abnormal_max_value") else None)!r}, '
+                f'enable_abnormal={(self.enable_abnormal if hasattr(self, "enable_abnormal") else None)!r}, '
+                f'enable_very_abnormal={(self.enable_very_abnormal if hasattr(self, "enable_very_abnormal") else None)!r}, '
+                f'very_abnormal_max_value={(self.very_abnormal_max_value if hasattr(self, "very_abnormal_max_value") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'abnormal_max_value={(self.abnormal_max_value if hasattr(self, "abnormal_max_value") else None)!s}, '
+                f'enable_abnormal={(self.enable_abnormal if hasattr(self, "enable_abnormal") else None)!s}, '
+                f'enable_very_abnormal={(self.enable_very_abnormal if hasattr(self, "enable_very_abnormal") else None)!s}, '
+                f'very_abnormal_max_value={(self.very_abnormal_max_value if hasattr(self, "very_abnormal_max_value") else None)!s})')

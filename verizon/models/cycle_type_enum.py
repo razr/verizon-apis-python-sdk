@@ -12,11 +12,9 @@ class CycleTypeEnum(object):
 
     """Implementation of the 'CycleType' enum.
 
-    TODO: type enum description here.
-
     Attributes:
-        CYCLEONE: TODO: type description here.
-        CYCLETWO: TODO: type description here.
+        CYCLEONE: The enum member of type str.
+        CYCLETWO: The enum member of type str.
 
     """
     CYCLEONE = 'cycleone'

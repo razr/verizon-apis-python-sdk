@@ -31,11 +31,11 @@ def get_account_device_information(self,
 |  --- | --- | --- | --- |
 | `acc` | `str` | Template, Required | Account identifier. |
 | `last_seen_device_id` | `str` | Query, Optional | Last seen device identifier. |
-| `protocol` | [`DevicesProtocolEnum`](../../doc/models/devices-protocol-enum.md) | Query, Optional | Filter to retrieve a specific protocol type used.<br>**Default**: `'LWM2M'` |
+| `protocol` | [`DevicesProtocolEnum`](../../doc/models/devices-protocol-enum.md) | Query, Optional | Filter to retrieve a specific protocol type used.<br><br>**Default**: `'LWM2M'` |
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V3AccountDeviceList`](../../doc/models/v3-account-device-list.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`V3AccountDeviceList`](../../doc/models/v3-account-device-list.md).
 
 ## Example Usage
 
@@ -51,6 +51,11 @@ result = account_devices_controller.get_account_device_information(
     last_seen_device_id=last_seen_device_id,
     protocol=protocol
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -79,7 +84,7 @@ def list_account_devices_information(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceListResult`](../../doc/models/device-list-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceListResult`](../../doc/models/device-list-result.md).
 
 ## Example Usage
 
@@ -96,6 +101,11 @@ result = account_devices_controller.list_account_devices_information(
     acc,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

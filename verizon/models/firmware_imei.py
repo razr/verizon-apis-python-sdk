@@ -47,10 +47,18 @@ class FirmwareIMEI(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         device_list = dictionary.get("deviceList") if dictionary.get("deviceList") else None
         # Return an object of this model
         return cls(device_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_list={self.device_list!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_list={self.device_list!s})')

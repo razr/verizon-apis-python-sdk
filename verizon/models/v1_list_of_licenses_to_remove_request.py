@@ -60,7 +60,7 @@ class V1ListOfLicensesToRemoveRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -69,3 +69,13 @@ class V1ListOfLicensesToRemoveRequest(object):
         # Return an object of this model
         return cls(device_list,
                    mtype)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!r}, '
+                f'device_list={self.device_list!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!s}, '
+                f'device_list={self.device_list!s})')

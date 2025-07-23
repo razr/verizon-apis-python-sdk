@@ -12,8 +12,6 @@ class UsageTriggerResponse(object):
 
     """Implementation of the 'UsageTriggerResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         trigger_id (str): Unique usage triggerId
         trigger_name (str): Usage trigger name
@@ -96,7 +94,7 @@ class UsageTriggerResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -125,3 +123,33 @@ class UsageTriggerResponse(object):
                    email_addresses,
                    create_date,
                    update_date)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'trigger_id={self.trigger_id!r}, '
+                f'trigger_name={self.trigger_name!r}, '
+                f'account_name={self.account_name!r}, '
+                f'service_name={self.service_name!r}, '
+                f'threshold_value={self.threshold_value!r}, '
+                f'allow_excess={self.allow_excess!r}, '
+                f'send_sms_notification={self.send_sms_notification!r}, '
+                f'sms_phone_numbers={self.sms_phone_numbers!r}, '
+                f'send_email_notification={self.send_email_notification!r}, '
+                f'email_addresses={self.email_addresses!r}, '
+                f'create_date={self.create_date!r}, '
+                f'update_date={self.update_date!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'trigger_id={self.trigger_id!s}, '
+                f'trigger_name={self.trigger_name!s}, '
+                f'account_name={self.account_name!s}, '
+                f'service_name={self.service_name!s}, '
+                f'threshold_value={self.threshold_value!s}, '
+                f'allow_excess={self.allow_excess!s}, '
+                f'send_sms_notification={self.send_sms_notification!s}, '
+                f'sms_phone_numbers={self.sms_phone_numbers!s}, '
+                f'send_email_notification={self.send_email_notification!s}, '
+                f'email_addresses={self.email_addresses!s}, '
+                f'create_date={self.create_date!s}, '
+                f'update_date={self.update_date!s})')

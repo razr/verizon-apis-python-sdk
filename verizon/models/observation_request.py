@@ -76,7 +76,7 @@ class ObservationRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -95,3 +95,19 @@ class ObservationRequest(object):
                    attributes,
                    frequency,
                    duration)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'devices={self.devices!r}, '
+                f'attributes={self.attributes!r}, '
+                f'frequency={(self.frequency if hasattr(self, "frequency") else None)!r}, '
+                f'duration={(self.duration if hasattr(self, "duration") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'devices={self.devices!s}, '
+                f'attributes={self.attributes!s}, '
+                f'frequency={(self.frequency if hasattr(self, "frequency") else None)!s}, '
+                f'duration={(self.duration if hasattr(self, "duration") else None)!s})')

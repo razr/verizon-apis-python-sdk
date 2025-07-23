@@ -81,7 +81,7 @@ class V2LicenseSummary(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -104,3 +104,23 @@ class V2LicenseSummary(object):
                    total_license,
                    last_seen_device_id,
                    device_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'total_license={(self.total_license if hasattr(self, "total_license") else None)!r}, '
+                f'assigned_licenses={self.assigned_licenses!r}, '
+                f'has_more_data={self.has_more_data!r}, '
+                f'last_seen_device_id={(self.last_seen_device_id if hasattr(self, "last_seen_device_id") else None)!r}, '
+                f'max_page_size={self.max_page_size!r}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'total_license={(self.total_license if hasattr(self, "total_license") else None)!s}, '
+                f'assigned_licenses={self.assigned_licenses!s}, '
+                f'has_more_data={self.has_more_data!s}, '
+                f'last_seen_device_id={(self.last_seen_device_id if hasattr(self, "last_seen_device_id") else None)!s}, '
+                f'max_page_size={self.max_page_size!s}, '
+                f'device_list={(self.device_list if hasattr(self, "device_list") else None)!s})')

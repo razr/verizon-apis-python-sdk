@@ -19,7 +19,7 @@ class V3Device(object):
     Attributes:
         device_id (str): Device IMEI.
         request_status (str): Success or failure.
-        result_reason (str): TODO: type description here.
+        result_reason (str): The model property of type str.
         mdn (str): MDN.
         model (str): Device model.
         make (str): Device make.
@@ -157,7 +157,7 @@ class V3Device(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -206,3 +206,45 @@ class V3Device(object):
                    update_time,
                    refresh_time,
                    last_connection_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!r}, '
+                f'request_status={(self.request_status if hasattr(self, "request_status") else None)!r}, '
+                f'result_reason={(self.result_reason if hasattr(self, "result_reason") else None)!r}, '
+                f'mdn={(self.mdn if hasattr(self, "mdn") else None)!r}, '
+                f'model={(self.model if hasattr(self, "model") else None)!r}, '
+                f'make={(self.make if hasattr(self, "make") else None)!r}, '
+                f'firmware={(self.firmware if hasattr(self, "firmware") else None)!r}, '
+                f'fota_eligible={(self.fota_eligible if hasattr(self, "fota_eligible") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'license_assigned={(self.license_assigned if hasattr(self, "license_assigned") else None)!r}, '
+                f'protocol={(self.protocol if hasattr(self, "protocol") else None)!r}, '
+                f'software_list={(self.software_list if hasattr(self, "software_list") else None)!r}, '
+                f'file_list={(self.file_list if hasattr(self, "file_list") else None)!r}, '
+                f'create_time={(self.create_time if hasattr(self, "create_time") else None)!r}, '
+                f'status_time={(self.status_time if hasattr(self, "status_time") else None)!r}, '
+                f'update_time={(self.update_time if hasattr(self, "update_time") else None)!r}, '
+                f'refresh_time={(self.refresh_time if hasattr(self, "refresh_time") else None)!r}, '
+                f'last_connection_time={(self.last_connection_time if hasattr(self, "last_connection_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!s}, '
+                f'request_status={(self.request_status if hasattr(self, "request_status") else None)!s}, '
+                f'result_reason={(self.result_reason if hasattr(self, "result_reason") else None)!s}, '
+                f'mdn={(self.mdn if hasattr(self, "mdn") else None)!s}, '
+                f'model={(self.model if hasattr(self, "model") else None)!s}, '
+                f'make={(self.make if hasattr(self, "make") else None)!s}, '
+                f'firmware={(self.firmware if hasattr(self, "firmware") else None)!s}, '
+                f'fota_eligible={(self.fota_eligible if hasattr(self, "fota_eligible") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'license_assigned={(self.license_assigned if hasattr(self, "license_assigned") else None)!s}, '
+                f'protocol={(self.protocol if hasattr(self, "protocol") else None)!s}, '
+                f'software_list={(self.software_list if hasattr(self, "software_list") else None)!s}, '
+                f'file_list={(self.file_list if hasattr(self, "file_list") else None)!s}, '
+                f'create_time={(self.create_time if hasattr(self, "create_time") else None)!s}, '
+                f'status_time={(self.status_time if hasattr(self, "status_time") else None)!s}, '
+                f'update_time={(self.update_time if hasattr(self, "update_time") else None)!s}, '
+                f'refresh_time={(self.refresh_time if hasattr(self, "refresh_time") else None)!s}, '
+                f'last_connection_time={(self.last_connection_time if hasattr(self, "last_connection_time") else None)!s})')

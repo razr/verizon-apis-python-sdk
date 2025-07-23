@@ -14,6 +14,8 @@ from verizon.controllers.base_controller import BaseController
 from verizon.configuration import Environment
 from verizon.http.auth.thingspace_oauth import ThingspaceOauth
 from verizon.http.auth.vz_m2m_token import VZM2mToken
+from verizon.http.auth.session_token import SessionToken
+from verizon.http.auth.thingspace_oauth_1 import ThingspaceOauth1
 from verizon.controllers.m_5g_edge_platforms_controller\
     import M5gEdgePlatformsController
 from verizon.controllers.service_endpoints_controller\
@@ -34,10 +36,10 @@ from verizon.controllers.account_requests_controller\
 from verizon.controllers.service_plans_controller import ServicePlansController
 from verizon.controllers.device_diagnostics_controller\
     import DeviceDiagnosticsController
-from verizon.controllers.device_profile_management_controller\
-    import DeviceProfileManagementController
 from verizon.controllers.device_monitoring_controller\
     import DeviceMonitoringController
+from verizon.controllers.device_profile_management_controller\
+    import DeviceProfileManagementController
 from verizon.controllers.euicc_device_profile_management_controller\
     import EUICCDeviceProfileManagementController
 from verizon.controllers.devices_locations_controller\
@@ -123,8 +125,6 @@ from verizon.controllers.anomaly_triggers_v2_controller\
     import AnomalyTriggersV2Controller
 from verizon.controllers.wireless_network_performance_controller\
     import WirelessNetworkPerformanceController
-from verizon.controllers.fixed_wireless_qualification_controller\
-    import FixedWirelessQualificationController
 from verizon.controllers.managing_esim_profiles_controller\
     import ManagingESIMProfilesController
 from verizon.controllers.device_sms_messaging_controller\
@@ -143,9 +143,40 @@ from verizon.controllers.update_triggers_controller\
 from verizon.controllers.sim_actions_controller import SIMActionsController
 from verizon.controllers.global_reporting_controller\
     import GlobalReportingController
-from verizon.controllers.m_v2_triggers_controller import MV2TriggersController
+from verizon.controllers.device_role_controller import DeviceRoleController
+from verizon.controllers.app_config_service_controller\
+    import AppConfigServiceController
+from verizon.controllers.registration_controller import RegistrationController
+from verizon.controllers.map_data_manager_controller\
+    import MapDataManagerController
+from verizon.controllers.retrieve_rate_plan_list_controller\
+    import RetrieveRatePlanListController
+from verizon.controllers.create_price_plan_triggers_controller\
+    import CreatePricePlanTriggersController
+from verizon.controllers.update_price_plan_triggers_controller\
+    import UpdatePricePlanTriggersController
 from verizon.controllers.m_5g_bi_device_actions_controller\
     import M5gBIDeviceActionsController
+from verizon.controllers.sensor_insights_sensors_controller\
+    import SensorInsightsSensorsController
+from verizon.controllers.sensor_insights_devices_controller\
+    import SensorInsightsDevicesController
+from verizon.controllers.sensor_insights_gateways_controller\
+    import SensorInsightsGatewaysController
+from verizon.controllers.sensor_insights_smart_alerts_controller\
+    import SensorInsightsSmartAlertsController
+from verizon.controllers.sensor_insights_rules_controller\
+    import SensorInsightsRulesController
+from verizon.controllers.sensor_insights_health_score_controller\
+    import SensorInsightsHealthScoreController
+from verizon.controllers.sensor_insights_notification_groups_controller\
+    import SensorInsightsNotificationGroupsController
+from verizon.controllers.sensor_insights_users_controller\
+    import SensorInsightsUsersController
+from verizon.controllers.sensor_insights_device_profile_controller\
+    import SensorInsightsDeviceProfileController
+from verizon.controllers.sensor_insights_smart_alert_metrics_controller\
+    import SensorInsightsSmartAlertMetricsController
 from verizon.controllers.oauth_authorization_controller\
     import OauthAuthorizationController
 
@@ -200,12 +231,12 @@ class VerizonClient(object):
         return DeviceDiagnosticsController(self.global_configuration)
 
     @LazyProperty
-    def device_profile_management(self):
-        return DeviceProfileManagementController(self.global_configuration)
-
-    @LazyProperty
     def device_monitoring(self):
         return DeviceMonitoringController(self.global_configuration)
+
+    @LazyProperty
+    def device_profile_management(self):
+        return DeviceProfileManagementController(self.global_configuration)
 
     @LazyProperty
     def e_uicc_device_profile_management(self):
@@ -392,10 +423,6 @@ class VerizonClient(object):
         return WirelessNetworkPerformanceController(self.global_configuration)
 
     @LazyProperty
-    def fixed_wireless_qualification(self):
-        return FixedWirelessQualificationController(self.global_configuration)
-
-    @LazyProperty
     def managing_e_sim_profiles(self):
         return ManagingESIMProfilesController(self.global_configuration)
 
@@ -436,12 +463,76 @@ class VerizonClient(object):
         return GlobalReportingController(self.global_configuration)
 
     @LazyProperty
-    def m_v2_triggers(self):
-        return MV2TriggersController(self.global_configuration)
+    def device_role_controller(self):
+        return DeviceRoleController(self.global_configuration)
+
+    @LazyProperty
+    def app_config_service(self):
+        return AppConfigServiceController(self.global_configuration)
+
+    @LazyProperty
+    def registration(self):
+        return RegistrationController(self.global_configuration)
+
+    @LazyProperty
+    def map_data_manager(self):
+        return MapDataManagerController(self.global_configuration)
+
+    @LazyProperty
+    def retrieve_rate_plan_list(self):
+        return RetrieveRatePlanListController(self.global_configuration)
+
+    @LazyProperty
+    def create_price_plan_triggers(self):
+        return CreatePricePlanTriggersController(self.global_configuration)
+
+    @LazyProperty
+    def update_price_plan_triggers(self):
+        return UpdatePricePlanTriggersController(self.global_configuration)
 
     @LazyProperty
     def m_5g_bi_device_actions(self):
         return M5gBIDeviceActionsController(self.global_configuration)
+
+    @LazyProperty
+    def sensor_insights_sensors(self):
+        return SensorInsightsSensorsController(self.global_configuration)
+
+    @LazyProperty
+    def sensor_insights_devices(self):
+        return SensorInsightsDevicesController(self.global_configuration)
+
+    @LazyProperty
+    def sensor_insights_gateways(self):
+        return SensorInsightsGatewaysController(self.global_configuration)
+
+    @LazyProperty
+    def sensor_insights_smart_alerts(self):
+        return SensorInsightsSmartAlertsController(self.global_configuration)
+
+    @LazyProperty
+    def sensor_insights_rules(self):
+        return SensorInsightsRulesController(self.global_configuration)
+
+    @LazyProperty
+    def sensor_insights_health_score(self):
+        return SensorInsightsHealthScoreController(self.global_configuration)
+
+    @LazyProperty
+    def sensor_insights_notification_groups(self):
+        return SensorInsightsNotificationGroupsController(self.global_configuration)
+
+    @LazyProperty
+    def sensor_insights_users(self):
+        return SensorInsightsUsersController(self.global_configuration)
+
+    @LazyProperty
+    def sensor_insights_device_profile(self):
+        return SensorInsightsDeviceProfileController(self.global_configuration)
+
+    @LazyProperty
+    def sensor_insights_smart_alert_metrics(self):
+        return SensorInsightsSmartAlertMetricsController(self.global_configuration)
 
     @LazyProperty
     def oauth_authorization(self):
@@ -451,13 +542,18 @@ class VerizonClient(object):
     def thingspace_oauth(self):
         return self.auth_managers['thingspace_oauth']
 
+    @property
+    def thingspace_oauth_1(self):
+        return self.auth_managers['thingspace_oauth1']
+
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
                  timeout=60, max_retries=0, backoff_factor=2,
                  retry_statuses=None, retry_methods=None,
                  environment=Environment.PRODUCTION,
                  thingspace_oauth_credentials=None,
-                 vz_m2m_token_credentials=None, config=None):
+                 vz_m2m_token_credentials=None, session_token_credentials=None,
+                 thingspace_oauth_1_credentials=None, config=None):
         self.config = config or Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
@@ -466,7 +562,9 @@ class VerizonClient(object):
             retry_statuses=retry_statuses, retry_methods=retry_methods,
             environment=environment,
             thingspace_oauth_credentials=thingspace_oauth_credentials,
-            vz_m2m_token_credentials=vz_m2m_token_credentials)
+            vz_m2m_token_credentials=vz_m2m_token_credentials,
+            session_token_credentials=session_token_credentials,
+            thingspace_oauth_1_credentials=thingspace_oauth_1_credentials)
 
         self.global_configuration = GlobalConfiguration(self.config)\
             .global_errors(BaseController.global_errors())\
@@ -474,10 +572,17 @@ class VerizonClient(object):
             .user_agent(BaseController.user_agent(), BaseController.user_agent_parameters())
 
         self.auth_managers = {key: None for key in ['thingspace_oauth',
-                                                    'VZ-M2M-Token']}
+                                                    'VZ-M2M-Token',
+                                                    'SessionToken',
+                                                    'thingspace_oauth1']}
         self.auth_managers['thingspace_oauth'] = ThingspaceOauth(
             self.config.thingspace_oauth_credentials, self.global_configuration)
         self.auth_managers['VZ-M2M-Token'] = VZM2mToken(
             self.config.vz_m2m_token_credentials)
+        self.auth_managers['SessionToken'] = SessionToken(
+            self.config.session_token_credentials)
+        self.auth_managers['thingspace_oauth1'] = ThingspaceOauth1(
+            self.config.thingspace_oauth_1_credentials,
+            self.global_configuration)
         self.global_configuration = self.global_configuration.auth_managers(self.auth_managers)
 

@@ -64,7 +64,7 @@ class DailyUsageItem(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -75,3 +75,15 @@ class DailyUsageItem(object):
         return cls(start_time,
                    end_time,
                    num_bytes)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'start_time={(self.start_time if hasattr(self, "start_time") else None)!r}, '
+                f'end_time={(self.end_time if hasattr(self, "end_time") else None)!r}, '
+                f'num_bytes={(self.num_bytes if hasattr(self, "num_bytes") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'start_time={(self.start_time if hasattr(self, "start_time") else None)!s}, '
+                f'end_time={(self.end_time if hasattr(self, "end_time") else None)!s}, '
+                f'num_bytes={(self.num_bytes if hasattr(self, "num_bytes") else None)!s})')

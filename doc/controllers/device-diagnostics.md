@@ -31,7 +31,7 @@ def device_reachability_status_using_post(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -46,6 +46,11 @@ body = NotificationReportStatusRequest(
 )
 
 result = device_diagnostics_controller.device_reachability_status_using_post(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -80,7 +85,7 @@ def retrieve_active_monitors_using_post(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DeviceManagementResult`](../../doc/models/device-management-result.md).
 
 ## Example Usage
 
@@ -100,6 +105,11 @@ body = RetrieveMonitorsRequest(
 )
 
 result = device_diagnostics_controller.retrieve_active_monitors_using_post(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

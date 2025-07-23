@@ -49,7 +49,7 @@ class AccountStatesAndServices(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -58,3 +58,11 @@ class AccountStatesAndServices(object):
             engagement = [Engagement.from_dictionary(x) for x in dictionary.get('engagement')]
         # Return an object of this model
         return cls(engagement)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'engagement={self.engagement!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'engagement={self.engagement!s})')

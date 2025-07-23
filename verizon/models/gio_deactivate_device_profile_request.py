@@ -14,14 +14,13 @@ class GIODeactivateDeviceProfileRequest(object):
 
     """Implementation of the 'GIODeactivateDeviceProfileRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        devices (List[GIODeviceList]): TODO: type description here.
-        account_name (str): TODO: type description here.
-        service_plan (str): TODO: type description here.
-        etf_waiver (bool): TODO: type description here.
-        reason_code (str): TODO: type description here.
+        devices (List[GIODeviceList]): The model property of type
+            List[GIODeviceList].
+        account_name (str): The model property of type str.
+        service_plan (str): The model property of type str.
+        etf_waiver (bool): The model property of type bool.
+        reason_code (str): The model property of type str.
 
     """
 
@@ -76,7 +75,7 @@ class GIODeactivateDeviceProfileRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -95,3 +94,19 @@ class GIODeactivateDeviceProfileRequest(object):
                    service_plan,
                    etf_waiver,
                    reason_code)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={(self.devices if hasattr(self, "devices") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'etf_waiver={(self.etf_waiver if hasattr(self, "etf_waiver") else None)!r}, '
+                f'reason_code={(self.reason_code if hasattr(self, "reason_code") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={(self.devices if hasattr(self, "devices") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'etf_waiver={(self.etf_waiver if hasattr(self, "etf_waiver") else None)!s}, '
+                f'reason_code={(self.reason_code if hasattr(self, "reason_code") else None)!s})')

@@ -13,8 +13,6 @@ class Feature(object):
 
     """Implementation of the 'Feature' model.
 
-    TODO: type model description here.
-
     Attributes:
         features (str): The calling and data features available for the
             account. **Note:** for Global IoT Orchestrator, the features
@@ -55,10 +53,18 @@ class Feature(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         features = dictionary.get("features") if dictionary.get("features") else APIHelper.SKIP
         # Return an object of this model
         return cls(features)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'features={(self.features if hasattr(self, "features") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'features={(self.features if hasattr(self, "features") else None)!s})')

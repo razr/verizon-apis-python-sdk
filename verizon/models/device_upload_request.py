@@ -13,14 +13,13 @@ class DeviceUploadRequest(object):
 
     """Implementation of the 'DeviceUploadRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        devices (List[DeviceList]): TODO: type description here.
-        email_address (str): TODO: type description here.
-        device_sku (str): TODO: type description here.
-        upload_type (str): TODO: type description here.
+        account_name (str): The model property of type str.
+        devices (List[DeviceList]): The model property of type
+            List[DeviceList].
+        email_address (str): The model property of type str.
+        device_sku (str): The model property of type str.
+        upload_type (str): The model property of type str.
 
     """
 
@@ -63,7 +62,7 @@ class DeviceUploadRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -80,3 +79,19 @@ class DeviceUploadRequest(object):
                    email_address,
                    device_sku,
                    upload_type)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'devices={self.devices!r}, '
+                f'email_address={self.email_address!r}, '
+                f'device_sku={self.device_sku!r}, '
+                f'upload_type={self.upload_type!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'devices={self.devices!s}, '
+                f'email_address={self.email_address!s}, '
+                f'device_sku={self.device_sku!s}, '
+                f'upload_type={self.upload_type!s})')

@@ -21,20 +21,21 @@ class Environment(Enum):
 class Server(Enum):
     """An enum for API servers"""
     EDGE_DISCOVERY = 0
-    THINGSPACE = 1
-    OAUTH_SERVER = 2
-    M2M = 3
-    DEVICE_LOCATION = 4
-    SUBSCRIPTION_SERVER = 5
-    SOFTWARE_MANAGEMENT_V1 = 6
-    SOFTWARE_MANAGEMENT_V2 = 7
-    SOFTWARE_MANAGEMENT_V3 = 8
-    PERFORMANCE = 9
-    DEVICE_DIAGNOSTICS = 10
-    CLOUD_CONNECTOR = 11
-    HYPER_PRECISE_LOCATION = 12
-    SERVICES = 13
-    QUALITY_OF_SERVICE = 14
+    IMP_SERVER = 1
+    THINGSPACE = 2
+    OAUTH_SERVER = 3
+    M2M = 4
+    DEVICE_LOCATION = 5
+    SUBSCRIPTION_SERVER = 6
+    SOFTWARE_MANAGEMENT_V1 = 7
+    SOFTWARE_MANAGEMENT_V2 = 8
+    SOFTWARE_MANAGEMENT_V3 = 9
+    PERFORMANCE = 10
+    DEVICE_DIAGNOSTICS = 11
+    CLOUD_CONNECTOR = 12
+    HYPER_PRECISE_LOCATION = 13
+    SERVICES = 14
+    QUALITY_OF_SERVICE = 15
 
 
 class Configuration(HttpClientConfiguration):
@@ -53,18 +54,27 @@ class Configuration(HttpClientConfiguration):
     def vz_m2m_token_credentials(self):
         return self._vz_m2m_token_credentials
 
+    @property
+    def session_token_credentials(self):
+        return self._session_token_credentials
+
+    @property
+    def thingspace_oauth_1_credentials(self):
+        return self._thingspace_oauth_1_credentials
+
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
                  timeout=60, max_retries=0, backoff_factor=2,
                  retry_statuses=None, retry_methods=None,
                  environment=Environment.PRODUCTION,
                  thingspace_oauth_credentials=None,
-                 vz_m2m_token_credentials=None):
+                 vz_m2m_token_credentials=None, session_token_credentials=None,
+                 thingspace_oauth_1_credentials=None):
         if retry_methods is None:
-            retry_methods = ['GET', 'PUT']
+            retry_methods = ['GET', 'PUT', 'GET', 'PUT']
 
         if retry_statuses is None:
-            retry_statuses = [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]
+            retry_statuses = [408, 413, 429, 500, 502, 503, 504, 521, 522, 524, 408, 413, 429, 500, 502, 503, 504, 521, 522, 524]
 
         super().__init__(http_client_instance,
                          override_http_client_configuration, http_call_back,
@@ -80,6 +90,12 @@ class Configuration(HttpClientConfiguration):
         # The object holding Custom Header Signature credentials
         self._vz_m2m_token_credentials = vz_m2m_token_credentials
 
+        # The object holding Custom Header Signature credentials
+        self._session_token_credentials = session_token_credentials
+
+        # The object holding OAuth 2 Client Credentials Grant credentials
+        self._thingspace_oauth_1_credentials = thingspace_oauth_1_credentials
+
         # The Http Client to use for making requests.
         self.set_http_client(self.create_http_client())
 
@@ -88,7 +104,9 @@ class Configuration(HttpClientConfiguration):
                    timeout=None, max_retries=None, backoff_factor=None,
                    retry_statuses=None, retry_methods=None, environment=None,
                    thingspace_oauth_credentials=None,
-                   vz_m2m_token_credentials=None):
+                   vz_m2m_token_credentials=None,
+                   session_token_credentials=None,
+                   thingspace_oauth_1_credentials=None):
         http_client_instance = http_client_instance or self.http_client_instance
         override_http_client_configuration = override_http_client_configuration or self.override_http_client_configuration
         http_call_back = http_call_back or self.http_callback
@@ -100,6 +118,8 @@ class Configuration(HttpClientConfiguration):
         environment = environment or self.environment
         thingspace_oauth_credentials = thingspace_oauth_credentials or self.thingspace_oauth_credentials
         vz_m2m_token_credentials = vz_m2m_token_credentials or self.vz_m2m_token_credentials
+        session_token_credentials = session_token_credentials or self.session_token_credentials
+        thingspace_oauth_1_credentials = thingspace_oauth_1_credentials or self.thingspace_oauth_1_credentials
         return Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
@@ -108,7 +128,9 @@ class Configuration(HttpClientConfiguration):
             retry_statuses=retry_statuses, retry_methods=retry_methods,
             environment=environment,
             thingspace_oauth_credentials=thingspace_oauth_credentials,
-            vz_m2m_token_credentials=vz_m2m_token_credentials
+            vz_m2m_token_credentials=vz_m2m_token_credentials,
+            session_token_credentials=session_token_credentials,
+            thingspace_oauth_1_credentials=thingspace_oauth_1_credentials
         )
 
     def create_http_client(self):
@@ -125,6 +147,7 @@ class Configuration(HttpClientConfiguration):
     environments = {
         Environment.PRODUCTION: {
             Server.EDGE_DISCOVERY: 'https://5gedge.verizon.com/api/mec/eds',
+            Server.IMP_SERVER: 'https://imp.thingspace.verizon.com',
             Server.THINGSPACE: 'https://thingspace.verizon.com/api',
             Server.OAUTH_SERVER: 'https://thingspace.verizon.com/api/ts/v1',
             Server.M2M: 'https://thingspace.verizon.com/api/m2m',
@@ -142,6 +165,7 @@ class Configuration(HttpClientConfiguration):
         },
         Environment.MOCK_SERVER_FOR_LIMITED_AVAILABILITY_SEE_QUICK_START: {
             Server.EDGE_DISCOVERY: 'https://mock.thingspace.verizon.com/api/mec/eds',
+            Server.IMP_SERVER: 'https://mock.thingspace.verizon.com',
             Server.THINGSPACE: 'https://mock.thingspace.verizon.com/api',
             Server.OAUTH_SERVER: 'https://mock.thingspace.verizon.com/api/ts/v1',
             Server.M2M: 'https://mock.thingspace.verizon.com/api/m2m',

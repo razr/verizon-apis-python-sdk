@@ -12,8 +12,6 @@ class ManagedAccountCancelResponse(object):
 
     """Implementation of the 'ManagedAccountCancelResponse' model.
 
-    TODO: type model description here.
-
     Attributes:
         txid (str): Transaction identifier
         account_name (str): Managed account identifier
@@ -66,7 +64,7 @@ class ManagedAccountCancelResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -83,3 +81,21 @@ class ManagedAccountCancelResponse(object):
                    service_name,
                    status,
                    reason)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={self.txid!r}, '
+                f'account_name={self.account_name!r}, '
+                f'paccount_name={self.paccount_name!r}, '
+                f'service_name={self.service_name!r}, '
+                f'status={self.status!r}, '
+                f'reason={self.reason!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'txid={self.txid!s}, '
+                f'account_name={self.account_name!s}, '
+                f'paccount_name={self.paccount_name!s}, '
+                f'service_name={self.service_name!s}, '
+                f'status={self.status!s}, '
+                f'reason={self.reason!s})')

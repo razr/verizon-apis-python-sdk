@@ -13,8 +13,6 @@ class ConsentRequest(object):
 
     """Implementation of the 'ConsentRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): Account identifier in "##########-#####".
         all_device (bool): Exclude all devices or not.
@@ -68,7 +66,7 @@ class ConsentRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -81,3 +79,17 @@ class ConsentRequest(object):
                    all_device,
                    mtype,
                    exclusion)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'all_device={(self.all_device if hasattr(self, "all_device") else None)!r}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!r}, '
+                f'exclusion={(self.exclusion if hasattr(self, "exclusion") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'all_device={(self.all_device if hasattr(self, "all_device") else None)!s}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!s}, '
+                f'exclusion={(self.exclusion if hasattr(self, "exclusion") else None)!s})')

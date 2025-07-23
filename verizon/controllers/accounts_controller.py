@@ -125,8 +125,8 @@ class AccountsController(BaseController):
 
         Args:
             aname (str): Account name.
-            next (long|int, optional): Continue the previous query from the
-                pageUrl in Location Header.
+            next (int, optional): Continue the previous query from the pageUrl
+                in Location Header.
 
         Returns:
             ApiResponse: An object with the response value as well as other

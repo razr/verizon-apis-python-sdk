@@ -32,7 +32,7 @@ def list_registered_callbacks(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List[RegisteredCallbacks]`](../../doc/models/registered-callbacks.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[RegisteredCallbacks]`](../../doc/models/registered-callbacks.md).
 
 ## Example Usage
 
@@ -40,6 +40,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account = '0242078689-00001'
 
 result = software_management_callbacks_v1_controller.list_registered_callbacks(account)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -80,7 +85,7 @@ def register_callback(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FotaV1CallbackRegistrationResult`](../../doc/models/fota-v1-callback-registration-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FotaV1CallbackRegistrationResult`](../../doc/models/fota-v1-callback-registration-result.md).
 
 ## Example Usage
 
@@ -96,6 +101,11 @@ result = software_management_callbacks_v1_controller.register_callback(
     account,
     body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -133,7 +143,7 @@ def deregister_callback(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`FotaV1SuccessResult`](../../doc/models/fota-v1-success-result.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FotaV1SuccessResult`](../../doc/models/fota-v1-success-result.md).
 
 ## Example Usage
 
@@ -146,6 +156,11 @@ result = software_management_callbacks_v1_controller.deregister_callback(
     account,
     service
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

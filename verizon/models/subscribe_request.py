@@ -13,11 +13,10 @@ class SubscribeRequest(object):
 
     """Implementation of the 'subscribeRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        device_info (List[QosDeviceInfo]): TODO: type description here.
+        account_name (str): The model property of type str.
+        device_info (List[QosDeviceInfo]): The model property of type
+            List[QosDeviceInfo].
 
     """
 
@@ -51,7 +50,7 @@ class SubscribeRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -62,3 +61,13 @@ class SubscribeRequest(object):
         # Return an object of this model
         return cls(account_name,
                    device_info)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'device_info={self.device_info!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'device_info={self.device_info!s})')

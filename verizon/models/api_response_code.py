@@ -50,7 +50,7 @@ class ApiResponseCode(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -59,3 +59,13 @@ class ApiResponseCode(object):
         # Return an object of this model
         return cls(response_code,
                    message)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'response_code={self.response_code!r}, '
+                f'message={self.message!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'response_code={self.response_code!s}, '
+                f'message={self.message!s})')

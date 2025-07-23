@@ -34,10 +34,10 @@ class Subscription(object):
         lastupdated (str): The date the resource was last updated.
         name (str): Name of the subscription.
         networkfailures (int): The number of failures due to network problems.
-        streamfailures (int): TODO: type description here.
+        streamfailures (int): The model property of type int.
         streamkind (str): The event type that will be sent in the data stream.
         targetid (str): Target to be used for dispatching events.
-        targettype (str): TODO: type description here.
+        targettype (str): The model property of type str.
         version (str): Version of the underlying schema resource.
         versionid (str): The version of the resource.
 
@@ -170,7 +170,7 @@ class Subscription(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -215,3 +215,49 @@ class Subscription(object):
                    targettype,
                    version,
                    versionid)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'configurationfailures={(self.configurationfailures if hasattr(self, "configurationfailures") else None)!r}, '
+                f'createdon={(self.createdon if hasattr(self, "createdon") else None)!r}, '
+                f'delegateid={(self.delegateid if hasattr(self, "delegateid") else None)!r}, '
+                f'description={(self.description if hasattr(self, "description") else None)!r}, '
+                f'disabled={(self.disabled if hasattr(self, "disabled") else None)!r}, '
+                f'email={(self.email if hasattr(self, "email") else None)!r}, '
+                f'filter={(self.filter if hasattr(self, "filter") else None)!r}, '
+                f'id={(self.id if hasattr(self, "id") else None)!r}, '
+                f'kind={(self.kind if hasattr(self, "kind") else None)!r}, '
+                f'laststreamingstatus={(self.laststreamingstatus if hasattr(self, "laststreamingstatus") else None)!r}, '
+                f'laststreamingtime={(self.laststreamingtime if hasattr(self, "laststreamingtime") else None)!r}, '
+                f'lastupdated={(self.lastupdated if hasattr(self, "lastupdated") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'networkfailures={(self.networkfailures if hasattr(self, "networkfailures") else None)!r}, '
+                f'streamfailures={(self.streamfailures if hasattr(self, "streamfailures") else None)!r}, '
+                f'streamkind={(self.streamkind if hasattr(self, "streamkind") else None)!r}, '
+                f'targetid={(self.targetid if hasattr(self, "targetid") else None)!r}, '
+                f'targettype={(self.targettype if hasattr(self, "targettype") else None)!r}, '
+                f'version={(self.version if hasattr(self, "version") else None)!r}, '
+                f'versionid={(self.versionid if hasattr(self, "versionid") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'configurationfailures={(self.configurationfailures if hasattr(self, "configurationfailures") else None)!s}, '
+                f'createdon={(self.createdon if hasattr(self, "createdon") else None)!s}, '
+                f'delegateid={(self.delegateid if hasattr(self, "delegateid") else None)!s}, '
+                f'description={(self.description if hasattr(self, "description") else None)!s}, '
+                f'disabled={(self.disabled if hasattr(self, "disabled") else None)!s}, '
+                f'email={(self.email if hasattr(self, "email") else None)!s}, '
+                f'filter={(self.filter if hasattr(self, "filter") else None)!s}, '
+                f'id={(self.id if hasattr(self, "id") else None)!s}, '
+                f'kind={(self.kind if hasattr(self, "kind") else None)!s}, '
+                f'laststreamingstatus={(self.laststreamingstatus if hasattr(self, "laststreamingstatus") else None)!s}, '
+                f'laststreamingtime={(self.laststreamingtime if hasattr(self, "laststreamingtime") else None)!s}, '
+                f'lastupdated={(self.lastupdated if hasattr(self, "lastupdated") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'networkfailures={(self.networkfailures if hasattr(self, "networkfailures") else None)!s}, '
+                f'streamfailures={(self.streamfailures if hasattr(self, "streamfailures") else None)!s}, '
+                f'streamkind={(self.streamkind if hasattr(self, "streamkind") else None)!s}, '
+                f'targetid={(self.targetid if hasattr(self, "targetid") else None)!s}, '
+                f'targettype={(self.targettype if hasattr(self, "targettype") else None)!s}, '
+                f'version={(self.version if hasattr(self, "version") else None)!s}, '
+                f'versionid={(self.versionid if hasattr(self, "versionid") else None)!s})')

@@ -67,7 +67,7 @@ class AggregateUsageItem(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -78,3 +78,15 @@ class AggregateUsageItem(object):
         return cls(imei,
                    number_of_sessions,
                    bytes_transferred)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'imei={(self.imei if hasattr(self, "imei") else None)!r}, '
+                f'number_of_sessions={(self.number_of_sessions if hasattr(self, "number_of_sessions") else None)!r}, '
+                f'bytes_transferred={(self.bytes_transferred if hasattr(self, "bytes_transferred") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'imei={(self.imei if hasattr(self, "imei") else None)!s}, '
+                f'number_of_sessions={(self.number_of_sessions if hasattr(self, "number_of_sessions") else None)!s}, '
+                f'bytes_transferred={(self.bytes_transferred if hasattr(self, "bytes_transferred") else None)!s})')

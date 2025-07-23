@@ -13,11 +13,9 @@ class SMSOptionsSendRequest(object):
 
     """Implementation of the 'SMSOptionsSendRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        service_plan (str): TODO: type description here.
-        sms_message (str): TODO: type description here.
+        service_plan (str): The model property of type str.
+        sms_message (str): The model property of type str.
 
     """
 
@@ -58,7 +56,7 @@ class SMSOptionsSendRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -67,3 +65,13 @@ class SMSOptionsSendRequest(object):
         # Return an object of this model
         return cls(service_plan,
                    sms_message)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'sms_message={(self.sms_message if hasattr(self, "sms_message") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'sms_message={(self.sms_message if hasattr(self, "sms_message") else None)!s})')

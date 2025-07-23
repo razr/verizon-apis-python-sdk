@@ -68,7 +68,7 @@ class DeviceIdSearch(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -81,3 +81,17 @@ class DeviceIdSearch(object):
                    kind,
                    startswith,
                    endswith)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'contains={self.contains!r}, '
+                f'startswith={(self.startswith if hasattr(self, "startswith") else None)!r}, '
+                f'endswith={(self.endswith if hasattr(self, "endswith") else None)!r}, '
+                f'kind={self.kind!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'contains={self.contains!s}, '
+                f'startswith={(self.startswith if hasattr(self, "startswith") else None)!s}, '
+                f'endswith={(self.endswith if hasattr(self, "endswith") else None)!s}, '
+                f'kind={self.kind!s})')

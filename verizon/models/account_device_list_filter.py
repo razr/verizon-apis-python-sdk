@@ -49,7 +49,7 @@ class AccountDeviceListFilter(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -58,3 +58,11 @@ class AccountDeviceListFilter(object):
             device_identifier_filters = [DeviceIdSearch.from_dictionary(x) for x in dictionary.get('deviceIdentifierFilters')]
         # Return an object of this model
         return cls(device_identifier_filters)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_identifier_filters={self.device_identifier_filters!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_identifier_filters={self.device_identifier_filters!s})')

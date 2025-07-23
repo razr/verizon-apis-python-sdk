@@ -12,8 +12,6 @@ class ManagedAccountsProvisionRequest(object):
 
     """Implementation of the 'ManagedAccountsProvisionRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): Managed account identifier
         paccount_name (str): Primary Account identifier
@@ -62,7 +60,7 @@ class ManagedAccountsProvisionRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -77,3 +75,19 @@ class ManagedAccountsProvisionRequest(object):
                    service_name,
                    mtype,
                    txid)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'paccount_name={self.paccount_name!r}, '
+                f'service_name={self.service_name!r}, '
+                f'mtype={self.mtype!r}, '
+                f'txid={self.txid!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'paccount_name={self.paccount_name!s}, '
+                f'service_name={self.service_name!s}, '
+                f'mtype={self.mtype!s}, '
+                f'txid={self.txid!s})')

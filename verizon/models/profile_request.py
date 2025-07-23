@@ -15,17 +15,16 @@ class ProfileRequest(object):
 
     """Implementation of the 'ProfileRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        account_name (str): TODO: type description here.
-        devices (List[DeviceList]): TODO: type description here.
-        carrier_name (str): TODO: type description here.
-        service_plan (str): TODO: type description here.
-        mdn_zip_code (str): TODO: type description here.
-        primary_place_of_use (List[PrimaryPlaceOfUse]): TODO: type description
-            here.
-        smsr_oid (str): TODO: type description here.
+        account_name (str): The model property of type str.
+        devices (List[DeviceList]): The model property of type
+            List[DeviceList].
+        carrier_name (str): The model property of type str.
+        service_plan (str): The model property of type str.
+        mdn_zip_code (str): The model property of type str.
+        primary_place_of_use (List[PrimaryPlaceOfUse]): The model property of
+            type List[PrimaryPlaceOfUse].
+        smsr_oid (str): The model property of type str.
         carrier_ip_pool_name (str): The name of the pool of IP addresses
             assigned to the profile.
 
@@ -94,7 +93,7 @@ class ProfileRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -121,3 +120,25 @@ class ProfileRequest(object):
                    primary_place_of_use,
                    smsr_oid,
                    carrier_ip_pool_name)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'devices={self.devices!r}, '
+                f'carrier_name={(self.carrier_name if hasattr(self, "carrier_name") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'mdn_zip_code={(self.mdn_zip_code if hasattr(self, "mdn_zip_code") else None)!r}, '
+                f'primary_place_of_use={(self.primary_place_of_use if hasattr(self, "primary_place_of_use") else None)!r}, '
+                f'smsr_oid={(self.smsr_oid if hasattr(self, "smsr_oid") else None)!r}, '
+                f'carrier_ip_pool_name={(self.carrier_ip_pool_name if hasattr(self, "carrier_ip_pool_name") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'devices={self.devices!s}, '
+                f'carrier_name={(self.carrier_name if hasattr(self, "carrier_name") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'mdn_zip_code={(self.mdn_zip_code if hasattr(self, "mdn_zip_code") else None)!s}, '
+                f'primary_place_of_use={(self.primary_place_of_use if hasattr(self, "primary_place_of_use") else None)!s}, '
+                f'smsr_oid={(self.smsr_oid if hasattr(self, "smsr_oid") else None)!s}, '
+                f'carrier_ip_pool_name={(self.carrier_ip_pool_name if hasattr(self, "carrier_ip_pool_name") else None)!s})')

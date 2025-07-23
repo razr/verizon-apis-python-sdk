@@ -65,7 +65,7 @@ class ComputeResourcesType(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -76,3 +76,15 @@ class ComputeResourcesType(object):
         return cls(gpu,
                    min_ramgb,
                    min_storage_gb)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'gpu={(self.gpu if hasattr(self, "gpu") else None)!r}, '
+                f'min_ramgb={(self.min_ramgb if hasattr(self, "min_ramgb") else None)!r}, '
+                f'min_storage_gb={(self.min_storage_gb if hasattr(self, "min_storage_gb") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'gpu={(self.gpu if hasattr(self, "gpu") else None)!s}, '
+                f'min_ramgb={(self.min_ramgb if hasattr(self, "min_ramgb") else None)!s}, '
+                f'min_storage_gb={(self.min_storage_gb if hasattr(self, "min_storage_gb") else None)!s})')

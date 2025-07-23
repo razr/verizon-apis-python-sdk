@@ -79,7 +79,7 @@ class NetworkResourcesType(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -94,3 +94,19 @@ class NetworkResourcesType(object):
                    service_continuity_support,
                    max_request_rate,
                    min_availability)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'min_bandwidth_kbits={(self.min_bandwidth_kbits if hasattr(self, "min_bandwidth_kbits") else None)!r}, '
+                f'service_continuity_support={(self.service_continuity_support if hasattr(self, "service_continuity_support") else None)!r}, '
+                f'max_request_rate={(self.max_request_rate if hasattr(self, "max_request_rate") else None)!r}, '
+                f'max_latency_ms={self.max_latency_ms!r}, '
+                f'min_availability={(self.min_availability if hasattr(self, "min_availability") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'min_bandwidth_kbits={(self.min_bandwidth_kbits if hasattr(self, "min_bandwidth_kbits") else None)!s}, '
+                f'service_continuity_support={(self.service_continuity_support if hasattr(self, "service_continuity_support") else None)!s}, '
+                f'max_request_rate={(self.max_request_rate if hasattr(self, "max_request_rate") else None)!s}, '
+                f'max_latency_ms={self.max_latency_ms!s}, '
+                f'min_availability={(self.min_availability if hasattr(self, "min_availability") else None)!s})')

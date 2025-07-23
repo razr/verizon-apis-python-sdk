@@ -26,7 +26,7 @@ def update_all_available_triggers(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Success`](../../doc/models/success.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Success`](../../doc/models/success.md).
 
 ## Example Usage
 
@@ -42,6 +42,11 @@ body = RequestTrigger(
 result = update_triggers_controller.update_all_available_triggers(
     body=body
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*

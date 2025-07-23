@@ -14,13 +14,11 @@ class DailyUsageHistory(object):
 
     """Implementation of the 'DailyUsageHistory' model.
 
-    TODO: type model description here.
-
     Attributes:
         bytes_used (str): the total data usage recorded in Bytes
-        extended_attributes (List[ExtendedAttribute]): TODO: type description
-            here.
-        service_plan (str): TODO: type description here.
+        extended_attributes (List[ExtendedAttribute]): The model property of
+            type List[ExtendedAttribute].
+        service_plan (str): The model property of type str.
         sms_used (str): The total number of SMS messages from and to the device
         source (str): Where the collected data is being gathered from
         timestamp (str): Timestamp of when the retrieved record was completed
@@ -85,7 +83,7 @@ class DailyUsageHistory(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -106,3 +104,21 @@ class DailyUsageHistory(object):
                    sms_used,
                    source,
                    timestamp)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'bytes_used={(self.bytes_used if hasattr(self, "bytes_used") else None)!r}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'sms_used={(self.sms_used if hasattr(self, "sms_used") else None)!r}, '
+                f'source={(self.source if hasattr(self, "source") else None)!r}, '
+                f'timestamp={(self.timestamp if hasattr(self, "timestamp") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'bytes_used={(self.bytes_used if hasattr(self, "bytes_used") else None)!s}, '
+                f'extended_attributes={(self.extended_attributes if hasattr(self, "extended_attributes") else None)!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'sms_used={(self.sms_used if hasattr(self, "sms_used") else None)!s}, '
+                f'source={(self.source if hasattr(self, "source") else None)!s}, '
+                f'timestamp={(self.timestamp if hasattr(self, "timestamp") else None)!s})')

@@ -14,8 +14,6 @@ class NotificationReportStatusRequest(object):
 
     """Implementation of the 'NotificationReportStatusRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
         account_name (str): The name of a billing account.
         device (DeviceId): An identifier for a single device.
@@ -65,7 +63,7 @@ class NotificationReportStatusRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -78,3 +76,17 @@ class NotificationReportStatusRequest(object):
                    device,
                    request_type,
                    request_expiration_time)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!r}, '
+                f'device={self.device!r}, '
+                f'request_type={self.request_type!r}, '
+                f'request_expiration_time={(self.request_expiration_time if hasattr(self, "request_expiration_time") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'account_name={self.account_name!s}, '
+                f'device={self.device!s}, '
+                f'request_type={self.request_type!s}, '
+                f'request_expiration_time={(self.request_expiration_time if hasattr(self, "request_expiration_time") else None)!s})')

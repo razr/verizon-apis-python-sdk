@@ -15,12 +15,10 @@ class QosDeviceInfo(object):
 
     """Implementation of the 'QOSdeviceInfo' model.
 
-    TODO: type model description here.
-
     Attributes:
-        device_id (QosDeviceId): TODO: type description here.
-        device_i_pv_6_addr (str): TODO: type description here.
-        flow_info (List[FlowInfo]): TODO: type description here.
+        device_id (QosDeviceId): The model property of type QosDeviceId.
+        device_i_pv_6_addr (str): The model property of type str.
+        flow_info (List[FlowInfo]): The model property of type List[FlowInfo].
 
     """
 
@@ -62,7 +60,7 @@ class QosDeviceInfo(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -75,3 +73,15 @@ class QosDeviceInfo(object):
         return cls(device_id,
                    flow_info,
                    device_i_pv_6_addr)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!r}, '
+                f'device_i_pv_6_addr={(self.device_i_pv_6_addr if hasattr(self, "device_i_pv_6_addr") else None)!r}, '
+                f'flow_info={self.flow_info!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_id={self.device_id!s}, '
+                f'device_i_pv_6_addr={(self.device_i_pv_6_addr if hasattr(self, "device_i_pv_6_addr") else None)!s}, '
+                f'flow_info={self.flow_info!s})')

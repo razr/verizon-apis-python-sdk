@@ -69,7 +69,7 @@ class AccountLead(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -80,3 +80,15 @@ class AccountLead(object):
         return cls(address,
                    lead_id,
                    lead_state)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'address={(self.address if hasattr(self, "address") else None)!r}, '
+                f'lead_id={(self.lead_id if hasattr(self, "lead_id") else None)!r}, '
+                f'lead_state={(self.lead_state if hasattr(self, "lead_state") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'address={(self.address if hasattr(self, "address") else None)!s}, '
+                f'lead_id={(self.lead_id if hasattr(self, "lead_id") else None)!s}, '
+                f'lead_state={(self.lead_state if hasattr(self, "lead_state") else None)!s})')

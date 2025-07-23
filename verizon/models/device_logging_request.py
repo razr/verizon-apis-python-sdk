@@ -46,10 +46,18 @@ class DeviceLoggingRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         device_ids = dictionary.get("deviceIds") if dictionary.get("deviceIds") else None
         # Return an object of this model
         return cls(device_ids)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_ids={self.device_ids!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'device_ids={self.device_ids!s})')

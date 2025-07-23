@@ -52,10 +52,18 @@ class GetPWNPerformanceConsentResponse(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         consent = dictionary.get("consent") if dictionary.get("consent") else APIHelper.SKIP
         # Return an object of this model
         return cls(consent)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'consent={(self.consent if hasattr(self, "consent") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'consent={(self.consent if hasattr(self, "consent") else None)!s})')

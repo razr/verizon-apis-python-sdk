@@ -12,10 +12,8 @@ class Activate(object):
 
     """Implementation of the 'Activate' model.
 
-    TODO: type model description here.
-
     Attributes:
-        profile (str): TODO: type description here.
+        profile (str): The model property of type str.
 
     """
 
@@ -46,10 +44,18 @@ class Activate(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         profile = dictionary.get("profile") if dictionary.get("profile") else None
         # Return an object of this model
         return cls(profile)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'profile={self.profile!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'profile={self.profile!s})')

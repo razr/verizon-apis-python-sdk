@@ -27,7 +27,7 @@ class DeviceAggregateUsageListRequest(object):
         account_name (str): The name of a billing account.
         group_name (str): The name of a device group, if you want to only
             include devices in that group.
-        label (List[Label]): TODO: type description here.
+        label (List[Label]): The model property of type List[Label].
 
     """
 
@@ -84,7 +84,7 @@ class DeviceAggregateUsageListRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -109,3 +109,21 @@ class DeviceAggregateUsageListRequest(object):
                    account_name,
                    group_name,
                    label)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'start_time={self.start_time!r}, '
+                f'end_time={self.end_time!r}, '
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!r}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!r}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!r}, '
+                f'label={(self.label if hasattr(self, "label") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'start_time={self.start_time!s}, '
+                f'end_time={self.end_time!s}, '
+                f'device_ids={(self.device_ids if hasattr(self, "device_ids") else None)!s}, '
+                f'account_name={(self.account_name if hasattr(self, "account_name") else None)!s}, '
+                f'group_name={(self.group_name if hasattr(self, "group_name") else None)!s}, '
+                f'label={(self.label if hasattr(self, "label") else None)!s})')

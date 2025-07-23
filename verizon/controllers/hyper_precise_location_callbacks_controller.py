@@ -89,7 +89,7 @@ class HyperPreciseLocationCallbacksController(BaseController):
 
         Args:
             account_number (str): A unique identifier for an account.
-            body (HyperPreciseLocationCallback): TODO: type description here.
+            body (HyperPreciseLocationCallback): The request body parameter.
 
         Returns:
             ApiResponse: An object with the response value as well as other

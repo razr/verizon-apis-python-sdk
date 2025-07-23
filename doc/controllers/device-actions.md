@@ -36,7 +36,7 @@ def aggregate_usage(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -44,6 +44,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 body = AggregateUsage()
 
 result = device_actions_controller.aggregate_usage(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -70,7 +75,7 @@ def daily_usage(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`DailyUsageResponse`](../../doc/models/daily-usage-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DailyUsageResponse`](../../doc/models/daily-usage-response.md).
 
 ## Example Usage
 
@@ -78,6 +83,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 body = DailyUsage()
 
 result = device_actions_controller.daily_usage(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -104,7 +114,7 @@ def service_plan_list(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`AccountDetails`](../../doc/models/account-details.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AccountDetails`](../../doc/models/account-details.md).
 
 ## Example Usage
 
@@ -112,6 +122,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account_name = 'accountName4'
 
 result = device_actions_controller.service_plan_list(account_name)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -138,7 +153,7 @@ def account_information(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`AccountDetails`](../../doc/models/account-details.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AccountDetails`](../../doc/models/account-details.md).
 
 ## Example Usage
 
@@ -146,6 +161,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account_name = 'accountName4'
 
 result = device_actions_controller.account_information(account_name)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -172,7 +192,7 @@ def retrieve_the_global_device_list(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -184,6 +204,11 @@ body = GetDeviceListWithProfilesRequest(
 )
 
 result = device_actions_controller.retrieve_the_global_device_list(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -210,7 +235,7 @@ def retrieve_device_provisioning_history(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GIORequestResponse`](../../doc/models/gio-request-response.md).
 
 ## Example Usage
 
@@ -222,6 +247,11 @@ body = ProvhistoryRequest(
 )
 
 result = device_actions_controller.retrieve_device_provisioning_history(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -250,7 +280,7 @@ def get_asynchronous_request_status(self,
 
 ## Response Type
 
-This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`StatusResponse`](../../doc/models/status-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`StatusResponse`](../../doc/models/status-response.md).
 
 ## Example Usage
 
@@ -263,6 +293,11 @@ result = device_actions_controller.get_asynchronous_request_status(
     account_name,
     request_id
 )
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

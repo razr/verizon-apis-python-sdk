@@ -15,13 +15,12 @@ class PromoAlert(object):
 
     """Implementation of the 'PromoAlert' model.
 
-    TODO: type model description here.
-
     Attributes:
-        filter_criteria (List[ReadySimServicePlan]): TODO: type description
-            here.
-        condition (List[Keyschunk2]): TODO: type description here.
-        enable_promo_exp (bool): TODO: type description here.
+        filter_criteria (List[ReadySimServicePlan]): The model property of
+            type List[ReadySimServicePlan].
+        condition (List[Keyschunk2]): The model property of type
+            List[Keyschunk2].
+        enable_promo_exp (bool): The model property of type bool.
 
     """
 
@@ -67,7 +66,7 @@ class PromoAlert(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -86,3 +85,15 @@ class PromoAlert(object):
         return cls(filter_criteria,
                    condition,
                    enable_promo_exp)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'filter_criteria={(self.filter_criteria if hasattr(self, "filter_criteria") else None)!r}, '
+                f'condition={(self.condition if hasattr(self, "condition") else None)!r}, '
+                f'enable_promo_exp={(self.enable_promo_exp if hasattr(self, "enable_promo_exp") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'filter_criteria={(self.filter_criteria if hasattr(self, "filter_criteria") else None)!s}, '
+                f'condition={(self.condition if hasattr(self, "condition") else None)!s}, '
+                f'enable_promo_exp={(self.enable_promo_exp if hasattr(self, "enable_promo_exp") else None)!s})')

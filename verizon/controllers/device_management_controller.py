@@ -1112,8 +1112,7 @@ class DeviceManagementController(BaseController):
                       body):
         """Does a POST request to /m2m/v1/devices/actions/upload.
 
-        This corresponds to the M2M-MC SOAP interface,
-        ```DeviceUploadService```.
+        Upload a device record
 
         Args:
             body (DeviceUploadRequest): Device Upload Query
@@ -1291,16 +1290,16 @@ class DeviceManagementController(BaseController):
             .local_error('400', 'Error response.', ConnectivityManagementResultException)
         ).execute()
 
-    def activation_order_status(self,
-                                body):
+    def upload_activate_device(self,
+                               body):
         """Does a POST request to /m2m/v1/devices/actions/uploadactivate.
 
         Uploads and activates device identifiers and SKUs for new devices from
         OEMs to Verizon.
 
         Args:
-            body (UploadsActivatesDeviceRequest): Request to Uploads and
-                activates device.
+            body (UploadsActivatesDeviceRequest): Request to Upload and
+                Activate device.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -1337,8 +1336,8 @@ class DeviceManagementController(BaseController):
             .local_error('400', 'Error response.', ConnectivityManagementResultException)
         ).execute()
 
-    def upload_device_identifier(self,
-                                 body):
+    def device_upload_status(self,
+                             body):
         """Does a POST request to /m2m/v1/devices/requests/status.
 
         Checks the status of an activation order and lists where the order is

@@ -14,13 +14,12 @@ class ActivateDeviceProfileRequest(object):
 
     """Implementation of the 'ActivateDeviceProfileRequest' model.
 
-    TODO: type model description here.
-
     Attributes:
-        devices (List[DeviceList]): TODO: type description here.
-        account_name (str): TODO: type description here.
-        service_plan (str): TODO: type description here.
-        mdn_zip_code (str): TODO: type description here.
+        devices (List[DeviceList]): The model property of type
+            List[DeviceList].
+        account_name (str): The model property of type str.
+        service_plan (str): The model property of type str.
+        mdn_zip_code (str): The model property of type str.
 
     """
 
@@ -67,7 +66,7 @@ class ActivateDeviceProfileRequest(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -82,3 +81,17 @@ class ActivateDeviceProfileRequest(object):
                    account_name,
                    service_plan,
                    mdn_zip_code)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={self.devices!r}, '
+                f'account_name={self.account_name!r}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!r}, '
+                f'mdn_zip_code={(self.mdn_zip_code if hasattr(self, "mdn_zip_code") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'devices={self.devices!s}, '
+                f'account_name={self.account_name!s}, '
+                f'service_plan={(self.service_plan if hasattr(self, "service_plan") else None)!s}, '
+                f'mdn_zip_code={(self.mdn_zip_code if hasattr(self, "mdn_zip_code") else None)!s})')

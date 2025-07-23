@@ -66,7 +66,7 @@ class Engagement(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -81,3 +81,15 @@ class Engagement(object):
         return cls(engagement_id,
                    charging_group,
                    services)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'engagement_id={(self.engagement_id if hasattr(self, "engagement_id") else None)!r}, '
+                f'charging_group={(self.charging_group if hasattr(self, "charging_group") else None)!r}, '
+                f'services={(self.services if hasattr(self, "services") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'engagement_id={(self.engagement_id if hasattr(self, "engagement_id") else None)!s}, '
+                f'charging_group={(self.charging_group if hasattr(self, "charging_group") else None)!s}, '
+                f'services={(self.services if hasattr(self, "services") else None)!s})')

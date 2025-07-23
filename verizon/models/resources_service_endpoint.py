@@ -77,7 +77,7 @@ class ResourcesServiceEndpoint(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -92,3 +92,19 @@ class ResourcesServiceEndpoint(object):
                    i_pv_4_address,
                    i_pv_6_address,
                    port)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'uri={(self.uri if hasattr(self, "uri") else None)!r}, '
+                f'fqdn={(self.fqdn if hasattr(self, "fqdn") else None)!r}, '
+                f'i_pv_4_address={(self.i_pv_4_address if hasattr(self, "i_pv_4_address") else None)!r}, '
+                f'i_pv_6_address={(self.i_pv_6_address if hasattr(self, "i_pv_6_address") else None)!r}, '
+                f'port={(self.port if hasattr(self, "port") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'uri={(self.uri if hasattr(self, "uri") else None)!s}, '
+                f'fqdn={(self.fqdn if hasattr(self, "fqdn") else None)!s}, '
+                f'i_pv_4_address={(self.i_pv_4_address if hasattr(self, "i_pv_4_address") else None)!s}, '
+                f'i_pv_6_address={(self.i_pv_6_address if hasattr(self, "i_pv_6_address") else None)!s}, '
+                f'port={(self.port if hasattr(self, "port") else None)!s})')

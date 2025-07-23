@@ -112,7 +112,7 @@ class CampaignSoftwareUpgrade(object):
 
         """
 
-        if dictionary is None:
+        if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
@@ -149,3 +149,33 @@ class CampaignSoftwareUpgrade(object):
                    download_time_window_list,
                    install_after_date,
                    install_time_window_list)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'campaign_name={(self.campaign_name if hasattr(self, "campaign_name") else None)!r}, '
+                f'software_name={self.software_name!r}, '
+                f'software_from={self.software_from!r}, '
+                f'software_to={self.software_to!r}, '
+                f'distribution_type={self.distribution_type!r}, '
+                f'start_date={self.start_date!r}, '
+                f'end_date={self.end_date!r}, '
+                f'download_after_date={(self.download_after_date if hasattr(self, "download_after_date") else None)!r}, '
+                f'download_time_window_list={(self.download_time_window_list if hasattr(self, "download_time_window_list") else None)!r}, '
+                f'install_after_date={(self.install_after_date if hasattr(self, "install_after_date") else None)!r}, '
+                f'install_time_window_list={(self.install_time_window_list if hasattr(self, "install_time_window_list") else None)!r}, '
+                f'device_list={self.device_list!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'campaign_name={(self.campaign_name if hasattr(self, "campaign_name") else None)!s}, '
+                f'software_name={self.software_name!s}, '
+                f'software_from={self.software_from!s}, '
+                f'software_to={self.software_to!s}, '
+                f'distribution_type={self.distribution_type!s}, '
+                f'start_date={self.start_date!s}, '
+                f'end_date={self.end_date!s}, '
+                f'download_after_date={(self.download_after_date if hasattr(self, "download_after_date") else None)!s}, '
+                f'download_time_window_list={(self.download_time_window_list if hasattr(self, "download_time_window_list") else None)!s}, '
+                f'install_after_date={(self.install_after_date if hasattr(self, "install_after_date") else None)!s}, '
+                f'install_time_window_list={(self.install_time_window_list if hasattr(self, "install_time_window_list") else None)!s}, '
+                f'device_list={self.device_list!s})')
